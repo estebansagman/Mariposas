@@ -1,5 +1,6 @@
 extends TileMapLayer
-class_name Tablero # hay que ver si combiene que este sea "lienzo" y el control, el tablero en si.
+class_name Tablero 
+signal tablero_creado(valor:int)
 
 @export var source_tile_set:int = 1 # get_tile_set_source()
 @export var id_de_textura_base:Vector2i # get_coordenada_textura_base()
@@ -8,8 +9,6 @@ class_name Tablero # hay que ver si combiene que este sea "lienzo" y el control,
 @export var casilla_bloqueo:String = "bloqueo"
 @onready var foco: TileMapLayer = $"../foco"
 
-
-#var planta:Planta
 
 #region DATOS DICCIONARIO
 var focus_key:String = "focus"
@@ -72,13 +71,15 @@ func soltar_foco(celda:Vector2i):
 	celdas[celda][focus_key] = false
 
 func _generar_grilla():
-	for celda in get_used_cells(): #se trae como parametro el "lienzo"
+	for celda in get_used_cells():
 		var coordenada_atlas:Vector2i = get_cell_atlas_coords(celda) 
 		match coordenada_atlas:
 			Vector2i(0,0): # Esteban del futuro: "esta es la posicion del atlas"
 				_formatear_celda(celda,false,casilla_normal,coordenada_atlas)
 			Vector2i(0,1): 
 				_formatear_celda(celda,true,casilla_bloqueo,coordenada_atlas)
+	var dimension:int = get_used_rect().size.x
+	emit_signal("tablero_creado",dimension)
 
 func _formatear_celda(celda:Vector2i,ocupacion:bool,tipo_casilla:String,coordenada_atlas:Vector2i):
 	celdas[celda] = {}

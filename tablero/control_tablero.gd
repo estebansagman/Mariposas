@@ -12,7 +12,7 @@ var plantas_en_tablero:Array[Planta]
 var mariposa_seleccionada:Mariposa
 var mariposa_en_seleccion:bool = false
 @onready var padre:Node2D = $".."
-@onready var capa_plantas: TileMapLayer = $"../Jardin/capa_plantas"
+@onready var capa_plantas: TileMapLayer = $"../capa_plantas"
 @export var jardin: Node2D
 
 var en_area_de_juego = false
@@ -33,8 +33,10 @@ func _process(delta: float) -> void:
 	if celda_actual in tablero.celdas:
 		var pos_relativa = tablero.map_to_local(celda_actual)
 		celda_focus_coordenada = tablero.global_position + pos_relativa
+	
+	if mariposa_seleccionada == null:
+		mover_planta_seleccionada(celda_actual)
 
-	mover_planta_seleccionada(celda_actual)
 	mover_mariposa_seleccionada()
 
 	if planta_seleccionada and celda_actual in tablero.celdas:
@@ -99,8 +101,8 @@ func mover_planta_seleccionada(celda_actual) -> void:
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		tablero.leer_celda(celda_actual)
 
-		if tablero.celdas.has(celda_actual):
-			if tablero.celdas[celda_actual][tablero.mariposa] == true: return
+		#if tablero.celdas.has(celda_actual):
+			#if tablero.celdas[celda_actual][tablero.mariposa] == true: return
 
 		var id_click = tablero.get_id_planta(celda_actual)
 		if id_click != 0:
@@ -141,8 +143,9 @@ func posicionar_planta():
 
 #region ACCIONES MARIPOSA
 func seleccionar_mariposa(mariposa:Mariposa):
-	if mariposa_seleccionada == null:
+	if mariposa_seleccionada == null and planta_seleccionada == null:
 		mariposa_seleccionada = mariposa
+		print("mariposa seleccionada")
 
 func soltar_mariposa():
 	if !mariposa_en_seleccion:
@@ -174,6 +177,7 @@ func mover_mariposa_seleccionada()->void:
 			var posicion_actual = mariposa_seleccionada.posicion_jardin.duplicate()
 			for parcela in posicion_actual: 
 				tablero.sacar_mariposa(parcela)
+		
 		if mariposa_en_seleccion: 
 			mariposa_seleccionada.position = get_global_mouse_position()
 
@@ -188,7 +192,10 @@ func mover_mariposa_seleccionada()->void:
 			emit_signal("mariposa_movida",mariposa_seleccionada,celda_actual)
 			mariposa_seleccionada.apagar()
 			limpiar_focos()
-		elif Input.is_action_just_released("aceptar"):
+			emit_signal("cambio_en_jardin")
+
+			
+		elif Input.is_action_just_released("aceptar")and mariposa_en_seleccion:
 			mariposa_seleccionada.posicion_jardin = []
 			emit_signal("cambio_en_jardin")
 			lista_focus.clear()

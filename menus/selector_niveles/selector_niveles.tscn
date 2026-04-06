@@ -99,7 +99,7 @@ nivel = "res://niveles/niveles/Nivel_1.tscn"
 
 [node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=810888731 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-nivel = "res://niveles/niveles/Nivel_2.tscn"
+nivel = "res://niveles/niveles/Nivel_Prueba_1.tscn"
 
 [node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1553579248 instance=ExtResource("2_7v6hx")]
 layout_mode = 2

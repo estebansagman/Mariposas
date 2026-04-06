@@ -1,6 +1,6 @@
 extends Control
 @onready var MENU_INICIO:String = "res://menus/menu_inicio/menu_inicio.tscn"
-@onready var nivel_elegido:String = "res://niveles/Nivel_Base.tscn"
+@onready var nivel_elegido:String = "res://niveles/niveles/Nivel_1.tscn"
 var nivel_seleccionado = false
 @onready var alerta_seleccion: ColorRect = $AlertaSeleccion
 @onready var timer: Timer = $Timer

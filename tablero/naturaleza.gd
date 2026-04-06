@@ -79,6 +79,7 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 					tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
 
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
+	mariposa.scale = Vector2.ONE
 	if mariposa.get_parent() == null:
 		Jardinero.jardin.add_child(mariposa)
 	mariposa.scale *=7.859

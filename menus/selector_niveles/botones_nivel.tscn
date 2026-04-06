@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]
 [ext_resource type="StyleBox" uid="uid://balnbgiebwlht" path="res://menus/selector_niveles/panel_interno.tres" id="2_w7mj0"]
-[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/estrella.png" id="3_vevib"]
+[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="3_vevib"]
 [ext_resource type="Texture2D" uid="uid://dtqix0au0n3cd" path="res://menus/selector_niveles/textura_espejito.png" id="6_sbog6"]
 
 [node name="ItemNivel" type="TextureRect" unique_id=486300447]

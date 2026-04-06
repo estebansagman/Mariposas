@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bdav7tvt0xkyn" path="res://menus/menu_inicio/fondo.jpg" id="1_huye7"]
 [ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/conenedor_niveles.gd" id="2_0u3hj"]
 [ext_resource type="PackedScene" uid="uid://dy0x6vqctgc40" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
-[ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/Libro.png" id="4_vv7ls"]
+[ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/imagenes/Libro.png" id="4_vv7ls"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
 font_size = 22

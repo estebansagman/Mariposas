@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnquojpei6eqf"]
 
-[ext_resource type="Script" uid="uid://cflexfntv7c3r" path="res://assets/plantas/catalogo_plantas.gd" id="1_5477m"]
+[ext_resource type="Script" uid="uid://cflexfntv7c3r" path="res://plantas/catalogo_plantas.gd" id="1_5477m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxlxs"]
 content_margin_left = 0.0

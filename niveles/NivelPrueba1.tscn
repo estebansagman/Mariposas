@@ -1,0 +1,161 @@
+[gd_scene format=4 uid="uid://b2dkxqfp3tc5h"]
+
+[ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="1_br6p8"]
+[ext_resource type="Texture2D" uid="uid://baaps02f1r0gy" path="res://propuesta.png" id="2_xytu3"]
+[ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_i6uk0"]
+[ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="4_lv6qa"]
+[ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="5_dxl6s"]
+[ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="6_wujoq"]
+[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="7_4o4cb"]
+[ext_resource type="Resource" uid="uid://dgycsvxsuaq2w" path="res://mariposas/recursos/cuatro_ojos.tres" id="10_oq0qm"]
+[ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="14_c0x0j"]
+[ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="15_q72gi"]
+[ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="16_03q7l"]
+[ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas_vis.tscn" id="17_ciffp"]
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="18_eb1co"]
+[ext_resource type="Resource" uid="uid://cyt4awgsq6xtg" path="res://plantas/recursos/chilcaB.tres" id="20_fvg03"]
+[ext_resource type="Resource" uid="uid://b56xxbijvdua5" path="res://plantas/recursos/rueliaA.tres" id="21_buwse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
+size = Vector2(503, 502)
+
+[node name="EscenaGeneral" type="Node2D" unique_id=286834583]
+
+[node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("1_br6p8")]
+columnas = 3
+limpiar = true
+tablero = NodePath("../Jardin/Tablero")
+jardin = NodePath("../Jardin")
+
+[node name="Propuesta" type="Sprite2D" parent="." unique_id=921874137]
+visible = false
+position = Vector2(521, 275.00003)
+scale = Vector2(0.8059775, 0.8059775)
+texture = ExtResource("2_xytu3")
+
+[node name="UI" parent="." unique_id=772245201 instance=ExtResource("3_i6uk0")]
+
+[node name="Grafico" type="Node2D" parent="." unique_id=1633620165]
+visible = false
+
+[node name="blanco" type="ColorRect" parent="Grafico" unique_id=646980765]
+offset_left = 310.0
+offset_top = 67.0
+offset_right = 329.0
+offset_bottom = 487.0
+mouse_filter = 2
+
+[node name="blanco2" type="ColorRect" parent="Grafico" unique_id=603639323]
+offset_left = 721.0
+offset_top = 67.0
+offset_right = 740.0
+offset_bottom = 487.0
+mouse_filter = 2
+
+[node name="blanco3" type="ColorRect" parent="Grafico" unique_id=113892285]
+visible = false
+offset_left = 470.0
+offset_top = 32.0
+offset_right = 652.0
+offset_bottom = 71.0
+mouse_filter = 2
+
+[node name="fondoFalso" type="ColorRect" parent="Grafico" unique_id=1953970061]
+visible = false
+offset_left = 297.0
+offset_top = 25.0
+offset_right = 754.0
+offset_bottom = 523.0
+mouse_filter = 2
+color = Color(0.7591292, 0.7012112, 0.65095526, 1)
+
+[node name="tablero" type="ColorRect" parent="Grafico" unique_id=1553248005]
+offset_left = 329.0
+offset_top = 80.0
+offset_right = 722.0
+offset_bottom = 471.0
+mouse_filter = 2
+color = Color(0.6445175, 0.5586669, 0.4987681, 1)
+
+[node name="PanelDerecho" type="ColorRect" parent="Grafico" unique_id=7070922]
+offset_left = 781.0
+offset_top = 80.0
+offset_right = 955.0
+offset_bottom = 201.0
+mouse_filter = 2
+color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+
+[node name="tablero2" type="ColorRect" parent="Grafico" unique_id=742922410]
+offset_left = 919.0
+offset_top = 53.0
+offset_right = 945.0
+offset_bottom = 373.0
+mouse_filter = 2
+color = Color(0.62352943, 0.5647059, 0.5019608, 1)
+
+[node name="PanelIzquierdo" type="ColorRect" parent="Grafico" unique_id=1809722774]
+offset_left = 125.0
+offset_top = 70.0
+offset_right = 240.0
+offset_bottom = 157.0
+mouse_filter = 2
+color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+
+[node name="Jardinero" parent="." unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("4_lv6qa")]
+scale = Vector2(0.99999994, 0.99999994)
+tablero = NodePath("../Jardin/Tablero")
+jardin = NodePath("../Jardin")
+
+[node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
+position = Vector2(329, 75)
+scale = Vector2(0.33333334, 0.33333334)
+script = ExtResource("5_dxl6s")
+columnas = 3
+
+[node name="Naturaleza" type="Node2D" parent="Jardin" unique_id=1099403147 node_paths=PackedStringArray("Jardinero")]
+scale = Vector2(7.8588457, 7.8588457)
+script = ExtResource("6_wujoq")
+mariposas = Array[ExtResource("7_4o4cb")]([ExtResource("10_oq0qm")])
+Jardinero = NodePath("../../Jardinero")
+
+[node name="origen_plantas" type="Node2D" parent="Jardin" unique_id=1764700993 node_paths=PackedStringArray("jardinero")]
+scale = Vector2(7.859, 7.859)
+script = ExtResource("14_c0x0j")
+jardinero = NodePath("../../Jardinero")
+
+[node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("15_q72gi")]
+scale = Vector2(7.8588457, 7.8588457)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAA=")
+tile_set = ExtResource("16_03q7l")
+
+[node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
+scale = Vector2(7.8588457, 7.8588457)
+tile_set = ExtResource("16_03q7l")
+
+[node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
+scale = Vector2(7.8588457, 7.8588457)
+tile_set = ExtResource("16_03q7l")
+
+[node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
+scale = Vector2(7.8588457, 7.8588457)
+tile_set = ExtResource("16_03q7l")
+
+[node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeJuego" unique_id=66538581]
+position = Vector2(580.5, 327)
+shape = SubResource("RectangleShape2D_ii0lq")
+debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
+
+[node name="CatalogoPlantas2" parent="." unique_id=504493720 node_paths=PackedStringArray("control_tablero") instance=ExtResource("17_ciffp")]
+offset_left = 890.0
+offset_top = 4.0
+offset_right = 930.0
+offset_bottom = 44.0
+plantas = Array[ExtResource("18_eb1co")]([ExtResource("20_fvg03"), ExtResource("21_buwse")])
+control_tablero = NodePath("../Jardinero")
+
+[connection signal="cambio_en_jardin" from="Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
+[connection signal="mariposa_movida" from="Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="mouse_entered" from="AreaDeJuego" to="Jardinero" method="entrar_en_area_de_juego"]
+[connection signal="mouse_exited" from="AreaDeJuego" to="Jardinero" method="salir_del_area_de_juego"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://c4pvf7oi36dyq"]
+
+[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_3topf"]
+[ext_resource type="Texture2D" uid="uid://hahlqt16nk0n" path="res://mariposas/imagenes/textura_limonero.png" id="2_3topf"]
+[ext_resource type="Texture2D" uid="uid://wbumqtkiklva" path="res://mariposas/imagenes/base_Página 9.png" id="3_jtg6d"]
+
+[resource]
+script = ExtResource("1_3topf")
+nombre_Mariposa = "limonero"
+textura = ExtResource("2_3topf")
+requisitos = Array[int]([3, 8])
+textura_requisitos = ExtResource("3_jtg6d")

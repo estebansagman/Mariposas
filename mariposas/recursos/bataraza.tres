@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://ct2p6k0j1l28p"]
+
+[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_eqx8d"]
+[ext_resource type="Texture2D" uid="uid://cam3kqek1ybd4" path="res://mariposas/imagenes/textura_bataraza.png" id="2_eqx8d"]
+[ext_resource type="Texture2D" uid="uid://cphgcpf6w11oj" path="res://mariposas/imagenes/base_Página 13.png" id="3_x4agh"]
+
+[resource]
+script = ExtResource("1_eqx8d")
+nombre_Mariposa = "bataraza"
+textura = ExtResource("2_eqx8d")
+requisitos = Array[int]([4, 5])
+textura_requisitos = ExtResource("3_x4agh")

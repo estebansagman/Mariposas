@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ditlo36hekgcp"]
+
+[ext_resource type="Script" uid="uid://cik88w1gud3f7" path="res://plantas/boton_planta.gd" id="2_oktc1"]
+[ext_resource type="Texture2D" uid="uid://b8mr0xfubho1c" path="res://plantas/imagenes/pasto_Página 12.png" id="2_x72kj"]
+
+[sub_resource type="Gradient" id="Gradient_emdks"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x72kj"]
+gradient = SubResource("Gradient_emdks")
+width = 128
+height = 68
+
+[node name="BotonPlanta" type="TextureButton" unique_id=52720832]
+offset_right = 129.0
+offset_bottom = 68.0
+texture_normal = SubResource("GradientTexture2D_x72kj")
+script = ExtResource("2_oktc1")
+
+[node name="Dibujo" type="Node2D" parent="." unique_id=346366893]
+
+[node name="etiqueta" type="Sprite2D" parent="." unique_id=83422307]
+visible = false
+modulate = Color(1, 1, 1, 0.7019608)
+position = Vector2(68, 32)
+scale = Vector2(0.96739125, 0.9673913)
+texture = ExtResource("2_x72kj")
+
+[connection signal="button_down" from="." to="." method="_al_presionar"]
+[connection signal="mouse_entered" from="." to="." method="mostrar_requisitos"]
+[connection signal="mouse_exited" from="." to="." method="ocultar_requisitos"]

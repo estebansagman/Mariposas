@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RecursoPlanta" format=3 uid="uid://cekaltch5fpgg"]
+
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="1_18odg"]
+[ext_resource type="Texture2D" uid="uid://xy5cv4g44ehu" path="res://plantas/imagenes/mbrucuya.jpg.png" id="2_s7alc"]
+[ext_resource type="Texture2D" uid="uid://dpcfgtl7htmjm" path="res://plantas/imagenes/pasto_Página 13.png" id="3_p3fq0"]
+
+[resource]
+script = ExtResource("1_18odg")
+nombre_planta = "mbrucuya"
+tipo_de_planta = 7
+textura = ExtResource("2_s7alc")
+estructura = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)])
+actualizar = true
+textura_descripcion = ExtResource("3_p3fq0")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://dgycsvxsuaq2w"]
+
+[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_5mnpk"]
+[ext_resource type="Texture2D" uid="uid://d4j6ycbbxugro" path="res://mariposas/imagenes/textura_cuatro_ojos.png" id="2_5mnpk"]
+[ext_resource type="Texture2D" uid="uid://baxut2oax0t2" path="res://mariposas/imagenes/base_Página 10.png" id="3_6nicy"]
+
+[resource]
+script = ExtResource("1_5mnpk")
+nombre_Mariposa = "cuatro_ojos"
+textura = ExtResource("2_5mnpk")
+requisitos = Array[int]([2, 6])
+textura_requisitos = ExtResource("3_6nicy")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dprfbi2712evq"]
+
+[ext_resource type="Script" uid="uid://ckijx15b3uer7" path="res://mariposas/mariposa.gd" id="1_bdqk2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_40t0u"]
+load_path = "res://.godot/imported/mariposa_2_128.png-5d73290b729b75f75db66a261045d3a8.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqk2"]
+size = Vector2(105, 85)
+
+[node name="Mariposa" type="Node2D" unique_id=2065631926]
+modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
+top_level = true
+script = ExtResource("1_bdqk2")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1443044251]
+position = Vector2(32, 32)
+texture = SubResource("CompressedTexture2D_40t0u")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1361335232]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1183530842]
+position = Vector2(32.5, 32)
+shape = SubResource("RectangleShape2D_bdqk2")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="prender_focus"]
+[connection signal="mouse_exited" from="Area2D" to="." method="apagar_focus"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://der8d61kw3xr8"]
+
+[ext_resource type="Script" uid="uid://bv53f3ebg1dt3" path="res://plantas/planta.gd" id="1_vu1iw"]
+
+[node name="Planta" type="Node2D" unique_id=194299512]
+script = ExtResource("1_vu1iw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1347840405]
+collision_layer = 2
+collision_mask = 4
+
+[connection signal="area_entered" from="Area2D" to="." method="poner_mariposa"]
+[connection signal="area_exited" from="Area2D" to="." method="sacar_mariposa"]
+[connection signal="mouse_entered" from="Area2D" to="." method="prender_focus"]
+[connection signal="mouse_exited" from="Area2D" to="." method="apagar_focus"]

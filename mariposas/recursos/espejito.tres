@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://jfvd7qiqwdlg"]
+
+[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_yr8eb"]
+[ext_resource type="Texture2D" uid="uid://c4g6t2py8jbew" path="res://mariposas/imagenes/textura_espejito.png" id="2_yr8eb"]
+[ext_resource type="Texture2D" uid="uid://dsuyhr62q02w8" path="res://mariposas/imagenes/base_Página 12.png" id="3_2eal7"]
+
+[resource]
+script = ExtResource("1_yr8eb")
+nombre_Mariposa = "espejito"
+textura = ExtResource("2_yr8eb")
+requisitos = Array[int]([5, 7])
+textura_requisitos = ExtResource("3_2eal7")

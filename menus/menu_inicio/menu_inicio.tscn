@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c76ou05grj2mh"]
+
+[ext_resource type="Texture2D" uid="uid://bdav7tvt0xkyn" path="res://menus/menu_inicio/fondo.jpg" id="1_0nfxq"]
+[ext_resource type="Script" uid="uid://pq6c2cdpc6mj" path="res://menus/menu_inicio/menu_inicio.gd" id="1_0rq1d"]
+[ext_resource type="StyleBox" uid="uid://boy2pj451dx85" path="res://menus/menu_inicio/pseudo_boton.tres" id="2_admax"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nfxq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Control" type="Control" unique_id=1486482361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rq1d")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1427254454]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -43.0
+offset_right = 1155.0
+offset_bottom = 676.99646
+texture = ExtResource("1_0nfxq")
+expand_mode = 2
+
+[node name="Jugar" type="Button" parent="." unique_id=2135064576]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 335.0
+offset_right = 660.0
+offset_bottom = 412.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nfxq")
+theme_override_styles/pressed = ExtResource("2_admax")
+theme_override_styles/hover = ExtResource("2_admax")
+
+[node name="Salir" type="Button" parent="." unique_id=266850735]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 421.0
+offset_right = 627.0
+offset_bottom = 474.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nfxq")
+theme_override_styles/pressed = ExtResource("2_admax")
+theme_override_styles/hover = ExtResource("2_admax")
+
+[node name="Opciones" type="Button" parent="." unique_id=301265175]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 485.0
+offset_right = 644.0
+offset_bottom = 538.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nfxq")
+theme_override_styles/pressed = ExtResource("2_admax")
+theme_override_styles/hover = ExtResource("2_admax")
+
+[connection signal="pressed" from="Jugar" to="." method="menu_nivel"]
+[connection signal="pressed" from="Salir" to="." method="salir"]
+[connection signal="pressed" from="Opciones" to="." method="opciones"]

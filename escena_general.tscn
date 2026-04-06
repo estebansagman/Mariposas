@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://cmwdw8kgbef6b"]
+
+[ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="1_m5jw1"]
+[ext_resource type="Texture2D" uid="uid://baaps02f1r0gy" path="res://propuesta.png" id="1_yl5c7"]
+[ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="2_m5jw1"]
+[ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="3_2fbef"]
+[ext_resource type="PackedScene" uid="uid://ditlo36hekgcp" path="res://plantas/boton_planta.tscn" id="4_yl5c7"]
+[ext_resource type="Resource" uid="uid://so4q2uln8cml" path="res://plantas/recursos/SalviaA.tres" id="6_6alnp"]
+[ext_resource type="PackedScene" uid="uid://6fvergr40whw" path="res://mariposas/boton_mariposa.tscn" id="6_ii0lq"]
+[ext_resource type="Texture2D" uid="uid://c4g6t2py8jbew" path="res://mariposas/imagenes/textura_espejito.png" id="7_jx1mt"]
+[ext_resource type="Resource" uid="uid://ct2p6k0j1l28p" path="res://mariposas/recursos/bataraza.tres" id="7_ko0rr"]
+[ext_resource type="Script" uid="uid://cyowsn0q1rggh" path="res://mariposas/catalogo_mariposas.gd" id="8_yee2u"]
+[ext_resource type="Texture2D" uid="uid://d4j6ycbbxugro" path="res://mariposas/imagenes/textura_cuatro_ojos.png" id="8_yl5c7"]
+[ext_resource type="Resource" uid="uid://dlq8crmcrrk8n" path="res://plantas/recursos/ceiboA.tres" id="11_6alnp"]
+[ext_resource type="Resource" uid="uid://c0l30ovvhshdk" path="res://plantas/recursos/canario_rojoA.tres" id="12_ii0lq"]
+[ext_resource type="Resource" uid="uid://b56xxbijvdua5" path="res://plantas/recursos/rueliaA.tres" id="13_ko0rr"]
+[ext_resource type="Resource" uid="uid://sgsnalpyn4ik" path="res://plantas/recursos/ceiboB.tres" id="14_sexyc"]
+[ext_resource type="Resource" uid="uid://dinbeythnp7b1" path="res://plantas/recursos/rudaA.tres" id="15_8gw8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
+size = Vector2(386, 387)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6alnp"]
+content_margin_left = 4.0
+content_margin_bottom = 23.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl5c7"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.5137255, 0.4627451, 0.40392157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yee2u"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[node name="EscenaGeneral" type="Node2D" unique_id=286834583]
+
+[node name="Propuesta" type="Sprite2D" parent="." unique_id=921874137]
+position = Vector2(521, 275.00003)
+scale = Vector2(0.8059775, 0.8059775)
+texture = ExtResource("1_yl5c7")
+
+[node name="ControlTablero" parent="." unique_id=828989988 node_paths=PackedStringArray("tablero") instance=ExtResource("1_m5jw1")]
+tablero = NodePath("../Tablero")
+
+[node name="Grafico" type="Node2D" parent="." unique_id=1633620165]
+
+[node name="blanco" type="ColorRect" parent="Grafico" unique_id=646980765]
+offset_left = 310.0
+offset_top = 67.0
+offset_right = 329.0
+offset_bottom = 487.0
+mouse_filter = 2
+
+[node name="blanco2" type="ColorRect" parent="Grafico" unique_id=603639323]
+offset_left = 721.0
+offset_top = 67.0
+offset_right = 740.0
+offset_bottom = 487.0
+mouse_filter = 2
+
+[node name="blanco3" type="ColorRect" parent="Grafico" unique_id=113892285]
+visible = false
+offset_left = 470.0
+offset_top = 32.0
+offset_right = 652.0
+offset_bottom = 71.0
+mouse_filter = 2
+
+[node name="fondoFalso" type="ColorRect" parent="Grafico" unique_id=1953970061]
+visible = false
+offset_left = 297.0
+offset_top = 25.0
+offset_right = 754.0
+offset_bottom = 523.0
+mouse_filter = 2
+color = Color(0.7591292, 0.7012112, 0.65095526, 1)
+
+[node name="tablero" type="ColorRect" parent="Grafico" unique_id=1553248005]
+offset_left = 329.0
+offset_top = 80.0
+offset_right = 722.0
+offset_bottom = 471.0
+mouse_filter = 2
+color = Color(0.6445175, 0.5586669, 0.4987681, 1)
+
+[node name="PanelDerecho" type="ColorRect" parent="Grafico" unique_id=7070922]
+offset_left = 781.0
+offset_top = 80.0
+offset_right = 955.0
+offset_bottom = 201.0
+mouse_filter = 2
+color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+
+[node name="tablero2" type="ColorRect" parent="Grafico" unique_id=742922410]
+offset_left = 919.0
+offset_top = 53.0
+offset_right = 945.0
+offset_bottom = 373.0
+mouse_filter = 2
+color = Color(0.62352943, 0.5647059, 0.5019608, 1)
+
+[node name="PanelIzquierdo" type="ColorRect" parent="Grafico" unique_id=1809722774]
+offset_left = 125.0
+offset_top = 70.0
+offset_right = 240.0
+offset_bottom = 157.0
+mouse_filter = 2
+color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+
+[node name="Tablero" parent="." unique_id=578022441 instance=ExtResource("2_m5jw1")]
+position = Vector2(333, 84)
+tile_set = ExtResource("3_2fbef")
+
+[node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeJuego" unique_id=66538581]
+position = Vector2(525, 275.5)
+shape = SubResource("RectangleShape2D_ii0lq")
+debug_color = Color(0, 0.6, 0.69803923, 0.078431375)
+
+[node name="Control" type="Control" parent="." unique_id=559189026]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_yee2u")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" unique_id=1927609449]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 70.0
+offset_right = 264.0
+offset_bottom = 472.30176
+scale = Vector2(0.7979085, 0.7979085)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6alnp")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="ContenedorMariposas" type="VBoxContainer" parent="Control/ScrollContainer" unique_id=335229537]
+layout_mode = 2
+
+[node name="TextureButton4" parent="Control/ScrollContainer/ContenedorMariposas" unique_id=1233384009 node_paths=PackedStringArray("control_tablero") instance=ExtResource("6_ii0lq")]
+layout_mode = 2
+recurso = ExtResource("7_ko0rr")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="TextureButton" type="TextureButton" parent="Control/ScrollContainer/ContenedorMariposas" unique_id=1015042001]
+layout_mode = 2
+texture_normal = ExtResource("8_yl5c7")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/ScrollContainer/ContenedorMariposas" unique_id=462949432]
+layout_mode = 2
+texture_normal = ExtResource("7_jx1mt")
+
+[node name="TextureButton3" type="TextureButton" parent="Control/ScrollContainer/ContenedorMariposas" unique_id=966999840]
+layout_mode = 2
+texture_normal = ExtResource("8_yl5c7")
+
+[node name="TextureButton5" type="TextureButton" parent="Control/ScrollContainer/ContenedorMariposas" unique_id=632153722]
+layout_mode = 2
+texture_normal = ExtResource("8_yl5c7")
+
+[node name="VScrollBar" type="VScrollBar" parent="Control" unique_id=1289698906]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 55.0
+offset_right = 278.0
+offset_bottom = 372.0
+theme_override_styles/scroll = SubResource("StyleBoxFlat_yl5c7")
+theme_override_styles/grabber = SubResource("StyleBoxFlat_yee2u")
+theme_override_constants/padding_left = 2
+theme_override_constants/padding_right = 2
+page = 26.785
+value = 72.955
+
+[node name="Control2" type="Control" parent="." unique_id=458048569]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_yee2u")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control2" unique_id=2093878149]
+layout_mode = 0
+offset_left = 789.99994
+offset_top = 74.00001
+offset_right = 949.60254
+offset_bottom = 427.80438
+scale = Vector2(0.89597523, 0.89597523)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6alnp")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="ContenedorPlantas" type="VBoxContainer" parent="Control2/ScrollContainer" unique_id=1926021708]
+layout_mode = 2
+
+[node name="ceibo" parent="Control2/ScrollContainer/ContenedorPlantas" unique_id=1350393042 node_paths=PackedStringArray("control_tablero") instance=ExtResource("4_yl5c7")]
+layout_mode = 2
+recurso = ExtResource("11_6alnp")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="salvia" parent="Control2/ScrollContainer/ContenedorPlantas" unique_id=52720832 node_paths=PackedStringArray("control_tablero") instance=ExtResource("4_yl5c7")]
+layout_mode = 2
+recurso = ExtResource("6_6alnp")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="canario rojo" parent="Control2/ScrollContainer/ContenedorPlantas" unique_id=224522224 node_paths=PackedStringArray("control_tablero") instance=ExtResource("4_yl5c7")]
+layout_mode = 2
+recurso = ExtResource("12_ii0lq")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="rueila" parent="Control2/ScrollContainer/ContenedorPlantas" unique_id=217464816 node_paths=PackedStringArray("control_tablero") instance=ExtResource("4_yl5c7")]
+layout_mode = 2
+recurso = ExtResource("13_ko0rr")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="ceibo2" parent="Control2/ScrollContainer/ContenedorPlantas" unique_id=50728081 node_paths=PackedStringArray("control_tablero") instance=ExtResource("4_yl5c7")]
+layout_mode = 2
+recurso = ExtResource("14_sexyc")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="ruda" parent="Control2/ScrollContainer/ContenedorPlantas" unique_id=1717545520 node_paths=PackedStringArray("control_tablero") instance=ExtResource("4_yl5c7")]
+layout_mode = 2
+recurso = ExtResource("15_8gw8b")
+control_tablero = NodePath("../../../../ControlTablero")
+
+[node name="VScrollBar" type="VScrollBar" parent="Control2" unique_id=1562202748]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 55.0
+offset_right = 939.0
+offset_bottom = 372.0
+theme_override_styles/scroll = SubResource("StyleBoxFlat_yl5c7")
+theme_override_styles/grabber = SubResource("StyleBoxFlat_yee2u")
+theme_override_constants/padding_left = 2
+theme_override_constants/padding_right = 2
+page = 26.785
+value = 72.955
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=323834005]
+position = Vector2(522, 273)
+zoom = Vector2(1.315, 1.315)
+
+[connection signal="mouse_entered" from="AreaDeJuego" to="ControlTablero" method="entrar_en_area_de_juego"]
+[connection signal="mouse_exited" from="AreaDeJuego" to="ControlTablero" method="salir_del_area_de_juego"]

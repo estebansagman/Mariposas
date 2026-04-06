@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecursoPlanta" format=3 uid="uid://dyxjlm1pm1pvf"]
+
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="1_w8svb"]
+[ext_resource type="Texture2D" uid="uid://bhqbo8fwu34no" path="res://plantas/imagenes/chilca.png" id="2_w8svb"]
+[ext_resource type="Texture2D" uid="uid://b8mr0xfubho1c" path="res://plantas/imagenes/pasto_Página 12.png" id="3_4us1p"]
+
+[resource]
+script = ExtResource("1_w8svb")
+nombre_planta = "chilca"
+tipo_de_planta = 2
+textura = ExtResource("2_w8svb")
+estructura = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(2, 2)])
+textura_descripcion = ExtResource("3_4us1p")

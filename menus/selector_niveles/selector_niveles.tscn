@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://b1rexyawwl853"]
+
+[ext_resource type="Script" uid="uid://cf6ongvo4lixq" path="res://menus/selector_niveles/selector_niveles.gd" id="1_7qhml"]
+[ext_resource type="Texture2D" uid="uid://bdav7tvt0xkyn" path="res://menus/menu_inicio/fondo.jpg" id="1_huye7"]
+[ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/conenedor_niveles.gd" id="2_0u3hj"]
+[ext_resource type="PackedScene" uid="uid://dy0x6vqctgc40" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
+[ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/Libro.png" id="4_vv7ls"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
+font_size = 22
+
+[node name="MenuNiveles" type="Control" unique_id=1797611692]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7qhml")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=206460727]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -43.0
+offset_right = 1155.0
+offset_bottom = 676.99646
+texture = ExtResource("1_huye7")
+expand_mode = 2
+flip_h = true
+flip_v = true
+
+[node name="Dibfuminador_fondo" type="ColorRect" parent="." unique_id=1822790520]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 1154.0
+offset_bottom = 649.0
+mouse_filter = 2
+color = Color(0.30588236, 0.24705882, 0.18431373, 0.61960787)
+
+[node name="BanerPanel" type="ColorRect" parent="." unique_id=1650795728]
+z_index = 1
+layout_mode = 0
+offset_left = 91.0
+offset_top = 27.0
+offset_right = 1069.0
+offset_bottom = 126.0
+mouse_filter = 2
+color = Color(0.898343, 0.78288805, 0.6657023, 1)
+
+[node name="FondoPanel" type="ColorRect" parent="BanerPanel" unique_id=43658488]
+z_index = -1
+layout_mode = 0
+offset_top = 90.0
+offset_right = 978.0
+offset_bottom = 593.0
+mouse_filter = 2
+color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+
+[node name="Label" type="Label" parent="BanerPanel" unique_id=1847416716]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 34.0
+offset_right = 192.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.29406247, 0.2708687, 0.2341671, 1)
+text = "Niveles"
+
+[node name="Label" type="Label" parent="BanerPanel/Label" unique_id=1307590659]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 75.0
+offset_right = 500.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0.29406247, 0.2708687, 0.2341671, 1)
+text = "Zona 1"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=476540580]
+custom_minimum_size = Vector2(9.86, 0)
+layout_mode = 0
+offset_left = 478.0
+offset_top = 165.0
+offset_right = 1046.0
+offset_bottom = 542.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=2046182810]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1589768090]
+custom_minimum_size = Vector2(0, 121)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+script = ExtResource("2_0u3hj")
+
+[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1713772014 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+nivel = "res://niveles/niveles/Nivel_1.tscn"
+
+[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=810888731 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+nivel = "res://niveles/niveles/Nivel_2.tscn"
+
+[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1553579248 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+nivel = "res://niveles/niveles/Nivel_3.tscn"
+
+[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=624527028 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=226791568]
+custom_minimum_size = Vector2(0, 121)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+script = ExtResource("2_0u3hj")
+
+[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=486300447 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=611661659 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1220540888 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=964812304 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1160687981]
+custom_minimum_size = Vector2(0, 121)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+script = ExtResource("2_0u3hj")
+
+[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1873501470 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1882212294 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1292850766 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2099941345 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2085072121]
+custom_minimum_size = Vector2(0, 121)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+script = ExtResource("2_0u3hj")
+
+[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=179804703 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1889638430 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2062045886 instance=ExtResource("2_7v6hx")]
+layout_mode = 2
+
+[node name="Jugar" type="Button" parent="." unique_id=1475507443]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 448.0
+offset_right = 373.2093
+offset_bottom = 516.0
+text = "Jugar Nivel"
+
+[node name="Volver" type="Button" parent="." unique_id=567649065]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 370.0
+offset_right = 374.2093
+offset_bottom = 438.0
+text = "Volver al Menu"
+
+[node name="CambioZona" type="Button" parent="." unique_id=2098884871]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 557.0
+offset_right = 1023.0
+offset_bottom = 596.0
+text = "Siguiente Zona"
+
+[node name="Libro" type="TextureButton" parent="." unique_id=1403284299]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 198.0
+offset_right = 345.0
+offset_bottom = 344.0
+scale = Vector2(0.95739967, 0.95739967)
+texture_normal = ExtResource("4_vv7ls")
+
+[node name="AlertaSeleccion" type="ColorRect" parent="." unique_id=1111257493]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 368.0
+offset_top = 202.0
+offset_right = 653.0
+offset_bottom = 313.0
+color = Color(0.1378803, 0.10476508, 0.0661519, 0.8980392)
+
+[node name="Label" type="Label" parent="AlertaSeleccion" unique_id=769425233]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 22.0
+offset_right = 241.0
+offset_bottom = 87.0
+text = "Elegi antes un nivel 
+para jugar!"
+label_settings = SubResource("LabelSettings_7qhml")
+
+[node name="Timer" type="Timer" parent="." unique_id=894896749]
+
+[connection signal="pressed" from="Jugar" to="." method="entrar_al_nivel"]
+[connection signal="pressed" from="Volver" to="." method="vovler_al_menu"]
+[connection signal="pressed" from="CambioZona" to="." method="pasar_de_zona"]
+[connection signal="timeout" from="Timer" to="." method="apagar_aletra"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecursoPlanta" format=3 uid="uid://2k6ess1cs2rt"]
+
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="1_oeytg"]
+[ext_resource type="Texture2D" uid="uid://bcmsberumw6ir" path="res://plantas/imagenes/ruelia.png" id="2_oeytg"]
+[ext_resource type="Texture2D" uid="uid://c17iprl5i1xq1" path="res://plantas/imagenes/pasto_Página 16.png" id="3_88g1u"]
+
+[resource]
+script = ExtResource("1_oeytg")
+nombre_planta = "ruellia"
+tipo_de_planta = 6
+textura = ExtResource("2_oeytg")
+estructura = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)])
+textura_descripcion = ExtResource("3_88g1u")

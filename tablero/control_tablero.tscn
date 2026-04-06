@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7x064hjv6lxk"]
+
+[ext_resource type="Script" uid="uid://dnjgsrhxlwkrf" path="res://tablero/control_tablero.gd" id="1_3d08v"]
+
+[node name="ControlTablero" type="Node2D" unique_id=286834583]
+script = ExtResource("1_3d08v")

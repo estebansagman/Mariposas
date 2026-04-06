@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecursoPlanta" format=3 uid="uid://so4q2uln8cml"]
+
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="1_jgrdo"]
+[ext_resource type="Texture2D" uid="uid://b27v1lbiiu4h" path="res://plantas/imagenes/salvia.png" id="2_jgrdo"]
+[ext_resource type="Texture2D" uid="uid://ccqkwa7q0hyss" path="res://plantas/imagenes/pasto_Página 18.png" id="3_ooi7f"]
+
+[resource]
+script = ExtResource("1_jgrdo")
+nombre_planta = "salvia"
+tipo_de_planta = 5
+textura = ExtResource("2_jgrdo")
+estructura = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(1, 2)])
+textura_descripcion = ExtResource("3_ooi7f")

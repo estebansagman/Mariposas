@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://6fvergr40whw"]
+
+[ext_resource type="Texture2D" uid="uid://c4g6t2py8jbew" path="res://mariposas/imagenes/textura_espejito.png" id="1_pp4f1"]
+[ext_resource type="Script" uid="uid://cp528a0dmrqlj" path="res://mariposas/boton_mariposa.gd" id="2_4u2pi"]
+[ext_resource type="Texture2D" uid="uid://cphgcpf6w11oj" path="res://mariposas/imagenes/base_Página 13.png" id="3_786hp"]
+
+[node name="BotoMariposa" type="TextureButton" unique_id=1233384009]
+texture_normal = ExtResource("1_pp4f1")
+script = ExtResource("2_4u2pi")
+
+[node name="requisitos" type="Sprite2D" parent="." unique_id=1668417224]
+visible = false
+modulate = Color(1, 1, 1, 0.7058824)
+position = Vector2(62, 46)
+scale = Vector2(0.54444444, 0.54444444)
+texture = ExtResource("3_786hp")
+
+[connection signal="button_down" from="." to="." method="generar_mariposa"]
+[connection signal="mouse_entered" from="." to="." method="mostrar_requisitos"]
+[connection signal="mouse_exited" from="." to="." method="ocultar_requisitos"]

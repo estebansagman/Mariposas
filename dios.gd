@@ -1,0 +1,13 @@
+extends Node
+
+enum Especie {
+	CEIBO,
+	CORONILLO,
+	CHILCA,
+	RUDA,
+	CANARIO_ROJO,
+	SALVIA,
+	RUELLIA,
+	MBRUCUYA,
+	LANTANA
+}

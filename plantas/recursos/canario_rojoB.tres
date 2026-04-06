@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecursoPlanta" format=3 uid="uid://s4e1lu7fmutb"]
+
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="1_jc5rx"]
+[ext_resource type="Texture2D" uid="uid://ch43ywkserrgs" path="res://plantas/imagenes/canario rojo.png" id="2_kc82w"]
+[ext_resource type="Texture2D" uid="uid://b33uoyc2kfbwt" path="res://plantas/imagenes/pasto_Página 17.png" id="3_kc82w"]
+
+[resource]
+script = ExtResource("1_jc5rx")
+nombre_planta = "canario_rojo"
+tipo_de_planta = 4
+textura = ExtResource("2_kc82w")
+estructura = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)])
+textura_descripcion = ExtResource("3_kc82w")

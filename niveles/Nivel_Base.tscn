@@ -32,7 +32,7 @@
 [ext_resource type="Resource" uid="uid://sgsnalpyn4ik" path="res://plantas/recursos/ceiboB.tres" id="21_yfvpn"]
 [ext_resource type="Resource" uid="uid://c5k3rm51ljc8d" path="res://plantas/recursos/coronilloA.tres" id="24_fv711"]
 [ext_resource type="Resource" uid="uid://dorwlr378ktx8" path="res://plantas/recursos/coronilloB.tres" id="25_tavs3"]
-[ext_resource type="Resource" uid="uid://r07koqfuhw7p" path="res://plantas/recursos/Lantana.tres" id="26_erutt"]
+[ext_resource type="Resource" uid="uid://r07koqfuhw7p" path="res://plantas/recursos/LantanaA.tres" id="26_erutt"]
 [ext_resource type="Resource" uid="uid://dinbeythnp7b1" path="res://plantas/recursos/rudaA.tres" id="29_j01ik"]
 [ext_resource type="Resource" uid="uid://d32wdmgdxkoo8" path="res://plantas/recursos/rudaB.tres" id="30_ms8p5"]
 

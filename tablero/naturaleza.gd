@@ -1,6 +1,6 @@
 extends Node2D
 class_name Naturaleza
-
+signal sumar_puntos(valor)
 
 @onready var mariposa_escena = preload("uid://dprfbi2712evq")
 @export var mariposas:Array[RecursoMariposa]
@@ -39,7 +39,7 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 			for parcela in mariposa.posicion_jardin:
 				tablero.sacar_mariposa(parcela)	
 			mariposas_en_juego.erase(mariposa)
-
+			emit_signal("sumar_puntos",-mariposa.datos.puntos_que_suma)
 			if mariposa.get_parent():
 				mariposa.get_parent().remove_child(mariposa)
 		print(mariposas_en_juego)
@@ -86,6 +86,7 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 					tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
 
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
+	emit_signal("sumar_puntos",mariposa.datos.puntos_que_suma)
 	mariposa.scale = Vector2.ONE
 	if mariposa.get_parent() == null:
 		jardin.add_child(mariposa)

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c8nlaqs320v1u"]
 
+[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_rgltk"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_u1r6y"]
 [ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="4_l38pk"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="5_rd0lu"]
@@ -18,8 +19,14 @@
 size = Vector2(503, 502)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583]
+script = ExtResource("1_rgltk")
+numero_de_nivel = 1
 
 [node name="UI" parent="." unique_id=772245201 instance=ExtResource("3_u1r6y")]
+puntaje_maximo = 1.0
+una_estrella = 1.0
+dos_estrellas = 1.0
+tres_estrellas = 1.0
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(329, 75)
@@ -77,8 +84,10 @@ offset_bottom = 44.0
 plantas = Array[ExtResource("18_kyn5u")]([ExtResource("20_vpidl"), ExtResource("21_gw253")])
 control_tablero = NodePath("../Jardin/Jardinero")
 
+[connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
 [connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="sumar_puntos" from="Jardin/Naturaleza" to="UI" method="recalcular_puntaje"]
 [connection signal="tablero_creado" from="Jardin/Tablero" to="Jardin" method="establecer_columnas"]
 [connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
 [connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]

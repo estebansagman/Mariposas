@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_yr8eb")
+puntos_que_suma = 10
 nombre_Mariposa = "espejito"
 textura = ExtResource("2_yr8eb")
 requisitos = Array[int]([5, 7])

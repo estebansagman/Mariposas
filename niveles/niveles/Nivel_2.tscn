@@ -1,15 +1,12 @@
 [gd_scene format=4 uid="uid://b2r5v5ur4wh8"]
 
+[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_uwtyp"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_b82vl"]
 [ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="4_q0agf"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="5_i008o"]
 [ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="6_xx1l2"]
 [ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="7_nwq87"]
-[ext_resource type="Resource" uid="uid://qeyhak2m8s5r" path="res://mariposas/recursos/bandera_argentina.tres" id="8_88qre"]
-[ext_resource type="Resource" uid="uid://ct2p6k0j1l28p" path="res://mariposas/recursos/bataraza.tres" id="9_k2q1b"]
 [ext_resource type="Resource" uid="uid://dgycsvxsuaq2w" path="res://mariposas/recursos/cuatro_ojos.tres" id="10_pom65"]
-[ext_resource type="Resource" uid="uid://jfvd7qiqwdlg" path="res://mariposas/recursos/espejito.tres" id="11_vsim6"]
-[ext_resource type="Resource" uid="uid://c4pvf7oi36dyq" path="res://mariposas/recursos/Limonero.tres" id="12_ltxuf"]
 [ext_resource type="Resource" uid="uid://dkyy8tolneh0e" path="res://mariposas/recursos/perezosa.tres" id="13_0hroa"]
 [ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="14_6dgh5"]
 [ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="15_7c5xo"]
@@ -27,8 +24,14 @@
 size = Vector2(503, 502)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583]
+script = ExtResource("1_uwtyp")
+numero_de_nivel = 2
 
 [node name="UI" parent="." unique_id=772245201 instance=ExtResource("3_b82vl")]
+puntaje_maximo = 30.0
+una_estrella = 10.0
+dos_estrellas = 20.0
+tres_estrellas = 30.0
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(329, 75)
@@ -45,7 +48,7 @@ jardin = NodePath("..")
 [node name="Naturaleza" type="Node2D" parent="Jardin" unique_id=1099403147 node_paths=PackedStringArray("jardin", "jardinero")]
 scale = Vector2(7.8588457, 7.8588457)
 script = ExtResource("6_xx1l2")
-mariposas = Array[ExtResource("7_nwq87")]([ExtResource("8_88qre"), ExtResource("9_k2q1b"), ExtResource("10_pom65"), ExtResource("11_vsim6"), ExtResource("12_ltxuf"), ExtResource("13_0hroa")])
+mariposas = Array[ExtResource("7_nwq87")]([ExtResource("10_pom65"), ExtResource("10_pom65"), ExtResource("13_0hroa"), ExtResource("13_0hroa")])
 jardin = NodePath("..")
 jardinero = NodePath("../Jardinero")
 
@@ -86,8 +89,10 @@ offset_bottom = 44.0
 plantas = Array[ExtResource("18_sen3v")]([ExtResource("19_t00j6"), ExtResource("20_ws2eg"), ExtResource("21_e0t1n"), ExtResource("22_lxniu"), ExtResource("23_jfd7r"), ExtResource("24_2rydj")])
 control_tablero = NodePath("../Jardin/Jardinero")
 
+[connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
 [connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="sumar_puntos" from="Jardin/Naturaleza" to="UI" method="recalcular_puntaje"]
 [connection signal="tablero_creado" from="Jardin/Tablero" to="Jardin" method="establecer_columnas"]
 [connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
 [connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]

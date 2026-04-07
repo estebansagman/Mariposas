@@ -1,6 +1,7 @@
-[gd_scene format=4 uid="uid://bkmkiipsfk6qt"]
+[gd_scene format=3 uid="uid://bkmkiipsfk6qt"]
 
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="1_vu5bp"]
+[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_yfvpn"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="2_afpsc"]
 [ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="3_vu5bp"]
 [ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="4_ftfhp"]
@@ -39,6 +40,7 @@
 size = Vector2(503, 502)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583]
+script = ExtResource("1_yfvpn")
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("1_vu5bp")]
 columnas = 6
@@ -48,6 +50,10 @@ jardin = NodePath("../Jardin")
 jardinero = NodePath("../Jardin/Jardinero")
 
 [node name="UI" parent="." unique_id=772245201 instance=ExtResource("2_afpsc")]
+puntaje_maximo = 20.0
+una_estrella = 5.0
+dos_estrellas = 15.0
+tres_estrellas = 20.0
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(329, 75)
@@ -75,7 +81,6 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("12_8cgwm")]
 scale = Vector2(7.8588457, 7.8588457)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAADAAMAAQAAAAAAAAA=")
 tile_set = ExtResource("13_pei53")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
@@ -105,8 +110,10 @@ offset_bottom = 44.0
 plantas = Array[ExtResource("15_yfvpn")]([ExtResource("14_sbckd"), ExtResource("15_7oua7"), ExtResource("20_q557h"), ExtResource("21_yfvpn"), ExtResource("16_fv711"), ExtResource("17_tavs3"), ExtResource("24_fv711"), ExtResource("25_tavs3"), ExtResource("26_erutt"), ExtResource("20_ms8p5"), ExtResource("21_njjas"), ExtResource("29_j01ik"), ExtResource("30_ms8p5"), ExtResource("18_erutt"), ExtResource("19_j01ik"), ExtResource("16_e8oto"), ExtResource("17_3boyl")])
 control_tablero = NodePath("../Jardin/Jardinero")
 
+[connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
 [connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="sumar_puntos" from="Jardin/Naturaleza" to="UI" method="recalcular_puntaje"]
 [connection signal="tablero_creado" from="Jardin/Tablero" to="Jardin" method="establecer_columnas"]
 [connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
 [connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]

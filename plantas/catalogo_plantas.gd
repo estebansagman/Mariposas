@@ -8,7 +8,7 @@ const BOTON_PLANTA = preload("uid://ditlo36hekgcp")
 @onready var scroll: ScrollContainer = $ScrollContainer
 
 @onready var origen_plantas: Node2D = $"../Jardin/origen_plantas"
-
+var barra_interna:VScrollBar
 
 func _ready():
 	_crear_catalogo()
@@ -24,11 +24,15 @@ func _crear_catalogo():
 			contenedor_plantas.add_child(nuevo_boton_planta)
 
 func _sincronizar_barras():
-	var barra_interna = scroll.get_v_scroll_bar()
+	barra_interna = scroll.get_v_scroll_bar()
 	barra.max_value = barra_interna.max_value
 	barra.page = barra_interna.page
-	barra.value_changed.connect(_barra_movida)
+	barra_interna.changed.connect(_actualizar_propiedades)
 	barra_interna.value_changed.connect(_scroll_interno)
+
+func _actualizar_propiedades():
+	barra.max_value = barra_interna.max_value
+	barra.page = barra_interna.page
 
 func _barra_movida(v):
 	scroll.scroll_vertical = int(v)

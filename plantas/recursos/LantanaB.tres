@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecursoPlanta" format=3 uid="uid://inlixut3fnod"]
+
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="1_ttf6j"]
+[ext_resource type="Texture2D" uid="uid://bp1i4q7frrlh1" path="res://plantas/imagenes/lantana.png" id="2_ttf6j"]
+[ext_resource type="Texture2D" uid="uid://v2561l3vgd86" path="res://plantas/imagenes/pasto_Página 15.png" id="3_c5p1d"]
+
+[resource]
+script = ExtResource("1_ttf6j")
+nombre_planta = "lantana"
+tipo_de_planta = 8
+textura = ExtResource("2_ttf6j")
+estructura = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1)])
+textura_descripcion = ExtResource("3_c5p1d")

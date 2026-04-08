@@ -113,5 +113,5 @@ theme_override_styles/scroll = SubResource("StyleBoxFlat_w7de5")
 theme_override_styles/grabber = SubResource("StyleBoxFlat_4fa4h")
 theme_override_constants/padding_left = 2
 theme_override_constants/padding_right = 2
-page = 26.785
-value = 72.955
+
+[connection signal="value_changed" from="VScrollBar" to="." method="_barra_movida"]

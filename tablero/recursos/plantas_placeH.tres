@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://q4jfntsqmery" path="res://tablero/imagenes/plantas_tile_placeH.png" id="1_hw33r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xuvtu"]
-load_path = "res://.godot/imported/fondo_place_H.png-ff3498cf38498f157a750a1a7af8bf7f.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
 resource_name = "Tablero"

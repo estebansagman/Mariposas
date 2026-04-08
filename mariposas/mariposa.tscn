@@ -1,12 +1,80 @@
-[gd_scene format=3 uid="uid://dprfbi2712evq"]
+[gd_scene format=4 uid="uid://dprfbi2712evq"]
 
 [ext_resource type="Script" uid="uid://ckijx15b3uer7" path="res://mariposas/mariposa.gd" id="1_bdqk2"]
+[ext_resource type="Texture2D" uid="uid://cighrc4830lik" path="res://mariposas/imagenes/textura_perezosa.png" id="2_jtx6q"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_40t0u"]
-load_path = "res://.godot/imported/mariposa_2_128.png-5d73290b729b75f75db66a261045d3a8.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqk2"]
 size = Vector2(105, 85)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jtx6q"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s37dc"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d3aql"]
+resource_name = "Mariposa3D_mariposa3d"
+_surfaces = [{
+"aabb": AABB(-0.70260215, -2.1855694e-08, -0.5, 1.4052043, 1e-05, 1),
+"attribute_data": PackedByteArray("AAAAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAPwAAAAAAAAAAAACAPwAAAAAAAAAA"),
+"bone_aabbs": [AABB(0.70260215, -2.1855694e-08, -0.5, 1.001358e-05, 1e-05, 1), AABB(-0.70260215, -2.1855694e-08, -0.5, 1.001358e-05, 1.0043712e-05, 1.00001), AABB(0, -2.1855694e-08, -0.5, 1e-05, 1.0043712e-05, 1.00001)],
+"format": 34359745559,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMA"),
+"material": SubResource("StandardMaterial3D_s37dc"),
+"primitive": 3,
+"skin_data": PackedByteArray("AgAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAgAAAAAAAAD//wAAAAAAAAEAAAAAAAAA//8AAAAAAAABAAAAAAAAAP//AAAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAC69uzIAAAA/vN0zPy69u7IAAAC/vN0zPy69uzIAAAA/AAAAAC69u7IAAAC/vN0zvy69uzIAAAA/vN0zvy69u7IAAAC//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Skin" id="Skin_0uusj"]
+resource_name = "Skin"
+bind_count = 3
+bind/0/name = &"Derecha"
+bind/0/bone = -1
+bind/0/pose = Transform3D(0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+bind/1/name = &"Izquierda"
+bind/1/bone = -1
+bind/1/pose = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0)
+bind/2/name = &"neutral_bone"
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea1er"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_jtx6q")
+
+[sub_resource type="Animation" id="Animation_wnh4i"]
+resource_name = "ArmatureAction"
+length = 0.16666667
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Derecha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.5, -0.5, -0.5, 0.5, 0.033333335, 1, -0.32101974, -0.6300368, -0.32101974, 0.6300368, 0.06666667, 1, -0.11061581, -0.69840115, -0.11061581, 0.69840115, 0.1, 1, -0.11061581, -0.69840115, -0.11061581, 0.69840115, 0.13333334, 1, -0.3210198, -0.6300368, -0.3210198, 0.6300368, 0.16666667, 1, -0.5, -0.5, -0.5, 0.5)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Izquierda")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5, 0.5, 0.5, 0.5, 0.033333335, 1, -0.32101974, 0.6300368, 0.32101974, 0.6300368, 0.06666667, 1, -0.11061581, 0.69840115, 0.11061581, 0.69840115, 0.1, 1, -0.11061581, 0.69840115, 0.11061581, 0.69840115, 0.13333334, 1, -0.3210198, 0.6300368, 0.3210198, 0.6300368, 0.16666667, 1, -0.5, 0.5, 0.5, 0.5)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsowi"]
+_data = {
+&"ArmatureAction": SubResource("Animation_wnh4i")
+}
 
 [node name="Mariposa" type="Node2D" unique_id=2065631926]
 modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
@@ -14,6 +82,7 @@ top_level = true
 script = ExtResource("1_bdqk2")
 
 [node name="Textura" type="Sprite2D" parent="." unique_id=1443044251]
+visible = false
 position = Vector2(32, 32)
 texture = SubResource("CompressedTexture2D_40t0u")
 
@@ -24,6 +93,56 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1183530842]
 position = Vector2(32.5, 32)
 shape = SubResource("RectangleShape2D_bdqk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1882414305]
+scale = Vector2(0.4, 0.4)
+texture = SubResource("ViewportTexture_jtx6q")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=210393591]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1219090436]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2, 0)
+
+[node name="Mariposa3D" type="Node3D" parent="SubViewport" unique_id=1839377064]
+
+[node name="Armature" type="Node3D" parent="SubViewport/Mariposa3D" unique_id=1761479028]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="SubViewport/Mariposa3D/Armature" unique_id=850981823]
+bones/0/name = "Derecha"
+bones/0/parent = -1
+bones/0/rest = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0)
+bones/0/enabled = true
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0.110615805, 0.69840115, 0.110615805, -0.69840115)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/name = "Izquierda"
+bones/1/parent = -1
+bones/1/rest = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0)
+bones/1/enabled = true
+bones/1/position = Vector3(0, 0, 0)
+bones/1/rotation = Quaternion(0.110615805, -0.69840115, -0.110615805, -0.69840115)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/name = "neutral_bone"
+bones/2/parent = -1
+bones/2/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+bones/2/enabled = true
+bones/2/position = Vector3(0, 0, 0)
+bones/2/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
+bones/2/scale = Vector3(1, 1, 1)
+
+[node name="Mariposa3D" type="MeshInstance3D" parent="SubViewport/Mariposa3D/Armature/Skeleton3D" unique_id=1969974419]
+mesh = SubResource("ArrayMesh_d3aql")
+skin = SubResource("Skin_0uusj")
+skeleton = NodePath("..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ea1er")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Mariposa3D" unique_id=2106221566]
+libraries/ = SubResource("AnimationLibrary_dsowi")
+autoplay = &"ArmatureAction"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=622072492]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="prender_focus"]
 [connection signal="mouse_exited" from="Area2D" to="." method="apagar_focus"]

@@ -18,7 +18,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
 size = Vector2(503, 502)
 
-[node name="EscenaGeneral" type="Node2D" unique_id=286834583]
+[node name="EscenaGeneral2" type="Node2D" unique_id=286834583]
 script = ExtResource("1_rgltk")
 numero_de_nivel = 1
 

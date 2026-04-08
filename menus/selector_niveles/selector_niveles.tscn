@@ -99,14 +99,15 @@ nivel = "res://niveles/niveles/Nivel_1.tscn"
 
 [node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=810888731 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-nivel = "res://niveles/niveles/Nivel_Prueba_1.tscn"
+nivel = "res://niveles/niveles/Nivel_2.tscn"
 
 [node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1553579248 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 nivel = "res://niveles/niveles/Nivel_3.tscn"
 
-[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=624527028 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=486300447 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+nivel = "res://niveles/niveles/Nivel_4.tscn"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=226791568]
 custom_minimum_size = Vector2(0, 121)
@@ -115,7 +116,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 script = ExtResource("2_0u3hj")
 
-[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=486300447 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1971370862 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 
 [node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=611661659 instance=ExtResource("2_7v6hx")]

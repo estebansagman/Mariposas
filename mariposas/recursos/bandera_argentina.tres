@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_2fu4a")
-puntos_que_suma = 15
+puntos_que_suma = 3
 nombre_Mariposa = "bandera_argentina"
 textura = ExtResource("2_2fu4a")
 requisitos = Array[int]([0, 1, 8])

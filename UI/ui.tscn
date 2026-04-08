@@ -1,9 +1,38 @@
 [gd_scene format=3 uid="uid://k4s7h6kdhhw6"]
 
+[ext_resource type="Script" uid="uid://op54laguldw1" path="res://UI/ui.gd" id="1_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://baaps02f1r0gy" path="res://propuesta.png" id="1_vkygq"]
 [ext_resource type="Texture2D" uid="uid://bkppre7ykdup8" path="res://UI/imagenes/tituloTablero.png" id="2_gs482"]
 [ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="3_etlur"]
+[ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="6_4fiuh"]
+[ext_resource type="StyleBox" uid="uid://cveoktggvpxxe" path="res://UI/panel_base.tres" id="7_c7tqi"]
+[ext_resource type="StyleBox" uid="uid://n4k5e8kt1kme" path="res://UI/panel_externo.tres" id="8_cbfhl"]
+[ext_resource type="StyleBox" uid="uid://boy2pj451dx85" path="res://menus/menu_inicio/pseudo_boton.tres" id="9_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/imagenes/Libro.png" id="15_7rqds"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h81ot"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbfhl"]
+font_size = 29
+font_color = Color(0.23471054, 0.14083576, 0.0707132, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4fiuh"]
+line_spacing = -1.43
+font_size = 14
+font_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h81ot"]
+font_size = 22
 
 [node name="UI" type="Control" unique_id=772245201]
 layout_mode = 3
@@ -13,6 +42,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_nm1m0")
+puntaje_maximo = 9.0
+una_estrella = 3.0
+dos_estrellas = 6.0
+tres_estrellas = 9.0
+se_gana = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=917919259]
 layout_mode = 0
@@ -61,6 +96,7 @@ offset_bottom = 48.924934
 mouse_filter = 2
 
 [node name="fondoFalso" type="ColorRect" parent="Control" unique_id=1581019959]
+visible = false
 layout_mode = 0
 offset_left = 191.6276
 offset_right = 687.8743
@@ -94,7 +130,7 @@ scale = Vector2(0.7898677, 0.7898677)
 mouse_filter = 2
 texture = ExtResource("2_gs482")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1201154950]
+[node name="Puntaje_vis" type="VBoxContainer" parent="." unique_id=1201154950]
 visible = false
 layout_mode = 0
 offset_left = 81.0
@@ -104,47 +140,184 @@ offset_bottom = 230.0
 scale = Vector2(2.1877604, 2.1877604)
 mouse_filter = 2
 
-[node name="Estrella" type="TextureRect" parent="VBoxContainer" unique_id=361092877]
+[node name="Estrella" type="TextureRect" parent="Puntaje_vis" unique_id=361092877]
 layout_mode = 2
 texture = ExtResource("3_etlur")
 
-[node name="Estrella2" type="TextureRect" parent="VBoxContainer" unique_id=9614109]
+[node name="Estrella2" type="TextureRect" parent="Puntaje_vis" unique_id=9614109]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 texture = ExtResource("3_etlur")
 
-[node name="Estrella3" type="TextureRect" parent="VBoxContainer" unique_id=703939541]
+[node name="Estrella3" type="TextureRect" parent="Puntaje_vis" unique_id=703939541]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 texture = ExtResource("3_etlur")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=740019099]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 435.0
-offset_right = 184.0
-offset_bottom = 581.0
+offset_left = 63.0
+offset_top = 342.00003
+offset_right = 180.0
+offset_bottom = 488.00003
 scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("15_7rqds")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1064605861]
+[node name="Puntaje" parent="." unique_id=342144844 instance=ExtResource("6_4fiuh")]
 layout_mode = 0
-offset_left = 524.00006
-offset_top = 11.0
-offset_right = 666.00006
-offset_bottom = 51.0
-scale = Vector2(1.1016871, 1.1016871)
+offset_left = 519.00006
+offset_top = 13.0
+offset_right = 661.00006
+offset_bottom = 53.0
 
-[node name="Estrella" type="TextureRect" parent="HBoxContainer" unique_id=1395286316]
-layout_mode = 2
-texture = ExtResource("3_etlur")
+[node name="SiguienteNivel" type="Button" parent="." unique_id=1108167836]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 587.0
+offset_right = 610.0
+offset_bottom = 636.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_h81ot")
+theme_override_styles/pressed = ExtResource("9_4fiuh")
+theme_override_styles/hover = ExtResource("9_4fiuh")
 
-[node name="Estrella2" type="TextureRect" parent="HBoxContainer" unique_id=1337854675]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 2
-texture = ExtResource("3_etlur")
+[node name="Reiniciar" type="Button" parent="." unique_id=2091346348]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 587.0
+offset_right = 688.0
+offset_bottom = 636.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_h81ot")
+theme_override_styles/pressed = ExtResource("9_4fiuh")
+theme_override_styles/hover = ExtResource("9_4fiuh")
 
-[node name="Estrella3" type="TextureRect" parent="HBoxContainer" unique_id=1913612384]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 2
-texture = ExtResource("3_etlur")
+[node name="Cartel_final" type="Panel" parent="." unique_id=1463878455]
+visible = false
+top_level = true
+z_index = 5
+layout_mode = 0
+offset_left = 344.0
+offset_top = 165.0
+offset_right = 822.0
+offset_bottom = 464.0
+theme_override_styles/panel = ExtResource("7_c7tqi")
+
+[node name="fondo" type="Panel" parent="Cartel_final" unique_id=458473927]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 473.0
+offset_bottom = 294.0
+theme_override_styles/panel = ExtResource("8_cbfhl")
+
+[node name="texto_ganado" type="Label" parent="Cartel_final" unique_id=813489453]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 57.0
+offset_right = 429.0
+offset_bottom = 97.0
+text = "¡COMPLETASTE EL DESAFÍO!"
+label_settings = SubResource("LabelSettings_cbfhl")
+
+[node name="aviso" type="Label" parent="Cartel_final" unique_id=27589713]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 233.0
+offset_right = 419.0
+offset_bottom = 273.0
+text = "No te preocupes por las estrellas, tu progreso queda 
+guardado."
+label_settings = SubResource("LabelSettings_4fiuh")
+
+[node name="ir_al_menu" type="Button" parent="Cartel_final" unique_id=437014028]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 139.0
+offset_right = 172.0
+offset_bottom = 199.0
+text = "Volver al 
+menu \"niveles\""
+
+[node name="quedarse" type="Button" parent="Cartel_final" unique_id=912527132]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 139.0
+offset_right = 307.0
+offset_bottom = 199.0
+text = "seguir para
+sumar puntos"
+
+[node name="siguiente_nivel" type="Button" parent="Cartel_final" unique_id=1788684407]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 139.0
+offset_right = 442.0
+offset_bottom = 199.0
+text = "Pasar al
+siguiente"
+
+[node name="Menu" type="Button" parent="." unique_id=1097707424]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 587.0
+offset_right = 534.0
+offset_bottom = 636.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_h81ot")
+theme_override_styles/pressed = ExtResource("9_4fiuh")
+theme_override_styles/hover = ExtResource("9_4fiuh")
+
+[node name="AlertaSeleccion" type="ColorRect" parent="." unique_id=927746273]
+visible = false
+top_level = true
+z_index = 5
+layout_mode = 0
+offset_left = 264.0
+offset_top = 263.0
+offset_right = 894.0
+offset_bottom = 391.0
+color = Color(0.1378803, 0.10476508, 0.0661519, 0.8980392)
+
+[node name="Label" type="Label" parent="AlertaSeleccion" unique_id=2075657704]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 33.0
+offset_right = 560.0
+offset_bottom = 98.0
+text = "Todavía no está desbloqueado el siguiente nivel. 
+¡Gana por lo menos una estrella!"
+label_settings = SubResource("LabelSettings_h81ot")
+
+[node name="Timer" type="Timer" parent="." unique_id=949865840]
+wait_time = 2.0
+
+[node name="botones" type="Control" parent="." unique_id=404584352]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="restar_puntos" type="Button" parent="botones" unique_id=1453393354]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 164.0
+offset_right = 236.0
+offset_bottom = 204.0
+text = "Boton restar puntaje"
+
+[node name="sumar_puntos" type="Button" parent="botones" unique_id=1016246425]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 97.0
+offset_right = 236.0
+offset_bottom = 137.0
+text = "Boton sumar puntaje"
+
+[connection signal="puntaje_alcansado" from="Puntaje" to="." method="superar_nivel"]
+[connection signal="pressed" from="SiguienteNivel" to="." method="pasar_al_siguiente_nivel"]
+[connection signal="pressed" from="Reiniciar" to="." method="reiniciar_nivel"]
+[connection signal="pressed" from="Cartel_final/ir_al_menu" to="." method="volver_al_menu"]
+[connection signal="pressed" from="Cartel_final/quedarse" to="." method="quedarme_aca"]
+[connection signal="pressed" from="Cartel_final/siguiente_nivel" to="." method="pasar_al_siguiente_nivel"]
+[connection signal="pressed" from="Menu" to="." method="volver_al_menu"]
+[connection signal="timeout" from="Timer" to="." method="apagar_alerta_de_seleccion"]
+[connection signal="pressed" from="botones/restar_puntos" to="." method="recalcular_puntaje" binds= [-5]]
+[connection signal="pressed" from="botones/sumar_puntos" to="." method="recalcular_puntaje" binds= [5]]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://blx5xcddevteb"]
+
+[ext_resource type="Script" uid="uid://ctijskasybylv" path="res://UI/puntaje.gd" id="1_kgati"]
+[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="2_uuqy4"]
+
+[node name="Puntaje" type="HBoxContainer" unique_id=342144844]
+offset_left = 4.0000005
+offset_top = 3.0000002
+offset_right = 146.0
+offset_bottom = 43.0
+scale = Vector2(1.1016871, 1.1016871)
+script = ExtResource("1_kgati")
+
+[node name="Estrella" type="TextureRect" parent="." unique_id=100563569]
+layout_mode = 2
+texture = ExtResource("2_uuqy4")
+
+[node name="Estrella2" type="TextureRect" parent="." unique_id=1419932942]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+texture = ExtResource("2_uuqy4")
+
+[node name="Estrella3" type="TextureRect" parent="." unique_id=1436537777]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+layout_mode = 2
+texture = ExtResource("2_uuqy4")

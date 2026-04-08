@@ -2,11 +2,13 @@ extends Node2D
 
 @onready var planta_escena = preload("uid://der8d61kw3xr8")
 @export var jardinero: ControlTablero
+@onready var jardin: Node2D = $".."
+
 
 func _on_pedido_de_planta(recurso, boton_original):
 	var nueva_planta = planta_escena.instantiate()
 	nueva_planta.datos = recurso
-	jardinero.jardin.add_child(nueva_planta) 
+	jardin.add_child(nueva_planta) 
 	nueva_planta.eliminando.connect(boton_original.mostrar_imagen)
 	nueva_planta.scale *= 7.859
 	nueva_planta.z_index = 2

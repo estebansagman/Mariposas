@@ -13,13 +13,11 @@ var posicion_jardin:Array[Vector2i]
 var requisitos_correctos:bool = false
 var esta_seleccionada:bool = false
 var focus = true
+var mariposa_detectada = false
 
 func _ready() -> void:
 	poner_textura()
 
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("aceptar") and focus:
-		#seleccionar_mariposa()
 
 func get_nombre()->String: return datos.nombre_Mariposa
 func get_requisitos()->Array[Dios.Especie]: return datos.requisitos
@@ -39,8 +37,11 @@ func confirmar_requerimientos(casillas:Array[Dios.Especie])->bool: #hay que pasa
 
 func prender_focus():
 	emit_signal("enfocada",self)
+
 func apagar_focus():
 	emit_signal("fuera_de_foco")
+
+
 
 func iluminar():
 	var i = 1.5 

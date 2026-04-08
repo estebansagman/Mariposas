@@ -10,7 +10,7 @@ class_name EditorNiveles
 @export var limpiar:bool = false
 @export var tablero: TileMapLayer
 @export var jardin: Node2D
-@onready var jardinero: ControlTablero = $"../Jardinero"
+@export var jardinero: ControlTablero
 
 
 func actualizar_tablero_visual():

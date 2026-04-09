@@ -8,4 +8,3 @@ func _ready() -> void:
 	for item in get_children():
 		item.dar_indice(indice)
 		item.nivel_elejido.connect(menu_niveles.seleccionar_nivel)
-	

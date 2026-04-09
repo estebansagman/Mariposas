@@ -3,17 +3,26 @@ extends Control
 @onready var nivel_elegido:String = "res://niveles/niveles/Nivel_1.tscn"
 var nivel_seleccionado = false
 @onready var alerta_seleccion: ColorRect = $AlertaSeleccion
-@onready var timer: Timer = $Timer
+@onready var alerta_bloqueo: ColorRect = $AlertaBloqueo
 
-func seleccionar_nivel(nivel):
+@onready var timer: Timer = $Timer
+var indice:int
+
+func seleccionar_nivel(nivel,indice_b):
 	nivel_seleccionado = true
+	indice = indice_b
 	nivel_elegido = nivel
 	
 	
 func entrar_al_nivel():
+
+	if not Dios.esta_desbloqueado(indice):
+		timer.start()
+		alerta_bloqueo.show()
+		return
 	if nivel_seleccionado:
 		get_tree().change_scene_to_file(nivel_elegido)
-	else: # cartel
+	else: 
 		timer.start()
 		alerta_seleccion.show()
 
@@ -28,3 +37,4 @@ func pasar_de_zona():
 
 func apagar_aletra():
 	alerta_seleccion.hide()
+	alerta_bloqueo.hide()

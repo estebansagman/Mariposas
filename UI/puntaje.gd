@@ -15,12 +15,14 @@ signal puntaje_alcansado
 @onready var estrella_2: TextureRect = $Estrella2
 @onready var estrella_3: TextureRect = $Estrella3
 
+var indice:int
 var lista_estrellas:Array = []
 
 #func _ready() -> void:
 	#generar_stats()
 
 func generar_stats():
+	print("A VER QUE PASA: ",indice)
 	if una_estrella+dos_estrellas+tres_estrellas == 0:
 		una_estrella = puntaje_maximo*(1/3)
 		dos_estrellas = puntaje_maximo*((1/3)*2)
@@ -28,33 +30,37 @@ func generar_stats():
 	lista_estrellas = [[una_estrella,estrella_1],
 					  [dos_estrellas,estrella_2],
 					  [tres_estrellas,estrella_3]]
-	calcular_estrellas()
+	if se_gana:
+		calcular_estrellas()
 
 func calcular_estrellas():
 	if puntaje >= tres_estrellas:
 		encendido_estrellas(3)
-		_ganar()
+		_ganar(3)
 	elif puntaje >= dos_estrellas:
 		encendido_estrellas(2)
-		_ganar()
+		_ganar(2)
 	elif puntaje >= una_estrella:
 		encendido_estrellas(1)
-		_ganar()
+		_ganar(1)
 	else:
 		encendido_estrellas(0)
 
 func encendido_estrellas(estrellas_ganadas: int):
+	print("que pasa?")
 	for i in range(lista_estrellas.size()):
 		var estrella = lista_estrellas[i]
 		if i < estrellas_ganadas:
 			estrella[1].modulate = estrella_prendida
+
 		else:
 			estrella[1].modulate = estrella_apagada
-
-func _ganar():
+	
+func _ganar(estrellas):
 	if se_gana:
 		emit_signal("puntaje_alcansado")
-		_guardar_datos()
+		_guardar_datos(estrellas)
 
-func _guardar_datos():
-	pass
+func _guardar_datos(estrellas):
+	print("A VER QUE PASA: ",indice," a: ",estrellas)
+	Dios.guardar_estrellas(indice, estrellas)

@@ -8,6 +8,8 @@
 [ext_resource type="StyleBox" uid="uid://cveoktggvpxxe" path="res://UI/panel_base.tres" id="7_c7tqi"]
 [ext_resource type="StyleBox" uid="uid://n4k5e8kt1kme" path="res://UI/panel_externo.tres" id="8_cbfhl"]
 [ext_resource type="StyleBox" uid="uid://boy2pj451dx85" path="res://menus/menu_inicio/pseudo_boton.tres" id="9_4fiuh"]
+[ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="10_6rr40"]
+[ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/libro.tscn" id="10_h81ot"]
 [ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/imagenes/Libro.png" id="15_7rqds"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h81ot"]
@@ -289,28 +291,62 @@ label_settings = SubResource("LabelSettings_h81ot")
 [node name="Timer" type="Timer" parent="." unique_id=949865840]
 wait_time = 2.0
 
-[node name="botones" type="Control" parent="." unique_id=404584352]
+[node name="botones_debug" type="Control" parent="." unique_id=404584352]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("10_6rr40")
 
-[node name="restar_puntos" type="Button" parent="botones" unique_id=1453393354]
+[node name="restar_puntos" type="Button" parent="botones_debug" unique_id=1453393354]
 layout_mode = 0
 offset_left = 44.0
-offset_top = 164.0
+offset_top = 91.0
 offset_right = 236.0
-offset_bottom = 204.0
+offset_bottom = 131.0
 text = "Boton restar puntaje"
 
-[node name="sumar_puntos" type="Button" parent="botones" unique_id=1016246425]
+[node name="sumar_puntos" type="Button" parent="botones_debug" unique_id=1016246425]
 layout_mode = 0
 offset_left = 44.0
-offset_top = 97.0
+offset_top = 46.0
 offset_right = 236.0
-offset_bottom = 137.0
+offset_bottom = 86.0
 text = "Boton sumar puntaje"
 
+[node name="cerrar_juego" type="Button" parent="botones_debug" unique_id=1599528229]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 134.0
+offset_right = 236.0
+offset_bottom = 174.0
+text = "Cerrar Juego
+"
+
+[node name="Borrar_base_de_datos" type="Button" parent="botones_debug" unique_id=1170639611]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 204.0
+offset_right = 236.0
+offset_bottom = 244.0
+text = "Borrar BD
+"
+
+[node name="Llenar_base_de_datos" type="Button" parent="botones_debug" unique_id=757988816]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 246.0
+offset_right = 236.0
+offset_bottom = 286.0
+text = "Completar BD
+"
+
+[node name="Libro" parent="." unique_id=1233792517 instance=ExtResource("10_h81ot")]
+visible = false
+layout_mode = 1
+offset_bottom = 6.0
+
+[connection signal="pressed" from="TextureButton" to="Libro" method="abrir"]
 [connection signal="puntaje_alcansado" from="Puntaje" to="." method="superar_nivel"]
 [connection signal="pressed" from="SiguienteNivel" to="." method="pasar_al_siguiente_nivel"]
 [connection signal="pressed" from="Reiniciar" to="." method="reiniciar_nivel"]
@@ -319,5 +355,8 @@ text = "Boton sumar puntaje"
 [connection signal="pressed" from="Cartel_final/siguiente_nivel" to="." method="pasar_al_siguiente_nivel"]
 [connection signal="pressed" from="Menu" to="." method="volver_al_menu"]
 [connection signal="timeout" from="Timer" to="." method="apagar_alerta_de_seleccion"]
-[connection signal="pressed" from="botones/restar_puntos" to="." method="recalcular_puntaje" binds= [-5]]
-[connection signal="pressed" from="botones/sumar_puntos" to="." method="recalcular_puntaje" binds= [5]]
+[connection signal="pressed" from="botones_debug/restar_puntos" to="." method="recalcular_puntaje" binds= [-5]]
+[connection signal="pressed" from="botones_debug/sumar_puntos" to="." method="recalcular_puntaje" binds= [5]]
+[connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
+[connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
+[connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]

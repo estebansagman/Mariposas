@@ -15,15 +15,22 @@ signal pasar_nivel
 @onready var puntaje: sistema_puntaje = $Puntaje
 @onready var cartel_final: Panel = $Cartel_final
 @onready var timer: Timer = $Timer
-@onready var botones: Control = $botones
 var superado:bool = false
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("comando_magico"):
-		botones.visible = !botones.visible
-		print("esto anda?")
 
-func _ready() -> void:
+#func _ready() -> void:
+	#puntaje.puntaje_maximo = puntaje_maximo
+	#puntaje.una_estrella = una_estrella
+	#puntaje.dos_estrellas = dos_estrellas
+	#puntaje.tres_estrellas = tres_estrellas
+	#puntaje.se_gana = se_gana
+	#puntaje.estrella_apagada = estrella_apagada
+	#puntaje.estrella_prendida = estrella_prendida
+	#puntaje.puntaje = puntaje_actual
+	#puntaje.generar_stats()
+
+func pasar_datos_puntaje(nivel):
+	puntaje.indice = nivel
 	puntaje.puntaje_maximo = puntaje_maximo
 	puntaje.una_estrella = una_estrella
 	puntaje.dos_estrellas = dos_estrellas

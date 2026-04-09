@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]
 [ext_resource type="StyleBox" uid="uid://balnbgiebwlht" path="res://menus/selector_niveles/panel_interno.tres" id="2_w7mj0"]
-[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="3_vevib"]
 [ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="5_ixsf2"]
 [ext_resource type="Texture2D" uid="uid://dtqix0au0n3cd" path="res://menus/selector_niveles/textura_espejito.png" id="6_sbog6"]
 
@@ -49,30 +48,10 @@ offset_top = 54.0
 offset_right = 163.0
 offset_bottom = 94.0
 scale = Vector2(0.75175446, 0.75175446)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1786892030]
-visible = false
-layout_mode = 0
-offset_left = 14.0
-offset_top = 50.0
-offset_right = 156.0
-offset_bottom = 90.0
-scale = Vector2(0.77207965, 0.77207965)
-alignment = 1
-
-[node name="Estrella" type="TextureRect" parent="HBoxContainer" unique_id=191745019]
-layout_mode = 2
-texture = ExtResource("3_vevib")
-
-[node name="Estrella2" type="TextureRect" parent="HBoxContainer" unique_id=1402053749]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 2
-texture = ExtResource("3_vevib")
-
-[node name="Estrella3" type="TextureRect" parent="HBoxContainer" unique_id=1818780940]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 2
-texture = ExtResource("3_vevib")
+puntaje_maximo = 3.0
+una_estrella = 1.0
+dos_estrellas = 2.0
+tres_estrellas = 3.0
 
 [node name="boton" type="TextureButton" parent="." unique_id=1471165226]
 modulate = Color(1, 1, 1, 0.6509804)

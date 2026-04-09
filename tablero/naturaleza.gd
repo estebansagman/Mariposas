@@ -85,10 +85,7 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 					tablero.celdas[celda][tablero.mariposa] = true
 					tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
 
-func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
-	emit_signal("sumar_puntos",mariposa.datos.puntos_que_suma)
-	mariposa.scale = Vector2.ONE
-	if mariposa.get_parent() == null:
+
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 	emit_signal("sumar_puntos",mariposa.datos.puntos_que_suma)
 	mariposa.scale = Vector2.ONE
@@ -103,10 +100,12 @@ func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 	var loops:int = 3
 	var t = create_tween()
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
+	
 	t.set_ease(Tween.EASE_OUT)
 	t.set_trans(Tween.TRANS_BACK)
 	aleteo(mariposa,loops)
 	for loop in loops:
+		#t.parallel().tween_property(mariposa,"skew",deg_to_rad(randfn(-89.9,89.9)),duration)
 		t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
 		t.tween_property(mariposa.textura,"skew",deg_to_rad(randfn(-25,25)),duration)
 	t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
@@ -118,10 +117,6 @@ func aleteo(mariposa:Mariposa,loops) -> void:
 		a.tween_property(mariposa.textura,"scale",Vector2(0.2,1.0),0.2).set_trans(Tween.TRANS_BOUNCE)
 		a.tween_property(mariposa.textura,"scale",Vector2.ONE,0.2).set_trans(Tween.TRANS_BOUNCE)
 		await a.finished
-
-func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
-	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
-	mariposa.global_position = pos_global
 
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))

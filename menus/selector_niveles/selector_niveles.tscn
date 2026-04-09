@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/conenedor_niveles.gd" id="2_0u3hj"]
 [ext_resource type="PackedScene" uid="uid://dy0x6vqctgc40" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
 [ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/imagenes/Libro.png" id="4_vv7ls"]
+[ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/libro.tscn" id="6_5waag"]
+[ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="7_8iduv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
 font_size = 22
@@ -95,19 +97,15 @@ script = ExtResource("2_0u3hj")
 
 [node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1713772014 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-nivel = "res://niveles/niveles/Nivel_1.tscn"
 
 [node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=810888731 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-nivel = "res://niveles/niveles/Nivel_2.tscn"
 
 [node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1553579248 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-nivel = "res://niveles/niveles/Nivel_3.tscn"
 
 [node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=486300447 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-nivel = "res://niveles/niveles/Nivel_4.tscn"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=226791568]
 custom_minimum_size = Vector2(0, 121)
@@ -187,15 +185,6 @@ offset_right = 1023.0
 offset_bottom = 596.0
 text = "Siguiente Zona"
 
-[node name="Libro" type="TextureButton" parent="." unique_id=1403284299]
-layout_mode = 0
-offset_left = 228.00002
-offset_top = 198.0
-offset_right = 345.0
-offset_bottom = 344.0
-scale = Vector2(0.95739967, 0.95739967)
-texture_normal = ExtResource("4_vv7ls")
-
 [node name="AlertaSeleccion" type="ColorRect" parent="." unique_id=1111257493]
 visible = false
 z_index = 2
@@ -216,9 +205,84 @@ text = "Elegi antes un nivel
 para jugar!"
 label_settings = SubResource("LabelSettings_7qhml")
 
+[node name="AlertaBloqueo" type="ColorRect" parent="." unique_id=85788484]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 368.0
+offset_top = 202.0
+offset_right = 857.0
+offset_bottom = 313.0
+color = Color(0.1378803, 0.10476508, 0.0661519, 0.8980392)
+
+[node name="Label" type="Label" parent="AlertaBloqueo" unique_id=1632770046]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 22.0
+offset_right = 241.0
+offset_bottom = 87.0
+text = "El nivel esta bloqueado! Necesitas ganar
+por lo menos una estrella en el anterior
+"
+label_settings = SubResource("LabelSettings_7qhml")
+
 [node name="Timer" type="Timer" parent="." unique_id=894896749]
+
+[node name="Libro" type="TextureButton" parent="." unique_id=1403284299]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 198.0
+offset_right = 345.0
+offset_bottom = 344.0
+scale = Vector2(0.95739967, 0.95739967)
+texture_normal = ExtResource("4_vv7ls")
+
+[node name="Libro2" parent="." unique_id=1233792517 instance=ExtResource("6_5waag")]
+visible = false
+top_level = true
+layout_mode = 1
+
+[node name="botones_debug" type="Control" parent="." unique_id=447192401]
+visible = false
+anchors_preset = 0
+offset_left = -35.0
+offset_top = 17.0
+offset_right = 5.0
+offset_bottom = 57.0
+script = ExtResource("7_8iduv")
+
+[node name="cerrar_juego" type="Button" parent="botones_debug" unique_id=82597333]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 134.0
+offset_right = 236.0
+offset_bottom = 174.0
+text = "Cerrar Juego
+"
+
+[node name="Borrar_base_de_datos" type="Button" parent="botones_debug" unique_id=776222038]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 176.0
+offset_right = 236.0
+offset_bottom = 216.0
+text = "Borrar BD
+"
+
+[node name="Llenar_base_de_datos" type="Button" parent="botones_debug" unique_id=1370610647]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 218.0
+offset_right = 236.0
+offset_bottom = 258.0
+text = "Completar BD
+"
 
 [connection signal="pressed" from="Jugar" to="." method="entrar_al_nivel"]
 [connection signal="pressed" from="Volver" to="." method="vovler_al_menu"]
 [connection signal="pressed" from="CambioZona" to="." method="pasar_de_zona"]
 [connection signal="timeout" from="Timer" to="." method="apagar_aletra"]
+[connection signal="pressed" from="Libro" to="Libro2" method="abrir"]
+[connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
+[connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
+[connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]

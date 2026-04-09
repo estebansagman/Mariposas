@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dlrjna7xvmg4x"]
+
+[ext_resource type="Script" uid="uid://dby8n8r40tmfv" path="res://Libro/libro.gd" id="1_hupbe"]
+[ext_resource type="Texture2D" uid="uid://cidbo86jofgly" path="res://Libro/imagenes/libro-Previo.png" id="1_tcve5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hupbe"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.758193, 0.7581912, 0.7581917, 0.74509805)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Libro" type="Control" unique_id=1233792517]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hupbe")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=99118142]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 0.7607843)
+
+[node name="LibroPrevio" type="Sprite2D" parent="." unique_id=1631108446]
+position = Vector2(574, 327)
+scale = Vector2(0.48788378, 0.48788372)
+texture = ExtResource("1_tcve5")
+
+[node name="Button" type="Button" parent="." unique_id=408669162]
+layout_mode = 0
+offset_left = 1082.0
+offset_top = 526.3158
+offset_right = 1133.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hupbe")
+text = "X"
+
+[connection signal="pressed" from="Button" to="." method="cerrar"]

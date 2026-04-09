@@ -1,9 +1,14 @@
 extends Node2D
 @export var numero_de_nivel:int
+@onready var ui: Control = $UI
+
 
 var estrellas:int
 var puntos_maximos:int
 
+func _ready() -> void:
+	ui.pasar_datos_puntaje(numero_de_nivel)
+	
 func ir_al_siguiente():
 	var numero_actual = name.to_int() 
 	var siguiente_ruta = "res://niveles/niveles/Nivel_" + str(numero_de_nivel + 1) + ".tscn"

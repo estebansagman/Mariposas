@@ -96,10 +96,13 @@ func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 
 func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 	var modelo:Node3D = mariposa.find_child("Mariposa3D",true)
-	var duration:float = 1.0
-	var loops:int = 2
+	var duration:float = 1.0/2
+	var loops:int = 1
 	var t = create_tween()
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
+
+	modelo.global_rotation_degrees = Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45))
+
 	t.set_ease(Tween.EASE_OUT)
 	t.set_trans(Tween.TRANS_BACK)
 	aleteo(mariposa,loops)
@@ -130,6 +133,10 @@ func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
 	mariposa.global_position = pos_global
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 func _obtener_cuadrante(celda:Vector2i) -> Array[Vector2i]:
 	return [celda,
 			Vector2i(celda.x+1,celda.y), 

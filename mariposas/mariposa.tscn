@@ -49,6 +49,7 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
+shading_mode = 0
 albedo_texture = ExtResource("2_jtx6q")
 
 [sub_resource type="Animation" id="Animation_wnh4i"]
@@ -99,6 +100,7 @@ scale = Vector2(0.4, 0.4)
 texture = SubResource("ViewportTexture_jtx6q")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=210393591]
+own_world_3d = true
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1219090436]
@@ -114,14 +116,14 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0.110615805, 0.69840115, 0.110615805, -0.69840115)
+bones/0/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Izquierda"
 bones/1/parent = -1
 bones/1/rest = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0)
 bones/1/enabled = true
 bones/1/position = Vector3(0, 0, 0)
-bones/1/rotation = Quaternion(0.110615805, -0.69840115, -0.110615805, -0.69840115)
+bones/1/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "neutral_bone"
 bones/2/parent = -1
@@ -132,6 +134,7 @@ bones/2/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
 bones/2/scale = Vector3(1, 1, 1)
 
 [node name="Mariposa3D" type="MeshInstance3D" parent="SubViewport/Mariposa3D/Armature/Skeleton3D" unique_id=1969974419]
+unique_name_in_owner = true
 mesh = SubResource("ArrayMesh_d3aql")
 skin = SubResource("Skin_0uusj")
 skeleton = NodePath("..")
@@ -143,6 +146,7 @@ autoplay = &"ArmatureAction"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=622072492]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
+visible = false
 
 [connection signal="mouse_entered" from="Area2D" to="." method="prender_focus"]
 [connection signal="mouse_exited" from="Area2D" to="." method="apagar_focus"]

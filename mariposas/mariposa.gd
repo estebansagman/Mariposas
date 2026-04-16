@@ -7,6 +7,7 @@ signal fuera_de_foco
 
 @export var datos:RecursoMariposa
 @onready var textura: Sprite2D = $Textura
+@onready var mariposa_3d: MeshInstance3D = %Mariposa3D
 var id_mariposa = 0
 var estructura:Array[Vector2i] = [Vector2i(0,0),Vector2i(1,0),Vector2i(0,1),Vector2i(1,1)]
 var posicion_jardin:Array[Vector2i]
@@ -24,7 +25,12 @@ func get_requisitos()->Array[Dios.Especie]: return datos.requisitos
 func get_estructura()->Array[Vector2i]: return estructura
 
 func set_id_mariposa(valor:int): id_mariposa = valor
-func poner_textura(): if datos: textura.texture = datos.textura
+func poner_textura():
+	var new_mat = mariposa_3d.get_surface_override_material(0).duplicate()
+	if datos:
+		textura.texture = datos.textura
+		new_mat.set("albedo_texture",datos.textura)
+		mariposa_3d.set_surface_override_material(0,new_mat)
 
 func confirmar_requerimientos(casillas:Array[Dios.Especie])->bool: #hay que pasar las casillas masticadas
 	requisitos_correctos = true

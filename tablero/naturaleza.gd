@@ -133,10 +133,7 @@ func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
 	mariposa.global_position = pos_global
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 func _obtener_cuadrante(celda:Vector2i) -> Array[Vector2i]:
 	return [celda,
 			Vector2i(celda.x+1,celda.y), 

@@ -108,6 +108,7 @@ func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 		#t.parallel().tween_property(mariposa,"skew",deg_to_rad(randfn(-89.9,89.9)),duration)
 		t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
 		t.tween_property(mariposa.textura,"skew",deg_to_rad(randfn(-25,25)),duration)
+		
 	t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
 	t.tween_property(mariposa.textura,"skew",0,duration)
 

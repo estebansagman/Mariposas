@@ -16,11 +16,13 @@ layout_mode = 2
 texture = ExtResource("2_uuqy4")
 
 [node name="Estrella2" type="TextureRect" parent="." unique_id=1419932942]
+visible = false
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 texture = ExtResource("2_uuqy4")
 
 [node name="Estrella3" type="TextureRect" parent="." unique_id=1436537777]
+visible = false
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 2
 texture = ExtResource("2_uuqy4")

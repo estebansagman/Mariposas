@@ -1,9 +1,9 @@
 extends Node2D
 class_name Naturaleza
-signal sumar_puntos(valor)
+signal mariposa_cambio(valor)
 
 @onready var mariposa_escena = preload("uid://dprfbi2712evq")
-@export var mariposas:Array[RecursoMariposa]
+
 @export var jardin: Node2D
 @export var jardinero:ControlTablero
 
@@ -13,10 +13,12 @@ signal sumar_puntos(valor)
 @onready var capa_plantas: TileMapLayer = $"../capa_plantas"
 @onready var capa_mariposas: TileMapLayer = $"../capa_mariposas"
 
-func _ready() -> void:
-	generar_mariposas()
+var mariposas:Array[RecursoMariposa]
+#func _ready() -> void:
+	#generar_mariposas()
 
-func generar_mariposas():
+func generar_mariposas(datos:Array[RecursoMariposa]):
+	mariposas = datos.duplicate()
 	print("generando")
 	for mariposa in mariposas:
 		var mariposa_objeto:Mariposa = mariposa_escena.instantiate()
@@ -39,11 +41,13 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 			for parcela in mariposa.posicion_jardin:
 				tablero.sacar_mariposa(parcela)	
 			mariposas_en_juego.erase(mariposa)
-			emit_signal("sumar_puntos",-mariposa.datos.puntos_que_suma)
+			emit_signal("mariposa_cambio",-mariposa.datos.puntos_que_suma)
 			if mariposa.get_parent():
 				mariposa.get_parent().remove_child(mariposa)
 		print(mariposas_en_juego)
+
 		
+	
 	for parcela in tablero.celdas:
 		var v1 = parcela + Vector2i(1, 0)
 		var v2 = parcela + Vector2i(0, 1)
@@ -86,7 +90,7 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 					tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
 
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
-	emit_signal("sumar_puntos",mariposa.datos.puntos_que_suma)
+	emit_signal("mariposa_cambio",mariposa.datos.puntos_que_suma)
 	mariposa.scale = Vector2.ONE
 	if mariposa.get_parent() == null:
 		jardin.add_child(mariposa)
@@ -105,34 +109,32 @@ func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 
 	t.set_ease(Tween.EASE_OUT)
 	t.set_trans(Tween.TRANS_BACK)
-	aleteo(mariposa,loops)
+	#aleteo(mariposa,loops)
 	modelo.find_child("AnimationPlayer",true).play()
 	for loop in loops:
 		#t.parallel().tween_property(mariposa,"skew",deg_to_rad(randfn(-89.9,89.9)),duration)
 		t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
-		t.tween_property(mariposa.textura,"skew",deg_to_rad(randfn(-25,25)),duration)
-		
+		t.tween_interval(duration)
 		#t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-45,45),randf_range(-180,180),randf_range(-90,90)),duration)
 		t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45)),duration)
 	
 	t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
-	t.tween_property(mariposa.textura,"skew",0,duration)
+	t.tween_interval(duration)
 	
 	t.tween_property(modelo,"global_rotation_degrees",Vector3.ZERO,duration)
 	await t.finished
 	modelo.find_child("AnimationPlayer",true).stop()
 
-func aleteo(mariposa:Mariposa,loops) -> void:
-	for loop in loops*4:
-		var a = create_tween()
-		a.tween_property(mariposa.textura,"scale",Vector2(0.2,1.0),0.2).set_trans(Tween.TRANS_BOUNCE)
-		a.tween_property(mariposa.textura,"scale",Vector2.ONE,0.2).set_trans(Tween.TRANS_BOUNCE)
-		await a.finished
+#func aleteo(mariposa:Mariposa,loops) -> void:
+	#for loop in loops*4:
+		#var a = create_tween()
+		#a.tween_property(mariposa.textura,"scale",Vector2(0.2,1.0),0.2).set_trans(Tween.TRANS_BOUNCE)
+		#a.tween_property(mariposa.textura,"scale",Vector2.ONE,0.2).set_trans(Tween.TRANS_BOUNCE)
+		#await a.finished
 
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
 	mariposa.global_position = pos_global
-
 
 func _obtener_cuadrante(celda:Vector2i) -> Array[Vector2i]:
 	return [celda,

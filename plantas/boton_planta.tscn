@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ditlo36hekgcp"]
 
+[ext_resource type="Texture2D" uid="uid://2n64fu25fpp8" path="res://UI/imagenes/requisitos.png" id="2_d3utw"]
 [ext_resource type="Script" uid="uid://cik88w1gud3f7" path="res://plantas/boton_planta.gd" id="2_oktc1"]
-[ext_resource type="Texture2D" uid="uid://b8mr0xfubho1c" path="res://plantas/imagenes/pasto_Página 12.png" id="2_x72kj"]
+[ext_resource type="FontFile" uid="uid://cmh3bcgsqjr82" path="res://UI/Vogue.ttf" id="3_71i50"]
 
 [sub_resource type="Gradient" id="Gradient_emdks"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
@@ -11,6 +12,11 @@ gradient = SubResource("Gradient_emdks")
 width = 128
 height = 68
 
+[sub_resource type="FontVariation" id="FontVariation_b6te3"]
+base_font = ExtResource("3_71i50")
+spacing_glyph = -1
+spacing_top = 4
+
 [node name="BotonPlanta" type="TextureButton" unique_id=52720832]
 offset_right = 129.0
 offset_bottom = 68.0
@@ -19,12 +25,25 @@ script = ExtResource("2_oktc1")
 
 [node name="Dibujo" type="Node2D" parent="." unique_id=346366893]
 
-[node name="etiqueta" type="Sprite2D" parent="." unique_id=83422307]
+[node name="etiqueta_hover" type="NinePatchRect" parent="." unique_id=466727700]
 visible = false
-modulate = Color(1, 1, 1, 0.7019608)
-position = Vector2(68, 32)
-scale = Vector2(0.96739125, 0.9673913)
-texture = ExtResource("2_x72kj")
+layout_mode = 0
+offset_top = 10.0
+offset_right = 159.30997
+offset_bottom = 54.0
+texture = ExtResource("2_d3utw")
+patch_margin_left = 48
+
+[node name="Label" type="Label" parent="etiqueta_hover" unique_id=1651271119]
+layout_mode = 0
+offset_top = 7.5000005
+offset_right = 154.37502
+offset_bottom = 28.648003
+scale = Vector2(1, 1.3021152)
+theme_override_colors/font_color = Color(0.34967804, 0.24857557, 0.23909146, 1)
+theme_override_fonts/font = SubResource("FontVariation_b6te3")
+theme_override_font_sizes/font_size = 22
+text = "       CHILCA DE OLOR"
 
 [connection signal="button_down" from="." to="." method="_al_presionar"]
 [connection signal="mouse_entered" from="." to="." method="mostrar_requisitos"]

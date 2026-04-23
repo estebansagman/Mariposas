@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bv53f3ebg1dt3" path="res://plantas/planta.gd" id="1_vu1iw"]
 
 [node name="Planta" type="Node2D" unique_id=194299512]
+z_index = 3
 script = ExtResource("1_vu1iw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1347840405]

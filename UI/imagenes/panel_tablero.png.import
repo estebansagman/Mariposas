@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wtdsn1dumfmw"
-path="res://.godot/imported/inicio.png-712abb37e7dd60d10df51640b87c5492.ctex"
+uid="uid://d3v6j5taykus8"
+path="res://.godot/imported/panel_tablero.png-96ea65b39337fe69938926ca4153146f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/menu_inicio/inicio.png"
-dest_files=["res://.godot/imported/inicio.png-712abb37e7dd60d10df51640b87c5492.ctex"]
+source_file="res://UI/imagenes/panel_tablero.png"
+dest_files=["res://.godot/imported/panel_tablero.png-96ea65b39337fe69938926ca4153146f.ctex"]
 
 [params]
 

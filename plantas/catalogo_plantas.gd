@@ -1,16 +1,18 @@
 extends Control
+class_name  CatalogoPlantas
 
 const BOTON_PLANTA = preload("uid://ditlo36hekgcp")
-@export var plantas:Array[RecursoPlanta]
-@export var control_tablero:ControlTablero
+var plantas:Array[RecursoPlanta]
 @onready var contenedor_plantas: VBoxContainer = $ScrollContainer/ContenedorPlantas
 @onready var barra: VScrollBar = $VScrollBar
 @onready var scroll: ScrollContainer = $ScrollContainer
 
-@onready var origen_plantas: Node2D = $"../Jardin/origen_plantas"
+var jardin: Jardin
 var barra_interna:VScrollBar
 
-func _ready():
+func iniciar_catalogo(datos:Array[RecursoPlanta],dato_jardin:Jardin):
+	plantas = datos.duplicate()
+	jardin = dato_jardin
 	_crear_catalogo()
 	await get_tree().process_frame
 	_sincronizar_barras()
@@ -20,7 +22,7 @@ func _crear_catalogo():
 		for planta in plantas:
 			var nuevo_boton_planta: BotonPlanta = BOTON_PLANTA.instantiate()
 			nuevo_boton_planta.recurso = planta
-			nuevo_boton_planta.pedido_de_planta.connect(origen_plantas._on_pedido_de_planta)
+			nuevo_boton_planta.pedido_de_planta.connect(jardin.origen_plantas.crear_planta)
 			contenedor_plantas.add_child(nuevo_boton_planta)
 
 func _sincronizar_barras():

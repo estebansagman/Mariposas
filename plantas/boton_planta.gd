@@ -3,11 +3,14 @@ class_name BotonPlanta
 signal pedido_de_planta(recurso_planta, emisor)
 
 @onready var dibujo: Node2D = $Dibujo
-@onready var etiqueta: Sprite2D = $etiqueta
+@onready var imagen_etiqueta: NinePatchRect = $etiqueta_hover
+@onready var etiqueta: Label = $etiqueta_hover/Label
 @export var recurso: RecursoPlanta
 
 func _ready() -> void:
-	etiqueta.texture = recurso.textura_descripcion
+	etiqueta.text = "       " + recurso.nombre_planta
+	var ancho_texto = etiqueta.get_combined_minimum_size().x
+	imagen_etiqueta.size.x = ancho_texto + 10
 	estructurar_planta()
 
 func _al_presionar():
@@ -30,6 +33,6 @@ func redimensionar_icono_boton():
 	dibujo.position += Vector2(16,16)
 	dibujo.scale /= (tamano_maximo + 1.0)
 
-func mostrar_requisitos(): etiqueta.show()
-func ocultar_requisitos(): etiqueta.hide()
+func mostrar_requisitos(): imagen_etiqueta.show()
+func ocultar_requisitos(): imagen_etiqueta.hide()
 func mostrar_imagen(): show()

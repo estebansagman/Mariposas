@@ -1,31 +1,38 @@
 [gd_scene format=3 uid="uid://rdqgx8jdlho8"]
 
 [ext_resource type="Script" uid="uid://cyowsn0q1rggh" path="res://mariposas/catalogo_mariposas.gd" id="1_u06rw"]
+[ext_resource type="Texture2D" uid="uid://ckblokmsc8oe2" path="res://UI/imagenes/panel_mariposa.png" id="2_50ugu"]
+[ext_resource type="Texture2D" uid="uid://b68glpqbyqk84" path="res://UI/imagenes/cartelito_violeta.png" id="3_6h2v2"]
+[ext_resource type="FontFile" uid="uid://gd1aif58t3m" path="res://UI/Retrofia.ttf" id="4_50ugu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6alnp"]
+[sub_resource type="FontVariation" id="FontVariation_l4wuf"]
+base_font = ExtResource("4_50ugu")
+spacing_glyph = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gqjv"]
 content_margin_left = 4.0
 content_margin_bottom = 23.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl5c7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stnso"]
 content_margin_left = 4.0
 content_margin_top = 0.0
 content_margin_right = 4.0
 content_margin_bottom = 0.0
-bg_color = Color(0.5137255, 0.4627451, 0.40392157, 1)
+bg_color = Color(0.9411765, 0.8862745, 0.8352941, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yee2u"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw5kc"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.94509804, 0.8784314, 0.8117647, 1)
+bg_color = Color(0.5067265, 0.34027696, 0.32114252, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -39,29 +46,66 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_u06rw")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=182053153]
+[node name="CatalogoMariposas" type="NinePatchRect" parent="." unique_id=415712568]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 70.0
-offset_right = 264.0
-offset_bottom = 472.30176
+offset_left = 24.0
+offset_top = 26.0
+offset_right = 304.0
+offset_bottom = 666.0
+texture = ExtResource("2_50ugu")
+region_rect = Rect2(0, -0.26047707, 279.14575, 641.2605)
+patch_margin_left = 60
+patch_margin_top = 248
+patch_margin_right = 121
+patch_margin_bottom = 124
+
+[node name="Cartel2" type="NinePatchRect" parent="." unique_id=1482117644]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 4.0
+offset_right = 282.0
+offset_bottom = 54.0
+texture = ExtResource("3_6h2v2")
+patch_margin_left = 150
+patch_margin_top = 38
+patch_margin_right = 45
+patch_margin_bottom = 12
+
+[node name="Mariposas" type="Label" parent="Cartel2" unique_id=1256551020]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 9.0
+offset_right = 192.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.30132023, 0.1976862, 0.17779908, 1)
+theme_override_fonts/font = SubResource("FontVariation_l4wuf")
+theme_override_font_sizes/font_size = 29
+text = "MARIPOSAS"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1039341909]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 69.0
+offset_right = 318.60287
+offset_bottom = 782.1143
 scale = Vector2(0.7979085, 0.7979085)
-theme_override_styles/panel = SubResource("StyleBoxFlat_6alnp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8gqjv")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="ContenedorMariposas" type="VBoxContainer" parent="ScrollContainer" unique_id=979254701]
+[node name="ContenedorMariposas" type="VBoxContainer" parent="ScrollContainer" unique_id=1219119869]
 layout_mode = 2
 
-[node name="VScrollBar" type="VScrollBar" parent="." unique_id=1510547184]
+[node name="VScrollBar" type="VScrollBar" parent="." unique_id=2008220056]
 layout_mode = 0
-offset_left = 262.0
-offset_top = 55.0
-offset_right = 278.0
-offset_bottom = 372.0
-theme_override_styles/scroll = SubResource("StyleBoxFlat_yl5c7")
-theme_override_styles/grabber = SubResource("StyleBoxFlat_yee2u")
+offset_left = 32.0
+offset_top = 78.0
+offset_right = 53.0
+offset_bottom = 493.3482
+scale = Vector2(1.1200048, 1.28)
+theme_override_styles/scroll = SubResource("StyleBoxFlat_stnso")
+theme_override_styles/grabber = SubResource("StyleBoxFlat_aw5kc")
 theme_override_constants/padding_left = 2
 theme_override_constants/padding_right = 2
-page = 26.785
-value = 72.955
+
+[connection signal="value_changed" from="VScrollBar" to="." method="_barra_movida"]

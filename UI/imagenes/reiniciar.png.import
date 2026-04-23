@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgn8kr6ncmet3"
-path="res://.godot/imported/boton_vacio.png-2d6081c1862cd36a2908ec7ada6ba29e.ctex"
+uid="uid://bm3cyhiclblja"
+path="res://.godot/imported/reiniciar.png-f51419de2226bd9060977d5dedda6fdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/selector_niveles/boton_vacio.png"
-dest_files=["res://.godot/imported/boton_vacio.png-2d6081c1862cd36a2908ec7ada6ba29e.ctex"]
+source_file="res://UI/imagenes/reiniciar.png"
+dest_files=["res://.godot/imported/reiniciar.png-f51419de2226bd9060977d5dedda6fdb.ctex"]
 
 [params]
 

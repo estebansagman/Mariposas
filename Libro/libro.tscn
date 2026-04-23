@@ -27,21 +27,23 @@ script = ExtResource("1_hupbe")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=99118142]
 layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 653.0
+offset_left = 423.0
+offset_top = 210.0
+offset_right = 1577.0
+offset_bottom = 863.0
 color = Color(0, 0, 0, 0.7607843)
 
 [node name="LibroPrevio" type="Sprite2D" parent="." unique_id=1631108446]
-position = Vector2(574, 327)
+position = Vector2(997, 537)
 scale = Vector2(0.48788378, 0.48788372)
 texture = ExtResource("1_tcve5")
 
 [node name="Button" type="Button" parent="." unique_id=408669162]
 layout_mode = 0
-offset_left = 1082.0
-offset_top = 526.3158
-offset_right = 1133.0
-offset_bottom = 580.0
+offset_left = 1505.0
+offset_top = 736.3158
+offset_right = 1556.0
+offset_bottom = 790.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hupbe")
 text = "X"

@@ -7,19 +7,21 @@ var nivel_seleccionado = false
 
 @onready var timer: Timer = $Timer
 var indice:int
+var sector_actual: int 
 
-func seleccionar_nivel(nivel,indice_b):
+func seleccionar_nivel(nivel, indice_b, sector_b):
 	nivel_seleccionado = true
 	indice = indice_b
+	sector_actual = sector_b
 	nivel_elegido = nivel
-	
+	entrar_al_nivel()
 	
 func entrar_al_nivel():
-
-	if not Dios.esta_desbloqueado(indice):
+	if not Dios.esta_desbloqueado(sector_actual, indice):
 		timer.start()
 		alerta_bloqueo.show()
 		return
+		
 	if nivel_seleccionado:
 		get_tree().change_scene_to_file(nivel_elegido)
 	else: 

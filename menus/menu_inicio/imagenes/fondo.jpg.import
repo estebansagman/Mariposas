@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvkl1wfrp77c4"
-path="res://.godot/imported/textura_bandera_argentina.png-7c84887895edee42fed32dfb82a07110.ctex"
+uid="uid://bdav7tvt0xkyn"
+path="res://.godot/imported/fondo.jpg-4c4bcb280654853fa3cd8ed84b16e1f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/menu_inicio/textura_bandera_argentina.png"
-dest_files=["res://.godot/imported/textura_bandera_argentina.png-7c84887895edee42fed32dfb82a07110.ctex"]
+source_file="res://menus/menu_inicio/imagenes/fondo.jpg"
+dest_files=["res://.godot/imported/fondo.jpg-4c4bcb280654853fa3cd8ed84b16e1f5.ctex"]
 
 [params]
 

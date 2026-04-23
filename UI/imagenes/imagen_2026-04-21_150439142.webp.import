@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtqix0au0n3cd"
-path="res://.godot/imported/textura_espejito.png-dd60f4df2122434b1d85b2c0b4576b55.ctex"
+uid="uid://dlg1122esj0p7"
+path="res://.godot/imported/imagen_2026-04-21_150439142.webp-06f5d9f7d3cbbb351baf9178849c0796.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/selector_niveles/textura_espejito.png"
-dest_files=["res://.godot/imported/textura_espejito.png-dd60f4df2122434b1d85b2c0b4576b55.ctex"]
+source_file="res://UI/imagenes/imagen_2026-04-21_150439142.webp"
+dest_files=["res://.godot/imported/imagen_2026-04-21_150439142.webp-06f5d9f7d3cbbb351baf9178849c0796.ctex"]
 
 [params]
 

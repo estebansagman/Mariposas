@@ -3,14 +3,26 @@
 [ext_resource type="Script" uid="uid://op54laguldw1" path="res://UI/ui.gd" id="1_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://baaps02f1r0gy" path="res://propuesta.png" id="1_vkygq"]
 [ext_resource type="Texture2D" uid="uid://bkppre7ykdup8" path="res://UI/imagenes/tituloTablero.png" id="2_gs482"]
-[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="3_etlur"]
+[ext_resource type="Texture2D" uid="uid://chotioxj4lmt8" path="res://UI/imagenes/edicion_de_las_cosas.jpg" id="3_o2jkc"]
+[ext_resource type="Texture2D" uid="uid://dlg1122esj0p7" path="res://UI/imagenes/imagen_2026-04-21_150439142.webp" id="4_0tr35"]
 [ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="6_4fiuh"]
 [ext_resource type="StyleBox" uid="uid://cveoktggvpxxe" path="res://UI/panel_base.tres" id="7_c7tqi"]
 [ext_resource type="StyleBox" uid="uid://n4k5e8kt1kme" path="res://UI/panel_externo.tres" id="8_cbfhl"]
 [ext_resource type="StyleBox" uid="uid://boy2pj451dx85" path="res://menus/menu_inicio/pseudo_boton.tres" id="9_4fiuh"]
 [ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="10_6rr40"]
 [ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/libro.tscn" id="10_h81ot"]
-[ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/imagenes/Libro.png" id="15_7rqds"]
+[ext_resource type="Texture2D" uid="uid://b21hemx6j1rqs" path="res://UI/imagenes/posibilidad.jpg" id="12_2qbci"]
+[ext_resource type="Texture2D" uid="uid://bm3cyhiclblja" path="res://UI/imagenes/reiniciar.png" id="13_o2t6a"]
+[ext_resource type="Texture2D" uid="uid://d3v6j5taykus8" path="res://UI/imagenes/panel_tablero.png" id="13_ow1yt"]
+[ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="14_8gukh"]
+[ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="15_8gkfd"]
+[ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas_vis.tscn" id="16_o2t6a"]
+[ext_resource type="PackedScene" uid="uid://rdqgx8jdlho8" path="res://mariposas/catalogo_mariposas.tscn" id="17_8gukh"]
+[ext_resource type="Texture2D" uid="uid://d2o558e41o3mg" path="res://UI/imagenes/opciones.png" id="18_8gkfd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbfhl"]
+font_size = 29
+font_color = Color(0.23471054, 0.14083576, 0.0707132, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h81ot"]
 content_margin_left = 4.0
@@ -23,15 +35,6 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_cbfhl"]
-font_size = 29
-font_color = Color(0.23471054, 0.14083576, 0.0707132, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4fiuh"]
-line_spacing = -1.43
-font_size = 14
-font_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h81ot"]
 font_size = 22
@@ -52,13 +55,32 @@ tres_estrellas = 9.0
 se_gana = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=917919259]
+visible = false
 layout_mode = 0
 offset_right = 1151.9806
 offset_bottom = 648.0
 mouse_filter = 2
 texture = ExtResource("1_vkygq")
 
+[node name="Fondo" type="TextureRect" parent="." unique_id=159987918]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("3_o2jkc")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=520144638]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 847.0
+offset_right = 401.0
+offset_bottom = 1070.0
+mouse_filter = 2
+texture = ExtResource("4_0tr35")
+expand_mode = 1
+
 [node name="PanelDerecho" type="ColorRect" parent="." unique_id=564238845]
+visible = false
 layout_mode = 0
 offset_left = 879.0
 offset_right = 1151.0
@@ -67,6 +89,7 @@ mouse_filter = 2
 color = Color(0.94509804, 0.8784314, 0.8117647, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1120866490]
+visible = false
 anchors_preset = 0
 offset_right = 879.5019
 offset_bottom = 494.71982
@@ -123,6 +146,7 @@ mouse_filter = 2
 color = Color(0.94509804, 0.8784314, 0.8117647, 1)
 
 [node name="Titulo" type="TextureRect" parent="." unique_id=456660540]
+visible = false
 layout_mode = 0
 offset_left = 345.99997
 offset_top = 15.999998
@@ -132,75 +156,23 @@ scale = Vector2(0.7898677, 0.7898677)
 mouse_filter = 2
 texture = ExtResource("2_gs482")
 
-[node name="Puntaje_vis" type="VBoxContainer" parent="." unique_id=1201154950]
-visible = false
-layout_mode = 0
-offset_left = 81.0
-offset_top = 105.0
-offset_right = 120.0
-offset_bottom = 230.0
-scale = Vector2(2.1877604, 2.1877604)
-mouse_filter = 2
-
-[node name="Estrella" type="TextureRect" parent="Puntaje_vis" unique_id=361092877]
-layout_mode = 2
-texture = ExtResource("3_etlur")
-
-[node name="Estrella2" type="TextureRect" parent="Puntaje_vis" unique_id=9614109]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 2
-texture = ExtResource("3_etlur")
-
-[node name="Estrella3" type="TextureRect" parent="Puntaje_vis" unique_id=703939541]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-layout_mode = 2
-texture = ExtResource("3_etlur")
-
-[node name="TextureButton" type="TextureButton" parent="." unique_id=740019099]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 342.00003
-offset_right = 180.0
-offset_bottom = 488.00003
-scale = Vector2(1.1489059, 1.1489059)
-texture_normal = ExtResource("15_7rqds")
-
 [node name="Puntaje" parent="." unique_id=342144844 instance=ExtResource("6_4fiuh")]
+visible = false
 layout_mode = 0
 offset_left = 519.00006
 offset_top = 13.0
 offset_right = 661.00006
 offset_bottom = 53.0
 
-[node name="SiguienteNivel" type="Button" parent="." unique_id=1108167836]
-layout_mode = 0
-offset_left = 559.0
-offset_top = 587.0
-offset_right = 610.0
-offset_bottom = 636.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_h81ot")
-theme_override_styles/pressed = ExtResource("9_4fiuh")
-theme_override_styles/hover = ExtResource("9_4fiuh")
-
-[node name="Reiniciar" type="Button" parent="." unique_id=2091346348]
-layout_mode = 0
-offset_left = 637.0
-offset_top = 587.0
-offset_right = 688.0
-offset_bottom = 636.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_h81ot")
-theme_override_styles/pressed = ExtResource("9_4fiuh")
-theme_override_styles/hover = ExtResource("9_4fiuh")
-
 [node name="Cartel_final" type="Panel" parent="." unique_id=1463878455]
 visible = false
 top_level = true
 z_index = 5
 layout_mode = 0
-offset_left = 344.0
-offset_top = 165.0
-offset_right = 822.0
-offset_bottom = 464.0
+offset_left = 728.0
+offset_top = 450.0
+offset_right = 1206.0
+offset_bottom = 612.0
 theme_override_styles/panel = ExtResource("7_c7tqi")
 
 [node name="fondo" type="Panel" parent="Cartel_final" unique_id=458473927]
@@ -208,7 +180,7 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
 offset_right = 473.0
-offset_bottom = 294.0
+offset_bottom = 154.0
 theme_override_styles/panel = ExtResource("8_cbfhl")
 
 [node name="texto_ganado" type="Label" parent="Cartel_final" unique_id=813489453]
@@ -219,43 +191,6 @@ offset_right = 429.0
 offset_bottom = 97.0
 text = "¡COMPLETASTE EL DESAFÍO!"
 label_settings = SubResource("LabelSettings_cbfhl")
-
-[node name="aviso" type="Label" parent="Cartel_final" unique_id=27589713]
-layout_mode = 0
-offset_left = 61.0
-offset_top = 233.0
-offset_right = 419.0
-offset_bottom = 273.0
-text = "No te preocupes por las estrellas, tu progreso queda 
-guardado."
-label_settings = SubResource("LabelSettings_4fiuh")
-
-[node name="ir_al_menu" type="Button" parent="Cartel_final" unique_id=437014028]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 139.0
-offset_right = 172.0
-offset_bottom = 199.0
-text = "Volver al 
-menu \"niveles\""
-
-[node name="quedarse" type="Button" parent="Cartel_final" unique_id=912527132]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 139.0
-offset_right = 307.0
-offset_bottom = 199.0
-text = "seguir para
-sumar puntos"
-
-[node name="siguiente_nivel" type="Button" parent="Cartel_final" unique_id=1788684407]
-layout_mode = 0
-offset_left = 311.0
-offset_top = 139.0
-offset_right = 442.0
-offset_bottom = 199.0
-text = "Pasar al
-siguiente"
 
 [node name="Menu" type="Button" parent="." unique_id=1097707424]
 layout_mode = 0
@@ -293,6 +228,7 @@ wait_time = 2.0
 
 [node name="botones_debug" type="Control" parent="." unique_id=404584352]
 visible = false
+z_index = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -346,13 +282,76 @@ visible = false
 layout_mode = 1
 offset_bottom = 6.0
 
-[connection signal="pressed" from="TextureButton" to="Libro" method="abrir"]
+[node name="Posibilidad" type="Sprite2D" parent="." unique_id=425690529]
+visible = false
+position = Vector2(959.9999, 539.99994)
+texture = ExtResource("12_2qbci")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1153045815]
+z_index = 2
+layout_mode = 0
+offset_left = 525.0
+offset_top = 17.0
+offset_right = 1403.0
+offset_bottom = 1059.0
+texture = ExtResource("13_ow1yt")
+draw_center = false
+region_rect = Rect2(0, 0, 882, 1045)
+patch_margin_left = 448
+patch_margin_top = 112
+patch_margin_right = 52
+patch_margin_bottom = 209
+
+[node name="Reiniciar2" type="TextureButton" parent="." unique_id=294191019]
+z_index = 3
+layout_mode = 0
+offset_left = 808.00006
+offset_top = 904.0
+offset_right = 919.00006
+offset_bottom = 1011.0
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("13_o2t6a")
+
+[node name="LibroBoton" type="TextureButton" parent="." unique_id=1123885105]
+z_index = 3
+layout_mode = 0
+offset_left = 216.00006
+offset_top = 890.0
+offset_right = 327.00006
+offset_bottom = 1012.0
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("14_8gukh")
+
+[node name="Niveles" type="TextureButton" parent="." unique_id=188265024]
+z_index = 3
+layout_mode = 0
+offset_left = 992.0
+offset_top = 903.0
+offset_right = 1102.0
+offset_bottom = 1010.0
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("15_8gkfd")
+
+[node name="CatalogoPlantas" parent="." unique_id=504493720 instance=ExtResource("16_o2t6a")]
+layout_mode = 0
+offset_left = 1486.9999
+offset_top = 172.0
+offset_right = 1526.9999
+offset_bottom = 212.0
+scale = Vector2(0.9997704, 0.9997704)
+
+[node name="CatalogoMariposas" parent="." unique_id=315374349 instance=ExtResource("17_8gukh")]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 170.0
+offset_right = 158.0
+offset_bottom = 210.0
+
+[node name="Opciones" type="Sprite2D" parent="." unique_id=569961319]
+position = Vector2(55, 49)
+texture = ExtResource("18_8gkfd")
+
 [connection signal="puntaje_alcansado" from="Puntaje" to="." method="superar_nivel"]
-[connection signal="pressed" from="SiguienteNivel" to="." method="pasar_al_siguiente_nivel"]
-[connection signal="pressed" from="Reiniciar" to="." method="reiniciar_nivel"]
-[connection signal="pressed" from="Cartel_final/ir_al_menu" to="." method="volver_al_menu"]
-[connection signal="pressed" from="Cartel_final/quedarse" to="." method="quedarme_aca"]
-[connection signal="pressed" from="Cartel_final/siguiente_nivel" to="." method="pasar_al_siguiente_nivel"]
 [connection signal="pressed" from="Menu" to="." method="volver_al_menu"]
 [connection signal="timeout" from="Timer" to="." method="apagar_alerta_de_seleccion"]
 [connection signal="pressed" from="botones_debug/restar_puntos" to="." method="recalcular_puntaje" binds= [-5]]
@@ -360,3 +359,6 @@ offset_bottom = 6.0
 [connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]
+[connection signal="pressed" from="Reiniciar2" to="." method="reiniciar_nivel"]
+[connection signal="pressed" from="LibroBoton" to="Libro" method="abrir"]
+[connection signal="pressed" from="Niveles" to="." method="volver_al_menu"]

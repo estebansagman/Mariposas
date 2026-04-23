@@ -9,13 +9,14 @@ class_name EditorNiveles
 			actualizar_tablero_visual()
 @export var limpiar:bool = false
 @export var tablero: TileMapLayer
-@export var jardin: Node2D
+@export var jardin: Jardin
 @export var jardinero: ControlTablero
 
 
 func actualizar_tablero_visual():
 	print("Redibujando tablero de ", columnas, " columnas")
 	jardin.scale = Vector2(1/float(columnas),1/float(columnas))
+	jardin.columnas = columnas
 	#jardinero.columnas = columnas
 	if limpiar:
 		tablero.clear()

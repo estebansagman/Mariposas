@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://b1rexyawwl853"]
 
 [ext_resource type="Script" uid="uid://cf6ongvo4lixq" path="res://menus/selector_niveles/selector_niveles.gd" id="1_7qhml"]
-[ext_resource type="Texture2D" uid="uid://bdav7tvt0xkyn" path="res://menus/menu_inicio/fondo.jpg" id="1_huye7"]
-[ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/conenedor_niveles.gd" id="2_0u3hj"]
+[ext_resource type="Texture2D" uid="uid://bdav7tvt0xkyn" path="res://menus/menu_inicio/imagenes/fondo.jpg" id="1_huye7"]
+[ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/imagenes/conenedor_niveles.gd" id="2_0u3hj"]
 [ext_resource type="PackedScene" uid="uid://dy0x6vqctgc40" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
-[ext_resource type="Texture2D" uid="uid://de0clugu0exch" path="res://UI/imagenes/Libro.png" id="4_vv7ls"]
+[ext_resource type="Script" uid="uid://7x06yrrbdw1h" path="res://menus/selector_niveles/contenedor_niveles.gd" id="3_qelex"]
+[ext_resource type="PackedScene" uid="uid://cwtx3es3unfng" path="res://menus/selector_niveles/contenedor_niveles.tscn" id="4_h5bte"]
+[ext_resource type="PackedScene" uid="uid://cll7q0mxcudtg" path="res://menus/selector_niveles/separador_sectores.tscn" id="5_aqnnm"]
 [ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/libro.tscn" id="6_5waag"]
+[ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="6_cnoui"]
 [ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="7_8iduv"]
+[ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="7_aqnnm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
 font_size = 22
@@ -22,10 +26,9 @@ script = ExtResource("1_7qhml")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=206460727]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -43.0
-offset_right = 1155.0
-offset_bottom = 676.99646
+offset_top = -1.0
+offset_right = 1927.0
+offset_bottom = 1090.0
 texture = ExtResource("1_huye7")
 expand_mode = 2
 flip_h = true
@@ -35,155 +38,118 @@ flip_v = true
 layout_mode = 0
 offset_left = -7.0
 offset_top = -3.0
-offset_right = 1154.0
-offset_bottom = 649.0
+offset_right = 1940.0
+offset_bottom = 1103.0
 mouse_filter = 2
 color = Color(0.30588236, 0.24705882, 0.18431373, 0.61960787)
 
-[node name="BanerPanel" type="ColorRect" parent="." unique_id=1650795728]
-z_index = 1
+[node name="FondoPanel" type="ColorRect" parent="." unique_id=43658488]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 27.0
-offset_right = 1069.0
-offset_bottom = 126.0
+offset_left = 167.0
+offset_top = 36.0
+offset_right = 1748.0
+offset_bottom = 1060.0
 mouse_filter = 2
-color = Color(0.898343, 0.78288805, 0.6657023, 1)
-
-[node name="FondoPanel" type="ColorRect" parent="BanerPanel" unique_id=43658488]
-z_index = -1
-layout_mode = 0
-offset_top = 90.0
-offset_right = 978.0
-offset_bottom = 593.0
-mouse_filter = 2
-color = Color(0.94509804, 0.8784314, 0.8117647, 1)
-
-[node name="Label" type="Label" parent="BanerPanel" unique_id=1847416716]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 34.0
-offset_right = 192.0
-offset_bottom = 57.0
-theme_override_colors/font_color = Color(0.29406247, 0.2708687, 0.2341671, 1)
-text = "Niveles"
-
-[node name="Label" type="Label" parent="BanerPanel/Label" unique_id=1307590659]
-layout_mode = 0
-offset_left = 353.0
-offset_top = 75.0
-offset_right = 500.0
-offset_bottom = 98.0
-theme_override_colors/font_color = Color(0.29406247, 0.2708687, 0.2341671, 1)
-text = "Zona 1"
+color = Color(0.5413285, 0.5983471, 0.60438377, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=476540580]
 custom_minimum_size = Vector2(9.86, 0)
 layout_mode = 0
-offset_left = 478.0
-offset_top = 165.0
-offset_right = 1046.0
-offset_bottom = 542.0
+offset_left = 544.0
+offset_top = 122.0
+offset_right = 1345.6156
+offset_bottom = 700.3184
+scale = Vector2(1.4196332, 1.4196332)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=2046182810]
 layout_mode = 2
+script = ExtResource("3_qelex")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1589768090]
-custom_minimum_size = Vector2(0, 121)
+[node name="TextureRect3" parent="ScrollContainer/VBoxContainer" unique_id=1717539565 instance=ExtResource("5_aqnnm")]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-script = ExtResource("2_0u3hj")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+numero_de_seccion = 1
 
-[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1713772014 instance=ExtResource("2_7v6hx")]
-layout_mode = 2
-
-[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=810888731 instance=ExtResource("2_7v6hx")]
+[node name="HBoxContainer2" parent="ScrollContainer/VBoxContainer" unique_id=2138278870 instance=ExtResource("4_h5bte")]
 layout_mode = 2
 
-[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1553579248 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel1" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=486300447 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 1
+sector = 1
 
-[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=486300447 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1113319468 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 2
+sector = 1
+
+[node name="TextureRect" parent="ScrollContainer/VBoxContainer" unique_id=228117838 instance=ExtResource("5_aqnnm")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+numero_de_seccion = 2
+niveles_nescesarios = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=226791568]
-custom_minimum_size = Vector2(0, 121)
+custom_minimum_size = Vector2(0, 185.88)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
 script = ExtResource("2_0u3hj")
 
 [node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1971370862 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 1
+sector = 2
 
 [node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=611661659 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 2
+sector = 2
 
 [node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1220540888 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 3
+sector = 2
 
 [node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=964812304 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 4
+sector = 2
+
+[node name="TextureRect2" parent="ScrollContainer/VBoxContainer" unique_id=348423764 instance=ExtResource("5_aqnnm")]
+layout_mode = 2
+size_flags_horizontal = 4
+numero_de_seccion = 3
+niveles_nescesarios = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1160687981]
-custom_minimum_size = Vector2(0, 121)
+custom_minimum_size = Vector2(0, 185.88)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 3
 script = ExtResource("2_0u3hj")
 
 [node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1873501470 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 1
+sector = 3
 
 [node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1882212294 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 2
+sector = 3
 
 [node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1292850766 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
+indice = 3
+sector = 3
 
 [node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2099941345 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=2085072121]
-custom_minimum_size = Vector2(0, 121)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-script = ExtResource("2_0u3hj")
-
-[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=179804703 instance=ExtResource("2_7v6hx")]
-layout_mode = 2
-
-[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1889638430 instance=ExtResource("2_7v6hx")]
-layout_mode = 2
-
-[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2062045886 instance=ExtResource("2_7v6hx")]
-layout_mode = 2
-
-[node name="Jugar" type="Button" parent="." unique_id=1475507443]
-layout_mode = 0
-offset_left = 204.0
-offset_top = 448.0
-offset_right = 373.2093
-offset_bottom = 516.0
-text = "Jugar Nivel"
-
-[node name="Volver" type="Button" parent="." unique_id=567649065]
-layout_mode = 0
-offset_left = 205.0
-offset_top = 370.0
-offset_right = 374.2093
-offset_bottom = 438.0
-text = "Volver al Menu"
-
-[node name="CambioZona" type="Button" parent="." unique_id=2098884871]
-layout_mode = 0
-offset_left = 874.0
-offset_top = 557.0
-offset_right = 1023.0
-offset_bottom = 596.0
-text = "Siguiente Zona"
+indice = 4
+sector = 3
 
 [node name="AlertaSeleccion" type="ColorRect" parent="." unique_id=1111257493]
 visible = false
@@ -216,6 +182,7 @@ offset_bottom = 313.0
 color = Color(0.1378803, 0.10476508, 0.0661519, 0.8980392)
 
 [node name="Label" type="Label" parent="AlertaBloqueo" unique_id=1632770046]
+visible = false
 layout_mode = 0
 offset_left = 31.0
 offset_top = 22.0
@@ -228,19 +195,30 @@ label_settings = SubResource("LabelSettings_7qhml")
 
 [node name="Timer" type="Timer" parent="." unique_id=894896749]
 
-[node name="Libro" type="TextureButton" parent="." unique_id=1403284299]
-layout_mode = 0
-offset_left = 228.00002
-offset_top = 198.0
-offset_right = 345.0
-offset_bottom = 344.0
-scale = Vector2(0.95739967, 0.95739967)
-texture_normal = ExtResource("4_vv7ls")
-
 [node name="Libro2" parent="." unique_id=1233792517 instance=ExtResource("6_5waag")]
 visible = false
 top_level = true
 layout_mode = 1
+
+[node name="MenuPrincipal" type="TextureButton" parent="." unique_id=721385911]
+z_index = 3
+layout_mode = 0
+offset_left = 242.0
+offset_top = 144.0
+offset_right = 352.0
+offset_bottom = 251.0
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("7_aqnnm")
+
+[node name="LibroBoton" type="TextureButton" parent="." unique_id=266633192]
+z_index = 3
+layout_mode = 0
+offset_left = 253.0
+offset_top = 312.0
+offset_right = 364.0
+offset_bottom = 434.0
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("6_cnoui")
 
 [node name="botones_debug" type="Control" parent="." unique_id=447192401]
 visible = false
@@ -278,11 +256,9 @@ offset_bottom = 258.0
 text = "Completar BD
 "
 
-[connection signal="pressed" from="Jugar" to="." method="entrar_al_nivel"]
-[connection signal="pressed" from="Volver" to="." method="vovler_al_menu"]
-[connection signal="pressed" from="CambioZona" to="." method="pasar_de_zona"]
 [connection signal="timeout" from="Timer" to="." method="apagar_aletra"]
-[connection signal="pressed" from="Libro" to="Libro2" method="abrir"]
+[connection signal="pressed" from="MenuPrincipal" to="." method="vovler_al_menu"]
+[connection signal="pressed" from="LibroBoton" to="Libro2" method="abrir"]
 [connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]

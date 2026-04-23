@@ -1,72 +1,76 @@
 [gd_scene format=3 uid="uid://dy0x6vqctgc40"]
 
-[ext_resource type="Texture2D" uid="uid://bgn8kr6ncmet3" path="res://menus/selector_niveles/boton_vacio.png" id="1_4qldc"]
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]
 [ext_resource type="StyleBox" uid="uid://balnbgiebwlht" path="res://menus/selector_niveles/panel_interno.tres" id="2_w7mj0"]
 [ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="5_ixsf2"]
-[ext_resource type="Texture2D" uid="uid://dtqix0au0n3cd" path="res://menus/selector_niveles/textura_espejito.png" id="6_sbog6"]
+[ext_resource type="Texture2D" uid="uid://dtqix0au0n3cd" path="res://menus/selector_niveles/imagenes/textura_espejito.png" id="6_sbog6"]
+
+[sub_resource type="Gradient" id="Gradient_4qldc"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sbog6"]
+gradient = SubResource("Gradient_4qldc")
+width = 54
 
 [node name="ItemNivel" type="TextureRect" unique_id=486300447]
-offset_right = 141.0
-offset_bottom = 126.0
+offset_right = 155.25
+offset_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_4qldc")
+texture = SubResource("GradientTexture2D_sbog6")
 expand_mode = 3
 script = ExtResource("1_k7nes")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375642150]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 135.0
-offset_bottom = 121.0
+offset_left = 12.0
+offset_top = 36.0
+offset_right = 142.0
+offset_bottom = 153.0
 theme_override_styles/panel = ExtResource("1_rfvlp")
 
 [node name="Interior" type="Panel" parent="." unique_id=942874464]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 9.0
-offset_right = 130.0
-offset_bottom = 116.0
+offset_left = 17.0
+offset_top = 41.0
+offset_right = 137.0
+offset_bottom = 148.0
 theme_override_styles/panel = ExtResource("2_w7mj0")
 
 [node name="Nivel" type="Label" parent="." unique_id=1177131076]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 14.0
-offset_right = 99.0
-offset_bottom = 37.0
+offset_left = 52.0
+offset_top = 156.0
+offset_right = 109.0
+offset_bottom = 179.0
 theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
 text = "Nivel  1"
 
 [node name="Puntaje" parent="." unique_id=342144844 instance=ExtResource("5_ixsf2")]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 54.0
-offset_right = 163.0
-offset_bottom = 94.0
+offset_left = 61.999992
+offset_top = 2.0
+offset_right = 204.0
+offset_bottom = 42.0
 scale = Vector2(0.75175446, 0.75175446)
-puntaje_maximo = 3.0
-una_estrella = 1.0
-dos_estrellas = 2.0
-tres_estrellas = 3.0
 
 [node name="boton" type="TextureButton" parent="." unique_id=1471165226]
 modulate = Color(1, 1, 1, 0.6509804)
 layout_mode = 0
-offset_left = 6.0
-offset_top = 16.0
-offset_right = 134.0
-offset_bottom = 111.0
+offset_left = 13.0
+offset_top = 48.0
+offset_right = 141.0
+offset_bottom = 143.0
 texture_hover = ExtResource("6_sbog6")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=18680846]
 visible = false
 layout_mode = 0
-offset_right = 139.0
-offset_bottom = 124.0
+offset_left = 9.0
+offset_top = 32.0
+offset_right = 148.0
+offset_bottom = 156.0
 color = Color(1, 1, 1, 0.24705882)
 
 [connection signal="pressed" from="boton" to="." method="seleccionar"]

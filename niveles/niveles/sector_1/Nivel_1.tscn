@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cu587atg3tsox"]
+
+[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_mvi86"]
+[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="2_iup51"]
+[ext_resource type="Resource" uid="uid://dgycsvxsuaq2w" path="res://mariposas/recursos/cuatro_ojos.tres" id="3_my841"]
+[ext_resource type="Resource" uid="uid://dkyy8tolneh0e" path="res://mariposas/recursos/perezosa.tres" id="4_ri11o"]
+[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="5_1tcqi"]
+[ext_resource type="Resource" uid="uid://c0l30ovvhshdk" path="res://plantas/recursos/canario_rojoA.tres" id="6_vjydc"]
+[ext_resource type="Resource" uid="uid://s4e1lu7fmutb" path="res://plantas/recursos/canario_rojoB.tres" id="7_gjtl0"]
+[ext_resource type="Resource" uid="uid://dlq8crmcrrk8n" path="res://plantas/recursos/ceiboA.tres" id="8_1yye1"]
+[ext_resource type="Resource" uid="uid://sgsnalpyn4ik" path="res://plantas/recursos/ceiboB.tres" id="9_inmnj"]
+[ext_resource type="Resource" uid="uid://dyxjlm1pm1pvf" path="res://plantas/recursos/chilcaA.tres" id="10_5w7td"]
+[ext_resource type="Resource" uid="uid://cyt4awgsq6xtg" path="res://plantas/recursos/chilcaB.tres" id="11_vgvid"]
+[ext_resource type="Resource" uid="uid://c5k3rm51ljc8d" path="res://plantas/recursos/coronilloA.tres" id="12_kyn5u"]
+[ext_resource type="Resource" uid="uid://dorwlr378ktx8" path="res://plantas/recursos/coronilloB.tres" id="13_nu233"]
+[ext_resource type="Resource" uid="uid://r07koqfuhw7p" path="res://plantas/recursos/LantanaA.tres" id="14_vpidl"]
+[ext_resource type="Resource" uid="uid://cekaltch5fpgg" path="res://plantas/recursos/mburucuyaA.tres" id="15_gw253"]
+[ext_resource type="Resource" uid="uid://c0eqe8aaesbdv" path="res://plantas/recursos/mburucuyaB.tres" id="16_xl5rq"]
+[ext_resource type="Resource" uid="uid://dinbeythnp7b1" path="res://plantas/recursos/rudaA.tres" id="17_kati2"]
+[ext_resource type="Resource" uid="uid://d32wdmgdxkoo8" path="res://plantas/recursos/rudaB.tres" id="18_b1xjj"]
+[ext_resource type="Resource" uid="uid://b56xxbijvdua5" path="res://plantas/recursos/rueliaA.tres" id="19_o0fgw"]
+[ext_resource type="Resource" uid="uid://2k6ess1cs2rt" path="res://plantas/recursos/rueliaB.tres" id="20_3vvd1"]
+[ext_resource type="Resource" uid="uid://so4q2uln8cml" path="res://plantas/recursos/SalviaA.tres" id="21_u35gf"]
+[ext_resource type="Resource" uid="uid://cll75njnegm0s" path="res://plantas/recursos/SalviaB.tres" id="22_b4cjb"]
+[ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="23_l83ss"]
+[ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="24_tgj2m"]
+[ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="25_lbiqj"]
+[ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="26_vkkb5"]
+[ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="27_drfci"]
+[ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="28_p48dl"]
+[ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="29_6ugpx"]
+[ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="30_0evbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
+size = Vector2(793, 791.0002)
+
+[node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
+script = ExtResource("1_mvi86")
+numero_de_nivel = 1
+numero_de_sector = 1
+jardin = NodePath("Jardin")
+mariposas = Array[ExtResource("2_iup51")]([ExtResource("3_my841"), ExtResource("4_ri11o")])
+plantas = Array[ExtResource("5_1tcqi")]([ExtResource("6_vjydc"), ExtResource("7_gjtl0"), ExtResource("8_1yye1"), ExtResource("9_inmnj"), ExtResource("10_5w7td"), ExtResource("11_vgvid"), ExtResource("12_kyn5u"), ExtResource("13_nu233"), ExtResource("14_vpidl"), ExtResource("15_gw253"), ExtResource("16_xl5rq"), ExtResource("17_kati2"), ExtResource("18_b1xjj"), ExtResource("19_o0fgw"), ExtResource("20_3vvd1"), ExtResource("21_u35gf"), ExtResource("22_b4cjb")])
+
+[node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("23_l83ss")]
+columnas = 6
+limpiar = true
+tablero = NodePath("../Jardin/Tablero")
+jardin = NodePath("../Jardin")
+jardinero = NodePath("../Jardin/Jardinero")
+
+[node name="UI" parent="." unique_id=772245201 instance=ExtResource("24_tgj2m")]
+puntaje_maximo = 20.0
+una_estrella = 5.0
+dos_estrellas = 15.0
+tres_estrellas = 20.0
+
+[node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
+position = Vector2(568, 81)
+scale = Vector2(0.16666667, 0.16666667)
+script = ExtResource("25_lbiqj")
+columnas = 6
+
+[node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("26_vkkb5")]
+position = Vector2(-6.1035156e-05, 7.6293945e-06)
+scale = Vector2(12.441, 12.441)
+tablero = NodePath("../Tablero")
+jardin = NodePath("..")
+
+[node name="Naturaleza" type="Node2D" parent="Jardin" unique_id=1099403147 node_paths=PackedStringArray("jardin", "jardinero")]
+scale = Vector2(12.440509, 12.440509)
+script = ExtResource("27_drfci")
+jardin = NodePath("..")
+jardinero = NodePath("../Jardinero")
+
+[node name="origen_plantas" type="Node2D" parent="Jardin" unique_id=1764700993 node_paths=PackedStringArray("jardinero")]
+scale = Vector2(12.440754, 12.440754)
+script = ExtResource("28_p48dl")
+jardinero = NodePath("../Jardinero")
+
+[node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("29_6ugpx")]
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("30_0evbg")
+
+[node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("30_0evbg")
+
+[node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("30_0evbg")
+
+[node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("30_0evbg")
+
+[node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
+position = Vector2(244.00003, 56.000008)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeJuego" unique_id=66538581]
+position = Vector2(722.5, 424.49994)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_ii0lq")
+debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
+
+[node name="PasarDeNivel" type="Timer" parent="." unique_id=511669230]
+wait_time = 3.0
+
+[connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
+[connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
+[connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
+[connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="mariposa_cambio" from="Jardin/Naturaleza" to="Jardin" method="emitir_suma_de_puntos"]
+[connection signal="tablero_creado" from="Jardin/Tablero" to="Jardin" method="establecer_columnas"]
+[connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
+[connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]
+[connection signal="timeout" from="PasarDeNivel" to="." method="volver_al_Menu"]

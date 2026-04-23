@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cll7q0mxcudtg"]
+
+[ext_resource type="Texture2D" uid="uid://c3a0atyql45r8" path="res://menus/selector_niveles/imagenes/candadoCerrado.png" id="1_a8gwd"]
+[ext_resource type="Script" uid="uid://bjj8ea0itrcqw" path="res://menus/selector_niveles/secciones.gd" id="1_t166c"]
+[ext_resource type="Texture2D" uid="uid://dia2vuiu8jqif" path="res://menus/selector_niveles/imagenes/fllechita_seccion.png" id="2_vclua"]
+
+[sub_resource type="Gradient" id="Gradient_qelex"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h5bte"]
+gradient = SubResource("Gradient_qelex")
+
+[node name="TextureRect" type="TextureRect" unique_id=1717539565]
+offset_right = 68.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture2D_h5bte")
+script = ExtResource("1_t166c")
+
+[node name="Candado" type="TextureRect" parent="." unique_id=1232821893]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 8.0
+offset_right = 15.0
+offset_bottom = 52.0
+texture = ExtResource("1_a8gwd")
+
+[node name="Flecha" type="TextureRect" parent="." unique_id=1031443290]
+layout_mode = 0
+offset_left = -69.0
+offset_top = 8.0
+offset_right = -43.0
+offset_bottom = 55.0
+texture = ExtResource("2_vclua")
+
+[node name="Condiciones" type="Label" parent="." unique_id=813401899]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 17.0
+offset_right = 95.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
+theme_override_font_sizes/font_size = 23
+text = "0 / 0"

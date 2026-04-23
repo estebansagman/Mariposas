@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjbursj1t7t8f"
-path="res://.godot/imported/menureal..jpg-e5c760b3ad77ea203dcaf0b2a626a38d.ctex"
+uid="uid://c3a0atyql45r8"
+path="res://.godot/imported/candadoCerrado.png-e366691d8fe2047995ef31dd5631060e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/menu_inicio/menureal..jpg"
-dest_files=["res://.godot/imported/menureal..jpg-e5c760b3ad77ea203dcaf0b2a626a38d.ctex"]
+source_file="res://menus/selector_niveles/imagenes/candadoCerrado.png"
+dest_files=["res://.godot/imported/candadoCerrado.png-e366691d8fe2047995ef31dd5631060e.ctex"]
 
 [params]
 

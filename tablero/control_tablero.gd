@@ -25,7 +25,7 @@ var celda_actual:Vector2i
 var estructura_base:Array[Vector2i]
 
 func _input(event: InputEvent) -> void:
-	girar_mariposa(event)
+	girar_planta(event)
 
 func _process(delta: float) -> void:
 	var mouse_local = tablero.get_local_mouse_position()
@@ -98,11 +98,9 @@ func seleccionar_planta(planta:Planta):
 			tablero.vaciar_celda(celda)
 
 func mover_planta_seleccionada(celda_actual) -> void:
+
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		tablero.leer_celda(celda_actual)
-
-		#if tablero.celdas.has(celda_actual):
-			#if tablero.celdas[celda_actual][tablero.mariposa] == true: return
 
 		var id_click = tablero.get_id_planta(celda_actual)
 		if id_click != 0:
@@ -139,6 +137,17 @@ func mover_planta_seleccionada(celda_actual) -> void:
 func posicionar_planta():
 	if planta_seleccionada:
 		planta_seleccionada.position = celda_focus_coordenada
+
+func girar_planta(event:InputEvent = null):
+	if planta_seleccionada and event:
+		if event.is_action_pressed("girar_derecha"):
+			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
+			planta_seleccionada.girar_planta()
+
+		elif event.is_action_pressed("girar_izquierda"):
+			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
+			planta_seleccionada.girar_planta()
+
 #endregion
 
 #region ACCIONES MARIPOSA
@@ -202,16 +211,6 @@ func mover_mariposa_seleccionada()->void:
 			mariposa_en_seleccion = false
 			mariposa_seleccionada = null
 			limpiar_focos()
-
-func girar_mariposa(event:InputEvent = null):
-	if planta_seleccionada and event:
-		if event.is_action_pressed("girar_derecha"):
-			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
-			planta_seleccionada.girar_planta()
-
-		elif event.is_action_pressed("girar_izquierda"):
-			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
-			planta_seleccionada.girar_planta()
 
 func _iluminar_mariposa():
 	if mariposa_seleccionada and mariposa_en_seleccion:

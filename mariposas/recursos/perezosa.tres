@@ -1,13 +1,6 @@
 [gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://dkyy8tolneh0e"]
 
 [ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_h4f7j"]
-[ext_resource type="Texture2D" uid="uid://cighrc4830lik" path="res://mariposas/imagenes/textura_perezosa.png" id="2_h4f7j"]
-[ext_resource type="Texture2D" uid="uid://bjp4gkks2y65m" path="res://mariposas/imagenes/base_Página 8.png" id="3_w5gw5"]
 
 [resource]
 script = ExtResource("1_h4f7j")
-puntos_que_suma = 2
-nombre_Mariposa = "perezosa"
-textura = ExtResource("2_h4f7j")
-requisitos = Array[int]([2, 7])
-textura_requisitos = ExtResource("3_w5gw5")

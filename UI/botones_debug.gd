@@ -1,15 +1,39 @@
 extends Control
 
-func _process(delta: float) -> void:
+@export var nivel_jugandose: NivelJugable
+
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("comando_magico"):
 		visible = !visible
-		print("esto anda?")
-
-func salid_de_juego(): #auxiliar, borrar despues
+		
+func salid_de_juego():
 	get_tree().quit()
 
-func borrar_bd(): #auxiliar, borrar despues
+func borrar_bd():
 	Dios.borrar_todo()
+	get_tree().reload_current_scene()
 
-func llenar_bd(): #auxiliar, borrar despues
+func llenar_bd():
 	Dios.debug_completar_juego()
+	get_tree().reload_current_scene()
+
+func superar_nivel():
+	nivel_jugandose.completar_nivel()
+	nivel_jugandose.revelar_datos()
+	nivel_jugandose.volver_al_Menu()
+
+func completar_libro():
+	for mariposa_id in Dios.bd_externa["progreso_mariposas"].keys():
+		print("mariposa es : ",mariposa_id)
+		Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["nombre"])
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["nombre_cientifico"])
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["textura_juego"])
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["textura_oruga_libro"])
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["datos_curiosos"]["dato curioso 1"])
+		Dios.guardar_bd_externa()	
+
+func borrar_progreso():
+	for mariposa_id in Dios.bd_externa["progreso_mariposas"].keys():
+		Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
+	Dios.guardar_bd_externa()	

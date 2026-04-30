@@ -1,33 +1,22 @@
 extends TextureRect
 class_name Sector
-const CANDADO_ABIERTO = preload("uid://cl6i2e6w3ekcn")
 
-
-@export var numero_de_seccion:int
-@export var niveles_nescesarios:int
-
+var numero_de_seccion: int
 @onready var candado: TextureRect = $Candado
-var desbloqueado:bool
 @onready var condiciones: Label = $Condiciones
 
-func _ready() -> void:
-	condiciones.text = "0 / "+str(niveles_nescesarios) #el primer 0 se reemplaza por cantidad de niveles por seccion
-	verificar_condiciones()
-
 func verificar_condiciones():
-	var sector_anterior = numero_de_seccion - 1
-	var ganados = 0
+	var nombre_llave = "seccion_" + str(numero_de_seccion)
+	if numero_de_seccion == 1:
+		condiciones.text = "" 
+		hide()
+		return
+	var anterior = "seccion_" + str(numero_de_seccion - 1)
+	var ganados = Dios.bd_externa["sectores"][anterior]["niveles_superados"]
+	var requisito = Dios.bd_interna["sectores"]["seccion_" + str(numero_de_seccion)]["requisito"]
+	condiciones.text = str(int(ganados)) + " / " + str(int(requisito))
 	
-	if numero_de_seccion > 0:
-		ganados = Dios.contar_niveles_completados_en_sector(sector_anterior)
-	
-	condiciones.text = str(ganados) + " / " + str(niveles_nescesarios)
-	
-	if ganados >= niveles_nescesarios or numero_de_seccion == 0:
-		desbloqueado = true
-		candado.texture = CANDADO_ABIERTO
-		modulate = Color(1, 1, 1, 1) # Para que se vea normal
+	if Dios.bd_externa["sectores"][nombre_llave]["desbloqueo"]:
+		hide()
 	else:
-		desbloqueado = false
-		modulate = Color(0.5, 0.5, 0.5, 1) # Grisado si está bloqueado
-	
+		show()

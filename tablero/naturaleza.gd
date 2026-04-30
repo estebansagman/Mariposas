@@ -1,6 +1,6 @@
 extends Node2D
 class_name Naturaleza
-signal mariposa_cambio(valor)
+signal mariposa_cambio
 
 @onready var mariposa_escena = preload("uid://dprfbi2712evq")
 
@@ -13,16 +13,15 @@ signal mariposa_cambio(valor)
 @onready var capa_plantas: TileMapLayer = $"../capa_plantas"
 @onready var capa_mariposas: TileMapLayer = $"../capa_mariposas"
 
-var mariposas:Array[RecursoMariposa]
-#func _ready() -> void:
-	#generar_mariposas()
+var mariposas:Array[String]
 
-func generar_mariposas(datos:Array[RecursoMariposa]):
+
+func generar_mariposas(datos:Array[String]):
 	mariposas = datos.duplicate()
 	print("generando")
 	for mariposa in mariposas:
-		var mariposa_objeto:Mariposa = mariposa_escena.instantiate()
-		mariposa_objeto.datos = mariposa
+		var mariposa_objeto:Mariposa = mariposa_escena.instantiate()# OK
+		mariposa_objeto.key_mariposa = mariposa
 		mariposa_objeto.id_mariposa = mariposas_objeto.size()+1
 		mariposa_objeto.enfocada.connect(jardinero.seleccionar_mariposa)
 		mariposa_objeto.fuera_de_foco.connect(jardinero.soltar_mariposa)
@@ -31,7 +30,7 @@ func generar_mariposas(datos:Array[RecursoMariposa]):
 func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 	if not mariposas_en_juego.is_empty():
 		for mariposa in mariposas_en_juego.duplicate():
-			var cuadrante_tipo: Array[Dios.Especie] = []
+			var cuadrante_tipo: Array[String] = []
 			
 			for parcela in mariposa.posicion_jardin:
 				cuadrante_tipo.append(tablero.get_tipo(parcela))
@@ -41,13 +40,11 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 			for parcela in mariposa.posicion_jardin:
 				tablero.sacar_mariposa(parcela)	
 			mariposas_en_juego.erase(mariposa)
-			emit_signal("mariposa_cambio",-mariposa.datos.puntos_que_suma)
+			emit_signal("mariposa_cambio")
 			if mariposa.get_parent():
 				mariposa.get_parent().remove_child(mariposa)
 		print(mariposas_en_juego)
 
-		
-	
 	for parcela in tablero.celdas:
 		var v1 = parcela + Vector2i(1, 0)
 		var v2 = parcela + Vector2i(0, 1)
@@ -68,10 +65,10 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 		if cuadrante.any(func(v): return tablero.get_existencia_de_mariposas(v)):
 			continue
 			
-		var cuadrante_tipo: Array[Dios.Especie] = []
+		var cuadrante_tipo: Array[String] = []
 		for casilla in cuadrante:
 			var tipo = tablero.get_tipo(casilla) #Especie, "tipo" es raro, arreglar eso a futuro
-			if tipo != -1: cuadrante_tipo.append(tipo)
+			if tipo != "": cuadrante_tipo.append(tipo)
 			
 		for mariposa in mariposas_objeto:
 			for casilla in cuadrante:
@@ -90,7 +87,7 @@ func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
 					tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
 
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
-	emit_signal("mariposa_cambio",mariposa.datos.puntos_que_suma)
+	emit_signal("mariposa_cambio")
 	mariposa.scale = Vector2.ONE
 	if mariposa.get_parent() == null:
 		jardin.add_child(mariposa)

@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="7_aqnnm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
-font_size = 22
+font_size = 24
 
 [node name="MenuNiveles" type="Control" unique_id=1797611692]
 layout_mode = 3
@@ -61,139 +61,116 @@ offset_right = 1345.6156
 offset_bottom = 700.3184
 scale = Vector2(1.4196332, 1.4196332)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=2046182810]
+[node name="Lista_sectores" type="VBoxContainer" parent="ScrollContainer" unique_id=2046182810]
 layout_mode = 2
 script = ExtResource("3_qelex")
 
-[node name="TextureRect3" parent="ScrollContainer/VBoxContainer" unique_id=1717539565 instance=ExtResource("5_aqnnm")]
+[node name="TextureRect3" parent="ScrollContainer/Lista_sectores" unique_id=1717539565 instance=ExtResource("5_aqnnm")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-numero_de_seccion = 1
 
-[node name="HBoxContainer2" parent="ScrollContainer/VBoxContainer" unique_id=2138278870 instance=ExtResource("4_h5bte")]
+[node name="HBoxContainer2" parent="ScrollContainer/Lista_sectores" unique_id=2138278870 instance=ExtResource("4_h5bte")]
 layout_mode = 2
 
-[node name="ItemNivel1" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=486300447 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel1" parent="ScrollContainer/Lista_sectores/HBoxContainer2" unique_id=486300447 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 1
 sector = 1
 
-[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1113319468 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel2" parent="ScrollContainer/Lista_sectores/HBoxContainer2" unique_id=1113319468 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 2
 sector = 1
 
-[node name="TextureRect" parent="ScrollContainer/VBoxContainer" unique_id=228117838 instance=ExtResource("5_aqnnm")]
+[node name="TextureRect" parent="ScrollContainer/Lista_sectores" unique_id=228117838 instance=ExtResource("5_aqnnm")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-numero_de_seccion = 2
-niveles_nescesarios = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=226791568]
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/Lista_sectores" unique_id=226791568]
 custom_minimum_size = Vector2(0, 185.88)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 script = ExtResource("2_0u3hj")
 
-[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1971370862 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel" parent="ScrollContainer/Lista_sectores/HBoxContainer3" unique_id=1971370862 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 1
 sector = 2
 
-[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=611661659 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel2" parent="ScrollContainer/Lista_sectores/HBoxContainer3" unique_id=611661659 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 2
 sector = 2
 
-[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1220540888 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel3" parent="ScrollContainer/Lista_sectores/HBoxContainer3" unique_id=1220540888 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 3
 sector = 2
 
-[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=964812304 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel4" parent="ScrollContainer/Lista_sectores/HBoxContainer3" unique_id=964812304 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 4
 sector = 2
 
-[node name="TextureRect2" parent="ScrollContainer/VBoxContainer" unique_id=348423764 instance=ExtResource("5_aqnnm")]
+[node name="TextureRect2" parent="ScrollContainer/Lista_sectores" unique_id=348423764 instance=ExtResource("5_aqnnm")]
 layout_mode = 2
 size_flags_horizontal = 4
-numero_de_seccion = 3
-niveles_nescesarios = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1160687981]
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/Lista_sectores" unique_id=1160687981]
 custom_minimum_size = Vector2(0, 185.88)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 script = ExtResource("2_0u3hj")
 
-[node name="ItemNivel" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1873501470 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel" parent="ScrollContainer/Lista_sectores/HBoxContainer4" unique_id=1873501470 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 1
 sector = 3
 
-[node name="ItemNivel2" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1882212294 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel2" parent="ScrollContainer/Lista_sectores/HBoxContainer4" unique_id=1882212294 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 2
 sector = 3
 
-[node name="ItemNivel3" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1292850766 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel3" parent="ScrollContainer/Lista_sectores/HBoxContainer4" unique_id=1292850766 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 3
 sector = 3
 
-[node name="ItemNivel4" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2099941345 instance=ExtResource("2_7v6hx")]
+[node name="ItemNivel4" parent="ScrollContainer/Lista_sectores/HBoxContainer4" unique_id=2099941345 instance=ExtResource("2_7v6hx")]
 layout_mode = 2
 indice = 4
 sector = 3
-
-[node name="AlertaSeleccion" type="ColorRect" parent="." unique_id=1111257493]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 368.0
-offset_top = 202.0
-offset_right = 653.0
-offset_bottom = 313.0
-color = Color(0.1378803, 0.10476508, 0.0661519, 0.8980392)
-
-[node name="Label" type="Label" parent="AlertaSeleccion" unique_id=769425233]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 22.0
-offset_right = 241.0
-offset_bottom = 87.0
-text = "Elegi antes un nivel 
-para jugar!"
-label_settings = SubResource("LabelSettings_7qhml")
 
 [node name="AlertaBloqueo" type="ColorRect" parent="." unique_id=85788484]
 visible = false
 z_index = 2
 layout_mode = 0
-offset_left = 368.0
-offset_top = 202.0
-offset_right = 857.0
-offset_bottom = 313.0
-color = Color(0.1378803, 0.10476508, 0.0661519, 0.8980392)
+offset_left = 684.0
+offset_top = 237.0
+offset_right = 1334.0
+offset_bottom = 465.0
+color = Color(0.13725491, 0.105882354, 0.06666667, 0.95686275)
 
 [node name="Label" type="Label" parent="AlertaBloqueo" unique_id=1632770046]
-visible = false
 layout_mode = 0
-offset_left = 31.0
-offset_top = 22.0
-offset_right = 241.0
-offset_bottom = 87.0
-text = "El nivel esta bloqueado! Necesitas ganar
-por lo menos una estrella en el anterior
+offset_left = 55.0
+offset_top = 28.0
+offset_right = 597.0
+offset_bottom = 210.0
+text = "¡ZONA BLOQUEADA! 
+
+Supera la  cantidad de niveles pedidos 
+y desbloqueala!
 "
 label_settings = SubResource("LabelSettings_7qhml")
 
 [node name="Timer" type="Timer" parent="." unique_id=894896749]
+wait_time = 4.5
 
 [node name="Libro2" parent="." unique_id=1233792517 instance=ExtResource("6_5waag")]
 visible = false
@@ -256,9 +233,27 @@ offset_bottom = 258.0
 text = "Completar BD
 "
 
+[node name="ProgresoCompleto" type="Button" parent="botones_debug" unique_id=1645405455]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 261.0
+offset_right = 236.0
+offset_bottom = 303.0
+text = "Completar Libro"
+
+[node name="ProgresoCompleto2" type="Button" parent="botones_debug" unique_id=961528521]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 308.0
+offset_right = 236.0
+offset_bottom = 350.0
+text = "vaciar Libro"
+
 [connection signal="timeout" from="Timer" to="." method="apagar_aletra"]
 [connection signal="pressed" from="MenuPrincipal" to="." method="vovler_al_menu"]
 [connection signal="pressed" from="LibroBoton" to="Libro2" method="abrir"]
 [connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]
+[connection signal="pressed" from="botones_debug/ProgresoCompleto" to="botones_debug" method="completar_libro"]
+[connection signal="pressed" from="botones_debug/ProgresoCompleto2" to="botones_debug" method="borrar_progreso"]

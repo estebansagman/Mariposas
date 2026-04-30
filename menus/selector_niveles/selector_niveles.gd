@@ -2,12 +2,42 @@ extends Control
 @onready var MENU_INICIO:String = "res://menus/menu_inicio/menu_inicio.tscn"
 @onready var nivel_elegido:String = "res://niveles/niveles/Nivel_1.tscn"
 var nivel_seleccionado = false
-@onready var alerta_seleccion: ColorRect = $AlertaSeleccion
 @onready var alerta_bloqueo: ColorRect = $AlertaBloqueo
 
+@onready var lista_sectores: VBoxContainer = $ScrollContainer/Lista_sectores
 @onready var timer: Timer = $Timer
+
 var indice:int
 var sector_actual: int 
+
+func _ready() -> void:
+	await get_tree().process_frame
+	actualizar_estado()
+
+func actualizar_estado():
+	for id_sector in Dios.bd_externa["sectores"].keys():
+		var numero_actual = int(id_sector.replace("seccion_", ""))
+		if numero_actual == 1:
+			Dios.bd_externa["sectores"][id_sector]["desbloqueo"] = true
+			continue
+		var id_anterior = "seccion_" + str(numero_actual - 1)
+		var ganados_anterior = Dios.bd_externa["sectores"][id_anterior]["niveles_superados"]
+		var requisito_sector_actual = Dios.bd_interna["sectores"][id_sector]["requisito"]
+		if ganados_anterior >= requisito_sector_actual:
+			Dios.bd_externa["sectores"][id_sector]["desbloqueo"] = true
+
+	Dios.guardar_bd_externa()
+	
+	var seccion=1
+	for hijo in lista_sectores.get_children():
+		if hijo is Sector:
+			hijo.numero_de_seccion = seccion
+			seccion += 1
+			hijo.verificar_condiciones()
+		if hijo is contenedor_niveles:
+			for item in hijo.get_children():
+				item.dar_indice()
+				item.nivel_elejido.connect(self.seleccionar_nivel)
 
 func seleccionar_nivel(nivel, indice_b, sector_b):
 	nivel_seleccionado = true
@@ -15,28 +45,16 @@ func seleccionar_nivel(nivel, indice_b, sector_b):
 	sector_actual = sector_b
 	nivel_elegido = nivel
 	entrar_al_nivel()
-	
+
 func entrar_al_nivel():
-	if not Dios.esta_desbloqueado(sector_actual, indice):
+	if not Dios.bd_externa["sectores"]["seccion_"+str(sector_actual)]["desbloqueo"]:
 		timer.start()
 		alerta_bloqueo.show()
 		return
-		
-	if nivel_seleccionado:
-		get_tree().change_scene_to_file(nivel_elegido)
-	else: 
-		timer.start()
-		alerta_seleccion.show()
+	get_tree().change_scene_to_file(nivel_elegido)
 
 func vovler_al_menu():
 	get_tree().change_scene_to_file(MENU_INICIO)
 
-func libro():
-	pass
-
-func pasar_de_zona():
-	pass
-
 func apagar_aletra():
-	alerta_seleccion.hide()
 	alerta_bloqueo.hide()

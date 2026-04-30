@@ -5,7 +5,6 @@ signal cambio_en_jardin
 signal mariposa_desplazada
 signal mariposa_movida(mariposa:Mariposa, parcela:Vector2i)
 
-
 @export var tablero: Tablero
 var planta_seleccionada:Planta
 var plantas_en_tablero:Array[Planta]
@@ -122,7 +121,8 @@ func mover_planta_seleccionada(celda_actual) -> void:
 			if focuseable and en_area_de_juego:
 				for casilla in lista_focus:
 					tablero.ocupar_celda(casilla, planta_seleccionada)
-					capa_plantas.set_cell(casilla, 2, Vector2i(0,planta_seleccionada.datos.tipo_de_planta))
+					var atlas = Dios.bd_interna["plantas"][planta_seleccionada.key_planta]["tile_juego"]
+					capa_plantas.set_cell(casilla, 2, Vector2i(0,atlas))
 				plantas_en_tablero.append(planta_seleccionada)
 				planta_seleccionada.get_parent().remove_child(planta_seleccionada)
 				emit_signal("cambio_en_jardin")
@@ -160,23 +160,23 @@ func soltar_mariposa():
 	if !mariposa_en_seleccion:
 		mariposa_seleccionada = null
 
-func generarl_lista_requerimientos()->Array[Dios.Especie]:
-	var lista_de_requerimientos:Array[Dios.Especie]
+func generarl_lista_requerimientos()->Array[String]:
+	var lista_de_requerimientos:Array[String]
 	for celda in lista_focus:
 		if tablero.celdas.has(celda): 
 			lista_de_requerimientos.append(tablero.get_tipo(celda))
 		else:
 			lista_de_requerimientos.clear()
-			lista_de_requerimientos.append(-1)
+			lista_de_requerimientos.append("")
 			return lista_de_requerimientos
 
 	for celda in lista_focus:
 		if tablero.celdas[celda][tablero.tipo_casilla_key] == tablero.casilla_bloqueo:
 			lista_de_requerimientos.clear()
-			lista_de_requerimientos.append(-1)
+			lista_de_requerimientos.append("")
 		if tablero.celdas[celda][tablero.mariposa]:
 			lista_de_requerimientos.clear()
-			return [-1]
+			return [""]
 	return lista_de_requerimientos
 
 func mover_mariposa_seleccionada()->void:

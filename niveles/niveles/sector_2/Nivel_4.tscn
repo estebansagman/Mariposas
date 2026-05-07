@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ba5lhate0a6fu"]
+[gd_scene format=3 uid="uid://b15psm87t7jtx"]
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_bt7st"]
 [ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="2_00k2l"]

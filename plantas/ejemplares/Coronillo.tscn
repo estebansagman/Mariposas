@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6pikhlq2a5qb"]
+
+[ext_resource type="Texture2D" uid="uid://fc3v1edfcb4p" path="res://plantas/ejemplares/coronilloplanta.png" id="1_jltr8"]
+
+[node name="Ejemplar1" type="Node2D" unique_id=398981071]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978649440]
+position = Vector2(-256, 0)
+texture = ExtResource("1_jltr8")

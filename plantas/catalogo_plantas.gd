@@ -25,6 +25,7 @@ func _crear_catalogo():
 		var key_estructura = recorte[1]
 
 		var nuevo_boton_planta: BotonPlanta = BOTON_PLANTA.instantiate()
+		#nuevo_boton_planta.inicio()
 		nuevo_boton_planta.key_planta = key_planta
 		nuevo_boton_planta.key_estructura = key_estructura
 		nuevo_boton_planta.pedido_de_planta.connect(jardin.origen_plantas.crear_planta)

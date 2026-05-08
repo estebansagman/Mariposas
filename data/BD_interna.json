@@ -107,10 +107,8 @@
 			"mariposas_atraidas": [
 				"bandera_argentina"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -183,10 +181,8 @@
 			"mariposas_atraidas": [
 				"bandera_argentina"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -236,10 +232,8 @@
 				"cuatro_ojos",
 				"perezosa"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -296,10 +290,8 @@
 			"mariposas_atraidas": [
 				"limonero"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -348,10 +340,8 @@
 			"mariposas_atraidas": [
 				"bataraza"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -397,10 +387,8 @@
 				"bataraza",
 				"espejito"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -449,10 +437,8 @@
 			"mariposas_atraidas": [
 				"cuatro_ojos"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -502,10 +488,8 @@
 				"perezosa",
 				"espejito"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -555,10 +539,8 @@
 				"bandera_argentina",
 				"limonero"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
 			"forma": {
 				"A": [
 					[
@@ -619,10 +601,8 @@
 				"coronillo",
 				"ceibo"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			]
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
 		},
 		"bataraza": {
 			"nombre": "Bataraza",
@@ -634,10 +614,8 @@
 				"canario_rojo",
 				"salvia"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			]
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
 		},
 		"cuatro_ojos": {
 			"nombre": "Cuatro Ojos",
@@ -649,10 +627,8 @@
 				"ruelia",
 				"chilca"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			]
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
 		},
 		"espejito": {
 			"nombre": "Espejito",
@@ -664,10 +640,8 @@
 				"salvia",
 				"mbrucuya"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			]
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
 		},
 		"limonero": {
 			"nombre": "Limonero",
@@ -679,10 +653,8 @@
 				"ruda",
 				"lantana"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			]
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
 		},
 		"perezosa": {
 			"nombre": "Perezosa",
@@ -694,10 +666,8 @@
 				"chilca",
 				"mbrucuya"
 			],
-			"datos_curiosos": [
-				"el dato",
-				"el dato 2"
-			]
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
 		}
 	}
 }

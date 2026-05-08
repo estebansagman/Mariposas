@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="1_vu5bp"]
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_yfvpn"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="2_afpsc"]
-[ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://nuevos_tipos_de_datos/recompensa.gd" id="2_vbbev"]
+[ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://data/nuevos_tipos_de_datos/recompensa.gd" id="2_vbbev"]
 [ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="3_vu5bp"]
 [ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="4_ftfhp"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="5_ftfhp"]

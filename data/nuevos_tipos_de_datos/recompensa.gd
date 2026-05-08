@@ -18,6 +18,6 @@ class_name Recompensa
 	"nombre_cientifico",
 	"textura_libro",
 	"textura_oruga_libro",
-	"dato curioso 1",
-	"dato curioso 2"
+	"dato_curioso_1",
+	"dato_curioso_2"
 ) var dato_mariposa:Array[String]

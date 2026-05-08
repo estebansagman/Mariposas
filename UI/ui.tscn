@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d3v6j5taykus8" path="res://UI/imagenes/panel_tablero.png" id="13_ow1yt"]
 [ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="14_8gukh"]
 [ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="15_8gkfd"]
-[ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas_vis.tscn" id="16_o2t6a"]
+[ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas.tscn" id="16_o2t6a"]
 [ext_resource type="PackedScene" uid="uid://rdqgx8jdlho8" path="res://mariposas/catalogo_mariposas.tscn" id="17_8gukh"]
 [ext_resource type="Texture2D" uid="uid://d2o558e41o3mg" path="res://UI/imagenes/opciones.png" id="18_8gkfd"]
 
@@ -70,7 +70,7 @@ layout_mode = 0
 offset_left = 728.0
 offset_top = 450.0
 offset_right = 1206.0
-offset_bottom = 612.0
+offset_bottom = 650.0
 theme_override_styles/panel = ExtResource("7_c7tqi")
 
 [node name="fondo" type="Panel" parent="Cartel_final" unique_id=458473927]
@@ -78,7 +78,7 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
 offset_right = 473.0
-offset_bottom = 154.0
+offset_bottom = 194.0
 theme_override_styles/panel = ExtResource("8_cbfhl")
 
 [node name="texto_ganado" type="Label" parent="Cartel_final" unique_id=813489453]
@@ -89,6 +89,24 @@ offset_right = 429.0
 offset_bottom = 97.0
 text = "¡COMPLETASTE EL DESAFÍO!"
 label_settings = SubResource("LabelSettings_cbfhl")
+
+[node name="Quedarse" type="Button" parent="Cartel_final" unique_id=252603588]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 125.0
+offset_right = 232.0
+offset_bottom = 165.0
+text = "Quedarse
+"
+
+[node name="irAlMenu" type="Button" parent="Cartel_final" unique_id=22933208]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 125.0
+offset_right = 434.0
+offset_bottom = 165.0
+text = "Volver al menu
+"
 
 [node name="Menu" type="Button" parent="." unique_id=1097707424]
 layout_mode = 0
@@ -236,6 +254,8 @@ offset_bottom = 301.0
 text = "Superar Nivel
 "
 
+[connection signal="pressed" from="Cartel_final/Quedarse" to="." method="ocultar_cartel"]
+[connection signal="pressed" from="Cartel_final/irAlMenu" to="." method="volver_al_menu"]
 [connection signal="pressed" from="Menu" to="." method="volver_al_menu"]
 [connection signal="timeout" from="Timer" to="." method="apagar_alerta_de_seleccion"]
 [connection signal="pressed" from="Reiniciar2" to="." method="reiniciar_nivel"]

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dmhhfbu1ckdwh"]
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_hpxgo"]
-[ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://nuevos_tipos_de_datos/recompensa.gd" id="2_eomhf"]
+[ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://data/nuevos_tipos_de_datos/recompensa.gd" id="2_eomhf"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_owxom"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_eomhf"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="4_vct6e"]
@@ -14,7 +14,7 @@
 [sub_resource type="Resource" id="Resource_vct6e"]
 script = ExtResource("2_eomhf")
 mariposa = "bataraza"
-dato_mariposa = Array[String](["textura_oruga_libro", "nombre_cientifico"])
+dato_mariposa = Array[String](["textura_oruga_libro", "nombre_cientifico", "dato_curioso_1"])
 metadata/_custom_type_script = "uid://cbxdy4164p03m"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]

@@ -79,8 +79,9 @@ offset_right = 192.0
 offset_bottom = 44.0
 theme_override_colors/font_color = Color(0.30132023, 0.1976862, 0.17779908, 1)
 theme_override_fonts/font = SubResource("FontVariation_l4wuf")
-theme_override_font_sizes/font_size = 29
-text = "MARIPOSAS"
+theme_override_font_sizes/font_size = 26
+text = "Objetivos"
+horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1039341909]
 layout_mode = 0

@@ -44,12 +44,16 @@ var nivel = "nivel_"+str(numero_de_nivel)
 
 var estrellas:int
 var puntos_maximos:int
+#var s_id = "seccion_" + str(numero_de_sector)
+#var nivel_id = "nivel_" + str(numero_de_nivel)
+#var estado_nivel:bool 
 
 func _ready() -> void:
 	jardin.naturaleza.generar_mariposas(Especie_mariposa)
 	ui.catalogo_plantas.iniciar_catalogo(Especie_planta,jardin)
 	ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 	sistema_debug()
+	#estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
 
 func sumar_puntos():
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
@@ -62,7 +66,7 @@ func sumar_puntos():
 		if !estado_nivel:
 			completar_nivel()
 			revelar_datos()
-		pasar_de_nivel.start()
+		#pasar_de_nivel.start()
 
 func completar_nivel():
 	var sector_id = "seccion_" + str(numero_de_sector)

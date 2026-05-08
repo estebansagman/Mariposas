@@ -18,11 +18,11 @@ script = ExtResource("1_y86en")
 numero_de_nivel = 1
 numero_de_sector = 2
 jardin = NodePath("Jardin")
-Especie_mariposa = Array[String](["cuatro_ojos", "perezosa"])
-Especie_planta = Array[String](["mbrucuya:A", "chilca:A", "ruelia:A"])
+Especie_mariposa = Array[String](["cuatro_ojos", "espejito", "bataraza"])
+Especie_planta = Array[String](["mbrucuya:A", "salvia:A", "chilca:A", "ruelia:A", "canario_rojo:B"])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_kun18")]
-columnas = 4
+columnas = 5
 limpiar = true
 tablero = NodePath("../Jardin/Tablero")
 jardin = NodePath("../Jardin")
@@ -32,9 +32,9 @@ jardinero = NodePath("../Jardin/Jardinero")
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(568, 81)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 script = ExtResource("4_yhpg0")
-columnas = 4
+columnas = 5
 
 [node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("5_np3g8")]
 position = Vector2(-6.1035156e-05, 7.6293945e-06)
@@ -55,7 +55,7 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_c1rsg")]
 scale = Vector2(12.440509, 12.440509)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAIAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAA=")
 tile_set = ExtResource("9_nyoh2")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]

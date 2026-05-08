@@ -28,10 +28,13 @@ func completar_libro():
 		Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
 		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["nombre"])
 		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["nombre_cientifico"])
-		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["textura_juego"])
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["textura_libro"])
 		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["textura_oruga_libro"])
-		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["datos_curiosos"]["dato curioso 1"])
-		Dios.guardar_bd_externa()	
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["dato_curioso_1"])
+		Dios.bd_externa["progreso_mariposas"][mariposa_id].append(Dios.bd_interna["mariposas"][mariposa_id]["dato_curioso_2"])
+		#for dato in Dios.bd_interna["mariposas"][mariposa_id]["datos_curiosos"]:
+			#Dios.bd_externa["progreso_mariposas"][mariposa_id].append(dato)
+		Dios.guardar_bd_externa()
 
 func borrar_progreso():
 	for mariposa_id in Dios.bd_externa["progreso_mariposas"].keys():

@@ -14,7 +14,7 @@ var estructura:Array[Vector2i]
 
 var hay_mariposa:bool = false
 var focus = true
-var giro_actual:int = 0
+@onready var giro_actual:int = 0
 
 
 #region

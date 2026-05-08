@@ -73,13 +73,14 @@ patch_margin_bottom = 22
 [node name="Plantas" type="Label" parent="Cartel" unique_id=1931244039]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 15.0
+offset_top = 11.0
 offset_right = 189.0
-offset_bottom = 40.0
+offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.30132023, 0.1976862, 0.17779908, 1)
 theme_override_fonts/font = SubResource("FontVariation_r073p")
-theme_override_font_sizes/font_size = 21
-text = "FLORES/PLANTAS"
+theme_override_font_sizes/font_size = 26
+text = "PLANTAS"
+horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=731468638]
 layout_mode = 0

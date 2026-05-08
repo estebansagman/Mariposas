@@ -38,12 +38,13 @@ func cargar_nombre_cientifico(lista_desbloqueo):
 		nombre_cientifico.text = oculto
 
 func cargar_imagen_mariposa(lista_desbloqueo):
+	print("Llega a la funcion")
 	var textura_libro = Dios.bd_interna["mariposas"][mariposa]["textura_libro"]
 	if textura_libro in lista_desbloqueo:
 		mariposa_imagen.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	else :
 		mariposa_imagen.modulate = Color(0.0, 0.0, 0.0, 1.0)
-		
+
 func cargar_imagen_oruga(lista_desbloqueo):
 	var textura_oruga = Dios.bd_interna["mariposas"][mariposa]["textura_oruga_libro"]
 	if textura_oruga in lista_desbloqueo:

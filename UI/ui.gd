@@ -18,12 +18,16 @@ var superado:bool = false
 
 func alerta_de_seleccion():
 	alerta_seleccion.show()
+
 func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 	alerta_seleccion.hide()
 
 func superar_nivel():
 	if !superado:
 		cartel_final.show()
+
+func ocultar_cartel():
+	cartel_final.hide()
 
 func volver_al_menu():
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)

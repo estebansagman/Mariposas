@@ -1,0 +1,74 @@
+[gd_resource type="TileSet" format=3 uid="uid://cuoxaw1dfhbvu"]
+
+[ext_resource type="Texture2D" uid="uid://bbm8k5rs8d02i" path="res://tablero/imagenes/fondo_place_H _extra2.png" id="1_26f4k"]
+[ext_resource type="PackedScene" uid="uid://crq4cgvp4qndp" path="res://plantas/ejemplares/ceibo_a.tscn" id="1_j7m1d"]
+[ext_resource type="PackedScene" uid="uid://c6pikhlq2a5qb" path="res://plantas/ejemplares/coronillo_a.tscn" id="1_jxm6q"]
+[ext_resource type="PackedScene" uid="uid://cbetjqdfqna7d" path="res://plantas/ejemplares/canario_rojo_b.tscn" id="2_2pmq4"]
+[ext_resource type="PackedScene" uid="uid://d1l7h3nujrv18" path="res://plantas/ejemplares/canario_rojo_a.tscn" id="2_c22hs"]
+[ext_resource type="Texture2D" uid="uid://q4jfntsqmery" path="res://tablero/imagenes/plantas_tile_placeH.png" id="2_jxm6q"]
+[ext_resource type="PackedScene" uid="uid://77r4p80njc3n" path="res://plantas/ejemplares/salvia_a.tscn" id="3_b3iem"]
+[ext_resource type="PackedScene" uid="uid://da6yggwa6opv3" path="res://plantas/ejemplares/salvia_b.tscn" id="4_y7l66"]
+[ext_resource type="PackedScene" uid="uid://d2wxv30mfljv8" path="res://plantas/ejemplares/ruelia_a.tscn" id="5_m6xph"]
+[ext_resource type="PackedScene" uid="uid://h53ufbp7l6l3" path="res://plantas/ejemplares/ruelia_b.tscn" id="6_ywfme"]
+[ext_resource type="PackedScene" uid="uid://dm6ahndnly2dq" path="res://plantas/ejemplares/mbrucuya_a.tscn" id="7_263g4"]
+[ext_resource type="PackedScene" uid="uid://cyfohd827w3ag" path="res://plantas/ejemplares/mbrucuya_b.tscn" id="8_vnkok"]
+[ext_resource type="PackedScene" uid="uid://bfqa5wgnffhbk" path="res://plantas/ejemplares/lantana_a.tscn" id="9_n503w"]
+[ext_resource type="PackedScene" uid="uid://cjux6woqbm3fc" path="res://plantas/ejemplares/lantana_b.tscn" id="10_14ytt"]
+[ext_resource type="PackedScene" uid="uid://2u2bwrxrncp8" path="res://plantas/ejemplares/ceibo_b.tscn" id="11_hcbsl"]
+[ext_resource type="PackedScene" uid="uid://cm37ht5virdhf" path="res://plantas/ejemplares/coronillo_b.tscn" id="13_qhrfn"]
+[ext_resource type="PackedScene" uid="uid://be5rky35pqp3r" path="res://plantas/ejemplares/chilca_a.tscn" id="14_jj6f2"]
+[ext_resource type="PackedScene" uid="uid://ch5ki13fftmxd" path="res://plantas/ejemplares/chilca_b.tscn" id="15_yi5df"]
+[ext_resource type="PackedScene" uid="uid://cct63xday235l" path="res://plantas/ejemplares/ruda_a.tscn" id="16_wxout"]
+[ext_resource type="PackedScene" uid="uid://8e1vimfhtjui" path="res://plantas/ejemplares/ruda_b.tscn" id="17_opay2"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c22hs"]
+scenes/1/scene = ExtResource("1_j7m1d")
+scenes/2/scene = ExtResource("11_hcbsl")
+scenes/3/scene = ExtResource("1_jxm6q")
+scenes/4/scene = ExtResource("13_qhrfn")
+scenes/5/scene = ExtResource("14_jj6f2")
+scenes/6/scene = ExtResource("15_yi5df")
+scenes/7/scene = ExtResource("16_wxout")
+scenes/8/scene = ExtResource("17_opay2")
+scenes/9/scene = ExtResource("2_c22hs")
+scenes/10/scene = ExtResource("2_2pmq4")
+scenes/11/scene = ExtResource("3_b3iem")
+scenes/12/scene = ExtResource("4_y7l66")
+scenes/13/scene = ExtResource("5_m6xph")
+scenes/14/scene = ExtResource("6_ywfme")
+scenes/15/scene = ExtResource("7_263g4")
+scenes/16/scene = ExtResource("8_vnkok")
+scenes/17/scene = ExtResource("9_n503w")
+scenes/18/scene = ExtResource("10_14ytt")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02dlo"]
+texture = ExtResource("1_26f4k")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 5
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/modulate = Color(0.8848981, 0.8848981, 0.8848981, 1)
+0:1/0 = 0
+0:1/0/modulate = Color(0.36989424, 0.5762225, 0.57906824, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hqns4"]
+resource_name = "Plantas"
+texture = ExtResource("2_jxm6q")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_hqns4")
+sources/1 = SubResource("TileSetAtlasSource_02dlo")
+sources/0 = SubResource("TileSetScenesCollectionSource_c22hs")

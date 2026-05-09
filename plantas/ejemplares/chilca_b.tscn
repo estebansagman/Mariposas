@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ch5ki13fftmxd"]
+
+[ext_resource type="Script" uid="uid://uo1v1xljosko" path="res://plantas/ejemplares/ejemplar.gd" id="1_lpa00"]
+[ext_resource type="Texture2D" uid="uid://m8337gvd335e" path="res://plantas/imagenes_ejemplares/chilcadeolorflor.png" id="2_lpa00"]
+
+[node name="Ejemplar" type="Node2D" unique_id=398981071]
+script = ExtResource("1_lpa00")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978649440]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_lpa00")

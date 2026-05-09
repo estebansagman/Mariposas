@@ -5,7 +5,7 @@ extends Node2D
 @onready var jardin: Node2D = $".."
 
 
-func crear_planta(key_planta,key_estructura, estructura, boton_original):
+func crear_planta(key_planta,key_estructura, estructura, boton_original, ejemplar):
 	var nueva_planta:Planta = planta_escena.instantiate()
 	#nueva_planta.giro_actual = 0
 	nueva_planta.key_planta = key_planta
@@ -16,5 +16,6 @@ func crear_planta(key_planta,key_estructura, estructura, boton_original):
 	nueva_planta.scale *= scale
 	nueva_planta.z_index = 2
 	nueva_planta.set_id_planta(boton_original.get_index() + 1)
-	nueva_planta.estructurar_planta()
+	nueva_planta.ejemplar = ejemplar
+	nueva_planta.estructurar_planta() # pasar parametro
 	jardinero.seleccionar_planta(nueva_planta)

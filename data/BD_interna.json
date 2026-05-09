@@ -102,6 +102,8 @@
 			"nombre_comun": "ceibo",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 0.0,
+			"atlas_A":1,
+			"atlas_B":2,
 			"imagen_catalogo": "res://plantas/imagenes/ceibo.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -120,23 +122,23 @@
 						0.0
 					],
 					[
-						2.0,
+						-1.0,
 						0.0
 					],
 					[
 						0.0,
-						1.0
+						-1.0
 					],
 					[
 						1.0,
-						1.0
+						-1.0
 					],
 					[
-						2.0,
-						1.0
+						-1.0,
+						-1.0
 					],
 					[
-						3.0,
+						0.0,
 						1.0
 					]
 				],
@@ -146,27 +148,27 @@
 						0.0
 					],
 					[
-						1.0,
+						-1.0,
 						0.0
 					],
 					[
-						2.0,
-						0.0
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
 					],
 					[
 						0.0,
 						1.0
 					],
 					[
-						1.0,
+						-1.0,
 						1.0
 					],
 					[
-						2.0,
-						1.0
-					],
-					[
-						1.0,
+						-1.0,
 						2.0
 					]
 				]
@@ -176,6 +178,8 @@
 			"nombre_comun": "coronillo",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 1.0,
+			"atlas_A":3,
+			"atlas_B":4,
 			"imagen_catalogo": "res://plantas/imagenes/coronillo.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -184,22 +188,23 @@
 				"dato_curioso_1":"el dato",
 				"dato_curioso_2":"el dato 2",
 			"forma": {
+				
 				"A": [
 					[
 						0.0,
 						0.0
 					],
 					[
-						1.0,
-						0.0
-					],
-					[
-						2.0,
-						0.0
+						0.0,
+						-1.0
 					],
 					[
 						0.0,
 						1.0
+					],
+					[
+						-1.0,
+						-1.0
 					]
 				],
 				"B": [
@@ -208,16 +213,16 @@
 						0.0
 					],
 					[
-						1.0,
+						-1.0,
 						0.0
 					],
 					[
-						1.0,
+						0.0,
 						1.0
 					],
 					[
-						2.0,
-						0.0
+						-1.0,
+						-1.0
 					]
 				]
 			}
@@ -226,6 +231,8 @@
 			"nombre_comun": "chilca",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 2.0,
+			"atlas_A":5,
+			"atlas_B":6,
 			"imagen_catalogo": "res://plantas/imagenes/chilca.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -237,24 +244,24 @@
 			"forma": {
 				"A": [
 					[
-						-1.0,
-						-1.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
 						0.0,
 						0.0
 					],
 					[
-						1.0,
-						0.0
+						0.0,
+						-1.0
 					],
 					[
-						1.0,
+						0.0,
 						1.0
+					],
+					[
+						-1.0,
+						1.0
+					],
+					[
+						-1.0,
+						-1.0
 					]
 				],
 				"B": [
@@ -263,20 +270,20 @@
 						0.0
 					],
 					[
-						1.0,
-						0.0
-					],
-					[
-						2.0,
-						0.0
-					],
-					[
 						0.0,
 						1.0
 					],
 					[
-						2.0,
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
 						1.0
+					],
+					[
+						1.0,
+						-1.0
 					]
 				]
 			}
@@ -285,6 +292,8 @@
 			"nombre_comun": "ruda",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 3.0,
+			"atlas_A":7,
+			"atlas_B":8,
 			"imagen_catalogo": "res://plantas/imagenes/ruda.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -299,16 +308,16 @@
 						0.0
 					],
 					[
-						0.0,
-						1.0
+						-1.0,
+						0.0
 					],
 					[
-						1.0,
+						-2.0,
 						0.0
 					],
 					[
 						1.0,
-						1.0
+						0.0
 					]
 				],
 				"B": [
@@ -317,16 +326,16 @@
 						0.0
 					],
 					[
-						0.0,
-						1.0
+						-1.0,
+						0.0
 					],
 					[
 						0.0,
-						2.0
+						-1.0
 					],
 					[
-						0.0,
-						3.0
+						-1.0,
+						-1.0
 					]
 				]
 			}
@@ -335,6 +344,8 @@
 			"nombre_comun": "canario_rojo",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 4.0,
+			"atlas_A":9,
+			"atlas_B":10,
 			"imagen_catalogo": "res://plantas/imagenes/canario rojo.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -346,14 +357,14 @@
 				"A": [
 					[
 						0.0,
+						-1.0
+					],
+					[
+						0.0,
 						0.0
 					],
 					[
-						1.0,
-						0.0
-					],
-					[
-						1.0,
+						0.0,
 						1.0
 					]
 				],
@@ -363,16 +374,12 @@
 						0.0
 					],
 					[
-						0.0,
-						1.0
+						1.0,
+						0.0
 					],
 					[
 						0.0,
-						2.0
-					],
-					[
-						0.0,
-						3.0
+						-1.0
 					]
 				]
 			}
@@ -381,6 +388,8 @@
 			"nombre_comun": "salvia",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 5.0,
+			"atlas_A":11,
+			"atlas_B":12,
 			"imagen_catalogo": "res://plantas/imagenes/salvia.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -396,16 +405,16 @@
 						0.0
 					],
 					[
-						1.0,
-						1.0
+						-1.0,
+						0.0
 					],
 					[
 						0.0,
-						1.0
+						-1.0
 					],
 					[
-						1.0,
-						2.0
+						-1.0,
+						-1.0
 					]
 				],
 				"B": [
@@ -414,7 +423,7 @@
 						0.0
 					],
 					[
-						1.0,
+						-1.0,
 						0.0
 					],
 					[
@@ -422,8 +431,8 @@
 						1.0
 					],
 					[
-						1.0,
-						1.0
+						-1.0,
+						-1.0
 					]
 				]
 			}
@@ -432,6 +441,8 @@
 			"nombre_comun": "ruelia",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 6.0,
+			"atlas_A":13,
+			"atlas_B":14,
 			"imagen_catalogo": "res://plantas/imagenes/ruelia.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -446,16 +457,16 @@
 						0.0
 					],
 					[
-						1.0,
-						0.0
-					],
-					[
-						2.0,
-						0.0
-					],
-					[
-						1.0,
+						0.0,
 						1.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						1.0,
+						-1.0
 					]
 				],
 				"B": [
@@ -464,7 +475,7 @@
 						0.0
 					],
 					[
-						1.0,
+						-1.0,
 						0.0
 					],
 					[
@@ -472,8 +483,8 @@
 						1.0
 					],
 					[
-						1.0,
-						1.0
+						0.0,
+						-1.0
 					]
 				]
 			}
@@ -482,6 +493,8 @@
 			"nombre_comun": "mbrucuya",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 7.0,
+			"atlas_A":15,
+			"atlas_B":16,
 			"imagen_catalogo": "res://plantas/imagenes/mbrucuya.jpg.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -497,16 +510,16 @@
 						0.0
 					],
 					[
-						0.0,
-						1.0
-					],
-					[
 						1.0,
-						1.0
+						0.0
 					],
 					[
-						2.0,
-						1.0
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
 					]
 				],
 				"B": [
@@ -515,16 +528,16 @@
 						0.0
 					],
 					[
-						1.0,
-						0.0
-					],
-					[
-						1.0,
+						0.0,
 						1.0
 					],
 					[
-						2.0,
-						1.0
+						0.0,
+						-1.0
+					],
+					[
+						1.0,
+						-1.0
 					]
 				]
 			}
@@ -533,6 +546,8 @@
 			"nombre_comun": "lantana",
 			"nombre_cientifico": "nombre_x",
 			"tile_juego": 8.0,
+			"atlas_A":17,
+			"atlas_B":18,
 			"imagen_catalogo": "res://plantas/imagenes/lantana.png",
 			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
 			"mariposas_atraidas": [
@@ -552,16 +567,16 @@
 						1.0
 					],
 					[
-						1.0,
+						0.0,
 						1.0
 					],
 					[
-						1.0,
-						2.0
+						0.0,
+						-1.0
 					],
 					[
-						2.0,
-						2.0
+						1.0,
+						-1.0
 					]
 				],
 				"B": [
@@ -570,20 +585,20 @@
 						0.0
 					],
 					[
+						0.0,
+						1.0
+					],
+					[
 						1.0,
+						1.0
+					],
+					[
+						-1.0,
 						0.0
 					],
 					[
-						0.0,
-						1.0
-					],
-					[
-						1.0,
-						1.0
-					],
-					[
-						0.0,
-						2.0
+						-1.0,
+						-1.0
 					]
 				]
 			}

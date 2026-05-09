@@ -7,6 +7,8 @@ var keys_plantas:Array[String]
 @onready var barra: VScrollBar = $VScrollBar
 @onready var scroll: ScrollContainer = $ScrollContainer
 
+
+
 var jardin: Jardin
 var barra_interna:VScrollBar
 
@@ -23,9 +25,9 @@ func _crear_catalogo():
 		var recorte = key_planta_completo.split(":")
 		var key_planta = recorte[0]
 		var key_estructura = recorte[1]
-
 		var nuevo_boton_planta: BotonPlanta = BOTON_PLANTA.instantiate()
 		#nuevo_boton_planta.inicio()
+		nuevo_boton_planta.ejemplar = key_planta_completo
 		nuevo_boton_planta.key_planta = key_planta
 		nuevo_boton_planta.key_estructura = key_estructura
 		nuevo_boton_planta.pedido_de_planta.connect(jardin.origen_plantas.crear_planta)

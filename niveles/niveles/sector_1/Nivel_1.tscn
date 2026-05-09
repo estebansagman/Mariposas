@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_mvi86"]
 [ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://data/nuevos_tipos_de_datos/recompensa.gd" id="2_6gc11"]
+[ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="11_pjlu4"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="23_l83ss"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="24_tgj2m"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="25_lbiqj"]
@@ -26,7 +27,7 @@ numero_de_nivel = 1
 numero_de_sector = 1
 jardin = NodePath("Jardin")
 Especie_mariposa = Array[String](["bataraza"])
-Especie_planta = Array[String](["canario_rojo:A", "salvia:B"])
+Especie_planta = Array[String](["canario_rojo:B", "salvia:A"])
 datos_de_libro = Array[ExtResource("2_6gc11")]([SubResource("Resource_pjlu4")])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("23_l83ss")]
@@ -72,7 +73,7 @@ tile_set = ExtResource("30_0evbg")
 
 [node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
 scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("30_0evbg")
+tile_set = ExtResource("11_pjlu4")
 
 [node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
 scale = Vector2(12.440509, 12.440509)

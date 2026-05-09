@@ -9,8 +9,8 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_x72kj"]
 gradient = SubResource("Gradient_emdks")
-width = 128
-height = 68
+width = 200
+height = 200
 
 [sub_resource type="FontVariation" id="FontVariation_b6te3"]
 base_font = ExtResource("3_71i50")
@@ -24,6 +24,10 @@ texture_normal = SubResource("GradientTexture2D_x72kj")
 script = ExtResource("2_oktc1")
 
 [node name="Dibujo" type="Node2D" parent="." unique_id=346366893]
+visible = false
+
+[node name="puntoAparicion" type="Node2D" parent="." unique_id=971901279]
+position = Vector2(100, 100)
 
 [node name="etiqueta_hover" type="NinePatchRect" parent="." unique_id=466727700]
 visible = false

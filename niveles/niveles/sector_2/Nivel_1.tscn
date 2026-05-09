@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="7_2b6tb"]
 [ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="8_c1rsg"]
 [ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="9_nyoh2"]
+[ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="10_kun18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
 size = Vector2(793, 791.0002)
@@ -64,7 +65,7 @@ tile_set = ExtResource("9_nyoh2")
 
 [node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
 scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("9_nyoh2")
+tile_set = ExtResource("10_kun18")
 
 [node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
 scale = Vector2(12.440509, 12.440509)

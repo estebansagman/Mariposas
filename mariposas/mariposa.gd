@@ -15,6 +15,8 @@ var requisitos_correctos:bool = false
 var esta_seleccionada:bool = false
 var focus = true
 var mariposa_detectada = false
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 
 func _ready() -> void:
 	poner_textura()
@@ -49,12 +51,15 @@ func apagar_focus():
 
 
 
-func iluminar():
-	var i = 1.5 
-	modulate = Color(i, i, i, 1.0)
+func iluminar(valido):
+	#var i = 1.5 
+	if valido:
+		modulate = Color.GREEN
+	else:
+		modulate = Color.DARK_RED
 func apagar():
-	var i = 1.0 
-	modulate = Color(i, i, i, 1.0)
+	#var i = 1.0 
+	modulate = Color.WHITE
 
 func seleccionar_mariposa():
 	esta_seleccionada = true
@@ -64,3 +69,7 @@ func soltar_mariposa():
 	emit_signal("soltando")
 func activar_boton():
 	emit_signal("eliminando")
+
+func display_agarrada()->void:
+	printerr("agarrada")
+	animation_player.play_section("Aleteo",0.08,-1,-1,0)

@@ -74,7 +74,7 @@ tracks/1/keys = PackedFloat32Array(0, 1, -0.5, 0.5, 0.5, 0.5, 0.033333335, 1, -0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsowi"]
 _data = {
-&"ArmatureAction": SubResource("Animation_wnh4i")
+&"Aleteo": SubResource("Animation_wnh4i")
 }
 
 [node name="Mariposa" type="Node2D" unique_id=2065631926]
@@ -141,8 +141,9 @@ skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ea1er")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Mariposa3D" unique_id=2106221566]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_dsowi")
-autoplay = &"ArmatureAction"
+autoplay = &"Aleteo"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=622072492]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)

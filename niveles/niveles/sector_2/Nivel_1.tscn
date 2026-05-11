@@ -1,56 +1,43 @@
 [gd_scene format=4 uid="uid://e3ylqgj5lqpq"]
 
-[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_6palm"]
-[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="2_y8mea"]
-[ext_resource type="Resource" uid="uid://dgycsvxsuaq2w" path="res://mariposas/recursos/cuatro_ojos.tres" id="3_s74xq"]
-[ext_resource type="Resource" uid="uid://ct2p6k0j1l28p" path="res://mariposas/recursos/bataraza.tres" id="4_i3goi"]
-[ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="5_6m5q8"]
-[ext_resource type="Resource" uid="uid://jfvd7qiqwdlg" path="res://mariposas/recursos/espejito.tres" id="5_keer1"]
-[ext_resource type="Resource" uid="uid://s4e1lu7fmutb" path="res://plantas/recursos/canario_rojoB.tres" id="7_jw4r6"]
-[ext_resource type="Resource" uid="uid://dyxjlm1pm1pvf" path="res://plantas/recursos/chilcaA.tres" id="10_3pu3f"]
-[ext_resource type="Resource" uid="uid://cekaltch5fpgg" path="res://plantas/recursos/mburucuyaA.tres" id="15_p3scr"]
-[ext_resource type="Resource" uid="uid://b56xxbijvdua5" path="res://plantas/recursos/rueliaA.tres" id="19_s0i6b"]
-[ext_resource type="Resource" uid="uid://so4q2uln8cml" path="res://plantas/recursos/SalviaA.tres" id="21_s8yd8"]
-[ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="23_a77j0"]
-[ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="24_l23fc"]
-[ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="25_avfk4"]
-[ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="26_3smvv"]
-[ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="27_33j7s"]
-[ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="28_dhara"]
-[ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="29_cie5l"]
-[ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="30_gjo5l"]
+[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_y86en"]
+[ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_kun18"]
+[ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_pra3y"]
+[ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="4_yhpg0"]
+[ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="5_np3g8"]
+[ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="6_vjx2j"]
+[ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="7_2b6tb"]
+[ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="8_c1rsg"]
+[ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="9_nyoh2"]
+[ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="10_kun18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
 size = Vector2(793, 791.0002)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
-script = ExtResource("1_6palm")
+script = ExtResource("1_y86en")
 numero_de_nivel = 1
 numero_de_sector = 2
 jardin = NodePath("Jardin")
-mariposas = Array[ExtResource("2_y8mea")]([ExtResource("3_s74xq"), ExtResource("4_i3goi"), ExtResource("5_keer1")])
-plantas = Array[ExtResource("5_6m5q8")]([ExtResource("15_p3scr"), ExtResource("21_s8yd8"), ExtResource("10_3pu3f"), ExtResource("19_s0i6b"), ExtResource("7_jw4r6")])
+Especie_mariposa = Array[String](["cuatro_ojos", "espejito", "bataraza"])
+Especie_planta = Array[String](["mbrucuya:A", "salvia:A", "chilca:A", "ruelia:A", "canario_rojo:B"])
 
-[node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("23_a77j0")]
+[node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_kun18")]
 columnas = 5
 limpiar = true
 tablero = NodePath("../Jardin/Tablero")
 jardin = NodePath("../Jardin")
 jardinero = NodePath("../Jardin/Jardinero")
 
-[node name="UI" parent="." unique_id=772245201 instance=ExtResource("24_l23fc")]
-puntaje_maximo = 20.0
-una_estrella = 5.0
-dos_estrellas = 15.0
-tres_estrellas = 20.0
+[node name="UI" parent="." unique_id=772245201 instance=ExtResource("3_pra3y")]
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(568, 81)
 scale = Vector2(0.2, 0.2)
-script = ExtResource("25_avfk4")
+script = ExtResource("4_yhpg0")
 columnas = 5
 
-[node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("26_3smvv")]
+[node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("5_np3g8")]
 position = Vector2(-6.1035156e-05, 7.6293945e-06)
 scale = Vector2(12.441, 12.441)
 tablero = NodePath("../Tablero")
@@ -58,31 +45,31 @@ jardin = NodePath("..")
 
 [node name="Naturaleza" type="Node2D" parent="Jardin" unique_id=1099403147 node_paths=PackedStringArray("jardin", "jardinero")]
 scale = Vector2(12.440509, 12.440509)
-script = ExtResource("27_33j7s")
+script = ExtResource("6_vjx2j")
 jardin = NodePath("..")
 jardinero = NodePath("../Jardinero")
 
 [node name="origen_plantas" type="Node2D" parent="Jardin" unique_id=1764700993 node_paths=PackedStringArray("jardinero")]
 scale = Vector2(12.440754, 12.440754)
-script = ExtResource("28_dhara")
+script = ExtResource("7_2b6tb")
 jardinero = NodePath("../Jardinero")
 
-[node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("29_cie5l")]
+[node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_c1rsg")]
 scale = Vector2(12.440509, 12.440509)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAA=")
-tile_set = ExtResource("30_gjo5l")
+tile_set = ExtResource("9_nyoh2")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
 scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("30_gjo5l")
+tile_set = ExtResource("9_nyoh2")
 
 [node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
 scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("30_gjo5l")
+tile_set = ExtResource("10_kun18")
 
 [node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
 scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("30_gjo5l")
+tile_set = ExtResource("9_nyoh2")
 
 [node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
 position = Vector2(244.00003, 56.000008)

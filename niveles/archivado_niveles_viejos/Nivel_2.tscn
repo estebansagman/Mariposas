@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://dlq8crmcrrk8n" path="res://plantas/recursos/ceiboA.tres" id="15_lytmh"]
 [ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="16_3p44m"]
 [ext_resource type="Resource" uid="uid://dorwlr378ktx8" path="res://plantas/recursos/coronilloB.tres" id="16_vpadk"]
-[ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas_vis.tscn" id="17_jogiv"]
+[ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas.tscn" id="17_jogiv"]
 [ext_resource type="Resource" uid="uid://r07koqfuhw7p" path="res://plantas/recursos/LantanaA.tres" id="17_uwtyp"]
 [ext_resource type="Resource" uid="uid://d32wdmgdxkoo8" path="res://plantas/recursos/rudaB.tres" id="18_0jndv"]
 [ext_resource type="Script" uid="uid://b4s3hmplx5qr7" path="res://plantas/recursos/recurso_planta.gd" id="18_sen3v"]

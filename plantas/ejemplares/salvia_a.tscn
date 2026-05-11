@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://77r4p80njc3n"]
+
+[ext_resource type="Script" uid="uid://uo1v1xljosko" path="res://plantas/ejemplares/ejemplar.gd" id="1_qdatw"]
+[ext_resource type="Texture2D" uid="uid://dajiqugv57072" path="res://plantas/imagenes_ejemplares/Salviaflor2.png" id="2_qdatw"]
+
+[node name="Ejemplar" type="Node2D" unique_id=398981071]
+script = ExtResource("1_qdatw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978649440]
+position = Vector2(-32, -32)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_qdatw")

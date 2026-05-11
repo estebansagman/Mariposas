@@ -7,8 +7,8 @@ signal mariposa_jardin_cambio(valor)
 @onready var naturaleza: Naturaleza = $Naturaleza
 @onready var origen_plantas: Node2D = $origen_plantas
 
-func emitir_suma_de_puntos(valor):
-	emit_signal("mariposa_jardin_cambio",valor)
+func emitir_suma_de_puntos():
+	emit_signal("mariposa_jardin_cambio")
 
 func establecer_columnas(valor):
 	columnas = valor

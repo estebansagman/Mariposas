@@ -13,7 +13,7 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 gradient = SubResource("Gradient_4qldc")
 width = 54
 
-[node name="ItemNivel" type="TextureRect" unique_id=486300447]
+[node name="ItemNivel" type="TextureRect" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
 offset_right = 155.25
 offset_bottom = 184.0
 size_flags_horizontal = 3
@@ -21,6 +21,7 @@ size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_sbog6")
 expand_mode = 3
 script = ExtResource("1_k7nes")
+puntaje = NodePath("Puntaje")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375642150]
 layout_mode = 0
@@ -51,7 +52,7 @@ text = "Nivel  1"
 layout_mode = 0
 offset_left = 61.999992
 offset_top = 2.0
-offset_right = 204.0
+offset_right = 100.99999
 offset_bottom = 42.0
 scale = Vector2(0.75175446, 0.75175446)
 

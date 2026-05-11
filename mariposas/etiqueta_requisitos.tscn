@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://oh8fw7rmsda3"]
+
+[ext_resource type="Texture2D" uid="uid://2n64fu25fpp8" path="res://UI/imagenes/requisitos.png" id="1_t2ljo"]
+[ext_resource type="FontFile" uid="uid://cmh3bcgsqjr82" path="res://UI/Vogue.ttf" id="2_awmsr"]
+
+[sub_resource type="FontVariation" id="FontVariation_k0u15"]
+base_font = ExtResource("2_awmsr")
+spacing_glyph = -1
+spacing_top = 4
+
+[node name="etiqueta_hover" type="NinePatchRect" unique_id=239612928]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 162.30997
+offset_bottom = 48.0
+texture = ExtResource("1_t2ljo")
+patch_margin_left = 48
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="." unique_id=119694520]
+layout_mode = 0
+offset_top = 7.5000005
+offset_right = 154.37502
+offset_bottom = 28.648003
+scale = Vector2(1, 1.3021152)
+theme_override_colors/font_color = Color(0.34967804, 0.24857557, 0.23909146, 1)
+theme_override_fonts/font = SubResource("FontVariation_k0u15")
+theme_override_font_sizes/font_size = 22
+text = "       CHILCA DE OLOR"

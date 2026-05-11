@@ -1,13 +1,6 @@
 [gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://qeyhak2m8s5r"]
 
 [ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_2fu4a"]
-[ext_resource type="Texture2D" uid="uid://djx0424rj28qt" path="res://mariposas/imagenes/textura_bandera_argentina.png" id="2_2fu4a"]
-[ext_resource type="Texture2D" uid="uid://cgrnuxs5vicgi" path="res://mariposas/imagenes/base_Página 11.png" id="3_n2sub"]
 
 [resource]
 script = ExtResource("1_2fu4a")
-puntos_que_suma = 3
-nombre_Mariposa = "bandera_argentina"
-textura = ExtResource("2_2fu4a")
-requisitos = Array[int]([0, 1, 8])
-textura_requisitos = ExtResource("3_n2sub")

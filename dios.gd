@@ -1,73 +1,60 @@
 extends Node
 
-const SAVE_PATH = "user://progreso.cfg"
-var config = ConfigFile.new()
+var ruta_user = "user://BD_externa.json"
+var ruta_res = "res://data/BD_externa.json"
 
-enum Especie {
-	CEIBO,
-	CORONILLO,
-	CHILCA,
-	RUDA,
-	CANARIO_ROJO,
-	SALVIA,
-	RUELLIA,
-	MBRUCUYA,
-	LANTANA
-}
-
-var nombre_especies: Array[String] = [
-	"CEIBO",
-	"CORONILLO",
-	"CHILCA",
-	"RUDA",
-	"CANARIO ROJO",
-	"SALVIA",
-	"RUELLIA",
-	"MBRUCUYA",
-	"LANTANA"]
-
+var bd_interna: Dictionary = {}
+var bd_externa: Dictionary = {}
 
 func _ready():
-	load_data()
+	bd_interna = _cargar_archivo_json("res://data/BD_interna.json")
+	gestionar_bd_externa()
 
-func load_data():
-	var error = config.load(SAVE_PATH)
-	if error != OK:
-		print("Iniciando nueva partida.")
+func gestionar_bd_externa(): #a futuro pensar "gestion de usuario" se crearia recien ahi, no aca.
+	if not FileAccess.file_exists(ruta_user):
+		print("Primera vez: Copiando base de datos a user://")
+		var dir = DirAccess.open("res://")
+		dir.copy(ruta_res, ruta_user)
+	bd_externa = _cargar_archivo_json(ruta_user)
+func _cargar_archivo_json(ruta):
+	if not FileAccess.file_exists(ruta):
+		push_error("FALTA EL ARCHIVO: " + ruta)
+		return {}
+		
+	var archivo = FileAccess.open(ruta, FileAccess.READ)
+	var contenido = archivo.get_as_text()
+	var datos = JSON.parse_string(contenido)
+	
+	if datos == null:
+		push_error("Error al parsear JSON en: " + ruta)
+		return {}
+	return datos
 
-func completar_nivel(id_sector: int, id_nivel: int):
-	var clave = str(id_sector) + "_" + str(id_nivel)
-	config.set_value("Completados", clave, true)
-	config.save(SAVE_PATH)
-
-func esta_desbloqueado(id_sector: int, id_nivel: int) -> bool:
-	if id_sector == 1: 
-		return true
-	var sector_previo = id_sector - 1
-	var niveles_ganados = contar_niveles_completados_en_sector(sector_previo)
-	return niveles_ganados >= 2 
-
-func contar_niveles_completados_en_sector(id_sector: int) -> int:
-	var cuenta = 0
-	for i in range(1, 5): 
-		var clave = str(id_sector) + "_" + str(i)
-		if config.get_value("Completados", clave, false):
-			cuenta += 1
-	return cuenta
-
+func guardar_bd_externa():
+	var archivo = FileAccess.open(ruta_user, FileAccess.WRITE)
+	var json_string = JSON.stringify(bd_externa, "\t")
+	archivo.store_string(json_string)
+	archivo.close()
+	print("Progreso guardado")
+func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
+	var nueva_lista: Array[Vector2i] = []
+	for punto in lista_cruda:
+		var x = int(round(punto[0])) 
+		var y = int(round(punto[1]))
+		nueva_lista.append(Vector2i(x, y))
+	return nueva_lista
 
 func borrar_todo():
-	var dir = DirAccess.open("user://")
-	if dir.file_exists("progreso.cfg"):
-		dir.remove("progreso.cfg")
-	config = ConfigFile.new()
-	config.save(SAVE_PATH)
-	get_tree().reload_current_scene()
-
+	var dir = DirAccess.open("res://")
+	dir.copy(ruta_res, ruta_user)
+	bd_externa = _cargar_archivo_json(ruta_user)
+	guardar_bd_externa()
+	
 func debug_completar_juego():
-	for s in range(0, 3):
-		for n in range(1, 5):
-			var clave = str(s) + "_" + str(n)
-			config.set_value("Completados", clave, true)
-	config.save(SAVE_PATH)
-	get_tree().reload_current_scene()
+	for s_id in bd_externa["sectores"].keys():
+		bd_externa["sectores"][s_id]["desbloqueo"] = true
+		if bd_externa["sectores"][s_id].has("niveles"):
+			for n_id in bd_externa["sectores"][s_id]["niveles"].keys():
+				bd_externa["sectores"][s_id]["niveles"][n_id]["superado"] = true
+				
+	guardar_bd_externa()

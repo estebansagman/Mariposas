@@ -3,7 +3,7 @@ extends Resource
 class_name RecursoPlanta
 
 @export var nombre_planta: String
-@export var tipo_de_planta: Dios.Especie
+@export var tipo_de_planta: String
 @export var textura: Texture2D
 @export var estructura: Array[Vector2i]:
 	set(valor):
@@ -14,7 +14,6 @@ class_name RecursoPlanta
 	set(valor):
 		actualizar = valor
 		_dibujar_en_consola()
-@export var textura_descripcion:Texture2D
 
 func _dibujar_en_consola(): # Herramienta momentanea para armar las plantas
 	#Dios.limpiar_pantalla_visual()

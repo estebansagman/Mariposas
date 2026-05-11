@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c0sgj6na6ri3d"]
+
+[ext_resource type="Script" uid="uid://dvvywdq8neidc" path="res://Libro/scripts/boton_planta_libro.gd" id="1_a8snf"]
+[ext_resource type="Texture2D" uid="uid://u8yp07jx1tbr" path="res://Libro/imagenes/imagen_2026-04-21_150439142.webp" id="1_n6bg1"]
+
+[sub_resource type="Gradient" id="Gradient_uhnuk"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8cup8"]
+gradient = SubResource("Gradient_uhnuk")
+width = 149
+height = 159
+
+[node name="BotoPlanta" type="TextureButton" unique_id=1233384009]
+offset_right = 149.0
+offset_bottom = 159.0
+texture_normal = SubResource("GradientTexture2D_8cup8")
+script = ExtResource("1_a8snf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1016452168]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 1025.0
+offset_bottom = 1029.0
+scale = Vector2(0.14389397, 0.14389397)
+texture = ExtResource("1_n6bg1")

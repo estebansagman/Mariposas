@@ -5,7 +5,6 @@ signal cambio_en_jardin
 signal mariposa_desplazada
 signal mariposa_movida(mariposa:Mariposa, parcela:Vector2i)
 
-
 @export var tablero: Tablero
 var planta_seleccionada:Planta
 var plantas_en_tablero:Array[Planta]
@@ -122,7 +121,12 @@ func mover_planta_seleccionada(celda_actual) -> void:
 			if focuseable and en_area_de_juego:
 				for casilla in lista_focus:
 					tablero.ocupar_celda(casilla, planta_seleccionada)
-					capa_plantas.set_cell(casilla, 2, Vector2i(0,planta_seleccionada.datos.tipo_de_planta))
+					#var atlas = Dios.bd_interna["plantas"][planta_seleccionada.key_planta]["tile_juego"]
+					#capa_plantas.set_cell(casilla, 2, Vector2i(0,atlas))
+
+				
+				#capa_plantas.set_cell(celda_actual,0, Vector2i(0, 0), 1)
+				poner_planta_en_tablero()
 				plantas_en_tablero.append(planta_seleccionada)
 				planta_seleccionada.get_parent().remove_child(planta_seleccionada)
 				emit_signal("cambio_en_jardin")
@@ -133,6 +137,25 @@ func mover_planta_seleccionada(celda_actual) -> void:
 
 			planta_seleccionada = null
 			limpiar_focos()
+
+func poner_planta_en_tablero():
+	var partes = planta_seleccionada.ejemplar.split(":")
+	var nombre_planta = partes[0]
+	var forma = partes[1]
+	var atlas:int
+	if forma == "A":
+		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_A"]
+	else:
+		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_B"]
+	capa_plantas.set_cell(celda_actual, 0, Vector2i(0, 0), atlas)
+	_configurar_ultima_planta.call_deferred(planta_seleccionada.id_planta, planta_seleccionada.giro_actual)
+
+func _configurar_ultima_planta(id_a_poner, giro_a_poner):
+	var hijos = capa_plantas.get_children()
+	if hijos.size() > 0:
+		var ultima_planta = hijos[-1]
+		if ultima_planta.has_method("configurar"):
+			ultima_planta.configurar(id_a_poner, giro_a_poner)
 
 func posicionar_planta():
 	if planta_seleccionada:
@@ -160,23 +183,23 @@ func soltar_mariposa():
 	if !mariposa_en_seleccion:
 		mariposa_seleccionada = null
 
-func generarl_lista_requerimientos()->Array[Dios.Especie]:
-	var lista_de_requerimientos:Array[Dios.Especie]
+func generarl_lista_requerimientos()->Array[String]:
+	var lista_de_requerimientos:Array[String]
 	for celda in lista_focus:
 		if tablero.celdas.has(celda): 
 			lista_de_requerimientos.append(tablero.get_tipo(celda))
 		else:
 			lista_de_requerimientos.clear()
-			lista_de_requerimientos.append(-1)
+			lista_de_requerimientos.append("")
 			return lista_de_requerimientos
 
 	for celda in lista_focus:
 		if tablero.celdas[celda][tablero.tipo_casilla_key] == tablero.casilla_bloqueo:
 			lista_de_requerimientos.clear()
-			lista_de_requerimientos.append(-1)
+			lista_de_requerimientos.append("")
 		if tablero.celdas[celda][tablero.mariposa]:
 			lista_de_requerimientos.clear()
-			return [-1]
+			return [""]
 	return lista_de_requerimientos
 
 func mover_mariposa_seleccionada()->void:

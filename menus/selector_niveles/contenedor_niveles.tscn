@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cwtx3es3unfng"]
+
+[ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/imagenes/conenedor_niveles.gd" id="1_x6k5x"]
+
+[node name="HBoxContainer2" type="HBoxContainer" unique_id=2138278870]
+custom_minimum_size = Vector2(0, 185.88)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("1_x6k5x")

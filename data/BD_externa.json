@@ -1,0 +1,105 @@
+{
+	"jugador": "nombre",
+	"sectores": {
+		"seccion_1": {
+			"niveles_superados": 0.0,
+			"requisito":0,
+			"desbloqueo": true,
+			"niveles": {
+				"nivel_1": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_2": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				}
+			}
+		},
+		"seccion_2": {
+			"niveles_superados": 0.0,
+			"requisito":2,
+			"desbloqueo": false,
+			"niveles": {
+				"nivel_1": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_2": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_3": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_4": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				}
+			}
+		},
+		"seccion_3": {
+			"niveles_superados": 0.0,
+			"requisito":2,
+			"desbloqueo": false,
+			"niveles": {
+				"nivel_1": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_2": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_3": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				},
+				"nivel_4": {
+					"superado": false,
+					"momento_de_juego": {
+
+					}
+				}
+			}
+		}
+	},
+	"progreso_mariposas": {
+		"bandera_argentina": [],
+		"bataraza": [],
+		"cuatro_ojos": [],
+		"espejito": [],
+		"limonero": [],
+		"perezosa": []
+	},
+	"progreso_plantas": {
+		"ceibo": [],
+		"coronillo": [],
+		"chilca": [],
+		"ruda": [],
+		"canario_rojo": [],
+		"salvia": [],
+		"ruellia": [],
+		"mbrucuya": [],
+		"lantana": []
+	}
+}

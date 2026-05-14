@@ -1,0 +1,688 @@
+{
+	"ruta_general": {
+		"path_template": "res://niveles/niveles/sector_{s}/Nivel_{n}.tscn"
+	},
+	"sectores": {
+		"seccion_1": {
+			"numero": 1.0,
+			"titulo": "",
+			"baner": "",
+			"requisito": 0.0,
+			"niveles": {
+				"nivel_1": {
+					"numero": 1.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_2": {
+					"numero": 2.0,
+					"titulo": "",
+					"imagen": ""
+				}
+			}
+		},
+		"seccion_2": {
+			"numero": 2.0,
+			"titulo": "",
+			"baner": "",
+			"requisito": 2.0,
+			"niveles": {
+				"nivel_1": {
+					"numero": 1.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_2": {
+					"numero": 2.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_3": {
+					"numero": 3.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_4": {
+					"numero": 4.0,
+					"titulo": "",
+					"imagen": ""
+				}
+			}
+		},
+		"seccion_3": {
+			"numero": 3.0,
+			"titulo": "",
+			"baner": "",
+			"requisito": 2.0,
+			"niveles": {
+				"nivel_1": {
+					"numero": 1.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_2": {
+					"numero": 2.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_3": {
+					"numero": 3.0,
+					"titulo": "",
+					"imagen": ""
+				},
+				"nivel_4": {
+					"numero": 4.0,
+					"titulo": "",
+					"imagen": ""
+				}
+			}
+		}
+	},
+	"orden_inportancia_mariposas": [
+		"bandera_argentina",
+		"cuatro_ojos",
+		"espejito",
+		"limonero",
+		"perezosa",
+		"bataraza"
+	],
+	"orden_planta": [
+		"ceibo",
+		"coronillo",
+		"chilca",
+		"ruda",
+		"canario_rojo",
+		"salvia",
+		"ruelia",
+		"mbrucuya",
+		"lantana"
+	],
+	"plantas": {
+		"ceibo": {
+			"nombre_comun": "ceibo",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 0.0,
+			"atlas_A":1,
+			"atlas_B":2,
+			"imagen_catalogo": "res://plantas/imagenes/ceibo.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"bandera_argentina"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						1.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
+					],
+					[
+						0.0,
+						1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						-1.0,
+						1.0
+					],
+					[
+						-1.0,
+						2.0
+					]
+				]
+			}
+		},
+		"coronillo": {
+			"nombre_comun": "coronillo",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 1.0,
+			"atlas_A":3,
+			"atlas_B":4,
+			"imagen_catalogo": "res://plantas/imagenes/coronillo.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"bandera_argentina"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"chilca": {
+			"nombre_comun": "chilca",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 2.0,
+			"atlas_A":5,
+			"atlas_B":6,
+			"imagen_catalogo": "res://plantas/imagenes/chilca.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"cuatro_ojos",
+				"perezosa"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						-1.0,
+						1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						1.0
+					],
+					[
+						1.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"ruda": {
+			"nombre_comun": "ruda",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 3.0,
+			"atlas_A":7,
+			"atlas_B":8,
+			"imagen_catalogo": "res://plantas/imagenes/ruda.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"limonero"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						-2.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"canario_rojo": {
+			"nombre_comun": "canario_rojo",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 4.0,
+			"atlas_A":9,
+			"atlas_B":10,
+			"imagen_catalogo": "res://plantas/imagenes/canario rojo.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"bataraza"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						-1.0
+					],
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"salvia": {
+			"nombre_comun": "salvia",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 5.0,
+			"atlas_A":11,
+			"atlas_B":12,
+			"imagen_catalogo": "res://plantas/imagenes/salvia.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"bataraza",
+				"espejito"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"ruelia": {
+			"nombre_comun": "ruelia",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 6.0,
+			"atlas_A":13,
+			"atlas_B":14,
+			"imagen_catalogo": "res://plantas/imagenes/ruelia.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"cuatro_ojos"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						1.0,
+						-1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						0.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"mbrucuya": {
+			"nombre_comun": "mbrucuya",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 7.0,
+			"atlas_A":15,
+			"atlas_B":16,
+			"imagen_catalogo": "res://plantas/imagenes/mbrucuya.jpg.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"perezosa",
+				"espejito"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						1.0,
+						-1.0
+					]
+				]
+			}
+		},
+		"lantana": {
+			"nombre_comun": "lantana",
+			"nombre_cientifico": "nombre_x",
+			"tile_juego": 8.0,
+			"atlas_A":17,
+			"atlas_B":18,
+			"imagen_catalogo": "res://plantas/imagenes/lantana.png",
+			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"mariposas_atraidas": [
+				"bandera_argentina",
+				"limonero"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2",
+			"forma": {
+				"A": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						1.0,
+						0.0
+					],
+					[
+						0.0,
+						-1.0
+					],
+					[
+						1.0,
+						-1.0
+					]
+				],
+				"B": [
+					[
+						0.0,
+						0.0
+					],
+					[
+						0.0,
+						1.0
+					],
+					[
+						1.0,
+						1.0
+					],
+					[
+						-1.0,
+						0.0
+					],
+					[
+						-1.0,
+						-1.0
+					]
+				]
+			}
+		}
+	},
+	"mariposas": {
+		"bandera_argentina": {
+			"nombre": "Bandera Argentina",
+			"nombre_cientifico": "nombre_x",
+			"textura_juego": "res://mariposas/imagenes/en_juego/bandera_argentina.png",
+			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
+			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"plantas_requeridas": [
+				"lantana",
+				"coronillo",
+				"ceibo"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
+		},
+		"bataraza": {
+			"nombre": "Bataraza",
+			"nombre_cientifico": "nombre_x",
+			"textura_juego": "res://mariposas/imagenes/en_juego/bataraza.png",
+			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
+			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"plantas_requeridas": [
+				"canario_rojo",
+				"salvia"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
+		},
+		"cuatro_ojos": {
+			"nombre": "Cuatro Ojos",
+			"nombre_cientifico": "nombre_x",
+			"textura_juego": "res://mariposas/imagenes/en_juego/cuatro_ojos.png",
+			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
+			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"plantas_requeridas": [
+				"ruelia",
+				"chilca"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
+		},
+		"espejito": {
+			"nombre": "Espejito",
+			"nombre_cientifico": "nombre_x",
+			"textura_juego": "res://mariposas/imagenes/en_juego/espejito.png",
+			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
+			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"plantas_requeridas": [
+				"salvia",
+				"mbrucuya"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
+		},
+		"limonero": {
+			"nombre": "Limonero",
+			"nombre_cientifico": "nombre_x",
+			"textura_juego": "res://mariposas/imagenes/en_juego/limonero.png",
+			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
+			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"plantas_requeridas": [
+				"ruda",
+				"lantana"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
+		},
+		"perezosa": {
+			"nombre": "Perezosa",
+			"nombre_cientifico": "nombre_x",
+			"textura_juego": "res://mariposas/imagenes/en_juego/perezosa.png",
+			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
+			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"plantas_requeridas": [
+				"chilca",
+				"mbrucuya"
+			],
+				"dato_curioso_1":"el dato",
+				"dato_curioso_2":"el dato 2"
+		}
+	}
+}

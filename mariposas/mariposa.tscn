@@ -1,9 +1,7 @@
 [gd_scene format=4 uid="uid://dprfbi2712evq"]
 
 [ext_resource type="Script" uid="uid://ckijx15b3uer7" path="res://mariposas/mariposa.gd" id="1_bdqk2"]
-[ext_resource type="Texture2D" uid="uid://cighrc4830lik" path="res://mariposas/imagenes/textura_perezosa.png" id="2_jtx6q"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_40t0u"]
+[ext_resource type="Texture2D" uid="uid://bdas36nfjd05r" path="res://mariposas/imagenes/en_juego/perezosa.png" id="2_ea1er"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqk2"]
 size = Vector2(105, 85)
@@ -46,11 +44,13 @@ bind/2/pose = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea1er"]
 transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
+alpha_scissor_threshold = 0.236
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.0
 cull_mode = 2
 shading_mode = 0
-albedo_texture = ExtResource("2_jtx6q")
+albedo_texture = ExtResource("2_ea1er")
+texture_filter = 1
 
 [sub_resource type="Animation" id="Animation_wnh4i"]
 resource_name = "ArmatureAction"
@@ -80,12 +80,8 @@ _data = {
 [node name="Mariposa" type="Node2D" unique_id=2065631926]
 modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 top_level = true
+z_index = 4
 script = ExtResource("1_bdqk2")
-
-[node name="Textura" type="Sprite2D" parent="." unique_id=1443044251]
-visible = false
-position = Vector2(32, 32)
-texture = SubResource("CompressedTexture2D_40t0u")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1361335232]
 collision_layer = 4
@@ -96,7 +92,7 @@ position = Vector2(32.5, 32)
 shape = SubResource("RectangleShape2D_bdqk2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1882414305]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.4, 0.53)
 texture = SubResource("ViewportTexture_jtx6q")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=210393591]

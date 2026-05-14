@@ -1,25 +1,30 @@
 extends TextureRect
-signal nivel_elejido(nivel_actual)
+signal nivel_elejido(nivel_actual, indice, sector)
 
-@export var nivel:String = "res://niveles/Nivel_Base.tscn" #Esto va a autoconstruirse con desde el contenedor central, ahora va a mano
-var indice:int
+@export var indice:int
+@export var sector:int
 @onready var etiqueta: Label = $Nivel
-@onready var color_rect: ColorRect = $ColorRect
-var seleccionado = false
+@export var puntaje: sistema_puntaje
 
-func _process(delta: float) -> void:
-	if seleccionado and Input.is_action_pressed("aceptar"):
-		color_rect.hide()
-		deseleccionar()
+func dar_indice():
+	etiqueta.text = "Nivel " + str(indice)
+	var sectores = Dios.bd_externa.get("sectores", {})
+	var datos_sector = sectores.get("seccion_" + str(sector), {})
+	var nivel_estado = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["superado"]
+	if Dios.bd_externa["sectores"]["seccion_"+str(sector)]["desbloqueo"]:
+		modulate = Color(1, 1, 1, 1)
+		puntaje.actualizar_visual(nivel_estado)
+	else:
+		modulate = Color(0.4, 0.4, 0.4, 1)
+	
 
-func dar_indice(factor):
-	indice = get_index()+1 + (4 * factor)
-	etiqueta.text = "Nivel "+str(indice)
 
 func seleccionar():
-	emit_signal("nivel_elejido",nivel)
-	color_rect.show()
-	seleccionado= true
+	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
+	if ResourceLoader.exists(ruta_actual):
+		emit_signal("nivel_elejido", ruta_actual, indice, sector)
+	else:
+		emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
+
+
 	
-func deseleccionar():
-	seleccionado =false

@@ -1,50 +1,60 @@
 extends Node
 
-#const RUTA_DE_GUARDADO = "user://progreso.json"
-#
-#var progreso = {
-	#"1": {"puntos": 0, "estrellas": 0, "desbloqueado": true}
-#}
+var ruta_user = "user://BD_externa.json"
+var ruta_res = "res://data/BD_externa.json"
 
-enum Especie {
-	CEIBO,
-	CORONILLO,
-	CHILCA,
-	RUDA,
-	CANARIO_ROJO,
-	SALVIA,
-	RUELLIA,
-	MBRUCUYA,
-	LANTANA
-}
+var bd_interna: Dictionary = {}
+var bd_externa: Dictionary = {}
 
-#func _ready():
-	#cargar()
-#
-#func guardar_nivel(num: int, pts: int, est: int):
-	#var n = str(num)
-	#if not progreso.has(n) or pts > progreso[n].puntos:
-		#progreso[n] = {"puntos": pts, "estrellas": est, "desbloqueado": true}
-	#var siguiente = str(num + 1)
-	#if not progreso.has(siguiente):
-		#progreso[siguiente] = {"puntos": 0, "estrellas": 0, "desbloqueado": true}
-	#
-	#salvar_a_disco()
-#
-#func salvar_a_disco():
-	#var file = FileAccess.open(RUTA_DE_GUARDADO, FileAccess.WRITE)
-	#file.store_line(JSON.stringify(progreso))
-#
-#func cargar():
-	#if FileAccess.file_exists(RUTA_DE_GUARDADO):
-		#var file = FileAccess.open(RUTA_DE_GUARDADO, FileAccess.READ)
-		#var json = JSON.new()
-		#json.parse(file.get_as_text())
-		#progreso = json.data
-#
-#func resetear_progreso():
-	#progreso = {
-		#"1": {"puntos": 0, "estrellas": 0, "desbloqueado": true}
-	#}
-	#salvar_a_disco()
-	#print("Progreso reseteado con éxito")
+func _ready():
+	bd_interna = _cargar_archivo_json("res://data/BD_interna.json")
+	gestionar_bd_externa()
+
+func gestionar_bd_externa(): #a futuro pensar "gestion de usuario" se crearia recien ahi, no aca.
+	if not FileAccess.file_exists(ruta_user):
+		print("Primera vez: Copiando base de datos a user://")
+		var dir = DirAccess.open("res://")
+		dir.copy(ruta_res, ruta_user)
+	bd_externa = _cargar_archivo_json(ruta_user)
+func _cargar_archivo_json(ruta):
+	if not FileAccess.file_exists(ruta):
+		push_error("FALTA EL ARCHIVO: " + ruta)
+		return {}
+		
+	var archivo = FileAccess.open(ruta, FileAccess.READ)
+	var contenido = archivo.get_as_text()
+	var datos = JSON.parse_string(contenido)
+	
+	if datos == null:
+		push_error("Error al parsear JSON en: " + ruta)
+		return {}
+	return datos
+
+func guardar_bd_externa():
+	var archivo = FileAccess.open(ruta_user, FileAccess.WRITE)
+	var json_string = JSON.stringify(bd_externa, "\t")
+	archivo.store_string(json_string)
+	archivo.close()
+	print("Progreso guardado")
+func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
+	var nueva_lista: Array[Vector2i] = []
+	for punto in lista_cruda:
+		var x = int(round(punto[0])) 
+		var y = int(round(punto[1]))
+		nueva_lista.append(Vector2i(x, y))
+	return nueva_lista
+
+func borrar_todo():
+	var dir = DirAccess.open("res://")
+	dir.copy(ruta_res, ruta_user)
+	bd_externa = _cargar_archivo_json(ruta_user)
+	guardar_bd_externa()
+	
+func debug_completar_juego():
+	for s_id in bd_externa["sectores"].keys():
+		bd_externa["sectores"][s_id]["desbloqueo"] = true
+		if bd_externa["sectores"][s_id].has("niveles"):
+			for n_id in bd_externa["sectores"][s_id]["niveles"].keys():
+				bd_externa["sectores"][s_id]["niveles"][n_id]["superado"] = true
+				
+	guardar_bd_externa()

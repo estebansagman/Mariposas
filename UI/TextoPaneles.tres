@@ -1,0 +1,14 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b42o1ybv71kvb"]
+
+[ext_resource type="FontFile" uid="uid://c1px65rcdldpx" path="res://UI/Grainfield PERSONAL USE ONLY!.ttf" id="1_epqvo"]
+
+[sub_resource type="FontVariation" id="FontVariation_epqvo"]
+base_font = ExtResource("1_epqvo")
+spacing_glyph = 1
+
+[resource]
+font = SubResource("FontVariation_epqvo")
+font_size = 20
+font_color = Color(0.2796604, 0.17046711, 0.13024849, 1)
+outline_size = 1
+outline_color = Color(0.2784314, 0.16862746, 0.12941177, 1)

@@ -14,7 +14,7 @@ signal tablero_creado(valor:int)
 var focus_key:String = "focus"
 var ocupado_key:String ="ocupado"
 var tipo_casilla_key:String ="tipo_casilla"
-var recurso_key:String ="recurso"
+var key_planta:String ="key_planta"
 var nombre_key:String ="nombre"
 var id_planta_key:String ="id_planta"
 var id_mariposa_key:String = "id_mariposa"
@@ -26,7 +26,7 @@ var mariposa: = "hay_mariposa"
 #endregion
 
 var keys_de_diccionario:Array[String] = [focus_key,ocupado_key,tipo_casilla_key,
-										recurso_key,nombre_key,tipo,mariposa,
+										key_planta,nombre_key,tipo,mariposa,
 										id_planta_key,id_mariposa_key,id_set_source_key,
 										coord_atlas_key,id_alternativo_key]
 var celdas: Dictionary = {}
@@ -40,10 +40,10 @@ func leer_celda(celda:Vector2i):
 		for key in keys_de_diccionario:
 			print(key,": ",celdas[celda][key])	
 func get_posicion_fisica(celda:Vector2i)->Vector2: return local_to_map(celda)
-func get_planta_en_celda(celda:Vector2i) -> Planta:return celdas[celda][recurso_key]
+func get_planta_en_celda(celda:Vector2i) -> String:return celdas[celda][key_planta]
 func get_ocupacion_de_celda(celda:Vector2i) -> bool: return celdas[celda][ocupado_key]
 func get_existencia_de_mariposas(celda:Vector2i)->bool: return celdas[celda][mariposa]
-func get_tipo(celda:Vector2i) -> Dios.Especie: return celdas[celda][tipo]
+func get_tipo(celda:Vector2i) -> String: return celdas[celda][tipo]
 func get_id_planta(celda:Vector2i): return celdas[celda][id_planta_key]
 #endregion
 
@@ -86,9 +86,9 @@ func _formatear_celda(celda:Vector2i,ocupacion:bool,tipo_casilla:String,coordena
 	celdas[celda][focus_key] = false
 	celdas[celda][ocupado_key] = ocupacion
 	celdas[celda][tipo_casilla_key] = tipo_casilla
-	celdas[celda][recurso_key] = null
+	celdas[celda][key_planta] = ""
 	celdas[celda][nombre_key] = ""
-	celdas[celda][tipo] = -1
+	celdas[celda][tipo] = ""
 	celdas[celda][mariposa] = false
 	celdas[celda][id_planta_key] = -1
 	celdas[celda][id_mariposa_key] = -1
@@ -97,12 +97,11 @@ func _formatear_celda(celda:Vector2i,ocupacion:bool,tipo_casilla:String,coordena
 	celdas[celda][id_alternativo_key] = id_alternativo_foco
 	
 func ocupar_celda(celda:Vector2i, planta:Planta = null,mariposa:Mariposa = null):
-	if planta: #aca es dibde tendria todo el sentido la HERENCIA de objeto "pieza" o algo asi
+	if planta:
 		celdas[celda][ocupado_key] = true
-		celdas[celda][recurso_key] = planta 
+		celdas[celda][key_planta] = planta 
 		celdas[celda][nombre_key] = planta.get_nombre_planta() 
 		celdas[celda][tipo] = planta.get_tipo_planta()
-		#celdas[celda][id_mariposa_key] = mariposa.id_mariposa
 		celdas[celda][id_planta_key] = planta.get_id_planta()
 	if mariposa:
 		celdas[celda][mariposa] = true
@@ -113,13 +112,11 @@ func sacar_mariposa(celda:Vector2i):
 	celdas[celda][id_mariposa_key] = -1
 
 func vaciar_celda(celda:Vector2i):
-	#print("ejecutado vaciar celda")
 	celdas[celda][ocupado_key] = false
 	celdas[celda][tipo_casilla_key] = casilla_normal
-	celdas[celda][recurso_key] = null 
+	celdas[celda][key_planta] = "" 
 	celdas[celda][nombre_key] = ""
-	celdas[celda][tipo] = -1
-	#celdas[celda][mariposa] = false
+	celdas[celda][tipo] = ""
 	celdas[celda][id_planta_key] = 0
 	celdas[celda][id_set_source_key] = source_tile_set
 	celdas[celda][coord_atlas_key] = id_de_textura_base

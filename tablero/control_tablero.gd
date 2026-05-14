@@ -256,4 +256,8 @@ func girar_mariposa(event:InputEvent = null):
 		#else: mariposa_seleccionada.apagar()
 		#if !en_area_de_juego: mariposa_seleccionada.apagar()
 
+func _iluminar_mariposa():
+	if mariposa_seleccionada and mariposa_en_seleccion:
+		mariposa_seleccionada.iluminar(mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()))
+
 #endregion

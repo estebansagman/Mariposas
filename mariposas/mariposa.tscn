@@ -141,9 +141,5 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_dsowi")
 autoplay = &"Aleteo"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=622072492]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
-visible = false
-
 [connection signal="mouse_entered" from="Area2D" to="." method="prender_focus"]
 [connection signal="mouse_exited" from="Area2D" to="." method="apagar_focus"]

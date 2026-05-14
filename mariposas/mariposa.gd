@@ -72,5 +72,4 @@ func activar_boton():
 	emit_signal("eliminando")
 
 func display_agarrada()->void:
-	printerr("agarrada")
 	animation_player.play_section("Aleteo",0.08,-1,-1,0)

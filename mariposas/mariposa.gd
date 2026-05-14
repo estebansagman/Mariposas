@@ -5,8 +5,7 @@ signal eliminando
 signal enfocada(mariposa:Mariposa)
 signal fuera_de_foco
 
-@export var datos:RecursoMariposa
-@onready var textura: Sprite2D = $Textura
+@export var key_mariposa:String
 @onready var mariposa_3d: MeshInstance3D = %Mariposa3D
 var id_mariposa = 0
 var estructura:Array[Vector2i] = [Vector2i(0,0),Vector2i(1,0),Vector2i(0,1),Vector2i(1,1)]
@@ -21,26 +20,29 @@ var mariposa_detectada = false
 func _ready() -> void:
 	poner_textura()
 
-
-func get_nombre()->String: return datos.nombre_Mariposa
-func get_requisitos()->Array[Dios.Especie]: return datos.requisitos
+func get_nombre()->String: return Dios.bd_interna["mariposas"][key_mariposa]["nombre"]
+func get_requisitos()->Array: 
+	var lista = Dios.bd_interna["mariposas"][key_mariposa]["plantas_requeridas"]
+	return lista
 func get_estructura()->Array[Vector2i]: return estructura
 
 func set_id_mariposa(valor:int): id_mariposa = valor
+
 func poner_textura():
 	var new_mat = mariposa_3d.get_surface_override_material(0).duplicate()
-	if datos:
-		textura.texture = datos.textura
-		new_mat.set("albedo_texture",datos.textura)
+	var ruta_textura = Dios.bd_interna["mariposas"][key_mariposa]["textura_juego"]
+	var textura_cargada = load(ruta_textura)
+	
+	if Dios.bd_interna["mariposas"].has(key_mariposa):
+		new_mat.set("albedo_texture",textura_cargada)
 		mariposa_3d.set_surface_override_material(0,new_mat)
 
-func confirmar_requerimientos(casillas:Array[Dios.Especie])->bool: #hay que pasar las casillas masticadas
+func confirmar_requerimientos(casillas:Array[String])->bool: #hay que pasar las casillas masticadas
 	requisitos_correctos = true
 	for requerimiento in get_requisitos():
 		if requerimiento not in casillas:
 			requisitos_correctos = false
 			break
-
 	return requisitos_correctos
 
 func prender_focus():
@@ -49,14 +51,13 @@ func prender_focus():
 func apagar_focus():
 	emit_signal("fuera_de_foco")
 
-
-
 func iluminar(valido):
 	#var i = 1.5 
 	if valido:
 		modulate = Color.GREEN
 	else:
 		modulate = Color.DARK_RED
+
 func apagar():
 	#var i = 1.0 
 	modulate = Color.WHITE

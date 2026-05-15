@@ -97,8 +97,8 @@ func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 
 func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 	var modelo:Node3D = mariposa.find_child("Mariposa3D",true)
-	var duration:float = 1.0/2
-	var loops:int = 1
+	var duration:float = 0.5
+	var vueltas:int = 1
 	var t = create_tween()
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
 
@@ -106,13 +106,10 @@ func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 
 	t.set_ease(Tween.EASE_OUT)
 	t.set_trans(Tween.TRANS_BACK)
-	#aleteo(mariposa,loops)
 	modelo.find_child("AnimationPlayer",true).play()
-	for loop in loops:
-		#t.parallel().tween_property(mariposa,"skew",deg_to_rad(randfn(-89.9,89.9)),duration)
+	for vuelta in vueltas:
 		t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
 		t.tween_interval(duration)
-		#t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-45,45),randf_range(-180,180),randf_range(-90,90)),duration)
 		t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45)),duration)
 	
 	t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
@@ -121,13 +118,6 @@ func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
 	t.tween_property(modelo,"global_rotation_degrees",Vector3.ZERO,duration)
 	await t.finished
 	modelo.find_child("AnimationPlayer",true).stop()
-
-#func aleteo(mariposa:Mariposa,loops) -> void:
-	#for loop in loops*4:
-		#var a = create_tween()
-		#a.tween_property(mariposa.textura,"scale",Vector2(0.2,1.0),0.2).set_trans(Tween.TRANS_BOUNCE)
-		#a.tween_property(mariposa.textura,"scale",Vector2.ONE,0.2).set_trans(Tween.TRANS_BOUNCE)
-		#await a.finished
 
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))

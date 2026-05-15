@@ -51,6 +51,7 @@ cull_mode = 2
 shading_mode = 0
 albedo_texture = ExtResource("2_ea1er")
 texture_filter = 1
+stencil_flags = 2
 
 [sub_resource type="Animation" id="Animation_wnh4i"]
 resource_name = "ArmatureAction"
@@ -78,7 +79,6 @@ _data = {
 }
 
 [node name="Mariposa" type="Node2D" unique_id=2065631926]
-modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 top_level = true
 z_index = 4
 script = ExtResource("1_bdqk2")

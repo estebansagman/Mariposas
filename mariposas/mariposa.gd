@@ -17,6 +17,7 @@ var mariposa_detectada = false
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 
+
 func _ready() -> void:
 	poner_textura()
 
@@ -52,11 +53,10 @@ func apagar_focus():
 	emit_signal("fuera_de_foco")
 
 func iluminar(valido):
-	#var i = 1.5 
 	if valido:
-		modulate = Color.GREEN
+		modulate = Color.WHITE  #Color("a9b162") Color("719a5f")
 	else:
-		modulate = Color.DARK_RED
+		modulate = Color("a84047")  #Color("8b2b40")
 
 func apagar():
 	#var i = 1.0 

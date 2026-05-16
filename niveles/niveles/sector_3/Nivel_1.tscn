@@ -17,13 +17,13 @@ size = Vector2(793, 791.0002)
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_ytc5n")
 numero_de_nivel = 1
-numero_de_sector = 2
+numero_de_sector = 3
 jardin = NodePath("Jardin")
-Especie_mariposa = Array[String](["cuatro_ojos", "espejito", "bataraza"])
-Especie_planta = Array[String](["mbrucuya:A", "salvia:A", "chilca:A", "ruelia:A", "canario_rojo:B"])
+Especie_mariposa = Array[String](["bataraza", "cuatro_ojos", "espejito", "bandera_argentina", "perezosa", "limonero"])
+Especie_planta = Array[String](["canario_rojo:B", "ceibo:B", "chilca:B", "coronillo:A", "lantana:A", "mbrucuya:B", "ruda:B", "ruelia:B", "salvia:B"])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_jhrvq")]
-columnas = 5
+columnas = 7
 limpiar = true
 tablero = NodePath("../Jardin/Tablero")
 jardin = NodePath("../Jardin")
@@ -33,9 +33,9 @@ jardinero = NodePath("../Jardin/Jardinero")
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(568, 81)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.14285715, 0.14285715)
 script = ExtResource("4_cmm8s")
-columnas = 5
+columnas = 7
 
 [node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("5_4sycm")]
 position = Vector2(-6.1035156e-05, 7.6293945e-06)
@@ -56,7 +56,7 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_7b5p2")]
 scale = Vector2(12.440509, 12.440509)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAYAAQAAAAAAAAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAA=")
 tile_set = ExtResource("9_3ivfs")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]

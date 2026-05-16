@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://yuyyrug5q0ea"]
+[gd_scene format=4 uid="uid://c0uwfu8eae7vm"]
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_ql8ah"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_rvqf7"]
@@ -16,14 +16,14 @@ size = Vector2(793, 791.0002)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_ql8ah")
-numero_de_nivel = 2
+numero_de_nivel = 3
 numero_de_sector = 2
 jardin = NodePath("Jardin")
-Especie_mariposa = Array[String](["bandera_argentina", "perezosa", "cuatro_ojos", "espejito", "limonero", "bataraza"])
-Especie_planta = Array[String](["canario_rojo:B", "ceibo:B", "chilca:B", "coronillo:A", "lantana:A", "mbrucuya:B", "ruda:B", "ruelia:B", "salvia:B"])
+Especie_mariposa = Array[String](["bataraza", "espejito", "perezosa", "cuatro_ojos"])
+Especie_planta = Array[String](["canario_rojo:A", "salvia:B", "mbrucuya:B", "chilca:B", "ruelia:B", "ruda:B"])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_rvqf7")]
-columnas = 7
+columnas = 5
 limpiar = true
 tablero = NodePath("../Jardin/Tablero")
 jardin = NodePath("../Jardin")
@@ -33,9 +33,9 @@ jardinero = NodePath("../Jardin/Jardinero")
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(568, 81)
-scale = Vector2(0.14285715, 0.14285715)
+scale = Vector2(0.2, 0.2)
 script = ExtResource("4_mbi0v")
-columnas = 7
+columnas = 5
 
 [node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("5_n4dlq")]
 position = Vector2(-6.1035156e-05, 7.6293945e-06)
@@ -56,7 +56,7 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_cp3k4")]
 scale = Vector2(12.440509, 12.440509)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAYAAQAAAAAAAAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAA=")
 tile_set = ExtResource("9_no6c2")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]

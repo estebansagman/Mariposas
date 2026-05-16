@@ -7,6 +7,7 @@ signal fuera_de_foco
 
 @export var key_mariposa:String
 @onready var mariposa_3d: MeshInstance3D = %Mariposa3D
+@onready var animation_player: AnimationPlayer = $SubViewport/Mariposa3D/AnimationPlayer
 var id_mariposa = 0
 var estructura:Array[Vector2i] = [Vector2i(0,0),Vector2i(1,0),Vector2i(0,1),Vector2i(1,1)]
 var posicion_jardin:Array[Vector2i]
@@ -14,6 +15,8 @@ var requisitos_correctos:bool = false
 var esta_seleccionada:bool = false
 var focus = true
 var mariposa_detectada = false
+
+var tween_activo: Tween
 
 func _ready() -> void:
 	poner_textura()
@@ -49,12 +52,15 @@ func prender_focus():
 func apagar_focus():
 	emit_signal("fuera_de_foco")
 
-func iluminar():
-	var i = 1.5 
-	modulate = Color(i, i, i, 1.0)
+func iluminar(valido):
+	#var i = 1.5 
+	if valido:
+		modulate = Color.GREEN
+	else:
+		modulate = Color.DARK_RED
 func apagar():
-	var i = 1.0 
-	modulate = Color(i, i, i, 1.0)
+	#var i = 1.0 
+	modulate = Color.WHITE
 
 func seleccionar_mariposa():
 	esta_seleccionada = true
@@ -64,3 +70,36 @@ func soltar_mariposa():
 	emit_signal("soltando")
 func activar_boton():
 	emit_signal("eliminando")
+
+func animar_spawn( parcela:Vector2i, pos_global)->void:
+	if tween_activo and tween_activo.is_valid():
+			tween_activo.kill() 
+	if not animation_player.is_playing():
+		animation_player.play()
+	
+	var modelo:Node3D = find_child("Mariposa3D",true)
+	var duration:float = 1.0/2
+	var loops:int = 1
+	tween_activo = create_tween()
+
+	modelo.global_rotation_degrees = Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45))
+	
+	tween_activo.set_ease(Tween.EASE_OUT)
+	tween_activo.set_trans(Tween.TRANS_BACK)
+
+	animation_player.play()
+	for loop in loops:
+		tween_activo.parallel().tween_property(self,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
+		tween_activo.tween_interval(duration)
+		tween_activo.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45)),duration)
+
+	tween_activo.parallel().tween_property(self,"global_position",pos_global,duration)
+	tween_activo.tween_interval(duration)
+	
+	tween_activo.tween_property(modelo,"global_rotation_degrees",Vector3.ZERO,duration)
+	await tween_activo.finished
+	animation_player.stop()
+
+func display_agarrada()->void:
+	printerr("agarrada")
+	animation_player.play_section("Aleteo",0.08,-1,-1,0)

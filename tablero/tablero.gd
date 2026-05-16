@@ -41,6 +41,10 @@ func leer_celda(celda:Vector2i):
 			print(key,": ",celdas[celda][key])	
 func get_posicion_fisica(celda:Vector2i)->Vector2: return local_to_map(celda)
 func get_planta_en_celda(celda:Vector2i) -> String:return celdas[celda][key_planta]
+func get_nombre_planta(celda:Vector2i)->String:
+	if not celdas.has(celda): 
+		return ""
+	return celdas[celda][nombre_key]
 func get_ocupacion_de_celda(celda:Vector2i) -> bool: return celdas[celda][ocupado_key]
 func get_existencia_de_mariposas(celda:Vector2i)->bool: return celdas[celda][mariposa]
 func get_tipo(celda:Vector2i) -> String: return celdas[celda][tipo]

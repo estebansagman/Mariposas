@@ -5,6 +5,8 @@ class_name NivelJugable
 @export var numero_de_sector: int
 @export var jardin:Jardin
 
+var label_mouse: Label
+var panel_mouse: PanelContainer
 
 var sector = "seccion_"+str(numero_de_sector)
 var nivel = "nivel_"+str(numero_de_nivel)
@@ -48,9 +50,50 @@ var puntos_maximos:int
 #var nivel_id = "nivel_" + str(numero_de_nivel)
 #var estado_nivel:bool 
 
+#func _process(delta: float) -> void:
+	#var posicion_mouse_local = jardin.tablero.get_local_mouse_position()
+	#var casillero_tablero: Vector2i = jardin.tablero.local_to_map(posicion_mouse_local)
+	#var nombre_planta = jardin.tablero.get_nombre_planta(casillero_tablero)
+	#
+	#print(nombre_planta)
+
+func _input(event: InputEvent) -> void:
+	var posicion_mouse_local = jardin.tablero.get_local_mouse_position()
+	var casillero_tablero: Vector2i = jardin.tablero.local_to_map(posicion_mouse_local)
+	var nombre_planta = jardin.tablero.get_nombre_planta(casillero_tablero)
+	
+	print(nombre_planta)
+	
+	if panel_mouse:
+		panel_mouse.global_position = get_global_mouse_position() + Vector2(15, 15)
+		
+		if nombre_planta != "":
+			label_mouse.text = nombre_planta
+			panel_mouse.show()
+		else:
+			panel_mouse.hide()
+
 func _ready() -> void:
+	
+	panel_mouse = PanelContainer.new()
+	label_mouse = Label.new()
+	panel_mouse.add_child(label_mouse)
+	add_child(panel_mouse)
+	
+	panel_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	var orden_importancia = Dios.bd_interna["orden_inportancia_mariposas"]
+	var especies_ordenadas: Array[String] = []
+	
+	for nombre_mariposa in orden_importancia:
+		if Especie_mariposa.has(nombre_mariposa):
+			especies_ordenadas.append(nombre_mariposa)
+			
+	Especie_mariposa = especies_ordenadas
+
 	jardin.naturaleza.generar_mariposas(Especie_mariposa)
-	ui.catalogo_plantas.iniciar_catalogo(Especie_planta,jardin)
+	ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
 	ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 	sistema_debug()
 	#estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]

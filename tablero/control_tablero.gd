@@ -206,6 +206,7 @@ func mover_mariposa_seleccionada()->void:
 	if mariposa_seleccionada:
 		if Input.is_action_just_pressed("aceptar"):
 			mariposa_en_seleccion = true
+			mariposa_seleccionada.display_agarrada()
 			var posicion_actual = mariposa_seleccionada.posicion_jardin.duplicate()
 			for parcela in posicion_actual: 
 				tablero.sacar_mariposa(parcela)
@@ -214,6 +215,10 @@ func mover_mariposa_seleccionada()->void:
 			mariposa_seleccionada.position = get_global_mouse_position()
 
 		if Input.is_action_just_released("aceptar") and en_area_de_juego and mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()):
+			mariposa_seleccionada.apagar()
+			mariposa_seleccionada.animation_player.play()
+			mariposa_seleccionada.animation_player.stop()
+			#mariposa_seleccionada.animar_spawn(mariposa_seleccionada, parcela, capa_mariposas.to_global(capa_mariposas.map_to_local(parcela)))
 			for casilla in lista_focus:
 				tablero.celdas[casilla][tablero.mariposa] = true
 				tablero.celdas[casilla][tablero.id_mariposa_key] = mariposa_seleccionada.id_mariposa
@@ -226,20 +231,20 @@ func mover_mariposa_seleccionada()->void:
 			limpiar_focos()
 			emit_signal("cambio_en_jardin")
 
-			
 		elif Input.is_action_just_released("aceptar")and mariposa_en_seleccion:
+			mariposa_seleccionada.animation_player.play()
+			mariposa_seleccionada.animation_player.stop()
 			mariposa_seleccionada.posicion_jardin = []
 			emit_signal("cambio_en_jardin")
 			lista_focus.clear()
+			mariposa_seleccionada.apagar()
 			mariposa_en_seleccion = false
 			mariposa_seleccionada = null
 			limpiar_focos()
 
 func _iluminar_mariposa():
 	if mariposa_seleccionada and mariposa_en_seleccion:
-		if mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()):
-			mariposa_seleccionada.iluminar()
-		else: mariposa_seleccionada.apagar()
-		if !en_area_de_juego: mariposa_seleccionada.apagar()
+		mariposa_seleccionada.iluminar(mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()))
+
 
 #endregion

@@ -27,64 +27,146 @@ func generar_mariposas(datos:Array[String]):
 		mariposa_objeto.fuera_de_foco.connect(jardinero.soltar_mariposa)
 		mariposas_objeto.append(mariposa_objeto)
 
-func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
-	if not mariposas_en_juego.is_empty():
-		for mariposa in mariposas_en_juego.duplicate():
-			var cuadrante_tipo: Array[String] = []
-			
-			for parcela in mariposa.posicion_jardin:
-				cuadrante_tipo.append(tablero.get_tipo(parcela))
-			if mariposa.confirmar_requerimientos(cuadrante_tipo):
-				continue 
-			
-			for parcela in mariposa.posicion_jardin:
-				tablero.sacar_mariposa(parcela)	
-			mariposas_en_juego.erase(mariposa)
-			emit_signal("mariposa_cambio")
-			if mariposa.get_parent():
-				mariposa.get_parent().remove_child(mariposa)
-		print(mariposas_en_juego)
+#func analizar_jardin(): # DIVIDIR EN SUBFUNCIONES
+	#if not mariposas_en_juego.is_empty():
+		#for mariposa in mariposas_en_juego.duplicate():
+			#var cuadrante_tipo: Array[String] = []
+			#
+			#for parcela in mariposa.posicion_jardin:
+				#cuadrante_tipo.append(tablero.get_tipo(parcela))
+			#if mariposa.confirmar_requerimientos(cuadrante_tipo):
+				#continue 
+			#
+			#for parcela in mariposa.posicion_jardin:
+				#tablero.sacar_mariposa(parcela)	
+			#mariposas_en_juego.erase(mariposa)
+			#emit_signal("mariposa_cambio")
+			#if mariposa.get_parent():
+				#mariposa.get_parent().remove_child(mariposa)
+		#print(mariposas_en_juego)
+#
+	#for parcela in tablero.celdas:
+		#var v1 = parcela + Vector2i(1, 0)
+		#var v2 = parcela + Vector2i(0, 1)
+		#var v3 = parcela + Vector2i(1, 1)
+		#var celdas = tablero.celdas
+		#var cuadrante:Array[Vector2i] = [parcela, v1, v2, v3]
+		#if not ( (celdas.has(v1) and celdas.has(v2) and celdas.has(v3)) ):
+			#continue
+		#var es_habitable = true
+		#for casilla in cuadrante:
+			#var tipo_de_suelo:String = tablero.celdas[casilla][tablero.tipo_casilla_key]
+			#var bloqueo:String = tablero.casilla_bloqueo
+			#if tipo_de_suelo == bloqueo:
+				#es_habitable = false
+				#break
+		#if not es_habitable:
+			#continue
+		#if cuadrante.any(func(v): return tablero.get_existencia_de_mariposas(v)):
+			#continue
+			#
+		#var cuadrante_tipo: Array[String] = []
+		#for casilla in cuadrante:
+			#var tipo = tablero.get_tipo(casilla)
+			#if tipo != "": cuadrante_tipo.append(tipo)
+			#
+		#for mariposa in mariposas_objeto:
+			#for casilla in cuadrante:
+				#var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
+				#if hay_mariposa: es_habitable = false
+			#if mariposa in mariposas_en_juego or !es_habitable: continue
+			#if mariposa.confirmar_requerimientos(cuadrante_tipo):
+				#mariposas_en_juego.append(mariposa)
+				#mariposa.posicion_jardin = cuadrante.duplicate()
+				#print(mariposa.posicion_jardin)
+				#_spawnear_mariposa(mariposa, parcela)
+				##mariposas_en_juego.append(mariposa)
+				#print(mariposas_en_juego)
+				#for celda in cuadrante:
+					#tablero.celdas[celda][tablero.mariposa] = true
+					#tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
 
+#region
+func analizar_jardin() -> void:
+	_limpiar_mariposas_viejas()
+
+	for mariposa in mariposas_objeto:
+		if mariposa in mariposas_en_juego: 
+			continue
+		var cuadrante_encontrado: Array[Vector2i] = _buscar_espacio_para_mariposa(mariposa)
+		if not cuadrante_encontrado.is_empty():
+			_ubicar_mariposa_en_jardin(mariposa, cuadrante_encontrado)
+
+
+func _limpiar_mariposas_viejas() -> void:
+	if mariposas_en_juego.is_empty(): return
+	
+	for mariposa in mariposas_en_juego.duplicate():
+		var cuadrante_tipo: Array[String] = []
+		for parcela in mariposa.posicion_jardin:
+			cuadrante_tipo.append(tablero.get_tipo(parcela))
+			
+		if mariposa.confirmar_requerimientos(cuadrante_tipo):
+			continue 
+			
+		for parcela in mariposa.posicion_jardin:
+			tablero.sacar_mariposa(parcela)    
+		mariposas_en_juego.erase(mariposa)
+		emit_signal("mariposa_cambio")
+		if mariposa.get_parent():
+			mariposa.get_parent().remove_child(mariposa)
+
+
+func _buscar_espacio_para_mariposa(mariposa) -> Array[Vector2i]:
 	for parcela in tablero.celdas:
 		var v1 = parcela + Vector2i(1, 0)
 		var v2 = parcela + Vector2i(0, 1)
 		var v3 = parcela + Vector2i(1, 1)
 		var celdas = tablero.celdas
-		var cuadrante:Array[Vector2i] = [parcela, v1, v2, v3]
-		if not ( (celdas.has(v1) and celdas.has(v2) and celdas.has(v3)) ):
+		
+		if not (celdas.has(v1) and celdas.has(v2) and celdas.has(v3)):
 			continue
-		var es_habitable = true
-		for casilla in cuadrante:
-			var tipo_de_suelo:String = tablero.celdas[casilla][tablero.tipo_casilla_key]
-			var bloqueo:String = tablero.casilla_bloqueo
-			if tipo_de_suelo == bloqueo:
-				es_habitable = false
-				break
-		if not es_habitable:
-			continue
-		if cuadrante.any(func(v): return tablero.get_existencia_de_mariposas(v)):
+			
+		var cuadrante: Array[Vector2i] = [parcela, v1, v2, v3]
+		
+		if not _es_cuadrante_valido(cuadrante):
 			continue
 			
 		var cuadrante_tipo: Array[String] = []
 		for casilla in cuadrante:
-			var tipo = tablero.get_tipo(casilla) #Especie, "tipo" es raro, arreglar eso a futuro
-			if tipo != "": cuadrante_tipo.append(tipo)
+			var tipo = tablero.get_tipo(casilla)
+			if tipo != "": 
+				cuadrante_tipo.append(tipo)
+		
+		if mariposa.confirmar_requerimientos(cuadrante_tipo):
+			return cuadrante
 			
-		for mariposa in mariposas_objeto:
-			for casilla in cuadrante:
-				var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
-				if hay_mariposa: es_habitable = false
-			if mariposa in mariposas_en_juego or !es_habitable: continue
-			if mariposa.confirmar_requerimientos(cuadrante_tipo):
-				mariposas_en_juego.append(mariposa)
-				mariposa.posicion_jardin = cuadrante.duplicate()
-				print(mariposa.posicion_jardin)
-				_spawnear_mariposa(mariposa, parcela)
-				#mariposas_en_juego.append(mariposa)
-				print(mariposas_en_juego)
-				for celda in cuadrante:
-					tablero.celdas[celda][tablero.mariposa] = true
-					tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
+	return []
+
+
+func _es_cuadrante_valido(cuadrante: Array[Vector2i]) -> bool:
+	for casilla in cuadrante:
+		var tipo_de_suelo: String = tablero.celdas[casilla][tablero.tipo_casilla_key]
+		if tipo_de_suelo == tablero.casilla_bloqueo:
+			return false
+			
+		var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
+		if hay_mariposa:
+			return false
+			
+	return true
+
+
+func _ubicar_mariposa_en_jardin(mariposa, cuadrante: Array[Vector2i]) -> void:
+	mariposas_en_juego.append(mariposa)
+	mariposa.posicion_jardin = cuadrante.duplicate()
+	
+	_spawnear_mariposa(mariposa, cuadrante[0])
+	
+	for celda in cuadrante:
+		tablero.celdas[celda][tablero.mariposa] = true
+		tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
+#endregion
 
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 	emit_signal("mariposa_cambio")
@@ -93,41 +175,34 @@ func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 		jardin.add_child(mariposa)
 	mariposa.scale *= scale
 	mariposa.scale /= jardin.columnas 
-	animar_spawn(mariposa, parcela)
-
-func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
-	var modelo:Node3D = mariposa.find_child("Mariposa3D",true)
-	var duration:float = 1.0/2
-	var loops:int = 1
-	var t = create_tween()
-	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
-
-	modelo.global_rotation_degrees = Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45))
-
-	t.set_ease(Tween.EASE_OUT)
-	t.set_trans(Tween.TRANS_BACK)
-	#aleteo(mariposa,loops)
-	modelo.find_child("AnimationPlayer",true).play()
-	for loop in loops:
-		#t.parallel().tween_property(mariposa,"skew",deg_to_rad(randfn(-89.9,89.9)),duration)
-		t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
-		t.tween_interval(duration)
-		#t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-45,45),randf_range(-180,180),randf_range(-90,90)),duration)
-		t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45)),duration)
+	mariposa.animar_spawn(parcela, capa_mariposas.to_global(capa_mariposas.map_to_local(parcela)))
+	#animar_spawn(mariposa, parcela)
 	
-	t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
-	t.tween_interval(duration)
-	
-	t.tween_property(modelo,"global_rotation_degrees",Vector3.ZERO,duration)
-	await t.finished
-	modelo.find_child("AnimationPlayer",true).stop()
+#func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
+	#var modelo:Node3D = mariposa.find_child("Mariposa3D",true)
+	#var duration:float = 1.0/2
+	#var loops:int = 1
+	#var t = create_tween()
+	#var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
+#
+	#modelo.global_rotation_degrees = Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45))
+#
+	#t.set_ease(Tween.EASE_OUT)
+	#t.set_trans(Tween.TRANS_BACK)
+#
+	#modelo.find_child("AnimationPlayer",true).play()
+	#for loop in loops:
+		#t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
+		#t.tween_interval(duration)
+		#t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45)),duration)
+	#
+	#t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
+	#t.tween_interval(duration)
+	#
+	#t.tween_property(modelo,"global_rotation_degrees",Vector3.ZERO,duration)
+	#await t.finished
+	#modelo.find_child("AnimationPlayer",true).stop()
 
-#func aleteo(mariposa:Mariposa,loops) -> void:
-	#for loop in loops*4:
-		#var a = create_tween()
-		#a.tween_property(mariposa.textura,"scale",Vector2(0.2,1.0),0.2).set_trans(Tween.TRANS_BOUNCE)
-		#a.tween_property(mariposa.textura,"scale",Vector2.ONE,0.2).set_trans(Tween.TRANS_BOUNCE)
-		#await a.finished
 
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))

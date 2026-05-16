@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://yuyyrug5q0ea"]
+[gd_scene format=4 uid="uid://c0uwfu8eae7vm"]
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_ql8ah"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_rvqf7"]
@@ -16,11 +16,11 @@ size = Vector2(793, 791.0002)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_ql8ah")
-numero_de_nivel = 2
+numero_de_nivel = 3
 numero_de_sector = 2
 jardin = NodePath("Jardin")
-Especie_mariposa = Array[String](["bandera_argentina", "perezosa", "cuatro_ojos", "espejito", "limonero", "bataraza"])
-Especie_planta = Array[String](["canario_rojo:B", "ceibo:B", "chilca:B", "coronillo:A", "lantana:A", "mbrucuya:B", "ruda:B", "ruelia:B", "salvia:B"])
+Especie_mariposa = Array[String](["", "", ""])
+Especie_planta = Array[String](["", "", "", "", "", ""])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_rvqf7")]
 columnas = 7

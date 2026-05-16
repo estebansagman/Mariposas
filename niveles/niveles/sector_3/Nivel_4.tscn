@@ -16,11 +16,9 @@ size = Vector2(793, 791.0002)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_d155l")
-numero_de_nivel = 2
-numero_de_sector = 2
+numero_de_nivel = 3
+numero_de_sector = 4
 jardin = NodePath("Jardin")
-Especie_mariposa = Array[String](["bandera_argentina", "perezosa", "cuatro_ojos", "espejito", "limonero", "bataraza"])
-Especie_planta = Array[String](["canario_rojo:B", "ceibo:B", "chilca:B", "coronillo:A", "lantana:A", "mbrucuya:B", "ruda:B", "ruelia:B", "salvia:B"])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_fl7tt")]
 columnas = 7

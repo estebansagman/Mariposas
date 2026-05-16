@@ -16,7 +16,7 @@ size = Vector2(793, 791.0002)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_m2xrd")
-numero_de_nivel = 2
+numero_de_nivel = 4
 numero_de_sector = 2
 jardin = NodePath("Jardin")
 Especie_mariposa = Array[String](["bandera_argentina", "perezosa", "cuatro_ojos", "espejito", "limonero", "bataraza"])

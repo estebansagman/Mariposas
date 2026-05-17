@@ -68,7 +68,6 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("12_8cgwm")]
 scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("13_pei53")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
 scale = Vector2(12.440509, 12.440509)

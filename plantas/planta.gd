@@ -3,6 +3,8 @@ class_name Planta
 signal soltando  
 signal en_focus(planta:Planta)
 signal eliminando
+const VFXGIRO = preload("uid://dev3eecridu31")
+var emitiendo = true
 
 @onready var area_2d: Area2D = $Area2D
 var id_planta:int = 0
@@ -90,20 +92,38 @@ func girar_planta():
 	var lista_cruda = Dios.bd_interna["plantas"][key_planta]["forma"][key_estructura].duplicate()
 	var forma_inicial = Dios.transformar_en_vector2i(lista_cruda)
 	estructura.clear()
+	var t = create_tween()
+	var duracion = 0.1
 	for posicion in forma_inicial:
 		match giro_actual:
 			0:
 				estructura.append(posicion)
-				rotation = 0
+				#rotation = 0
+				t.tween_property(self,"rotation",0,duracion)
 			1:
 				estructura.append(Vector2i(-posicion.y, posicion.x))
-				rotation = PI/2
+				#rotation = PI/2
+				t.tween_property(self,"rotation",PI/2,duracion)
 			2:
 				estructura.append(Vector2i(-posicion.x, -posicion.y))
-				rotation = PI
+				#rotation = PI
+				t.tween_property(self,"rotation",PI,duracion)
 			3:
 				estructura.append(Vector2i(posicion.y, -posicion.x))
-				rotation = PI * 1.5
+				#rotation = PI * 1.5
+				t.tween_property(self,"rotation",PI * 1.5,duracion)
+				
+	if emitiendo == true:
+		emitiendo = false
+		var vfx = VFXGIRO.instantiate()
+		add_child(vfx)
+		vfx.top_level = true
+		vfx.global_position = get_global_mouse_position()
+		print(get_global_mouse_position(),get_local_mouse_position())
+		print(vfx.global_position)
+		vfx.emitting = true
+		await vfx.finished
+		emitiendo = true
 
 func soltar_planta():
 	pieza_seleccionada = false

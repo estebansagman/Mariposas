@@ -4,17 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://chotioxj4lmt8" path="res://UI/imagenes/edicion_de_las_cosas.jpg" id="3_o2jkc"]
 [ext_resource type="Texture2D" uid="uid://dlg1122esj0p7" path="res://UI/imagenes/imagen_2026-04-21_150439142.webp" id="4_0tr35"]
 [ext_resource type="StyleBox" uid="uid://cveoktggvpxxe" path="res://UI/panel_base.tres" id="7_c7tqi"]
+[ext_resource type="Texture2D" uid="uid://bw6jtt36u580o" path="res://UI/imagenes/polaloid.png" id="8_8gukh"]
 [ext_resource type="StyleBox" uid="uid://n4k5e8kt1kme" path="res://UI/panel_externo.tres" id="8_cbfhl"]
 [ext_resource type="StyleBox" uid="uid://boy2pj451dx85" path="res://menus/menu_inicio/pseudo_boton.tres" id="9_4fiuh"]
+[ext_resource type="Texture2D" uid="uid://cf6gdviquxhv" path="res://UI/imagenes/cartel.png" id="9_8gkfd"]
+[ext_resource type="FontFile" uid="uid://gd1aif58t3m" path="res://UI/Retrofia.ttf" id="10_0tr35"]
 [ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="10_6rr40"]
 [ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/libro.tscn" id="10_h81ot"]
 [ext_resource type="Texture2D" uid="uid://bm3cyhiclblja" path="res://UI/imagenes/reiniciar.png" id="13_o2t6a"]
-[ext_resource type="Texture2D" uid="uid://d3v6j5taykus8" path="res://UI/imagenes/panel_tablero.png" id="13_ow1yt"]
 [ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="14_8gukh"]
 [ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="15_8gkfd"]
+[ext_resource type="Texture2D" uid="uid://cpsqgs8q6vm53" path="res://UI/imagenes/opcionesbotonn.png" id="16_8gukh"]
 [ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas.tscn" id="16_o2t6a"]
 [ext_resource type="PackedScene" uid="uid://rdqgx8jdlho8" path="res://mariposas/catalogo_mariposas.tscn" id="17_8gukh"]
-[ext_resource type="Texture2D" uid="uid://d2o558e41o3mg" path="res://UI/imagenes/opciones.png" id="18_8gkfd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbfhl"]
 font_size = 29
@@ -34,6 +36,10 @@ corner_detail = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_h81ot"]
 font_size = 22
+
+[sub_resource type="FontVariation" id="FontVariation_7j5ik"]
+base_font = ExtResource("10_0tr35")
+spacing_glyph = 1
 
 [node name="UI" type="Control" unique_id=772245201]
 layout_mode = 3
@@ -153,14 +159,42 @@ layout_mode = 0
 offset_left = 525.0
 offset_top = 17.0
 offset_right = 1403.0
-offset_bottom = 1059.0
-texture = ExtResource("13_ow1yt")
+offset_bottom = 1055.0
+texture = ExtResource("8_8gukh")
 draw_center = false
-region_rect = Rect2(0, 0, 882, 1045)
-patch_margin_left = 448
+region_rect = Rect2(0, 0, 882, 1035.3517)
+patch_margin_left = 62
 patch_margin_top = 112
 patch_margin_right = 52
 patch_margin_bottom = 209
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1778436262]
+z_index = 2
+layout_mode = 0
+offset_left = 542.0
+offset_top = 5.9999995
+offset_right = 1996.9998
+offset_bottom = 465.99994
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_8gkfd")
+region_rect = Rect2(0, 0, 1484, 527)
+patch_margin_left = 787
+patch_margin_top = 175
+patch_margin_right = 640
+patch_margin_bottom = 228
+
+[node name="Mariposas" type="Label" parent="NinePatchRect2" unique_id=2124278158]
+z_index = 2
+layout_mode = 0
+offset_left = 300.0
+offset_top = 115.0
+offset_right = 1127.0
+offset_bottom = 309.0
+theme_override_colors/font_color = Color(0.30132023, 0.1976862, 0.17779908, 1)
+theme_override_fonts/font = SubResource("FontVariation_7j5ik")
+theme_override_font_sizes/font_size = 170
+text = "EL Balcón"
+horizontal_alignment = 1
 
 [node name="Reiniciar2" type="TextureButton" parent="." unique_id=294191019]
 z_index = 3
@@ -208,8 +242,9 @@ offset_right = 158.0
 offset_bottom = 210.0
 
 [node name="Opciones" type="Sprite2D" parent="." unique_id=569961319]
-position = Vector2(55, 49)
-texture = ExtResource("18_8gkfd")
+position = Vector2(67, 54)
+scale = Vector2(0.2253648, 0.2253648)
+texture = ExtResource("16_8gukh")
 
 [node name="botones_debug" type="Control" parent="." unique_id=820716861]
 visible = false

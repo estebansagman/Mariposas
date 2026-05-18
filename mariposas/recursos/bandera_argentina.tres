@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="RecursoMariposa" format=3 uid="uid://qeyhak2m8s5r"]
-
-[ext_resource type="Script" uid="uid://cf2hgiaqkrc7u" path="res://mariposas/recursos/recurso_mariposa.gd" id="1_2fu4a"]
-
-[resource]
-script = ExtResource("1_2fu4a")

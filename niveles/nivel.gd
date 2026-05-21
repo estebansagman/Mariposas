@@ -46,16 +46,7 @@ var nivel = "nivel_"+str(numero_de_nivel)
 
 var estrellas:int
 var puntos_maximos:int
-#var s_id = "seccion_" + str(numero_de_sector)
-#var nivel_id = "nivel_" + str(numero_de_nivel)
-#var estado_nivel:bool 
 
-#func _process(delta: float) -> void:
-	#var posicion_mouse_local = jardin.tablero.get_local_mouse_position()
-	#var casillero_tablero: Vector2i = jardin.tablero.local_to_map(posicion_mouse_local)
-	#var nombre_planta = jardin.tablero.get_nombre_planta(casillero_tablero)
-	#
-	#print(nombre_planta)
 
 func _input(event: InputEvent) -> void:
 	var posicion_mouse_local = jardin.tablero.get_local_mouse_position()
@@ -74,12 +65,13 @@ func _input(event: InputEvent) -> void:
 			panel_mouse.hide()
 
 func _ready() -> void:
-	
+	jardin.tablero._generar_grilla()
+
 	panel_mouse = PanelContainer.new()
 	label_mouse = Label.new()
 	panel_mouse.add_child(label_mouse)
 	add_child(panel_mouse)
-	
+
 	panel_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	

@@ -57,7 +57,7 @@ func iluminar(valido):
 	if valido:
 		modulate = Color.GREEN
 	else:
-		modulate = Color.DARK_RED
+		modulate = Color.WHITE
 func apagar():
 	#var i = 1.0 
 	modulate = Color.WHITE
@@ -78,7 +78,7 @@ func animar_spawn( parcela:Vector2i, pos_global)->void:
 		animation_player.play()
 	
 	var modelo:Node3D = find_child("Mariposa3D",true)
-	var duration:float = 1.0/2
+	var duration:float = 0.5
 	var loops:int = 1
 	tween_activo = create_tween()
 

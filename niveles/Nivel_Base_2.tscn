@@ -1,0 +1,122 @@
+[gd_scene format=4 uid="uid://mqhymlmu5a3j"]
+
+[ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_s6hdn"]
+[ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://data/nuevos_tipos_de_datos/recompensa.gd" id="2_d0ed7"]
+[ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="3_w54os"]
+[ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="4_7htly"]
+[ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="5_wejr7"]
+[ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="6_pe87b"]
+[ext_resource type="Script" uid="uid://r0qqtentn4he" path="res://tablero/naturaleza.gd" id="7_ivvok"]
+[ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="8_y2v4m"]
+[ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="9_mhnpe"]
+[ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="10_d0ed7"]
+[ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="10_ro7n0"]
+[ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="11_v86fp"]
+
+[sub_resource type="Resource" id="Resource_vbbev"]
+script = ExtResource("2_d0ed7")
+mariposa = "cuatro_ojos"
+dato_mariposa = Array[String](["nombre", "textura_libro"])
+metadata/_custom_type_script = "uid://cbxdy4164p03m"
+
+[sub_resource type="Resource" id="Resource_ve4qd"]
+script = ExtResource("2_d0ed7")
+mariposa = "perezosa"
+dato_mariposa = Array[String](["nombre", "textura_libro"])
+metadata/_custom_type_script = "uid://cbxdy4164p03m"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
+size = Vector2(793, 791.0002)
+
+[node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
+script = ExtResource("1_s6hdn")
+jardin = NodePath("Jardin")
+Especie_mariposa = Array[String](["cuatro_ojos", "perezosa"])
+Especie_planta = Array[String](["ceibo:A", "ceibo:B", "coronillo:A", "coronillo:B", "chilca:A", "chilca:B", "ruda:A", "ruda:A", "canario_rojo:A", "canario_rojo:B", "salvia:A", "salvia:B", "ruelia:A", "ruelia:B", "mbrucuya:A", "mbrucuya:B", "lantana:A", "lantana:B"])
+datos_de_libro = Array[ExtResource("2_d0ed7")]([SubResource("Resource_vbbev"), SubResource("Resource_ve4qd")])
+
+[node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("3_w54os")]
+columnas = 6
+limpiar = true
+tablero = NodePath("../Jardin/Tablero")
+jardin = NodePath("../Jardin")
+jardinero = NodePath("../Jardin/Jardinero")
+
+[node name="UI" parent="." unique_id=772245201 instance=ExtResource("4_7htly")]
+
+[node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
+position = Vector2(568, 81)
+scale = Vector2(0.16666667, 0.16666667)
+script = ExtResource("5_wejr7")
+columnas = 6
+
+[node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("6_pe87b")]
+position = Vector2(-6.1035156e-05, 7.6293945e-06)
+scale = Vector2(12.441, 12.441)
+tablero = NodePath("../Tablero")
+jardin = NodePath("..")
+
+[node name="Naturaleza" type="Node2D" parent="Jardin" unique_id=1099403147 node_paths=PackedStringArray("jardin", "jardinero")]
+scale = Vector2(12.440509, 12.440509)
+script = ExtResource("7_ivvok")
+jardin = NodePath("..")
+jardinero = NodePath("../Jardinero")
+
+[node name="origen_plantas" type="Node2D" parent="Jardin" unique_id=1764700993 node_paths=PackedStringArray("jardinero")]
+scale = Vector2(12.440754, 12.440754)
+script = ExtResource("8_y2v4m")
+jardinero = NodePath("../Jardinero")
+
+[node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("9_mhnpe")]
+scale = Vector2(12.440509, 12.440509)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAEAAAACAAUAAQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAEAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAAAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAUAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAA=")
+
+[node name="Pasto" type="TileMapLayer" parent="Jardin" unique_id=1676659868]
+scale = Vector2(1.555, 1.555)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAABAAAAAAACAAUAAAACAAAAAAACAAUAAAADAAAAAAACAAUAAAAEAAAAAAACAAUAAAAFAAAAAAACAAUAAAAAAAEAAAACAAUAAAAFAAEAAAACAAUAAAAEAAEAAAACAAUAAAADAAEAAAACAAUAAAACAAEAAAACAAUAAAABAAEAAAACAAUAAAAAAAIAAAACAAUAAAABAAIAAAACAAUAAAACAAIAAAACAAUAAAADAAIAAAACAAUAAAAEAAIAAAACAAUAAAAFAAIAAAACAAUAAAAFAAMAAAACAAUAAAAEAAMAAAACAAUAAAADAAMAAAACAAUAAAACAAMAAAACAAUAAAABAAMAAAACAAUAAAAAAAMAAAACAAUAAAAAAAQAAAACAAUAAAABAAQAAAACAAUAAAACAAQAAAACAAUAAAADAAQAAAACAAUAAAAEAAQAAAACAAUAAAAFAAQAAAACAAUAAAAFAAUAAAACAAUAAAAEAAUAAAACAAUAAAADAAUAAAACAAUAAAACAAUAAAACAAUAAAABAAUAAAACAAUAAAAAAAUAAAACAAUAAAA=")
+tile_set = ExtResource("10_d0ed7")
+
+[node name="Tierra" type="TileMapLayer" parent="Jardin" unique_id=2065852030]
+scale = Vector2(1.555, 1.555)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAMAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAADAAMAAAABAAEAAAAAAAEAAAACAAEAAAABAAEAAAADAAEAAAABAAEAAAAEAAEAAAACAAEAAAAAAAIAAAAAAAAAAAABAAIAAAAEAAIAAAACAAIAAAABAAEAAAADAAIAAAABAAEAAAAEAAIAAAADAAIAAAAFAAIAAAACAAAAAAAAAAMAAAAAAAIAAAABAAMAAAAEAAEAAAACAAMAAAABAAEAAAADAAMAAAABAAEAAAAEAAMAAAADAAEAAAAFAAMAAAACAAIAAAABAAQAAAAAAAEAAAACAAQAAAABAAEAAAADAAQAAAABAAEAAAAEAAQAAAACAAEAAAAAAAUAAAAAAAIAAAABAAUAAAABAAIAAAACAAUAAAABAAIAAAADAAUAAAABAAIAAAAEAAUAAAABAAIAAAAFAAUAAAADAAMAAAA=")
+tile_set = ExtResource("10_d0ed7")
+
+[node name="Obstaculos" type="TileMapLayer" parent="Jardin" unique_id=1979425472]
+scale = Vector2(1.555, 1.555)
+tile_map_data = PackedByteArray("AAACAAQAAAABAAUAAAADAAEAAAABAAUAAAA=")
+tile_set = ExtResource("10_d0ed7")
+
+[node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
+modulate = Color(0.18431373, 0.18431373, 0.18431373, 0.8235294)
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("10_ro7n0")
+
+[node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("11_v86fp")
+
+[node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
+scale = Vector2(12.440509, 12.440509)
+tile_set = ExtResource("11_v86fp")
+
+[node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
+position = Vector2(244.00003, 56.000008)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeJuego" unique_id=66538581]
+position = Vector2(722.5, 424.49994)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_ii0lq")
+debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
+
+[node name="PasarDeNivel" type="Timer" parent="." unique_id=511669230]
+wait_time = 3.0
+
+[connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
+[connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
+[connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="mariposa_cambio" from="Jardin/Naturaleza" to="Jardin" method="emitir_suma_de_puntos"]
+[connection signal="tablero_creado" from="Jardin/Tablero" to="Jardin" method="establecer_columnas"]
+[connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
+[connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]
+[connection signal="timeout" from="PasarDeNivel" to="." method="volver_al_Menu"]

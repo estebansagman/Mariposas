@@ -9,7 +9,6 @@ signal tablero_creado(valor:int)
 @export var casilla_bloqueo:String = "bloqueo"
 @onready var foco: TileMapLayer = $"../foco"
 
-
 #region DATOS DICCIONARIO
 var focus_key:String = "focus"
 var ocupado_key:String ="ocupado"
@@ -31,8 +30,8 @@ var keys_de_diccionario:Array[String] = [focus_key,ocupado_key,tipo_casilla_key,
 										coord_atlas_key,id_alternativo_key]
 var celdas: Dictionary = {}
 
-func _ready() -> void:
-	_generar_grilla()
+#func _ready() -> void:
+	#_generar_grilla()
 
 #region GETERS
 func leer_celda(celda:Vector2i):
@@ -51,39 +50,63 @@ func get_tipo(celda:Vector2i) -> String: return celdas[celda][tipo]
 func get_id_planta(celda:Vector2i): return celdas[celda][id_planta_key]
 #endregion
 
+func cargar_grilla_desde_cfg(data_cfg: Dictionary) -> void:
+	if data_cfg.is_empty():
+		_generar_grilla()
+		return
+	for celda in data_cfg:
+		var info = data_cfg[celda]
+		_formatear_celda(celda, info[ocupado_key], info[tipo_casilla_key], info[coord_atlas_key])
+		celdas[celda][nombre_key] = info[nombre_key]
+		celdas[celda][tipo] = info[tipo]
+		celdas[celda][id_planta_key] = info[id_planta_key]
+	var dimension: int = get_used_rect().size.x
+	emit_signal("tablero_creado", dimension)
+#func _generar_grilla():
+	#for celda in get_used_cells():
+		#var coordenada_atlas:Vector2i = get_cell_atlas_coords(celda) 
+		#match coordenada_atlas:
+			#Vector2i(0,0): # Esteban del futuro: "esta es la posicion del atlas"
+				#_formatear_celda(celda,false,casilla_normal,coordenada_atlas)
+			#Vector2i(0,1): 
+				#_formatear_celda(celda,true,casilla_bloqueo,coordenada_atlas)
+	#var dimension:int = get_used_rect().size.x
+	#emit_signal("tablero_creado",dimension)
+
+func _generar_grilla():
+	for celda in get_used_cells():
+		# 1. Le pedimos la data del tile a la celda
+		var datos_tile: TileData = get_cell_tile_data(celda)
+		
+		if datos_tile:
+			if datos_tile.get_terrain() == 0:
+				_formatear_celda(celda, false, casilla_normal, Vector2i(0, 0))
+			else:
+				_formatear_celda(celda, true, casilla_bloqueo, Vector2i(0, 1))
+		else:
+			_formatear_celda(celda, true, casilla_bloqueo, Vector2i(0, 1))
+
+	var dimension: int = get_used_rect().size.x
+	emit_signal("tablero_creado", dimension)
+
 func corroborar_celda(celda:Vector2i)->bool:
 	if celda in celdas:
 		return true
 	else: return false
-
 func pintar_lienzo(): #se queda
 	foco.clear()
 	for celda in celdas: 
 		pintar_focus(celda)
-
 func pintar_focus(celda:Vector2i ):
 	if celdas[celda][focus_key]:
 		var id_source = celdas[celda][id_set_source_key]
 		var coord_atlas = celdas[celda][coord_atlas_key]
 		var ide_alternativo = celdas[celda][id_alternativo_key] 
 		foco.set_cell(celda,id_source,coord_atlas,ide_alternativo)
-
 func focusear(celda:Vector2i):
 	celdas[celda][focus_key] = true
-	
 func soltar_foco(celda:Vector2i):
 	celdas[celda][focus_key] = false
-
-func _generar_grilla():
-	for celda in get_used_cells():
-		var coordenada_atlas:Vector2i = get_cell_atlas_coords(celda) 
-		match coordenada_atlas:
-			Vector2i(0,0): # Esteban del futuro: "esta es la posicion del atlas"
-				_formatear_celda(celda,false,casilla_normal,coordenada_atlas)
-			Vector2i(0,1): 
-				_formatear_celda(celda,true,casilla_bloqueo,coordenada_atlas)
-	var dimension:int = get_used_rect().size.x
-	emit_signal("tablero_creado",dimension)
 
 func _formatear_celda(celda:Vector2i,ocupacion:bool,tipo_casilla:String,coordenada_atlas:Vector2i):
 	celdas[celda] = {}
@@ -99,7 +122,6 @@ func _formatear_celda(celda:Vector2i,ocupacion:bool,tipo_casilla:String,coordena
 	celdas[celda][id_set_source_key] = source_tile_set
 	celdas[celda][coord_atlas_key] = coordenada_atlas
 	celdas[celda][id_alternativo_key] = id_alternativo_foco
-	
 func ocupar_celda(celda:Vector2i, planta:Planta = null,mariposa:Mariposa = null):
 	if planta:
 		celdas[celda][ocupado_key] = true
@@ -110,11 +132,9 @@ func ocupar_celda(celda:Vector2i, planta:Planta = null,mariposa:Mariposa = null)
 	if mariposa:
 		celdas[celda][mariposa] = true
 		celdas[celda][id_mariposa_key] = mariposa.id_mariposa
-
 func sacar_mariposa(celda:Vector2i):
 	celdas[celda][mariposa] = false
 	celdas[celda][id_mariposa_key] = -1
-
 func vaciar_celda(celda:Vector2i):
 	celdas[celda][ocupado_key] = false
 	celdas[celda][tipo_casilla_key] = casilla_normal

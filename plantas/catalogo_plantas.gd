@@ -7,8 +7,6 @@ var keys_plantas:Array[String]
 @onready var barra: VScrollBar = $VScrollBar
 @onready var scroll: ScrollContainer = $ScrollContainer
 
-
-
 var jardin: Jardin
 var barra_interna:VScrollBar
 
@@ -20,7 +18,6 @@ func iniciar_catalogo(keys:Array[String],dato_jardin:Jardin):
 	_sincronizar_barras()
 
 func _crear_catalogo():
-	#if Dios.bd_interna["plantas"].has(keys_plantas[0]):
 	for key_planta_completo in keys_plantas:
 		var recorte = key_planta_completo.split(":")
 		var key_planta = recorte[0]

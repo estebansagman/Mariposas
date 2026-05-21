@@ -44,12 +44,30 @@ func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
 		nueva_lista.append(Vector2i(x, y))
 	return nueva_lista
 
+
+func guardar_tablero(path_archivo: String, celdas_vivas: Dictionary):
+	var config = ConfigFile.new()
+	for celda in celdas_vivas:
+		var info_limpia = celdas_vivas[celda].duplicate()
+		info_limpia.erase("key_planta")
+		config.set_value("Celdas", celda, info_limpia)
+	config.save(path_archivo)
+
+func cargar_tablero(path_archivo: String) -> Dictionary:
+	var config = ConfigFile.new()
+	var datos_cargados = {}
+	if config.load(path_archivo) == OK:
+		var celdas_guardadas = config.get_section_keys("Celdas")
+		for celda in celdas_guardadas:
+			datos_cargados[celda] = config.get_value("Celdas", celda)
+	return datos_cargados
+
 func borrar_todo():
 	var dir = DirAccess.open("res://")
 	dir.copy(ruta_res, ruta_user)
 	bd_externa = _cargar_archivo_json(ruta_user)
 	guardar_bd_externa()
-	
+
 func debug_completar_juego():
 	for s_id in bd_externa["sectores"].keys():
 		bd_externa["sectores"][s_id]["desbloqueo"] = true

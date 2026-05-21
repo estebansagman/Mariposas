@@ -1,6 +1,6 @@
 extends Control
 
-@export var nivel_jugandose: NivelJugable
+var nivel_jugandose
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("comando_magico"):

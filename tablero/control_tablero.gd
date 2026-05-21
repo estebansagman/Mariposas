@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 
 	if planta_seleccionada and celda_actual in tablero.celdas:
 		calcular_foco(celda_actual)
-	if mariposa_seleccionada and celda_actual in tablero.celdas:
+	if mariposa_seleccionada and celda_actual in tablero.celdas and mariposa_en_seleccion:
 		calcular_foco(celda_actual)
 	tablero.pintar_lienzo()
 
@@ -87,6 +87,10 @@ func _limpiar_rastro_tablero(id_target):
 		if tablero.get_id_planta(celda) == id_target:
 			tablero.vaciar_celda(celda)
 			capa_plantas.set_cell(celda, -1)
+			
+			for hijo in capa_plantas.get_children():
+				if capa_plantas.local_to_map(hijo.position) == celda:
+					hijo.free()
 #endregion
 
 #region ACCIONES PLANTA
@@ -99,8 +103,9 @@ func seleccionar_planta(planta:Planta):
 func mover_planta_seleccionada(celda_actual) -> void:
 
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
+		if planta_seleccionada != null: 
+			return
 		tablero.leer_celda(celda_actual)
-
 		var id_click = tablero.get_id_planta(celda_actual)
 		if id_click != 0:
 			for planta in plantas_en_tablero:
@@ -110,6 +115,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 			if planta_seleccionada:
 				plantas_en_tablero.erase(planta_seleccionada)
 				jardin.add_child(planta_seleccionada)
+				planta_seleccionada.estructurar_planta()
 				_limpiar_rastro_tablero(id_click)
 				emit_signal("cambio_en_jardin")
 
@@ -121,13 +127,10 @@ func mover_planta_seleccionada(celda_actual) -> void:
 			if focuseable and en_area_de_juego:
 				for casilla in lista_focus:
 					tablero.ocupar_celda(casilla, planta_seleccionada)
-					#var atlas = Dios.bd_interna["plantas"][planta_seleccionada.key_planta]["tile_juego"]
-					#capa_plantas.set_cell(casilla, 2, Vector2i(0,atlas))
 
-				
-				#capa_plantas.set_cell(celda_actual,0, Vector2i(0, 0), 1)
 				poner_planta_en_tablero()
 				plantas_en_tablero.append(planta_seleccionada)
+				planta_seleccionada.coordenada_celda = celda_actual
 				planta_seleccionada.get_parent().remove_child(planta_seleccionada)
 				emit_signal("cambio_en_jardin")
 			else:
@@ -184,6 +187,7 @@ func soltar_mariposa():
 		mariposa_seleccionada = null
 
 func generarl_lista_requerimientos()->Array[String]:
+	
 	var lista_de_requerimientos:Array[String]
 	for celda in lista_focus:
 		if tablero.celdas.has(celda): 
@@ -200,6 +204,7 @@ func generarl_lista_requerimientos()->Array[String]:
 		if tablero.celdas[celda][tablero.mariposa]:
 			lista_de_requerimientos.clear()
 			return [""]
+	
 	return lista_de_requerimientos
 
 func mover_mariposa_seleccionada()->void:

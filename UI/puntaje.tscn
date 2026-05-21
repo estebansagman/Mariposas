@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blx5xcddevteb"]
 
 [ext_resource type="Script" uid="uid://ctijskasybylv" path="res://UI/puntaje.gd" id="1_kgati"]
-[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="2_uuqy4"]
+[ext_resource type="Texture2D" uid="uid://h25gre1f2uwa" path="res://menus/selector_niveles/imagenes/estrella.png" id="2_kgati"]
 
 [node name="Puntaje" type="HBoxContainer" unique_id=342144844]
 offset_left = 4.0000005
@@ -13,4 +13,4 @@ script = ExtResource("1_kgati")
 
 [node name="Estrella" type="TextureRect" parent="." unique_id=100563569]
 layout_mode = 2
-texture = ExtResource("2_uuqy4")
+texture = ExtResource("2_kgati")

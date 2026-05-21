@@ -94,6 +94,34 @@ debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
 [node name="PasarDeNivel" type="Timer" parent="." unique_id=511669230]
 wait_time = 3.0
 
+[node name="Control" type="Control" parent="." unique_id=1934195516]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=1939606566]
+z_index = 2
+layout_mode = 0
+offset_left = 577.0
+offset_top = 920.0
+offset_right = 780.0
+offset_bottom = 1007.0
+theme_override_font_sizes/font_size = 25
+text = "GENERAR CFG"
+
+[node name="Button2" type="Button" parent="Control" unique_id=1333727406]
+z_index = 2
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 920.0
+offset_right = 1348.0
+offset_bottom = 1007.0
+theme_override_font_sizes/font_size = 25
+text = "CARGAR CFG"
+
+[connection signal="reiniciar" from="UI" to="." method="reiniciar_nivel"]
 [connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
 [connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
@@ -102,3 +130,5 @@ wait_time = 3.0
 [connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
 [connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]
 [connection signal="timeout" from="PasarDeNivel" to="." method="volver_al_Menu"]
+[connection signal="pressed" from="Control/Button" to="." method="guardar_estado_de_nivel"]
+[connection signal="pressed" from="Control/Button2" to="." method="cargar_estado_de_nivel"]

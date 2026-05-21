@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cll7q0mxcudtg"]
 
-[ext_resource type="Texture2D" uid="uid://c3a0atyql45r8" path="res://menus/selector_niveles/imagenes/candadoCerrado.png" id="1_a8gwd"]
 [ext_resource type="Script" uid="uid://bjj8ea0itrcqw" path="res://menus/selector_niveles/secciones.gd" id="1_t166c"]
-[ext_resource type="Texture2D" uid="uid://dia2vuiu8jqif" path="res://menus/selector_niveles/imagenes/fllechita_seccion.png" id="2_vclua"]
+[ext_resource type="Texture2D" uid="uid://h25gre1f2uwa" path="res://menus/selector_niveles/imagenes/estrella.png" id="2_mbxpd"]
+[ext_resource type="Texture2D" uid="uid://bjiqt4e7p0rg1" path="res://menus/selector_niveles/imagenes/flecha.png" id="3_mbxpd"]
 
 [sub_resource type="Gradient" id="Gradient_qelex"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
@@ -18,26 +18,29 @@ script = ExtResource("1_t166c")
 
 [node name="Candado" type="TextureRect" parent="." unique_id=1232821893]
 layout_mode = 0
-offset_left = -25.0
-offset_top = 8.0
-offset_right = 15.0
-offset_bottom = 52.0
-texture = ExtResource("1_a8gwd")
+offset_left = 65.00001
+offset_top = 16.0
+offset_right = 577.0
+offset_bottom = 528.0
+scale = Vector2(0.043, 0.043)
+texture = ExtResource("2_mbxpd")
 
 [node name="Flecha" type="TextureRect" parent="." unique_id=1031443290]
 layout_mode = 0
-offset_left = -69.0
-offset_top = 8.0
-offset_right = -43.0
-offset_bottom = 55.0
-texture = ExtResource("2_vclua")
+offset_left = -60.0
+offset_top = 2.0
+offset_right = 452.0
+offset_bottom = 514.0
+scale = Vector2(0.101, 0.101)
+texture = ExtResource("3_mbxpd")
 
 [node name="Condiciones" type="Label" parent="." unique_id=813401899]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 17.0
-offset_right = 95.0
-offset_bottom = 49.0
-theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
-theme_override_font_sizes/font_size = 23
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 46.0
+scale = Vector2(0.625, 0.625)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
 text = "0 / 0"

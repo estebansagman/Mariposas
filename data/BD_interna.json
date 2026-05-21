@@ -12,12 +12,12 @@
 				"nivel_1": {
 					"numero": 1.0,
 					"titulo": "",
-					"imagen": ""
+					"imagen": "res://menus/selector_niveles/imagenes/nivel-1.png"
 				},
 				"nivel_2": {
 					"numero": 2.0,
 					"titulo": "",
-					"imagen": ""
+					"imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
 				}
 			}
 		},

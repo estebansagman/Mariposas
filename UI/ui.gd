@@ -1,6 +1,7 @@
 extends Control
 class_name Interfas
 signal pasar_nivel
+signal reiniciar
 
 @onready var SELECTOR_NIVELES:String = "res://menus/selector_niveles/selector_niveles.tscn"
 
@@ -11,6 +12,8 @@ signal pasar_nivel
 @onready var cartel_final: Panel = $Cartel_final
 @onready var timer: Timer = $Timer
 @onready var botones_debug: Control = $botones_debug
+@onready var control: ConfigCfg = $Control
+
 
 
 var superado:bool = false
@@ -32,5 +35,6 @@ func ocultar_cartel():
 func volver_al_menu():
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)
 
-func reiniciar_nivel(): #este tiene que "recargarlo" de verdad, no reiniciar. corte "vaciar tablero"
-	get_tree().reload_current_scene()
+func reiniciar_nivel():
+	emit_signal("reiniciar")
+	#get_tree().reload_current_scene()

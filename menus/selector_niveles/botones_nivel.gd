@@ -5,17 +5,28 @@ signal nivel_elejido(nivel_actual, indice, sector)
 @export var sector:int
 @onready var etiqueta: Label = $Nivel
 @export var puntaje: sistema_puntaje
+@onready var imagen_nivel: TextureRect = $ImagenNivel
+
 
 func dar_indice():
 	etiqueta.text = "Nivel " + str(indice)
 	var sectores = Dios.bd_externa.get("sectores", {})
 	var datos_sector = sectores.get("seccion_" + str(sector), {})
 	var nivel_estado = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["superado"]
+	var ruta_imagen = Dios.bd_interna["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["imagen"]
+	var ruta_incognita = "res://menus/selector_niveles/imagenes/nivel-bloqueado.png"
 	if Dios.bd_externa["sectores"]["seccion_"+str(sector)]["desbloqueo"]:
 		modulate = Color(1, 1, 1, 1)
+		
+		if ruta_imagen != "" and ResourceLoader.exists(ruta_imagen):
+			imagen_nivel.texture = load(ruta_imagen)
+		else:
+			imagen_nivel.texture = null
+		
 		puntaje.actualizar_visual(nivel_estado)
 	else:
 		modulate = Color(0.4, 0.4, 0.4, 1)
+		imagen_nivel.texture = load(ruta_incognita)
 	
 
 

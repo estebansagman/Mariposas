@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ba5lhate0a6fu"]
+[gd_scene format=4 uid="uid://ba5lhate0a6fu"]
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_m2xrd"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_js0lw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="7_kruuy"]
 [ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="8_h723w"]
 [ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="9_6i1t6"]
+[ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="9_js0lw"]
 [ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="10_31b4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
@@ -55,10 +56,12 @@ script = ExtResource("7_kruuy")
 jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_h723w")]
-scale = Vector2(12.440509, 12.440509)
-tile_set = ExtResource("9_6i1t6")
+scale = Vector2(1.555, 1.555)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAABAAAAAAABAAAAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAIAAAACAAAAAAABAAAAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAIAAAADAAAAAAABAAAAAAADAAEAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAIAAAAEAAAAAAABAAAAAAAEAAQAAAABAAEAAAAEAAUAAAABAAIAAAAFAAAAAAACAAAAAAAFAAEAAAACAAEAAAAFAAIAAAACAAEAAAAFAAMAAAACAAEAAAAFAAQAAAACAAEAAAAFAAUAAAACAAIAAAADAAIAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAA=")
+tile_set = ExtResource("9_js0lw")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
+modulate = Color(0, 0, 0, 0.20784314)
 scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("9_6i1t6")
 
@@ -84,7 +87,9 @@ debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
 wait_time = 3.0
 
 [connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
+[connection signal="reiniciar" from="UI" to="." method="reiniciar_nivel"]
 [connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
+[connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="." method="guardar_estado_actual"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
 [connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
 [connection signal="mariposa_cambio" from="Jardin/Naturaleza" to="Jardin" method="emitir_suma_de_puntos"]

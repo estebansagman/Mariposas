@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b1rexyawwl853"]
 
 [ext_resource type="Script" uid="uid://cf6ongvo4lixq" path="res://menus/selector_niveles/selector_niveles.gd" id="1_7qhml"]
-[ext_resource type="Texture2D" uid="uid://bdav7tvt0xkyn" path="res://menus/menu_inicio/imagenes/fondo.jpg" id="1_huye7"]
 [ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/imagenes/conenedor_niveles.gd" id="2_0u3hj"]
 [ext_resource type="PackedScene" uid="uid://dy0x6vqctgc40" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
+[ext_resource type="Texture2D" uid="uid://g2ktvniitsoe" path="res://menus/selector_niveles/imagenes/selector-niveles-fondo.png" id="2_h5bte"]
 [ext_resource type="Script" uid="uid://7x06yrrbdw1h" path="res://menus/selector_niveles/contenedor_niveles.gd" id="3_qelex"]
 [ext_resource type="PackedScene" uid="uid://cwtx3es3unfng" path="res://menus/selector_niveles/contenedor_niveles.tscn" id="4_h5bte"]
 [ext_resource type="PackedScene" uid="uid://cll7q0mxcudtg" path="res://menus/selector_niveles/separador_sectores.tscn" id="5_aqnnm"]
@@ -29,12 +29,13 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 1927.0
 offset_bottom = 1090.0
-texture = ExtResource("1_huye7")
+texture = ExtResource("2_h5bte")
 expand_mode = 2
 flip_h = true
 flip_v = true
 
 [node name="Dibfuminador_fondo" type="ColorRect" parent="." unique_id=1822790520]
+visible = false
 layout_mode = 0
 offset_left = -7.0
 offset_top = -3.0
@@ -44,6 +45,7 @@ mouse_filter = 2
 color = Color(0.30588236, 0.24705882, 0.18431373, 0.61960787)
 
 [node name="FondoPanel" type="ColorRect" parent="." unique_id=43658488]
+visible = false
 layout_mode = 0
 offset_left = 167.0
 offset_top = 36.0
@@ -55,11 +57,11 @@ color = Color(0.5413285, 0.5983471, 0.60438377, 1)
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=476540580]
 custom_minimum_size = Vector2(9.86, 0)
 layout_mode = 0
-offset_left = 544.0
-offset_top = 122.0
-offset_right = 1345.6156
-offset_bottom = 700.3184
-scale = Vector2(1.4196332, 1.4196332)
+offset_left = 435.0
+offset_top = 42.0
+offset_right = 1236.6156
+offset_bottom = 620.3184
+scale = Vector2(1.755, 1.755)
 
 [node name="Lista_sectores" type="VBoxContainer" parent="ScrollContainer" unique_id=2046182810]
 layout_mode = 2
@@ -123,7 +125,6 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(0, 185.88)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
 script = ExtResource("2_0u3hj")
 
 [node name="ItemNivel" parent="ScrollContainer/Lista_sectores/HBoxContainer4" unique_id=1873501470 instance=ExtResource("2_7v6hx")]
@@ -180,30 +181,31 @@ layout_mode = 1
 [node name="MenuPrincipal" type="TextureButton" parent="." unique_id=721385911]
 z_index = 3
 layout_mode = 0
-offset_left = 242.0
-offset_top = 144.0
-offset_right = 352.0
-offset_bottom = 251.0
+offset_left = 162.0
+offset_top = 90.00001
+offset_right = 272.0
+offset_bottom = 197.0
 scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("7_aqnnm")
 
 [node name="LibroBoton" type="TextureButton" parent="." unique_id=266633192]
 z_index = 3
 layout_mode = 0
-offset_left = 253.0
-offset_top = 312.0
-offset_right = 364.0
-offset_bottom = 434.0
-scale = Vector2(1.1489059, 1.1489059)
+offset_left = 165.0
+offset_top = 792.0
+offset_right = 276.0
+offset_bottom = 914.0
+scale = Vector2(1.4496971, 1.4496971)
 texture_normal = ExtResource("6_cnoui")
 
 [node name="botones_debug" type="Control" parent="." unique_id=447192401]
 visible = false
+z_index = 5
 anchors_preset = 0
-offset_left = -35.0
-offset_top = 17.0
-offset_right = 5.0
-offset_bottom = 57.0
+offset_left = -6.0
+offset_top = 121.0
+offset_right = 34.0
+offset_bottom = 161.0
 script = ExtResource("7_8iduv")
 
 [node name="cerrar_juego" type="Button" parent="botones_debug" unique_id=82597333]
@@ -249,6 +251,15 @@ offset_right = 236.0
 offset_bottom = 350.0
 text = "vaciar Libro"
 
+[node name="ProgresoCompleto3" type="Button" parent="botones_debug" unique_id=853014411]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 355.0
+offset_right = 236.0
+offset_bottom = 397.0
+text = "borrar estados Nivel
+"
+
 [connection signal="timeout" from="Timer" to="." method="apagar_aletra"]
 [connection signal="pressed" from="MenuPrincipal" to="." method="vovler_al_menu"]
 [connection signal="pressed" from="LibroBoton" to="Libro2" method="abrir"]
@@ -257,3 +268,4 @@ text = "vaciar Libro"
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto" to="botones_debug" method="completar_libro"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto2" to="botones_debug" method="borrar_progreso"]
+[connection signal="pressed" from="botones_debug/ProgresoCompleto3" to="botones_debug" method="borrar_estado_niveles"]

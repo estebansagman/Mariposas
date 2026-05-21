@@ -2,7 +2,7 @@ extends TextureRect
 class_name Sector
 
 var numero_de_seccion: int
-@onready var candado: TextureRect = $Candado
+@onready var estrella: TextureRect = $Candado
 @onready var condiciones: Label = $Condiciones
 
 func verificar_condiciones():
@@ -17,6 +17,6 @@ func verificar_condiciones():
 	condiciones.text = str(int(ganados)) + " / " + str(int(requisito))
 	
 	if Dios.bd_externa["sectores"][nombre_llave]["desbloqueo"]:
-		hide()
+		estrella.show()
 	else:
-		show()
+		estrella.hide()

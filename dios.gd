@@ -9,6 +9,7 @@ var bd_externa: Dictionary = {}
 func _ready():
 	bd_interna = _cargar_archivo_json("res://data/BD_interna.json")
 	gestionar_bd_externa()
+	replicar_niveles_a_user()
 
 func gestionar_bd_externa(): #a futuro pensar "gestion de usuario" se crearia recien ahi, no aca.
 	if not FileAccess.file_exists(ruta_user):
@@ -45,22 +46,29 @@ func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
 	return nueva_lista
 
 
-func guardar_tablero(path_archivo: String, celdas_vivas: Dictionary):
-	var config = ConfigFile.new()
-	for celda in celdas_vivas:
-		var info_limpia = celdas_vivas[celda].duplicate()
-		info_limpia.erase("key_planta")
-		config.set_value("Celdas", celda, info_limpia)
-	config.save(path_archivo)
+func replicar_niveles_a_user(forzar_pisado: bool = false):
+	var sectores = [1, 2, 3]
+	var niveles_por_sector = 4 
+	
+	for s in sectores:
+		var texto_sector = "sector_" + str(s)
+		var carpeta_res = "res://niveles/niveles/" + texto_sector + "/"
+		var carpeta_user = "user://niveles/niveles/" + texto_sector + "/"
+		
+		if not DirAccess.dir_exists_absolute(carpeta_user):
+			DirAccess.make_dir_recursive_absolute(carpeta_user)
+			
+		for n in range(1, niveles_por_sector + 1):
+			var texto_nivel = "Nivel_" + str(n) + ".cfg"
+			var ruta_origen = carpeta_res + texto_nivel
+			var ruta_destino = carpeta_user + texto_nivel
+			
+			if FileAccess.file_exists(ruta_origen):
+				if forzar_pisado or not FileAccess.file_exists(ruta_destino):
+					DirAccess.copy_absolute(ruta_origen, ruta_destino)
+					print("Copiado/Pisado: ", texto_sector, " -> ", texto_nivel)
 
-func cargar_tablero(path_archivo: String) -> Dictionary:
-	var config = ConfigFile.new()
-	var datos_cargados = {}
-	if config.load(path_archivo) == OK:
-		var celdas_guardadas = config.get_section_keys("Celdas")
-		for celda in celdas_guardadas:
-			datos_cargados[celda] = config.get_value("Celdas", celda)
-	return datos_cargados
+
 
 func borrar_todo():
 	var dir = DirAccess.open("res://")

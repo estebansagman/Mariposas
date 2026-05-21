@@ -12,6 +12,7 @@ func salid_de_juego():
 func borrar_bd():
 	Dios.borrar_todo()
 	get_tree().reload_current_scene()
+	Dios.replicar_niveles_a_user(true)
 
 func llenar_bd():
 	Dios.debug_completar_juego()
@@ -40,3 +41,6 @@ func borrar_progreso():
 	for mariposa_id in Dios.bd_externa["progreso_mariposas"].keys():
 		Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
 	Dios.guardar_bd_externa()	
+
+func borrar_estado_niveles():
+	Dios.replicar_niveles_a_user(true)

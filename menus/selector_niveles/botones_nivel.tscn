@@ -3,15 +3,19 @@
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]
 [ext_resource type="StyleBox" uid="uid://balnbgiebwlht" path="res://menus/selector_niveles/panel_interno.tres" id="2_w7mj0"]
+[ext_resource type="Texture2D" uid="uid://c7r1ef8rgc866" path="res://menus/selector_niveles/imagenes/nivel-bloqueado.png" id="4_3dvas"]
+[ext_resource type="Texture2D" uid="uid://cr6moh68rnko" path="res://menus/selector_niveles/imagenes/polaroid.png" id="4_sbog6"]
 [ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="5_ixsf2"]
-[ext_resource type="Texture2D" uid="uid://dtqix0au0n3cd" path="res://menus/selector_niveles/imagenes/textura_espejito.png" id="6_sbog6"]
+[ext_resource type="Texture2D" uid="uid://cgnpk1vyid6xw" path="res://menus/selector_niveles/imagenes/polaroid-seleccionada.png" id="5_sbog6"]
+[ext_resource type="Texture2D" uid="uid://d02tcsd3wimqc" path="res://menus/selector_niveles/imagenes/chinche.png" id="7_ixsf2"]
 
 [sub_resource type="Gradient" id="Gradient_4qldc"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sbog6"]
 gradient = SubResource("Gradient_4qldc")
-width = 54
+width = 58
+height = 67
 
 [node name="ItemNivel" type="TextureRect" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
 offset_right = 155.25
@@ -24,6 +28,7 @@ script = ExtResource("1_k7nes")
 puntaje = NodePath("Puntaje")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375642150]
+visible = false
 layout_mode = 0
 offset_left = 12.0
 offset_top = 36.0
@@ -32,6 +37,7 @@ offset_bottom = 153.0
 theme_override_styles/panel = ExtResource("1_rfvlp")
 
 [node name="Interior" type="Panel" parent="." unique_id=942874464]
+visible = false
 layout_mode = 0
 offset_left = 17.0
 offset_top = 41.0
@@ -39,31 +45,42 @@ offset_right = 137.0
 offset_bottom = 148.0
 theme_override_styles/panel = ExtResource("2_w7mj0")
 
-[node name="Nivel" type="Label" parent="." unique_id=1177131076]
+[node name="ImagenNivel" type="TextureRect" parent="." unique_id=357063777]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 156.0
-offset_right = 109.0
-offset_bottom = 179.0
-theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
-text = "Nivel  1"
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 532.0
+offset_bottom = 522.0
+scale = Vector2(0.219, 0.23)
+texture = ExtResource("4_3dvas")
+
+[node name="boton" type="TextureButton" parent="." unique_id=1471165226]
+modulate = Color(18.892157, 18.892157, 18.892157, 0.6509804)
+layout_mode = 0
+offset_left = -4.0
+offset_top = 3.0000002
+offset_right = 508.0
+offset_bottom = 515.0
+scale = Vector2(0.31, 0.31)
+texture_normal = ExtResource("4_sbog6")
+texture_hover = ExtResource("5_sbog6")
 
 [node name="Puntaje" parent="." unique_id=342144844 instance=ExtResource("5_ixsf2")]
 layout_mode = 0
-offset_left = 61.999992
-offset_top = 2.0
-offset_right = 100.99999
-offset_bottom = 42.0
-scale = Vector2(0.75175446, 0.75175446)
+offset_left = 99.00001
+offset_top = 118.0
+offset_right = 611.0
+offset_bottom = 630.0
+scale = Vector2(0.119, 0.119)
 
-[node name="boton" type="TextureButton" parent="." unique_id=1471165226]
-modulate = Color(1, 1, 1, 0.6509804)
+[node name="Nivel" type="Label" parent="." unique_id=1177131076]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 48.0
-offset_right = 141.0
-offset_bottom = 143.0
-texture_hover = ExtResource("6_sbog6")
+offset_left = 22.0
+offset_top = 131.0
+offset_right = 79.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
+text = "Nivel  1"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=18680846]
 visible = false
@@ -73,5 +90,14 @@ offset_top = 32.0
 offset_right = 148.0
 offset_bottom = 156.0
 color = Color(1, 1, 1, 0.24705882)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1067054237]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 3.0
+offset_right = 320.0
+offset_bottom = 259.0
+scale = Vector2(0.099, 0.099)
+texture = ExtResource("7_ixsf2")
 
 [connection signal="pressed" from="boton" to="." method="seleccionar"]

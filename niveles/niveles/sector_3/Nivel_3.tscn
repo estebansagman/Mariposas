@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b4l3kw72dwurq" path="res://niveles/origen_plantas.gd" id="7_7ms6e"]
 [ext_resource type="PackedScene" uid="uid://b6gj0byjkidlw" path="res://tablero/tablero.tscn" id="8_cp3k4"]
 [ext_resource type="TileSet" uid="uid://bgrou31k6eudd" path="res://tablero/recursos/plantas_alterno.tres" id="9_no6c2"]
+[ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="9_rvqf7"]
 [ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="10_k7ws1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
@@ -17,7 +18,7 @@ size = Vector2(793, 791.0002)
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_ql8ah")
 numero_de_nivel = 3
-numero_de_sector = 2
+numero_de_sector = 3
 jardin = NodePath("Jardin")
 Especie_mariposa = Array[String](["bataraza", "espejito", "perezosa", "cuatro_ojos"])
 Especie_planta = Array[String](["canario_rojo:A", "salvia:B", "mbrucuya:B", "chilca:B", "ruelia:B", "ruda:B"])
@@ -55,10 +56,12 @@ script = ExtResource("7_7ms6e")
 jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_cp3k4")]
-scale = Vector2(12.440509, 12.440509)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAAAAQAAAAEAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAEAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAAAAEAAAADAAEAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAAAAQAAAAEAAAAEAAQAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAAAAQAAAAEAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAEAAAAFAAQAAQAAAAEAAAAAAAUAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAEAAAA=")
+scale = Vector2(1.555, 1.555)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAABAAAAAAACAAUAAAABAAEAAAABAAAAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAIAAAACAAAAAAACAAUAAAACAAEAAAABAAAAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAIAAAADAAAAAAACAAUAAAADAAEAAAABAAAAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAIAAAAEAAAAAAACAAUAAAAEAAQAAAACAAEAAAAEAAUAAAACAAIAAAAFAAAAAAACAAUAAAAFAAEAAAACAAAAAAAFAAIAAAACAAIAAAAFAAMAAAACAAUAAAAFAAQAAAACAAUAAAAFAAUAAAACAAUAAAADAAIAAAABAAEAAAAEAAEAAAABAAAAAAAEAAIAAAADAAEAAAAEAAMAAAACAAEAAAA=")
+tile_set = ExtResource("9_rvqf7")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
+modulate = Color(0, 0, 0, 0.20784314)
 scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("9_no6c2")
 
@@ -84,7 +87,9 @@ debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
 wait_time = 3.0
 
 [connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
+[connection signal="reiniciar" from="UI" to="." method="reiniciar_nivel"]
 [connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
+[connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="." method="guardar_estado_actual"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
 [connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
 [connection signal="mariposa_cambio" from="Jardin/Naturaleza" to="Jardin" method="emitir_suma_de_puntos"]

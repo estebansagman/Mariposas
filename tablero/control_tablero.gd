@@ -105,6 +105,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		if planta_seleccionada != null: 
 			return
+		
 		tablero.leer_celda(celda_actual)
 		var id_click = tablero.get_id_planta(celda_actual)
 		if id_click != 0:
@@ -116,6 +117,8 @@ func mover_planta_seleccionada(celda_actual) -> void:
 				plantas_en_tablero.erase(planta_seleccionada)
 				jardin.add_child(planta_seleccionada)
 				planta_seleccionada.estructurar_planta()
+				print("EL GIRO POSTA ESSS: ",planta_seleccionada.giro_actual)
+				#planta_seleccionada.girar_planta()
 				_limpiar_rastro_tablero(id_click)
 				emit_signal("cambio_en_jardin")
 
@@ -166,11 +169,14 @@ func posicionar_planta():
 
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
+		
 		if event.is_action_pressed("girar_derecha"):
+			print("CLICK - Giro actual de la planta antes del click: ", planta_seleccionada.giro_actual)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
 			planta_seleccionada.girar_planta()
 
 		elif event.is_action_pressed("girar_izquierda"):
+			print("CLICK - Giro actual de la planta antes del click: ", planta_seleccionada.giro_actual)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
 			planta_seleccionada.girar_planta()
 

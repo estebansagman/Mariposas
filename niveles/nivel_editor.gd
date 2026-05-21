@@ -223,15 +223,15 @@ func cargar_estado_de_nivel():
 			nueva_planta.coordenada_celda = datos["coordenada_celda"] 
 			
 			nueva_planta.scale *= jardin.jardinero.scale
-			jardin.jardinero.plantas_en_tablero.append(nueva_planta)
-
+			
 			dibujar_planta_cargada(
 				nueva_planta.coordenada_celda, 
 				nueva_planta.ejemplar, 
 				nueva_planta.id_planta, 
-				nueva_planta.giro_actual
+				nueva_planta.giro_actual,
 			)
-			
+			nueva_planta.girar_planta()
+			jardin.jardinero.plantas_en_tablero.append(nueva_planta)
 			var indice_boton = nueva_planta.id_planta - 1
 			var contenedor_botones = ui.catalogo_plantas.contenedor_plantas
 			if indice_boton >= 0 and indice_boton < contenedor_botones.get_child_count():
@@ -254,8 +254,25 @@ func dibujar_planta_cargada(celda: Vector2i, texto_ejemplar: String, id_planta: 
 		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_A"]
 	else:
 		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_B"]
+		
 	jardin.jardinero.capa_plantas.set_cell(celda, 0, Vector2i(0, 0), atlas)
-	_configurar_planta_cargada.call_deferred(id_planta, giro_actual)
+	
+	await get_tree().process_frame
+	
+	var posicion_esperada = jardin.jardinero.capa_plantas.map_to_local(celda)
+	var planta_correcta: Node = null
+	
+	for hijo in jardin.jardinero.capa_plantas.get_children():
+		if hijo.position.distance_to(posicion_esperada) < 0.5:
+			planta_correcta = hijo
+			break
+	
+	if planta_correcta != null:
+		if planta_correcta.has_method("configurar"):
+			print("Configurando planta ID: ", id_planta, " en celda: ", celda, " con giro: ", giro_actual)
+			planta_correcta.configurar(id_planta, giro_actual)
+	else:
+		print("No se encontró ningún nodo hijo en la celda: ", celda)
 
 func _configurar_planta_cargada(id_a_poner, giro_a_poner):
 	var hijos = jardin.jardinero.capa_plantas.get_children()

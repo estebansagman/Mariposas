@@ -15,7 +15,7 @@ var estructura:Array[Vector2i]
 
 var hay_mariposa:bool = false
 var focus = true
-@onready var giro_actual:int = 0
+var giro_actual:int = 0
 
 var ejemplar:String
 @onready var ejemplares: Dictionary = {

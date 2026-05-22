@@ -117,12 +117,14 @@ func girar_planta():
 		emitiendo = false
 		var vfx = VFXGIRO.instantiate()
 		add_child(vfx)
+		vfx.scale*=get_parent().scale*10
 		vfx.top_level = true
 		vfx.global_position = get_global_mouse_position()
 		print(get_global_mouse_position(),get_local_mouse_position())
 		print(vfx.global_position)
 		vfx.emitting = true
 		await vfx.finished
+		vfx.queue_free()
 		emitiendo = true
 
 func soltar_planta():

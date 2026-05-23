@@ -25,6 +25,7 @@ func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 func superar_nivel():
 	if !superado:
 		cartel_final.show()
+		catalogo_mariposas.animacion_ganar()
 
 func ocultar_cartel():
 	cartel_final.hide()

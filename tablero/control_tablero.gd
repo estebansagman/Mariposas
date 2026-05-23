@@ -166,10 +166,13 @@ func girar_planta(event:InputEvent = null):
 		if event.is_action_pressed("girar_derecha"):
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
 			planta_seleccionada.girar_planta()
+			planta_seleccionada.emitir_particulas_giro("derecha")
+
 
 		elif event.is_action_pressed("girar_izquierda"):
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
 			planta_seleccionada.girar_planta()
+			planta_seleccionada.emitir_particulas_giro("izquierda")
 
 #endregion
 

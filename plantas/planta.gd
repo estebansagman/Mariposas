@@ -4,7 +4,7 @@ signal soltando
 signal en_focus(planta:Planta)
 signal eliminando
 const VFXGIRO = preload("uid://dev3eecridu31")
-var emitiendo = true
+var particulas_activas = false
 
 @onready var area_2d: Area2D = $Area2D
 var id_planta:int = 0
@@ -113,19 +113,28 @@ func girar_planta():
 				#rotation = PI * 1.5
 				t.tween_property(self,"rotation",PI * 1.5,duracion)
 				
-	if emitiendo == true:
-		emitiendo = false
-		var vfx = VFXGIRO.instantiate()
-		add_child(vfx)
-		vfx.scale*=get_parent().scale*10
-		vfx.top_level = true
-		vfx.global_position = get_global_mouse_position()
-		print(get_global_mouse_position(),get_local_mouse_position())
-		print(vfx.global_position)
-		vfx.emitting = true
-		await vfx.finished
-		vfx.queue_free()
-		emitiendo = true
+	#if particulas_activas == false:
+		#emitir_particulas_giro()
+
+func emitir_particulas_giro(direccion)->void:
+	if particulas_activas:
+		return
+	particulas_activas = true
+	var vfx:GPUParticles2D = VFXGIRO.instantiate()
+	add_child(vfx)
+	vfx.scale*=get_parent().scale*10
+	if direccion == "izquierda":
+		vfx.process_material.orbit_velocity_min = 0.5
+		vfx.process_material.orbit_velocity_max = 0.8
+	elif direccion == "derecha":
+		vfx.process_material.orbit_velocity_min = -0.8
+		vfx.process_material.orbit_velocity_max = -0.5
+	vfx.top_level = true
+	vfx.global_position = get_global_mouse_position()
+	vfx.emitting = true
+	await vfx.finished
+	vfx.queue_free()
+	particulas_activas = false
 
 func soltar_planta():
 	pieza_seleccionada = false

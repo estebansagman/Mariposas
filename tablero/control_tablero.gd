@@ -157,11 +157,17 @@ func poner_planta_en_tablero():
 	_configurar_ultima_planta.call_deferred(planta_seleccionada.id_planta, planta_seleccionada.giro_actual)
 
 func _configurar_ultima_planta(id_a_poner, giro_a_poner):
-	var hijos = capa_plantas.get_children()
-	if hijos.size() > 0:
-		var ultima_planta = hijos[-1]
-		if ultima_planta.has_method("configurar"):
-			ultima_planta.configurar(id_a_poner, giro_a_poner)
+	capa_plantas.set_cell(planta_seleccionada.coordenada_celda,-1)
+	var ejemplares_de_planta_en_tablero = capa_plantas.get_children()
+	for ejemplar_planta in ejemplares_de_planta_en_tablero:
+		var es_planta_nueva:bool = planta_seleccionada.coordenada_celda == ejemplar_planta.coordenada_en_tablero
+		if es_planta_nueva:
+			pass
+	
+	#if hijos.size() > 0:
+		#var ultima_planta = hijos[-1]
+		#if ultima_planta.has_method("configurar"):
+			#ultima_planta.configurar(id_a_poner, giro_a_poner)
 
 func posicionar_planta():
 	if planta_seleccionada:

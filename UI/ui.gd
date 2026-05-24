@@ -12,6 +12,8 @@ signal pasar_nivel
 @onready var timer: Timer = $Timer
 @onready var botones_debug: Control = $botones_debug
 
+@onready var nine_patch_rect: NinePatchRect = $NinePatchRect
+const HIGHLIGHT = preload("uid://dshrtbs2itfh0")
 
 var superado:bool = false
 
@@ -24,8 +26,24 @@ func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 
 func superar_nivel():
 	if !superado:
+		anim_win()
 		cartel_final.show()
 		catalogo_mariposas.animacion_ganar()
+
+func anim_win()->void:
+	var vfx_light = HIGHLIGHT.instantiate()
+	nine_patch_rect.add_child(vfx_light)
+	await get_tree().create_timer(1.4).timeout
+	vfx_light.queue_free()
+	highlight_mariposa()
+
+func highlight_mariposa()->void:
+	#var jardin = get_tree().current_scene.find_child("Jardin")
+	#printerr("Jardin es: ",jardin)
+	#for mariposa in jardin.find_children("*","Mariposa",true,false):
+	for mariposa in get_parent().find_children("*","Mariposa",true,false):
+		print("Highilight para ",mariposa)
+		mariposa.agregar_highlight()
 
 func ocultar_cartel():
 	cartel_final.hide()

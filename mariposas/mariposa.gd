@@ -16,6 +16,7 @@ var focus = true
 var mariposa_detectada = false
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
+const HIGHLIGHT_MARIPOSA = preload("uid://bfai2a4hwlee7")
 
 
 func _ready() -> void:
@@ -73,3 +74,7 @@ func activar_boton():
 
 func display_agarrada()->void:
 	animation_player.play_section("Aleteo",0.08,-1,-1,0)
+
+func agregar_highlight()->void:
+	print("Agregar next pass a ",mariposa_3d.get_surface_override_material(0))
+	mariposa_3d.get_surface_override_material(0).next_pass = HIGHLIGHT_MARIPOSA

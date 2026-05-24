@@ -31,6 +31,7 @@ func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 func superar_nivel():
 	if !superado:
 		await get_tree().create_timer(2).timeout
+		highlight_mariposa()
 		anim_estrella()
 		await get_tree().create_timer(1.2).timeout
 		anim_win()
@@ -92,6 +93,8 @@ func anim_estrella()->void:
 		estrella.z_index = 6
 		estrella.global_position = origin
 		var sprite = estrella.get_child(0).get_child(0)
+		estrella.get_child(1).emitting = true
+		print(estrella.get_child(1))
 		sprite.scale = Vector2.ZERO
 		t.tween_property(estrella.get_child(0),"progress_ratio",1.0,1.6)
 		t.parallel()

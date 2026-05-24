@@ -75,6 +75,14 @@ func activar_boton():
 func display_agarrada()->void:
 	animation_player.play_section("Aleteo",0.08,-1,-1,0)
 
+#func agregar_highlight()->void:
+	#print("Agregar next pass a ",mariposa_3d.get_surface_override_material(0))
+	#mariposa_3d.get_surface_override_material(0).next_pass = HIGHLIGHT_MARIPOSA
+
 func agregar_highlight()->void:
-	print("Agregar next pass a ",mariposa_3d.get_surface_override_material(0))
-	mariposa_3d.get_surface_override_material(0).next_pass = HIGHLIGHT_MARIPOSA
+	var t = create_tween()
+	t.set_ease(Tween.EASE_IN)
+	t.set_trans(Tween.TRANS_ELASTIC)
+	#t.tween_property(self,"modulate",Color(8.764, 7.475, 2.318, 1.0),0.5)
+	t.tween_property(self,"modulate",Color("ffe082ff"),0.2)
+	t.tween_property(self,"modulate",Color.WHITE,0.1)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chooeh518y4dw"]
+
+[ext_resource type="Texture2D" uid="uid://dpw0savrm3hul" path="res://UI/imagenes/estrella.png" id="1_udhbj"]
+
+[sub_resource type="Curve2D" id="Curve2D_65ot5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 100, -100, 100, 0, 0, 0, 0, -200, 0, -200, 0, 0, -200, 0, -200, 0, 200, 0, 0, 200)
+}
+point_count = 5
+
+[node name="EstrellaPath2D" type="Path2D" unique_id=1126209522]
+curve = SubResource("Curve2D_65ot5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=234802426]
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D" unique_id=1146707841]
+scale = Vector2(2, 2)
+texture = ExtResource("1_udhbj")

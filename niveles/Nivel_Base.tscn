@@ -27,6 +27,12 @@ metadata/_custom_type_script = "uid://cbxdy4164p03m"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
 size = Vector2(793, 791.0002)
 
+[sub_resource type="Curve2D" id="Curve2D_ve4qd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 800, 400, -601.4703, -264.32605, 601.4703, 264.32605, 464, 890, 0, 0, 0, 0, 960, 50)
+}
+point_count = 3
+
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_yfvpn")
 jardin = NodePath("Jardin")
@@ -94,6 +100,10 @@ debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
 
 [node name="PasarDeNivel" type="Timer" parent="." unique_id=511669230]
 wait_time = 3.0
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1252228373]
+visible = false
+curve = SubResource("Curve2D_ve4qd")
 
 [connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]

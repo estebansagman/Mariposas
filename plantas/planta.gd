@@ -4,6 +4,9 @@ signal soltando
 signal en_focus(planta:Planta)
 signal eliminando
 
+const ZINDEX_ORIGEN:int=3
+const ZINDEX_SELECCION:int=10
+
 @onready var area_2d: Area2D = $Area2D
 var id_planta:int = 0
 var pieza_seleccionada:bool = false

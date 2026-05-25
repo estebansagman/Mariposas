@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_y86en"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_kun18"]
+[ext_resource type="Texture2D" uid="uid://chotioxj4lmt8" path="res://UI/imagenes/edicion_de_las_cosas.jpg" id="2_pra3y"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_pra3y"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="4_yhpg0"]
 [ext_resource type="PackedScene" uid="uid://7x064hjv6lxk" path="res://tablero/control_tablero.tscn" id="5_np3g8"]
@@ -21,6 +22,24 @@ numero_de_sector = 2
 jardin = NodePath("Jardin")
 Especie_mariposa = Array[String](["cuatro_ojos", "espejito", "bataraza"])
 Especie_planta = Array[String](["mbrucuya:A", "salvia:A", "chilca:A", "ruelia:A", "canario_rojo:B"])
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=263669723]
+position = Vector2(960, 540)
+
+[node name="Fondo" type="TextureRect" parent="Camera2D" unique_id=28355125]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_pra3y")
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_kun18")]
 columnas = 5

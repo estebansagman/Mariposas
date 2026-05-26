@@ -32,22 +32,19 @@ func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 	alerta_seleccion.hide()
 
 func superar_nivel():
+	#anim_win()
 	if !superado:
-		anim_win()
 		#cartel_final.show()
-		await get_tree().create_timer(2).timeout
-		highlight_mariposa()
-		anim_estrella()
-		await get_tree().create_timer(1.2).timeout
-		catalogo_mariposas.animacion_ganar()
+		pass
+		#await get_tree().create_timer(2).timeout
+		#highlight_mariposa()
+		#anim_estrella()
+		#await get_tree().create_timer(1.2).timeout
+		#catalogo_mariposas.animacion_ganar()
 		
 
 func anim_win()->void:
 	var tween = get_tree().create_tween();
-	#printerr("ANIM_WIN!")
-	#print("ACA ESTA EL PARAMETRO", highlight.material.get_shader_parameter("Position"))
-	#highlight.material.set_shader_parameter("Position", 0.5)
-	#print("ACA ESTA EL PARAMETRO DE VUELTA",highlight.material.get_shader_parameter("Position"))
 	tween.tween_method(
 	func(value): highlight.material.set_shader_parameter("Position", value),  
 	  0.0,  # Start value

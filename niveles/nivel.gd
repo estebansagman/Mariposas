@@ -106,6 +106,7 @@ func sumar_puntos():
 		var s_id = "seccion_" + str(numero_de_sector)
 		var nivel_id = "nivel_" + str(numero_de_nivel)
 		var estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
+		ui.anim_win()
 		if !estado_nivel:
 			ui.superar_nivel()
 			completar_nivel()
@@ -215,7 +216,7 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 	
 	var config = ConfigFile.new()
 	var error = config.load(ruta_base)
-	
+
 	if error == OK:
 		var datos_guardados = config.get_value("Tablero", "datos_celdas", {})
 		jardin.tablero.cargar_grilla_desde_cfg(datos_guardados)

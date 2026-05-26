@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:UI/imagenes/cartelito_violeta.png.import
-uid="uid://b68glpqbyqk84"
+uid="uid://div8wlfaegsgn"
 path="res://.godot/imported/cartelito_violeta.png-594922d1db910a80c9f06f83fe29d87c.ctex"
-========
-uid="uid://k7mo1f8pl16x"
-path="res://.godot/imported/libro_1_1.png-45a8dfdb73767bbe34abd9ac8fa867a5.ctex"
->>>>>>>> tech-art:Libro/imagenes/libro_1_1.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:UI/imagenes/cartelito_violeta.png.import
 source_file="res://UI/imagenes/cartelito_violeta.png"
 dest_files=["res://.godot/imported/cartelito_violeta.png-594922d1db910a80c9f06f83fe29d87c.ctex"]
-========
-source_file="res://Libro/imagenes/libro_1_1.png"
-dest_files=["res://.godot/imported/libro_1_1.png-45a8dfdb73767bbe34abd9ac8fa867a5.ctex"]
->>>>>>>> tech-art:Libro/imagenes/libro_1_1.png.import
 
 [params]
 

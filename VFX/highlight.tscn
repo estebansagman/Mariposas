@@ -9,10 +9,10 @@ shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
 shader_parameter/Rotation_deg = 30.0
 shader_parameter/Distortion = 1.8800000418
-shader_parameter/Speed = 0.6
+shader_parameter/Speed = 0.0
 shader_parameter/Position = 0.0
-shader_parameter/Position_Min = 0.25
-shader_parameter/Position_Max = 0.5
+shader_parameter/Position_Min = 0.0
+shader_parameter/Position_Max = 1.0
 shader_parameter/Alpha = 1.0
 
 [node name="Highlight" type="ColorRect" unique_id=2008979836]

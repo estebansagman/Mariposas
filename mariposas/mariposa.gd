@@ -7,7 +7,7 @@ signal fuera_de_foco
 
 @export var key_mariposa:String
 @onready var mariposa_3d: MeshInstance3D = %Mariposa3D
-@onready var animation_player: AnimationPlayer = $SubViewport/Mariposa3D/AnimationPlayer
+
 var id_mariposa = 0
 var estructura:Array[Vector2i] = [Vector2i(0,0),Vector2i(1,0),Vector2i(0,1),Vector2i(1,1)]
 var posicion_jardin:Array[Vector2i]
@@ -121,4 +121,3 @@ func agregar_highlight()->void:
 	#t.tween_property(self,"modulate",Color(8.764, 7.475, 2.318, 1.0),0.5)
 	t.tween_property(self,"modulate",Color("ffe082ff"),0.2)
 	t.tween_property(self,"modulate",Color.WHITE,0.1)
-

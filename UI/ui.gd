@@ -15,9 +15,10 @@ signal reiniciar
 @onready var control: ConfigCfg = $Control
 
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
-const HIGHLIGHT = preload("uid://dshrtbs2itfh0")
+
 const ESTRELLA = preload("uid://dpw0savrm3hul")
 const ESTRELLA_VFX = preload("uid://chooeh518y4dw")
+@onready var highlight: ColorRect = $NinePatchRect/Highlight
 
 
 
@@ -32,21 +33,28 @@ func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 
 func superar_nivel():
 	if !superado:
+		anim_win()
+		#cartel_final.show()
 		await get_tree().create_timer(2).timeout
 		highlight_mariposa()
 		anim_estrella()
 		await get_tree().create_timer(1.2).timeout
-		anim_win()
-		#cartel_final.show()
+		catalogo_mariposas.animacion_ganar()
+		
 
 func anim_win()->void:
-	var vfx_light = HIGHLIGHT.instantiate()
-	nine_patch_rect.add_child(vfx_light)
-	await get_tree().create_timer(.8).timeout
-	vfx_light.queue_free()
-	#highlight_mariposa()
-	#anim_estrella()
-	catalogo_mariposas.animacion_ganar()
+	var tween = get_tree().create_tween();
+	#printerr("ANIM_WIN!")
+	#print("ACA ESTA EL PARAMETRO", highlight.material.get_shader_parameter("Position"))
+	#highlight.material.set_shader_parameter("Position", 0.5)
+	#print("ACA ESTA EL PARAMETRO DE VUELTA",highlight.material.get_shader_parameter("Position"))
+	tween.tween_method(
+	func(value): highlight.material.set_shader_parameter("Position", value),  
+	  0.0,  # Start value
+	  1.0,  # End value
+	  2     # Duration
+	);
+
 
 func highlight_mariposa()->void:
 	#var jardin = get_tree().current_scene.find_child("Jardin")

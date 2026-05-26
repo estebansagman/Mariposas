@@ -116,32 +116,6 @@ func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 	mariposa.scale /= jardin.columnas 
 	mariposa.animar_spawn(parcela, capa_mariposas.to_global(capa_mariposas.map_to_local(parcela)))
 
-"""
-#func animar_spawn(mariposa: Mariposa, parcela:Vector2i)->void:
-#	var modelo:Node3D = mariposa.find_child("Mariposa3D",true)
-#	var duration:float = 0.5
-	var vueltas:int = 1
-	var t = create_tween()
-	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
-
-	modelo.global_rotation_degrees = Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45))
-
-	t.set_ease(Tween.EASE_OUT)
-	t.set_trans(Tween.TRANS_BACK)
-	modelo.find_child("AnimationPlayer",true).play()
-	for vuelta in vueltas:
-		t.parallel().tween_property(mariposa,"global_position",Vector2(randf_range(250,750),randf_range(100,600)),duration)
-		t.tween_interval(duration)
-		t.tween_property(modelo,"global_rotation_degrees",Vector3(randf_range(-30,30),randf_range(-90,90),randf_range(-45,45)),duration)
-	
-	t.parallel().tween_property(mariposa,"global_position",pos_global,duration)
-	t.tween_interval(duration)
-	
-	t.tween_property(modelo,"global_rotation_degrees",Vector3.ZERO,duration)
-	await t.finished
-	modelo.find_child("AnimationPlayer",true).stop()
-""" 
-
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))
 	mariposa.global_position = pos_global

@@ -48,6 +48,9 @@ const PLANTA = preload("uid://der8d61kw3xr8")
 
 var estrellas:int
 var puntos_maximos:int
+#var s_id = "seccion_" + str(numero_de_sector)
+#var nivel_id = "nivel_" + str(numero_de_nivel)
+#var estado_nivel:bool 
 
 func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 	var posicion_mouse_local = jardin.tablero.get_local_mouse_position()

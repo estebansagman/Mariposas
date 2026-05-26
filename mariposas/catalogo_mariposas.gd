@@ -52,3 +52,26 @@ func _barra_movida(v):
 
 func _scroll_interno(v):
 	barra.value = v
+
+func animacion_ganar()->void:
+	var final_pos = Vector2(0.0,2000.0)
+	var duration = 1.3
+	var delay = 0.2
+	if get_tree().current_scene.find_child("LibroBoton"):
+		final_pos = get_tree().current_scene.find_child("LibroBoton").global_position
+	for mariposa:BotonMariposa in contenedor_mariposas.get_children():
+		var original_pos = mariposa.global_position
+		var t = create_tween()
+		t.set_ease(Tween.EASE_IN)
+		t.set_trans(Tween.TRANS_BACK)
+		mariposa.top_level = true
+		mariposa.global_position = original_pos
+		mariposa.pivot_offset_ratio = Vector2(0.5,0.5)
+		t.tween_property(mariposa,"global_position",Vector2(original_pos.x,final_pos.y),duration)
+		t.set_parallel(true)
+		#t.set_trans(Tween.TRANS_QUINT)
+		t.set_trans(Tween.TRANS_SPRING)
+		t.tween_property(mariposa,"scale",Vector2.ZERO,duration)
+		#t.tween_property(mariposa,"modulate",Color(16, 16, 16, 1.0),duration/3)
+		await get_tree().create_timer(delay).timeout
+		mariposa.modulate = Color(16, 16, 16, 1.0)

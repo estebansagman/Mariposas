@@ -3,6 +3,8 @@ class_name Planta
 signal soltando  
 signal en_focus(planta:Planta)
 signal eliminando
+const VFXGIRO = preload("uid://dev3eecridu31")
+var particulas_activas = false
 
 const ZINDEX_ORIGEN:int=3
 const ZINDEX_SELECCION:int=10
@@ -61,7 +63,6 @@ func estructurar_planta():
 	for modulo in estructura:
 		var tamaño_tile:Vector2i = Vector2i(64,64) 
 		var posicion_nueva:Vector2i = Vector2i(tamaño_tile.x*modulo.x,tamaño_tile.y*modulo.y)
-
 		var tamaño_area:CollisionShape2D = CollisionShape2D.new()
 		var forma_area:RectangleShape2D = RectangleShape2D.new()
 
@@ -74,6 +75,7 @@ func estructurar_planta():
 
 		area_2d.add_child(tamaño_area)
 
+	
 func prender_focus():
 	emit_signal("en_focus",self)
 	focus = true
@@ -83,23 +85,53 @@ func apagar_focus():
 	print(focus)
 
 func girar_planta():
+	
 	var lista_cruda = Dios.bd_interna["plantas"][key_planta]["forma"][key_estructura].duplicate()
 	var forma_inicial = Dios.transformar_en_vector2i(lista_cruda)
 	estructura.clear()
+	var t = create_tween()
+	var duracion = 0.1
 	for posicion in forma_inicial:
 		match giro_actual:
 			0:
 				estructura.append(posicion)
-				rotation = 0
+				#rotation = 0
+				t.tween_property(self,"rotation",0,duracion)
 			1:
 				estructura.append(Vector2i(-posicion.y, posicion.x))
-				rotation = PI/2
+				#rotation = PI/2
+				t.tween_property(self,"rotation",PI/2,duracion)
 			2:
 				estructura.append(Vector2i(-posicion.x, -posicion.y))
-				rotation = PI
+				#rotation = PI
+				t.tween_property(self,"rotation",PI,duracion)
 			3:
 				estructura.append(Vector2i(posicion.y, -posicion.x))
-				rotation = PI * 1.5
+				#rotation = PI * 1.5
+				t.tween_property(self,"rotation",PI * 1.5,duracion)
+				
+	#if particulas_activas == false:
+		#emitir_particulas_giro()
+
+func emitir_particulas_giro(direccion)->void:
+	if particulas_activas:
+		return
+	particulas_activas = true
+	var vfx:GPUParticles2D = VFXGIRO.instantiate()
+	add_child(vfx)
+	vfx.scale*=get_parent().scale*10
+	if direccion == "izquierda":
+		vfx.process_material.orbit_velocity_min = 0.5
+		vfx.process_material.orbit_velocity_max = 0.8
+	elif direccion == "derecha":
+		vfx.process_material.orbit_velocity_min = -0.8
+		vfx.process_material.orbit_velocity_max = -0.5
+	vfx.top_level = true
+	vfx.global_position = get_global_mouse_position()
+	vfx.emitting = true
+	await vfx.finished
+	vfx.queue_free()
+	particulas_activas = false
 
 func soltar_planta():
 	pieza_seleccionada = false

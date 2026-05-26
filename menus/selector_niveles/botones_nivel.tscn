@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]
+
 [ext_resource type="StyleBox" uid="uid://balnbgiebwlht" path="res://menus/selector_niveles/panel_interno.tres" id="2_w7mj0"]
 [ext_resource type="Texture2D" uid="uid://c7r1ef8rgc866" path="res://menus/selector_niveles/imagenes/nivel-bloqueado.png" id="4_3dvas"]
 [ext_resource type="Texture2D" uid="uid://cr6moh68rnko" path="res://menus/selector_niveles/imagenes/polaroid.png" id="4_sbog6"]
@@ -9,13 +10,32 @@
 [ext_resource type="Texture2D" uid="uid://cgnpk1vyid6xw" path="res://menus/selector_niveles/imagenes/polaroid-seleccionada.png" id="5_sbog6"]
 [ext_resource type="Texture2D" uid="uid://d02tcsd3wimqc" path="res://menus/selector_niveles/imagenes/chinche.png" id="7_ixsf2"]
 
+
 [sub_resource type="Gradient" id="Gradient_4qldc"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sbog6"]
 gradient = SubResource("Gradient_4qldc")
+
 width = 58
 height = 67
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ixsf2"]
+frequency = 0.0037
+fractal_octaves = 3
+fractal_lacunarity = 2.31
+fractal_gain = 0.66
+fractal_weighted_strength = 0.25
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3dvas"]
+noise = SubResource("FastNoiseLite_ixsf2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixsf2"]
+shader = ExtResource("3_sbog6")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_3dvas")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/burn_size = 0.11999999731776
+shader_parameter/burn_color = Color(0.20083497, 0.12690002, 0.27, 1)
 
 [node name="ItemNivel" type="TextureRect" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
 offset_right = 155.25
@@ -37,13 +57,17 @@ offset_bottom = 153.0
 theme_override_styles/panel = ExtResource("1_rfvlp")
 
 [node name="Interior" type="Panel" parent="." unique_id=942874464]
+
 visible = false
+material = SubResource("ShaderMaterial_ixsf2")
+
 layout_mode = 0
 offset_left = 17.0
 offset_top = 41.0
 offset_right = 137.0
 offset_bottom = 148.0
 theme_override_styles/panel = ExtResource("2_w7mj0")
+
 
 [node name="ImagenNivel" type="TextureRect" parent="." unique_id=357063777]
 layout_mode = 0
@@ -81,6 +105,7 @@ offset_right = 79.0
 offset_bottom = 154.0
 theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
 text = "Nivel  1"
+
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=18680846]
 visible = false

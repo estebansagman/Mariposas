@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dev3eecridu31"]
+
+[ext_resource type="Texture2D" uid="uid://knvpq545lkww" path="res://VFX/vfx imagenes/hojitassheet.png" id="1_5sofm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ceht0"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ceht0"]
+_data = [Vector2(0.5980861, 1), 0.0, -1.0348502, 0, 0, Vector2(0.8373206, 0), -10.46068, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bj8mw"]
+curve = SubResource("Curve_ceht0")
+
+[sub_resource type="Curve" id="Curve_pmof6"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, -2.3250654, 0, 0, Vector2(1, 35.955055), 84.80027, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7tqcv"]
+curve = SubResource("Curve_pmof6")
+
+[sub_resource type="Curve" id="Curve_xaa61"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.5603495, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sdhef"]
+curve = SubResource("Curve_xaa61")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kn11e"]
+lifetime_randomness = 0.8
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(90, 90, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 160.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 179.99998
+orbit_velocity_min = 0.5000001
+orbit_velocity_max = 0.80000013
+radial_velocity_min = 59.999977
+radial_velocity_max = 179.99997
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 35.629997
+linear_accel_max = 51.019997
+radial_accel_min = 55.059998
+radial_accel_max = 76.92
+damping_min = 8.0
+damping_max = 15.000001
+damping_curve = SubResource("CurveTexture_7tqcv")
+scale_min = 0.099999994
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_sdhef")
+alpha_curve = SubResource("CurveTexture_bj8mw")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.009999977
+
+[node name="GiroIndividuales" type="GPUParticles2D" unique_id=596138012]
+z_index = 99
+material = SubResource("CanvasItemMaterial_ceht0")
+emitting = false
+amount = 12
+texture = ExtResource("1_5sofm")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.96
+randomness = 1.0
+trail_sections = 3
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_kn11e")

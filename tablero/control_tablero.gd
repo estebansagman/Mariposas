@@ -162,16 +162,16 @@ func posicionar_planta(planta:Planta):
 
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
-		
 		if event.is_action_pressed("girar_derecha"):
-			print("CLICK - Giro actual de la planta antes del click: ", planta_seleccionada.giro_actual)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
 			planta_seleccionada.girar_planta()
+			planta_seleccionada.emitir_particulas_giro("derecha")
+
 
 		elif event.is_action_pressed("girar_izquierda"):
-			print("CLICK - Giro actual de la planta antes del click: ", planta_seleccionada.giro_actual)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
 			planta_seleccionada.girar_planta()
+			planta_seleccionada.emitir_particulas_giro("izquierda")
 
 #endregion
 
@@ -249,6 +249,5 @@ func mover_mariposa_seleccionada()->void:
 func _iluminar_mariposa():
 	if mariposa_seleccionada and mariposa_en_seleccion:
 		mariposa_seleccionada.iluminar(mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()))
-
 
 #endregion

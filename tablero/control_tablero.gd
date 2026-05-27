@@ -162,6 +162,7 @@ func posicionar_planta(planta:Planta):
 
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
+		
 		if event.is_action_pressed("girar_derecha"):
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
 			planta_seleccionada.girar_planta()

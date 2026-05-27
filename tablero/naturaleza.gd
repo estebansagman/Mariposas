@@ -89,7 +89,6 @@ func _es_cuadrante_valido(cuadrante: Array[Vector2i]) -> bool:
 		var tipo_de_suelo: String = tablero.celdas[casilla][tablero.tipo_casilla_key]
 		#if tipo_de_suelo == tablero.casilla_bloqueo:
 			#return false
-			
 		var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
 		if hay_mariposa:
 			return false

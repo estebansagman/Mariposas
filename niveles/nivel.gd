@@ -48,9 +48,6 @@ const PLANTA = preload("uid://der8d61kw3xr8")
 
 var estrellas:int
 var puntos_maximos:int
-#var s_id = "seccion_" + str(numero_de_sector)
-#var nivel_id = "nivel_" + str(numero_de_nivel)
-#var estado_nivel:bool 
 
 func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 	var posicion_mouse_local = jardin.tablero.get_local_mouse_position()
@@ -195,15 +192,20 @@ func reiniciar_nivel():
 	if editando:
 		get_tree().reload_current_scene()
 	else:
+		
 		var contenedor_botones = ui.catalogo_plantas.contenedor_plantas
 		for i in range(contenedor_botones.get_child_count()):
 			var boton = contenedor_botones.get_child(i)
 			boton.show()
 			if boton.has_method("mostrar_imagen"):
 				boton.mostrar_imagen()
-		jardin.capa_plantas.clear()
+		limpiar_jardin()
+		#jardin.capa_plantas.clear()
 		cargar_estado_de_nivel(true)	
 		guardar_estado_actual()
+func limpiar_jardin():
+	for planta in jardin.find_children("*","Planta",true,false):
+		planta.queue_free()
 
 func cargar_estado_de_nivel(reinicio:bool = false):
 	var texto_sector = "sector_" + str(numero_de_sector)
@@ -216,7 +218,7 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 	
 	var config = ConfigFile.new()
 	var error = config.load(ruta_base)
-
+	
 	if error == OK:
 		var datos_guardados = config.get_value("Tablero", "datos_celdas", {})
 		jardin.tablero.cargar_grilla_desde_cfg(datos_guardados)

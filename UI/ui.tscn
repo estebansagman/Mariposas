@@ -193,6 +193,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1778436262]
 z_index = 2

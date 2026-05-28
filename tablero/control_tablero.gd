@@ -25,7 +25,6 @@ var estructura_base:Array[Vector2i]
 
 func _input(event: InputEvent) -> void:
 	girar_planta(event)
-
 func _process(delta: float) -> void:
 	var mouse_local = tablero.get_local_mouse_position()
 	celda_actual = tablero.local_to_map(mouse_local)
@@ -101,13 +100,11 @@ func seleccionar_planta(planta:Planta):
 	for celda in tablero.celdas:
 		if tablero.get_id_planta(celda)==planta_seleccionada.get_id_planta():
 			tablero.vaciar_celda(celda)
-
 func mover_planta_seleccionada(celda_actual) -> void:
-
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		if planta_seleccionada != null: 
 			return
-		
+
 		tablero.leer_celda(celda_actual)
 		var id_click = tablero.get_id_planta(celda_actual)
 		if id_click != 0:
@@ -153,25 +150,23 @@ func mover_planta_seleccionada(celda_actual) -> void:
 				planta_seleccionada.queue_free()
 				planta_seleccionada = null
 				limpiar_focos()
-
 func posicionar_planta(planta:Planta):
 	if planta:
 		var posicion_en_tablero:Vector2 = capa_plantas.map_to_local(planta.coordenada_celda)
 		print(posicion_en_tablero)
 		planta.position = posicion_en_tablero*scale.x
-
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
-		
+		var t = create_tween()
+		var duracion = 0.1
 		if event.is_action_pressed("girar_derecha"):
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
-			planta_seleccionada.girar_planta()
+			planta_seleccionada.girar_planta(true)
 			planta_seleccionada.emitir_particulas_giro("derecha")
-
 
 		elif event.is_action_pressed("girar_izquierda"):
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
-			planta_seleccionada.girar_planta()
+			planta_seleccionada.girar_planta(false)
 			planta_seleccionada.emitir_particulas_giro("izquierda")
 
 #endregion
@@ -181,11 +176,9 @@ func seleccionar_mariposa(mariposa:Mariposa):
 	if mariposa_seleccionada == null and planta_seleccionada == null:
 		mariposa_seleccionada = mariposa
 		print("mariposa seleccionada")
-
 func soltar_mariposa():
 	if !mariposa_en_seleccion:
 		mariposa_seleccionada = null
-
 func generarl_lista_requerimientos()->Array[String]:
 	
 	var lista_de_requerimientos:Array[String]
@@ -206,7 +199,6 @@ func generarl_lista_requerimientos()->Array[String]:
 			return [""]
 	
 	return lista_de_requerimientos
-
 func mover_mariposa_seleccionada()->void:
 	if mariposa_seleccionada:
 		if Input.is_action_just_pressed("aceptar"):
@@ -246,7 +238,6 @@ func mover_mariposa_seleccionada()->void:
 			mariposa_en_seleccion = false
 			mariposa_seleccionada = null
 			limpiar_focos()
-
 func _iluminar_mariposa():
 	if mariposa_seleccionada and mariposa_en_seleccion:
 		mariposa_seleccionada.iluminar(mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()))

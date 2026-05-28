@@ -84,34 +84,38 @@ func apagar_focus():
 	focus = false
 	print(focus)
 
-func girar_planta():
-	
+func girar_planta(gira_derecha:bool):
+	var t = create_tween()
+	var duracion = 0.1
+
+	var sentido_de_giro = 1
+	if !gira_derecha: sentido_de_giro = -1
+
+	var rotacion_aplicada = rotation + (PI/2)*sentido_de_giro
+	t.tween_property(self,"rotation",rotacion_aplicada,duracion)
+	await t.finished
+	giro_de_planta()
+
+
+func giro_de_planta():
 	var lista_cruda = Dios.bd_interna["plantas"][key_planta]["forma"][key_estructura].duplicate()
 	var forma_inicial = Dios.transformar_en_vector2i(lista_cruda)
 	estructura.clear()
-	var t = create_tween()
-	var duracion = 0.1
 	for posicion in forma_inicial:
 		match giro_actual:
 			0:
 				estructura.append(posicion)
-				#rotation = 0
-				t.tween_property(self,"rotation",0,duracion)
+				rotation = 0
 			1:
 				estructura.append(Vector2i(-posicion.y, posicion.x))
-				#rotation = PI/2
-				t.tween_property(self,"rotation",PI/2,duracion)
+				rotation = PI/2
 			2:
 				estructura.append(Vector2i(-posicion.x, -posicion.y))
-				#rotation = PI
-				t.tween_property(self,"rotation",PI,duracion)
+				rotation = PI
 			3:
 				estructura.append(Vector2i(posicion.y, -posicion.x))
-				#rotation = PI * 1.5
-				t.tween_property(self,"rotation",PI * 1.5,duracion)
-				
-	#if particulas_activas == false:
-		#emitir_particulas_giro()
+				rotation = PI * 1.5
+
 
 func emitir_particulas_giro(direccion)->void:
 	if particulas_activas:

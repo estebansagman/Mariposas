@@ -92,7 +92,6 @@ func _es_cuadrante_valido(cuadrante: Array[Vector2i]) -> bool:
 		var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
 		if hay_mariposa:
 			return false
-			
 	return true
 
 func _ubicar_mariposa_en_jardin(mariposa, cuadrante: Array[Vector2i]) -> void:

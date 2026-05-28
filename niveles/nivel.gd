@@ -257,6 +257,6 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 func dibujar_planta_cargada(planta:Planta):
 	jardin.add_child(planta)
 	planta.estructurar_planta()
-	planta.girar_planta()
+	planta.giro_de_planta()
 	jardin.jardinero.posicionar_planta(planta)
 	await get_tree().process_frame

@@ -56,7 +56,8 @@ func anim_estrella()->void:
 		var estrella:Path2D = ESTRELLA_VFX.duplicate(true).instantiate()
 		var origin = mariposa.find_child("Sprite2D",true,false).global_position
 		var t = create_tween()
-		get_parent().add_child(estrella,true)
+		#get_parent().add_child(estrella,true)
+		add_child(estrella,true)
 		estrella.curve.add_point(Vector2(960,60)-origin,Vector2(400,200))
 		estrella.z_index = 6
 		estrella.global_position = origin

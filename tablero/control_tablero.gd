@@ -23,6 +23,10 @@ var celda_focus_coordenada:Vector2
 var celda_actual:Vector2i
 var estructura_base:Array[Vector2i]
 
+func _ready() -> void:
+	var UI = get_tree().current_scene.find_child("UI",true,false)
+	cambio_en_jardin.connect(UI.ocultar_cartel)
+
 func _input(event: InputEvent) -> void:
 	girar_planta(event)
 func _process(delta: float) -> void:

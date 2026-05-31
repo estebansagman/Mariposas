@@ -9,12 +9,15 @@ signal reiniciar
 @onready var catalogo_mariposas: Control = $CatalogoMariposas
 
 @onready var alerta_seleccion: ColorRect = $AlertaSeleccion
-@onready var cartel_final: Panel = $Cartel_final
+#@onready var cartel_final: Panel = $Cartel_final
+@onready var cartel_final: Panel = %Cartel_final
 @onready var timer: Timer = $Timer
 @onready var botones_debug: Control = $botones_debug
 @onready var control: ConfigCfg = $Control
 
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
+
+@onready var camara: Camera2D = %Camara
 
 const ESTRELLA = preload("uid://dpw0savrm3hul")
 const ESTRELLA_VFX = preload("uid://chooeh518y4dw")
@@ -45,6 +48,13 @@ func anim_win()->void:
 	  1.0,  # End value
 	  2     # Duration
 	);
+	await tween.finished
+	desplazar_camara()
+	cartel_final.show()
+
+func desplazar_camara()->void:
+	var t = create_tween()
+	t.tween_property(camara,"global_position",Vector2(540,540),1.2)
 
 func highlight_mariposa()->void:
 	for mariposa in get_parent().find_children("*","Mariposa",true,false):
@@ -72,6 +82,7 @@ func anim_estrella()->void:
 
 func ocultar_cartel():
 	cartel_final.hide()
+	restaurar_camara()
 
 func volver_al_menu():
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)
@@ -79,3 +90,9 @@ func volver_al_menu():
 func reiniciar_nivel():
 	emit_signal("reiniciar")
 	#get_tree().reload_current_scene()
+
+func restaurar_camara()->void:
+	if camara.global_position == Vector2(960,540):
+		return
+	var t = create_tween()
+	t.tween_property(camara,"global_position",Vector2(960,540),.8)

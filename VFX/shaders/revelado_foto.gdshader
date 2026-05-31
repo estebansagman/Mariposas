@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+uniform sampler2D blocked_image;
 uniform sampler2D dissolve_texture : source_color;
 uniform float dissolve_value : hint_range(0,1);
 uniform float burn_size: hint_range(0.0, 1.0, 0.01);
@@ -7,7 +8,8 @@ uniform vec4 burn_color: source_color;
 
 void fragment(){
     vec4 main_texture = texture(TEXTURE, UV);
-    vec4 noise_texture = texture(dissolve_texture, UV);
+    vec4 blocked_texture = texture(blocked_image, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV*main_texture.ra);
 	
 	// This is needed to avoid keeping a small burn_color dot with dissolve being 0 or 1
 	// is there another way to do it?
@@ -17,5 +19,5 @@ void fragment(){
 	
 	//COLOR.a *= threshold;
 	vec3 reveal = mix(burn_color.rgb, main_texture.rgb, border);
-	COLOR.rgb = mix(noise_texture.rgb*vec3(0.08,0.05,0.06), reveal.rgb, threshold);
+	COLOR.rgb = mix(blocked_texture.rgb, reveal.rgb, threshold);
 }

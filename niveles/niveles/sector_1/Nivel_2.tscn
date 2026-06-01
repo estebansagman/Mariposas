@@ -27,8 +27,8 @@ script = ExtResource("1_hpxgo")
 numero_de_nivel = 2
 numero_de_sector = 1
 jardin = NodePath("Jardin")
-Especie_mariposa = Array[String](["bataraza"])
-Especie_planta = Array[String](["canario_rojo:B", "salvia:A"])
+Especie_mariposa = Array[String](["espejito", "bataraza"])
+Especie_planta = Array[String](["canario_rojo:A", "salvia:A", "mbrucuya:A"])
 datos_de_libro = Array[ExtResource("2_eomhf")]([SubResource("Resource_vct6e")])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_owxom")]
@@ -65,7 +65,7 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("8_gcl6x")]
 scale = Vector2(1.555, 1.555)
-tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAIAAAAAAAMAAAACAAUAAAABAAAAAAACAAUAAAABAAEAAAABAAAAAAABAAIAAAACAAIAAAABAAMAAAACAAUAAAACAAAAAAACAAUAAAACAAEAAAACAAMAAAACAAIAAAACAAUAAAACAAMAAAACAAUAAAADAAAAAAACAAUAAAADAAEAAAACAAAAAAADAAMAAAACAAUAAAADAAIAAAAAAAUAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAUAAAABAAAAAAAAAAAAAAABAAEAAAAEAAIAAAABAAIAAAABAAIAAAABAAMAAAACAAUAAAACAAAAAAACAAAAAAACAAEAAAACAAEAAAACAAIAAAACAAEAAAACAAMAAAAAAAIAAAADAAAAAAACAAUAAAADAAEAAAACAAUAAAADAAMAAAADAAMAAAADAAIAAAACAAUAAAA=")
 tile_set = ExtResource("10_vct6e")
 
 [node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]

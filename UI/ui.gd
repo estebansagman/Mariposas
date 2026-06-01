@@ -78,7 +78,8 @@ func anim_estrella()->void:
 		t.tween_property(estrella.get_child(0),"progress_ratio",1.0,1.6)
 		t.parallel()
 		t.set_trans(Tween.TRANS_ELASTIC)
-		t.tween_property(sprite,"scale",Vector2(2.0,2.0),1)
+		#t.tween_property(sprite,"scale",Vector2(2.0,2.0),1)
+		t.tween_property(sprite,"scale",Vector2(0.2,0.2),1)
 
 func ocultar_cartel():
 	cartel_final.hide()

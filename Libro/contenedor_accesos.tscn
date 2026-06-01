@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://e0yfifw5xtxu"]
+
+[ext_resource type="Script" uid="uid://cib2xnxar3x3h" path="res://Libro/contenedor_guias.gd" id="1_rjqmf"]
+[ext_resource type="Texture2D" uid="uid://b5wyj6u06ipic" path="res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid_prueba.png" id="2_nicy5"]
+[ext_resource type="Texture2D" uid="uid://2w74oyqhi0xn" path="res://Libro/elementos_libro/iconos/cintaparapolaloid1.png" id="3_albcj"]
+[ext_resource type="Texture2D" uid="uid://bnckogelcoxl8" path="res://Libro/elementos_libro/plantaspolaloidver2.png/chilcadeolorpolaloid.png" id="3_nicy5"]
+[ext_resource type="Texture2D" uid="uid://bo1noxttg2f8y" path="res://Libro/elementos_libro/iconos/cintaparapolaloid.png" id="4_5tiun"]
+[ext_resource type="Texture2D" uid="uid://hgvc6chyrg2j" path="res://Libro/elementos_libro/papelesparalibro/papelparanombredeplanta2.png" id="5_t10dw"]
+[ext_resource type="Script" uid="uid://dhvwal165lgmi" path="res://Libro/carteles.gd" id="6_wpabu"]
+[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/NombresEnCintas.tres" id="7_2af3d"]
+
+[node name="contenedor" type="HBoxContainer" unique_id=832846412]
+size_flags_horizontal = 3
+script = ExtResource("1_rjqmf")
+
+[node name="Separador" type="Control" parent="." unique_id=506155231]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=453230037]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 16.0
+ratio = 1.2262
+
+[node name="Boton" type="TextureButton" parent="AspectRatioContainer" unique_id=1124565315]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+texture_normal = ExtResource("2_nicy5")
+texture_hover = ExtResource("3_nicy5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="AspectRatioContainer/Boton" unique_id=1269879523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cinta" type="TextureRect" parent="AspectRatioContainer/Boton/Control" unique_id=1505295468]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.071
+anchor_top = -0.048
+anchor_right = 0.22900002
+anchor_bottom = 0.25
+offset_left = -0.29996872
+offset_top = -0.16357994
+offset_right = -0.25057983
+offset_bottom = -0.2826538
+pivot_offset = Vector2(29.286972, 24.204681)
+texture = ExtResource("3_albcj")
+expand_mode = 1
+flip_h = true
+
+[node name="Cinta2" type="TextureRect" parent="AspectRatioContainer/Boton/Control" unique_id=1939232705]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77800006
+anchor_top = 0.72900003
+anchor_right = 1.065
+anchor_bottom = 1.08
+offset_left = 0.39996338
+offset_top = 0.27090454
+offset_right = -0.33532715
+offset_bottom = 0.06048584
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(28.33403, 28.938171)
+texture = ExtResource("4_5tiun")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Titulo" type="TextureRect" parent="AspectRatioContainer/Boton/Control" unique_id=1724519768]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.9480001
+anchor_right = 0.675
+anchor_bottom = 1.128
+offset_left = -69.19501
+offset_top = -22.694275
+offset_right = 69.72931
+offset_bottom = 32.026855
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(60, 20)
+texture = ExtResource("5_t10dw")
+expand_mode = 1
+script = ExtResource("6_wpabu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/Boton/Control/Titulo" unique_id=1841785045]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.155
+anchor_right = 0.873
+anchor_bottom = 0.91400003
+offset_left = 16.302574
+offset_top = -0.7875004
+offset_right = 0.74272156
+offset_bottom = 2.360012
+scale = Vector2(0.94, 0.94)
+theme_override_colors/default_color = Color(0.4374748, 0.2599692, 0.16578856, 1)
+theme_override_fonts/normal_font = ExtResource("7_2af3d")
+theme_override_font_sizes/normal_font_size = 36
+text = "Bandera Argentina"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separador2" type="Control" parent="." unique_id=1362652717]
+layout_mode = 2
+size_flags_horizontal = 3

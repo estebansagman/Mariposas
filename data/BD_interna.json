@@ -105,7 +105,7 @@
 			"atlas_A":1,
 			"atlas_B":2,
 			"imagen_catalogo": "res://plantas/imagenes/ceibo.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/ceibopolaloid.png",
 			"mariposas_atraidas": [
 				"bandera_argentina"
 			],
@@ -181,7 +181,7 @@
 			"atlas_A":3,
 			"atlas_B":4,
 			"imagen_catalogo": "res://plantas/imagenes/coronillo.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/coronillopolaloid.png",
 			"mariposas_atraidas": [
 				"bandera_argentina"
 			],
@@ -234,7 +234,7 @@
 			"atlas_A":5,
 			"atlas_B":6,
 			"imagen_catalogo": "res://plantas/imagenes/chilca.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/chilcadeolorpolaloid.png",
 			"mariposas_atraidas": [
 				"cuatro_ojos",
 				"perezosa"
@@ -295,7 +295,7 @@
 			"atlas_A":7,
 			"atlas_B":8,
 			"imagen_catalogo": "res://plantas/imagenes/ruda.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/rudapolaloid.png",
 			"mariposas_atraidas": [
 				"limonero"
 			],
@@ -347,7 +347,7 @@
 			"atlas_A":9,
 			"atlas_B":10,
 			"imagen_catalogo": "res://plantas/imagenes/canario rojo.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/canariorojopolaloid.png",
 			"mariposas_atraidas": [
 				"bataraza"
 			],
@@ -391,7 +391,7 @@
 			"atlas_A":11,
 			"atlas_B":12,
 			"imagen_catalogo": "res://plantas/imagenes/salvia.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/salviapolaloid.png",
 			"mariposas_atraidas": [
 				"bataraza",
 				"espejito"
@@ -444,7 +444,7 @@
 			"atlas_A":13,
 			"atlas_B":14,
 			"imagen_catalogo": "res://plantas/imagenes/ruelia.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/ruelliapolaloid.png",
 			"mariposas_atraidas": [
 				"cuatro_ojos"
 			],
@@ -496,7 +496,7 @@
 			"atlas_A":15,
 			"atlas_B":16,
 			"imagen_catalogo": "res://plantas/imagenes/mbrucuya.jpg.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/mburucuyapolaloid.png",
 			"mariposas_atraidas": [
 				"perezosa",
 				"espejito"
@@ -549,7 +549,7 @@
 			"atlas_A":17,
 			"atlas_B":18,
 			"imagen_catalogo": "res://plantas/imagenes/lantana.png",
-			"imagen_libro": "res://Libro/imagenes/imagen_2026-04-21_150439142.webp",
+			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/lantanapolaloid.png",
 			"mariposas_atraidas": [
 				"bandera_argentina",
 				"limonero"
@@ -609,8 +609,8 @@
 			"nombre": "Bandera Argentina",
 			"nombre_cientifico": "nombre_x",
 			"textura_juego": "res://mariposas/imagenes/en_juego/bandera_argentina.png",
-			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
-			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/bandera argentina polaroid.png",
+			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugabanderaargentina.png",
 			"plantas_requeridas": [
 				"lantana",
 				"coronillo",
@@ -623,8 +623,8 @@
 			"nombre": "Bataraza",
 			"nombre_cientifico": "nombre_x",
 			"textura_juego": "res://mariposas/imagenes/en_juego/bataraza.png",
-			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
-			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid.png",
+			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugabatarazareal.png",
 			"plantas_requeridas": [
 				"canario_rojo",
 				"salvia"
@@ -636,8 +636,8 @@
 			"nombre": "Cuatro Ojos",
 			"nombre_cientifico": "nombre_x",
 			"textura_juego": "res://mariposas/imagenes/en_juego/cuatro_ojos.png",
-			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
-			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/cuatro ojos polaroid.png",
+			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugacuatrojos.png",
 			"plantas_requeridas": [
 				"ruelia",
 				"chilca"
@@ -649,8 +649,8 @@
 			"nombre": "Espejito",
 			"nombre_cientifico": "nombre_x",
 			"textura_juego": "res://mariposas/imagenes/en_juego/espejito.png",
-			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
-			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/espejito polaroid.png",
+			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugaespejito.png",
 			"plantas_requeridas": [
 				"salvia",
 				"mbrucuya"
@@ -662,8 +662,8 @@
 			"nombre": "Limonero",
 			"nombre_cientifico": "nombre_x",
 			"textura_juego": "res://mariposas/imagenes/en_juego/limonero.png",
-			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
-			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/limonero polaroid.png",
+			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugadellimonero.png",
 			"plantas_requeridas": [
 				"ruda",
 				"lantana"
@@ -675,8 +675,8 @@
 			"nombre": "Perezosa",
 			"nombre_cientifico": "nombre_x",
 			"textura_juego": "res://mariposas/imagenes/en_juego/perezosa.png",
-			"textura_libro": "res://Libro/imagenes/mari_libro_2.png",
-			"textura_oruga_libro": "res://Libro/imagenes/oruga.webp",
+			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/perezosa polaroid.png",
+			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugaperezosa.png",
 			"plantas_requeridas": [
 				"chilca",
 				"mbrucuya"

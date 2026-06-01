@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bpkax36b2yb4a"]
+
+[ext_resource type="Script" uid="uid://cib2xnxar3x3h" path="res://Libro/contenedor_guias.gd" id="1_26n8l"]
+[ext_resource type="Texture2D" uid="uid://b5wyj6u06ipic" path="res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid_prueba.png" id="1_i6l83"]
+
+[node name="contenedor" type="HBoxContainer" unique_id=1450652363]
+size_flags_horizontal = 3
+script = ExtResource("1_26n8l")
+
+[node name="Separador" type="Control" parent="." unique_id=1130191832]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Boton" type="TextureButton" parent="." unique_id=1841463211]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("1_i6l83")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Separador2" type="Control" parent="." unique_id=1260916584]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05

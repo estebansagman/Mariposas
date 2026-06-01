@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://c6a35fsq212ty"]
+
+[ext_resource type="Script" uid="uid://dby8n8r40tmfv" path="res://Libro/scripts/libro.gd" id="1_1iihh"]
+[ext_resource type="PackedScene" uid="uid://bshljp84410s4" path="res://Libro/cosas_viejas/3D/test_libro.tscn" id="1_8ybf7"]
+[ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_6eewu"]
+[ext_resource type="Texture2D" uid="uid://ua3p0gioljnr" path="res://Libro/elementos_libro/iconos/boton antes.png" id="4_ceaa1"]
+[ext_resource type="Texture2D" uid="uid://b364iv20fmom2" path="res://Libro/elementos_libro/iconos/boton antes off.png" id="5_1niyf"]
+[ext_resource type="Texture2D" uid="uid://cg4prnh7n5nd1" path="res://Libro/elementos_libro/iconos/indice boton on.png" id="6_n2c20"]
+[ext_resource type="Texture2D" uid="uid://1ann013111cx" path="res://Libro/elementos_libro/iconos/salir on.png" id="6_r7h33"]
+[ext_resource type="Texture2D" uid="uid://cj45gg46cmupy" path="res://Libro/elementos_libro/iconos/salir off.png" id="7_0fumt"]
+[ext_resource type="Texture2D" uid="uid://fw7s18h6163v" path="res://Libro/elementos_libro/iconos/indice clip off.png" id="7_movs5"]
+
+[node name="Libro" type="Control" unique_id=685332568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1iihh")
+
+[node name="Control" type="Control" parent="." unique_id=1237370173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -16.000002
+offset_right = 78.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92315125, 0.92315125)
+mouse_filter = 2
+
+[node name="Izquierda" parent="Control" unique_id=1233792517 instance=ExtResource("2_6eewu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50200003
+anchor_top = 0.521
+anchor_right = 0.50200003
+anchor_bottom = 0.521
+offset_left = -707.8401
+offset_top = -447.68005
+offset_right = 152.15991
+offset_bottom = 632.31995
+scale = Vector2(0.819, 0.814)
+
+[node name="Derecha" parent="Control" unique_id=1562913227 instance=ExtResource("2_6eewu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.517
+anchor_right = 0.5
+anchor_bottom = 0.517
+offset_top = -443.36005
+offset_right = 860.0
+offset_bottom = 636.63995
+scale = Vector2(0.819, 0.814)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control" unique_id=508765618]
+z_index = 12
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 0.521
+anchor_right = 0.50100005
+anchor_bottom = 0.521
+offset_left = -961.9201
+offset_top = -562.68005
+offset_right = 958.0799
+offset_bottom = 517.31995
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer" unique_id=609270820]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Control/SubViewportContainer/SubViewport" unique_id=368705081]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.3567042, -0.032633543)
+projection = 1
+size = 2.4554074
+
+[node name="TEST Libro" parent="Control/SubViewportContainer/SubViewport" unique_id=127082548 instance=ExtResource("1_8ybf7")]
+visible = false
+
+[node name="PaginaIzquierda" type="TextureButton" parent="Control" unique_id=1750734362]
+z_index = 12
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.044000003
+anchor_top = 0.45600003
+anchor_right = -0.044000003
+anchor_bottom = 0.45600003
+offset_left = -224.24509
+offset_top = -522.8109
+offset_right = 615.7549
+offset_bottom = 524.1891
+grow_vertical = 2
+scale = Vector2(0.18, 0.18)
+pivot_offset = Vector2(542.02734, 522.4407)
+texture_normal = ExtResource("4_ceaa1")
+texture_hover = ExtResource("5_1niyf")
+
+[node name="Indice" type="TextureButton" parent="Control" unique_id=394160228]
+z_index = 9
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -591.6963
+offset_top = -97.49573
+offset_right = 248.30371
+offset_bottom = 949.5043
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.15166639, 0.15166639)
+texture_normal = ExtResource("6_n2c20")
+texture_hover = ExtResource("7_movs5")
+
+[node name="Cerrar" type="TextureButton" parent="Control" unique_id=657410941]
+z_index = 12
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -312.0
+offset_top = 53.0
+offset_right = 563.0
+offset_bottom = 1099.9998
+grow_horizontal = 0
+scale = Vector2(0.17056243, 0.17056243)
+texture_normal = ExtResource("6_r7h33")
+texture_hover = ExtResource("7_0fumt")
+
+[node name="PaginaDerecha" type="TextureButton" parent="Control" unique_id=579873816]
+z_index = 12
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -276.00012
+offset_top = -87.00003
+offset_right = 564.0
+offset_bottom = 960.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("4_ceaa1")
+texture_hover = ExtResource("5_1niyf")
+flip_h = true
+
+[connection signal="pressed" from="Control/PaginaIzquierda" to="." method="_volver_a_la_pagina_anterior"]
+[connection signal="pressed" from="Control/Indice" to="." method="pasar_paginas_modo_rafaga" binds= [8, "izquierda"]]
+[connection signal="pressed" from="Control/Cerrar" to="." method="cerrar"]
+[connection signal="pressed" from="Control/PaginaDerecha" to="." method="_pasar_pagina"]
+
+[editable path="Control/Derecha"]

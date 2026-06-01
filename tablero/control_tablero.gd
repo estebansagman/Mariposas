@@ -23,6 +23,7 @@ var celda_focus_coordenada:Vector2
 var celda_actual:Vector2i
 var estructura_base:Array[Vector2i]
 
+
 func _input(event: InputEvent) -> void:
 	girar_planta(event)
 func _process(delta: float) -> void:

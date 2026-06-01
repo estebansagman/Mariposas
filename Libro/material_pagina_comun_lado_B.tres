@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://06yrykk2okof"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vw0p2"]
+viewport_path = NodePath("SubViewportPagina1")
+
+[resource]
+resource_local_to_scene = true
+cull_mode = 1
+shading_mode = 0
+specular_mode = 2
+albedo_texture = SubResource("ViewportTexture_vw0p2")
+uv1_scale = Vector3(-1, 1, 1)

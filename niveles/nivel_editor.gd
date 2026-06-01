@@ -230,7 +230,7 @@ func cargar_estado_de_nivel():
 				nueva_planta.id_planta, 
 				nueva_planta.giro_actual,
 			)
-			nueva_planta.girar_planta()
+			nueva_planta.giro_de_planta()
 			jardin.jardinero.plantas_en_tablero.append(nueva_planta)
 			var indice_boton = nueva_planta.id_planta - 1
 			var contenedor_botones = ui.catalogo_plantas.contenedor_plantas

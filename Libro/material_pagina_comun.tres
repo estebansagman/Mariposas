@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cgegiq8j85tlw"]
+
+[ext_resource type="Material" uid="uid://06yrykk2okof" path="res://Libro/material_pagina_comun_lado_B.tres" id="1_qeoaj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ou8xu"]
+viewport_path = NodePath("SubViewportPagina2")
+
+[resource]
+resource_local_to_scene = true
+next_pass = ExtResource("1_qeoaj")
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ou8xu")

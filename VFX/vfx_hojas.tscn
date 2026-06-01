@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://m7pacymior17"]
+
+[ext_resource type="Texture2D" uid="uid://knvpq545lkww" path="res://VFX/vfx imagenes/hojitassheet.png" id="3_a1807"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ceht0"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_qvvtf"]
+_data = [Vector2(0.5311005, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ceht0"]
+curve = SubResource("Curve_qvvtf")
+
+[sub_resource type="Curve" id="Curve_bj8mw"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 25.842697), 0.0, 39.13857, 0, 0, Vector2(1, 59.550568), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pmof6"]
+curve = SubResource("Curve_bj8mw")
+
+[sub_resource type="Curve" id="Curve_7tqcv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.5603495, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xaa61"]
+curve = SubResource("Curve_7tqcv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sdhef"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(30, 30, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 161.94
+initial_velocity_max = 522.26
+angular_velocity_min = -75.790016
+angular_velocity_max = 104.93998
+orbit_velocity_min = -0.03199991
+orbit_velocity_max = 0.032000095
+radial_velocity_min = 59.999977
+radial_velocity_max = 89.99998
+gravity = Vector3(0, 0, 0)
+damping_min = 17.409
+damping_max = 28.746002
+damping_curve = SubResource("CurveTexture_pmof6")
+scale_min = 0.14999999
+scale_max = 0.45
+scale_curve = SubResource("CurveTexture_xaa61")
+alpha_curve = SubResource("CurveTexture_ceht0")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.009999977
+
+[node name="VFXHojas" type="GPUParticles2D" unique_id=1110067197]
+z_index = 11
+material = SubResource("CanvasItemMaterial_ceht0")
+emitting = false
+amount = 12
+texture = ExtResource("3_a1807")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.81
+randomness = 0.69
+process_material = SubResource("ParticleProcessMaterial_sdhef")

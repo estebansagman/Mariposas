@@ -23,6 +23,9 @@ var celda_focus_coordenada:Vector2
 var celda_actual:Vector2i
 var estructura_base:Array[Vector2i]
 
+const TIERRA_VFX = preload("uid://cus2tjoueqkvn")
+const VFX_HOJAS = preload("uid://m7pacymior17")
+
 func _ready() -> void:
 	var UI = get_tree().current_scene.find_child("UI",true,false)
 	cambio_en_jardin.connect(UI.ocultar_cartel)
@@ -99,12 +102,15 @@ func _limpiar_rastro_tablero(id_target):
 
 #region ACCIONES PLANTA
 func seleccionar_planta(planta:Planta):
+	#printerr("SELECCIONAR PLANTA CATALOGO")
 	planta_seleccionada = planta
 	planta_seleccionada.z_index = planta_seleccionada.ZINDEX_SELECCION
 	for celda in tablero.celdas:
 		if tablero.get_id_planta(celda)==planta_seleccionada.get_id_planta():
 			tablero.vaciar_celda(celda)
+	activar_particulas(VFX_HOJAS,get_global_mouse_position())
 func mover_planta_seleccionada(celda_actual) -> void:
+	#printerr("MOVER PLANTA")
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		if planta_seleccionada != null: 
 			return
@@ -117,6 +123,8 @@ func mover_planta_seleccionada(celda_actual) -> void:
 					planta_seleccionada = planta
 					break
 			if planta_seleccionada:
+				#printerr("SELECCIONAR PLANTA GRILLA")
+				activar_particulas(VFX_HOJAS,planta_seleccionada.global_position)
 				plantas_en_tablero.erase(planta_seleccionada)
 				jardin.add_child(planta_seleccionada)
 				planta_seleccionada.estructurar_planta()
@@ -140,6 +148,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 				planta_seleccionada.coordenada_celda = celda_actual
 				
 				posicionar_planta(planta_seleccionada)
+				activar_particulas(TIERRA_VFX,planta_seleccionada.global_position)
 				
 				var planta_a_fijar = planta_seleccionada
 				planta_seleccionada = null
@@ -159,6 +168,7 @@ func posicionar_planta(planta:Planta):
 		var posicion_en_tablero:Vector2 = capa_plantas.map_to_local(planta.coordenada_celda)
 		print(posicion_en_tablero)
 		planta.position = posicion_en_tablero*scale.x
+		#activar_particulas(TIERRA_VFX,planta)
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
 		var t = create_tween()
@@ -247,3 +257,12 @@ func _iluminar_mariposa():
 		mariposa_seleccionada.iluminar(mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()))
 
 #endregion
+
+func activar_particulas(particulas,posicion:Vector2)->void:
+	var vfx:GPUParticles2D = particulas.duplicate().instantiate()
+	add_child(vfx,true)
+	#printerr(vfx)
+	vfx.global_position = posicion
+	vfx.emitting = true
+	await vfx.finished
+	vfx.queue_free()

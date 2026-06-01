@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cus2tjoueqkvn"]
 
-[ext_resource type="Texture2D" uid="uid://c3886vw1ficfe" path="res://VFX/vfx imagenes/tierraparticulas.png" id="1_88inx"]
+[ext_resource type="Texture2D" uid="uid://bfobg46qnoefe" path="res://VFX/vfx imagenes/tierraparticulas.png" id="1_88inx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ywaas"]
 particles_animation = true
@@ -35,9 +35,12 @@ color_ramp = SubResource("GradientTexture1D_xrwpe")
 anim_offset_max = 1.0
 
 [node name="TierraVFX" type="GPUParticles2D" unique_id=588150324]
+z_index = 11
 material = SubResource("CanvasItemMaterial_ywaas")
+emitting = false
 texture = ExtResource("1_88inx")
 lifetime = 0.8
+one_shot = true
 explosiveness = 0.8
 randomness = 0.8
 process_material = SubResource("ParticleProcessMaterial_5vrsc")

@@ -171,8 +171,6 @@ func posicionar_planta(planta:Planta):
 		#activar_particulas(TIERRA_VFX,planta)
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
-		var t = create_tween()
-		var duracion = 0.1
 		if event.is_action_pressed("girar_derecha"):
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
 			planta_seleccionada.girar_planta(true)

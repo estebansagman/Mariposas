@@ -13,8 +13,12 @@ width = 207
 height = 152
 
 [node name="BotoMariposa" type="TextureButton" unique_id=1233384009]
-offset_right = 207.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -207.0
 offset_bottom = 152.0
+grow_horizontal = 0
 texture_normal = SubResource("GradientTexture2D_8cup8")
 script = ExtResource("2_4u2pi")
 

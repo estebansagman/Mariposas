@@ -250,11 +250,11 @@ scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("13_o2t6a")
 
 [node name="LibroBoton" type="TextureButton" parent="." unique_id=1123885105]
-z_index = 3
+z_index = 6
 layout_mode = 0
 offset_left = 216.00006
 offset_top = 890.0
-offset_right = 327.00006
+offset_right = 327.00064
 offset_bottom = 1012.0
 scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("14_8gukh")

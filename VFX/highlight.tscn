@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dshrtbs2itfh0"]
+
+[ext_resource type="Shader" uid="uid://diht4mod6a7eg" path="res://VFX/shaders/Highlight.gdshader" id="1_x6xff"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6k4j"]
+shader = ExtResource("1_x6xff")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8800000418
+shader_parameter/Speed = 0.0
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.0
+shader_parameter/Position_Max = 1.0
+shader_parameter/Alpha = 1.0
+
+[node name="Highlight" type="ColorRect" unique_id=2008979836]
+material = SubResource("ShaderMaterial_j6k4j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

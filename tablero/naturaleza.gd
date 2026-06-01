@@ -89,11 +89,9 @@ func _es_cuadrante_valido(cuadrante: Array[Vector2i]) -> bool:
 		var tipo_de_suelo: String = tablero.celdas[casilla][tablero.tipo_casilla_key]
 		#if tipo_de_suelo == tablero.casilla_bloqueo:
 			#return false
-			
 		var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
 		if hay_mariposa:
 			return false
-			
 	return true
 
 func _ubicar_mariposa_en_jardin(mariposa, cuadrante: Array[Vector2i]) -> void:
@@ -115,7 +113,6 @@ func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 	mariposa.scale *= scale
 	mariposa.scale /= jardin.columnas 
 	mariposa.animar_spawn(parcela, capa_mariposas.to_global(capa_mariposas.map_to_local(parcela)))
-
 
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))

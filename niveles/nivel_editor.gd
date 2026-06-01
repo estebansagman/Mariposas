@@ -121,8 +121,8 @@ func sumar_puntos():
 		var s_id = "seccion_" + str(numero_de_sector)
 		var nivel_id = "nivel_" + str(numero_de_nivel)
 		var estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
-		ui.superar_nivel()
 		if !estado_nivel:
+			ui.superar_nivel()
 			completar_nivel()
 			revelar_datos()
 		#pasar_de_nivel.start()

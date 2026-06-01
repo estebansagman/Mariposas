@@ -66,6 +66,7 @@ scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("9_3ivfs")
 
 [node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
+visible = false
 scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("10_454ir")
 

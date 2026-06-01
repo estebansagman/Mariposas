@@ -25,7 +25,6 @@ var estructura_base:Array[Vector2i]
 
 func _input(event: InputEvent) -> void:
 	girar_planta(event)
-
 func _process(delta: float) -> void:
 	var mouse_local = tablero.get_local_mouse_position()
 	celda_actual = tablero.local_to_map(mouse_local)
@@ -33,15 +32,16 @@ func _process(delta: float) -> void:
 		var pos_relativa = tablero.map_to_local(celda_actual)
 		celda_focus_coordenada = tablero.global_position + pos_relativa
 	
+	if planta_seleccionada and celda_actual in tablero.celdas:
+		calcular_foco(celda_actual)
+	if mariposa_seleccionada and celda_actual in tablero.celdas and mariposa_en_seleccion:
+		calcular_foco(celda_actual)
+	
 	if mariposa_seleccionada == null:
 		mover_planta_seleccionada(celda_actual)
 
 	mover_mariposa_seleccionada()
 
-	if planta_seleccionada and celda_actual in tablero.celdas:
-		calcular_foco(celda_actual)
-	if mariposa_seleccionada and celda_actual in tablero.celdas and mariposa_en_seleccion:
-		calcular_foco(celda_actual)
 	tablero.pintar_lienzo()
 
 func entrar_en_area_de_juego():
@@ -96,16 +96,15 @@ func _limpiar_rastro_tablero(id_target):
 #region ACCIONES PLANTA
 func seleccionar_planta(planta:Planta):
 	planta_seleccionada = planta
+	planta_seleccionada.z_index = planta_seleccionada.ZINDEX_SELECCION
 	for celda in tablero.celdas:
 		if tablero.get_id_planta(celda)==planta_seleccionada.get_id_planta():
 			tablero.vaciar_celda(celda)
-
 func mover_planta_seleccionada(celda_actual) -> void:
-
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		if planta_seleccionada != null: 
 			return
-		
+
 		tablero.leer_celda(celda_actual)
 		var id_click = tablero.get_id_planta(celda_actual)
 		if id_click != 0:
@@ -117,8 +116,8 @@ func mover_planta_seleccionada(celda_actual) -> void:
 				plantas_en_tablero.erase(planta_seleccionada)
 				jardin.add_child(planta_seleccionada)
 				planta_seleccionada.estructurar_planta()
+				planta_seleccionada.z_index = planta_seleccionada.ZINDEX_SELECCION
 				print("EL GIRO POSTA ESSS: ",planta_seleccionada.giro_actual)
-				#planta_seleccionada.girar_planta()
 				_limpiar_rastro_tablero(id_click)
 				emit_signal("cambio_en_jardin")
 
@@ -127,58 +126,48 @@ func mover_planta_seleccionada(celda_actual) -> void:
 		planta_seleccionada.show()
 
 		if Input.is_action_just_released("aceptar"):
+
 			if focuseable and en_area_de_juego:
 				for casilla in lista_focus:
 					tablero.ocupar_celda(casilla, planta_seleccionada)
 
-				poner_planta_en_tablero()
+				planta_seleccionada.z_index = planta_seleccionada.ZINDEX_ORIGEN
 				plantas_en_tablero.append(planta_seleccionada)
 				planta_seleccionada.coordenada_celda = celda_actual
-				planta_seleccionada.get_parent().remove_child(planta_seleccionada)
+				
+				posicionar_planta(planta_seleccionada)
+				
+				var planta_a_fijar = planta_seleccionada
+				planta_seleccionada = null
+				limpiar_focos()
+				
+				await get_tree().process_frame
 				emit_signal("cambio_en_jardin")
+				
 			else:
 				emit_signal("cambio_en_jardin")
 				planta_seleccionada.activar_boton()
 				planta_seleccionada.queue_free()
-
-			planta_seleccionada = null
-			limpiar_focos()
-
-func poner_planta_en_tablero():
-	var partes = planta_seleccionada.ejemplar.split(":")
-	var nombre_planta = partes[0]
-	var forma = partes[1]
-	var atlas:int
-	if forma == "A":
-		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_A"]
-	else:
-		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_B"]
-	capa_plantas.set_cell(celda_actual, 0, Vector2i(0, 0), atlas)
-	_configurar_ultima_planta.call_deferred(planta_seleccionada.id_planta, planta_seleccionada.giro_actual)
-
-func _configurar_ultima_planta(id_a_poner, giro_a_poner):
-	var hijos = capa_plantas.get_children()
-	if hijos.size() > 0:
-		var ultima_planta = hijos[-1]
-		if ultima_planta.has_method("configurar"):
-			ultima_planta.configurar(id_a_poner, giro_a_poner)
-
-func posicionar_planta():
-	if planta_seleccionada:
-		planta_seleccionada.position = celda_focus_coordenada
-
+				planta_seleccionada = null
+				limpiar_focos()
+func posicionar_planta(planta:Planta):
+	if planta:
+		var posicion_en_tablero:Vector2 = capa_plantas.map_to_local(planta.coordenada_celda)
+		print(posicion_en_tablero)
+		planta.position = posicion_en_tablero*scale.x
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
-		
+		var t = create_tween()
+		var duracion = 0.1
 		if event.is_action_pressed("girar_derecha"):
-			print("CLICK - Giro actual de la planta antes del click: ", planta_seleccionada.giro_actual)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
-			planta_seleccionada.girar_planta()
+			planta_seleccionada.girar_planta(true)
+			planta_seleccionada.emitir_particulas_giro("derecha")
 
 		elif event.is_action_pressed("girar_izquierda"):
-			print("CLICK - Giro actual de la planta antes del click: ", planta_seleccionada.giro_actual)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
-			planta_seleccionada.girar_planta()
+			planta_seleccionada.girar_planta(false)
+			planta_seleccionada.emitir_particulas_giro("izquierda")
 
 #endregion
 
@@ -187,11 +176,9 @@ func seleccionar_mariposa(mariposa:Mariposa):
 	if mariposa_seleccionada == null and planta_seleccionada == null:
 		mariposa_seleccionada = mariposa
 		print("mariposa seleccionada")
-
 func soltar_mariposa():
 	if !mariposa_en_seleccion:
 		mariposa_seleccionada = null
-
 func generarl_lista_requerimientos()->Array[String]:
 	
 	var lista_de_requerimientos:Array[String]
@@ -212,7 +199,6 @@ func generarl_lista_requerimientos()->Array[String]:
 			return [""]
 	
 	return lista_de_requerimientos
-
 func mover_mariposa_seleccionada()->void:
 	if mariposa_seleccionada:
 		if Input.is_action_just_pressed("aceptar"):
@@ -252,10 +238,8 @@ func mover_mariposa_seleccionada()->void:
 			mariposa_en_seleccion = false
 			mariposa_seleccionada = null
 			limpiar_focos()
-
 func _iluminar_mariposa():
 	if mariposa_seleccionada and mariposa_en_seleccion:
 		mariposa_seleccionada.iluminar(mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()))
-
 
 #endregion

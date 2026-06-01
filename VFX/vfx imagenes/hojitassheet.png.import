@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://div8wlfaegsgn"
-path="res://.godot/imported/cartelito_violeta.png-594922d1db910a80c9f06f83fe29d87c.ctex"
+uid="uid://knvpq545lkww"
+path="res://.godot/imported/hojitassheet.png-3b80800ee01176fdd597821381ecea90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/imagenes/cartelito_violeta.png"
-dest_files=["res://.godot/imported/cartelito_violeta.png-594922d1db910a80c9f06f83fe29d87c.ctex"]
+source_file="res://VFX/vfx imagenes/hojitassheet.png"
+dest_files=["res://.godot/imported/hojitassheet.png-3b80800ee01176fdd597821381ecea90.ctex"]
 
 [params]
 

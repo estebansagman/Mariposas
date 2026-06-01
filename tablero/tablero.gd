@@ -30,8 +30,6 @@ var keys_de_diccionario:Array[String] = [focus_key,ocupado_key,tipo_casilla_key,
 										coord_atlas_key,id_alternativo_key]
 var celdas: Dictionary = {}
 
-#func _ready() -> void:
-	#_generar_grilla()
 
 #region GETERS
 func leer_celda(celda:Vector2i):
@@ -62,22 +60,11 @@ func cargar_grilla_desde_cfg(data_cfg: Dictionary) -> void:
 		celdas[celda][id_planta_key] = info[id_planta_key]
 	var dimension: int = get_used_rect().size.x
 	emit_signal("tablero_creado", dimension)
-#func _generar_grilla():
-	#for celda in get_used_cells():
-		#var coordenada_atlas:Vector2i = get_cell_atlas_coords(celda) 
-		#match coordenada_atlas:
-			#Vector2i(0,0): # Esteban del futuro: "esta es la posicion del atlas"
-				#_formatear_celda(celda,false,casilla_normal,coordenada_atlas)
-			#Vector2i(0,1): 
-				#_formatear_celda(celda,true,casilla_bloqueo,coordenada_atlas)
-	#var dimension:int = get_used_rect().size.x
-	#emit_signal("tablero_creado",dimension)
+
 
 func _generar_grilla():
 	for celda in get_used_cells():
-		# 1. Le pedimos la data del tile a la celda
 		var datos_tile: TileData = get_cell_tile_data(celda)
-		
 		if datos_tile:
 			if datos_tile.get_terrain() == 0:
 				_formatear_celda(celda, false, casilla_normal, Vector2i(0, 0))

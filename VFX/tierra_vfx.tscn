@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cus2tjoueqkvn"]
+
+[ext_resource type="Texture2D" uid="uid://c3886vw1ficfe" path="res://VFX/vfx imagenes/tierraparticulas.png" id="1_88inx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ywaas"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_7828x"]
+offsets = PackedFloat32Array(0, 0.24043716)
+colors = PackedColorArray(0.57887644, 0.50467336, 0.55025315, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xrwpe"]
+gradient = SubResource("Gradient_7828x")
+
+[sub_resource type="Curve" id="Curve_3l1rf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84210527, 0.8314607), -2.3483138, -2.3483138, 0, 0, Vector2(1, 0), -3.8678155, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bqy67"]
+curve = SubResource("Curve_3l1rf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5vrsc"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(64, 64, 64)
+radial_velocity_min = 251.99997
+radial_velocity_max = 315.99997
+gravity = Vector3(0, 0, 200)
+scale_curve = SubResource("CurveTexture_bqy67")
+color_ramp = SubResource("GradientTexture1D_xrwpe")
+anim_offset_max = 1.0
+
+[node name="TierraVFX" type="GPUParticles2D" unique_id=588150324]
+material = SubResource("CanvasItemMaterial_ywaas")
+texture = ExtResource("1_88inx")
+lifetime = 0.8
+explosiveness = 0.8
+randomness = 0.8
+process_material = SubResource("ParticleProcessMaterial_5vrsc")

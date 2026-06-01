@@ -7,7 +7,7 @@ signal fuera_de_foco
 
 @export var key_mariposa:String
 @onready var mariposa_3d: MeshInstance3D = %Mariposa3D
-@onready var animation_player: AnimationPlayer = $SubViewport/Mariposa3D/AnimationPlayer
+
 var id_mariposa = 0
 var estructura:Array[Vector2i] = [Vector2i(0,0),Vector2i(1,0),Vector2i(0,1),Vector2i(1,1)]
 var posicion_jardin:Array[Vector2i]
@@ -15,6 +15,10 @@ var requisitos_correctos:bool = false
 var esta_seleccionada:bool = false
 var focus = true
 var mariposa_detectada = false
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
+const HIGHLIGHT_MARIPOSA = preload("uid://bfai2a4hwlee7")
+
 
 var tween_activo: Tween
 
@@ -53,11 +57,12 @@ func apagar_focus():
 	emit_signal("fuera_de_foco")
 
 func iluminar(valido):
-	#var i = 1.5 
+
 	if valido:
-		modulate = Color.GREEN
+		modulate = Color.WHITE  #Color("a9b162") Color("719a5f")
 	else:
-		modulate = Color.WHITE
+		modulate = Color("a84047")  #Color("8b2b40")
+
 func apagar():
 	#var i = 1.0 
 	modulate = Color.WHITE
@@ -70,6 +75,7 @@ func soltar_mariposa():
 	emit_signal("soltando")
 func activar_boton():
 	emit_signal("eliminando")
+
 
 func animar_spawn( parcela:Vector2i, pos_global)->void:
 	if tween_activo and tween_activo.is_valid():
@@ -100,6 +106,18 @@ func animar_spawn( parcela:Vector2i, pos_global)->void:
 	await tween_activo.finished
 	animation_player.stop()
 
+
 func display_agarrada()->void:
-	printerr("agarrada")
 	animation_player.play_section("Aleteo",0.08,-1,-1,0)
+
+#func agregar_highlight()->void:
+	#print("Agregar next pass a ",mariposa_3d.get_surface_override_material(0))
+	#mariposa_3d.get_surface_override_material(0).next_pass = HIGHLIGHT_MARIPOSA
+
+func agregar_highlight()->void:
+	var t = create_tween()
+	t.set_ease(Tween.EASE_IN)
+	t.set_trans(Tween.TRANS_ELASTIC)
+	#t.tween_property(self,"modulate",Color(8.764, 7.475, 2.318, 1.0),0.5)
+	t.tween_property(self,"modulate",Color("ffe082ff"),0.2)
+	t.tween_property(self,"modulate",Color.WHITE,0.1)

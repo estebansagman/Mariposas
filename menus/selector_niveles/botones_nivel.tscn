@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dy0x6vqctgc40"]
+[gd_scene format=3 uid="uid://bes8xjx3o37mr"]
 
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]

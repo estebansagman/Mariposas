@@ -49,17 +49,14 @@ const PLANTA = preload("uid://der8d61kw3xr8")
 var estrellas:int
 var puntos_maximos:int
 
-
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 	var posicion_mouse_local = jardin.tablero.get_local_mouse_position()
 	var casillero_tablero: Vector2i = jardin.tablero.local_to_map(posicion_mouse_local)
 	var nombre_planta = jardin.tablero.get_nombre_planta(casillero_tablero)
-	
-	print(nombre_planta)
-	
+
 	if panel_mouse:
 		panel_mouse.global_position = get_global_mouse_position() + Vector2(15, 15)
-		
+
 		if nombre_planta != "":
 			label_mouse.text = nombre_planta
 			panel_mouse.show()
@@ -67,29 +64,29 @@ func _input(event: InputEvent) -> void:
 			panel_mouse.hide()
 
 func _ready() -> void:
-
 	panel_mouse = PanelContainer.new()
+	panel_mouse.z_index = 5
 	label_mouse = Label.new()
 	panel_mouse.add_child(label_mouse)
 	add_child(panel_mouse)
 
 	panel_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+
 	var orden_importancia = Dios.bd_interna["orden_inportancia_mariposas"]
 	var especies_ordenadas: Array[String] = []
-	
+
 	for nombre_mariposa in orden_importancia:
 		if Especie_mariposa.has(nombre_mariposa):
 			especies_ordenadas.append(nombre_mariposa)
-			
+
 	Especie_mariposa = especies_ordenadas
 
 	jardin.naturaleza.generar_mariposas(Especie_mariposa)
 	ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
 	ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 	sistema_debug()
-	
+
 	if editando:
 		jardin.tablero._generar_grilla()
 		ui.control.show()
@@ -98,8 +95,6 @@ func _ready() -> void:
 	else :
 		cargar_estado_de_nivel()
 		ui.control.hide()
-	
-	#estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
 
 func sumar_puntos():
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
@@ -108,8 +103,9 @@ func sumar_puntos():
 		var s_id = "seccion_" + str(numero_de_sector)
 		var nivel_id = "nivel_" + str(numero_de_nivel)
 		var estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
-		ui.superar_nivel()
+		ui.anim_win()
 		if !estado_nivel:
+			ui.superar_nivel()
 			completar_nivel()
 			revelar_datos()
 		#pasar_de_nivel.start()
@@ -153,12 +149,12 @@ func guardar_estado_de_nivel():
 	var texto_sector = "sector_" + str(numero_de_sector)
 	var texto_nivel = "Nivel_" + str(numero_de_nivel)
 	var ruta_base: String
-	
+
 	if editando:
 		ruta_base = "res://niveles/niveles/" + texto_sector + "/" + texto_nivel + ".cfg"
 	else:
 		ruta_base = "user://niveles/niveles/" + texto_sector + "/" + texto_nivel + ".cfg"
-	
+
 	var el_tablero = jardin.tablero
 	var diccionario_crudo = el_tablero.celdas
 	var diccionario_limpio = {}
@@ -196,15 +192,20 @@ func reiniciar_nivel():
 	if editando:
 		get_tree().reload_current_scene()
 	else:
+		
 		var contenedor_botones = ui.catalogo_plantas.contenedor_plantas
 		for i in range(contenedor_botones.get_child_count()):
 			var boton = contenedor_botones.get_child(i)
 			boton.show()
 			if boton.has_method("mostrar_imagen"):
 				boton.mostrar_imagen()
-		jardin.capa_plantas.clear()
+		limpiar_jardin()
+		#jardin.capa_plantas.clear()
 		cargar_estado_de_nivel(true)	
 		guardar_estado_actual()
+func limpiar_jardin():
+	for planta in jardin.find_children("*","Planta",true,false):
+		planta.queue_free()
 
 func cargar_estado_de_nivel(reinicio:bool = false):
 	var texto_sector = "sector_" + str(numero_de_sector)
@@ -221,13 +222,12 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 	if error == OK:
 		var datos_guardados = config.get_value("Tablero", "datos_celdas", {})
 		jardin.tablero.cargar_grilla_desde_cfg(datos_guardados)
-		
+
 		var plantas_guardadas = config.get_value("Jardinero", "plantas_en_juego", [])
 		jardin.jardinero.plantas_en_tablero.clear()
-		
+
 		for datos in plantas_guardadas:
 			var nueva_planta: Planta = PLANTA.instantiate()
-			
 			nueva_planta.key_planta = datos["key_planta"]
 			nueva_planta.id_planta = datos["id_planta"]
 			nueva_planta.key_estructura = datos["key_estructura"]
@@ -235,17 +235,12 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 			nueva_planta.giro_actual = datos["giro_actual"]
 			nueva_planta.ejemplar = datos["ejemplar"]
 			nueva_planta.coordenada_celda = datos["coordenada_celda"] 
-			
 			nueva_planta.scale *= jardin.jardinero.scale
 			
-			dibujar_planta_cargada(
-				nueva_planta.coordenada_celda, 
-				nueva_planta.ejemplar, 
-				nueva_planta.id_planta, 
-				nueva_planta.giro_actual,
-			)
-			nueva_planta.girar_planta()
+			dibujar_planta_cargada(nueva_planta)
+			
 			jardin.jardinero.plantas_en_tablero.append(nueva_planta)
+			
 			var indice_boton = nueva_planta.id_planta - 1
 			var contenedor_botones = ui.catalogo_plantas.contenedor_plantas
 			if indice_boton >= 0 and indice_boton < contenedor_botones.get_child_count():
@@ -259,31 +254,9 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 		print("No se encontró el archivo .cfg")
 		jardin.tablero.cargar_grilla_desde_cfg({})
 
-func dibujar_planta_cargada(celda: Vector2i, texto_ejemplar: String, id_planta: int, giro_actual: int):
-	var partes = texto_ejemplar.split(":")
-	var nombre_planta = partes[0]
-	var forma = partes[1]
-	var atlas: int
-	if forma == "A":
-		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_A"]
-	else:
-		atlas = Dios.bd_interna["plantas"][nombre_planta]["atlas_B"]
-		
-	jardin.jardinero.capa_plantas.set_cell(celda, 0, Vector2i(0, 0), atlas)
-	
+func dibujar_planta_cargada(planta:Planta):
+	jardin.add_child(planta)
+	planta.estructurar_planta()
+	planta.giro_de_planta()
+	jardin.jardinero.posicionar_planta(planta)
 	await get_tree().process_frame
-	
-	var posicion_esperada = jardin.jardinero.capa_plantas.map_to_local(celda)
-	var planta_correcta: Node = null
-	
-	for hijo in jardin.jardinero.capa_plantas.get_children():
-		if hijo.position.distance_to(posicion_esperada) < 0.5:
-			planta_correcta = hijo
-			break
-	
-	if planta_correcta != null:
-		if planta_correcta.has_method("configurar"):
-			print("Configurando planta ID: ", id_planta, " en celda: ", celda, " con giro: ", giro_actual)
-			planta_correcta.configurar(id_planta, giro_actual)
-	else:
-		print("No se encontró ningún nodo hijo en la celda: ", celda)

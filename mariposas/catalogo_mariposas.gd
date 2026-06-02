@@ -3,7 +3,7 @@ class_name CatalogoMariposas
 
 const BOTON_MARIPOSA = preload("uid://6fvergr40whw")
 
-@onready var barra: VScrollBar = $VScrollBar
+@onready var barra: VScrollBar = $CatalogoMariposas/VScrollBar
 @onready var scroll: ScrollContainer = $ScrollContainer
 @onready var contenedor_mariposas: VBoxContainer = $ScrollContainer/ContenedorMariposas
 var mariposas_en_Juego:Array[Mariposa]
@@ -83,6 +83,12 @@ func animacion_ganar()->void:
 		#t.tween_property(mariposa,"modulate",Color(16, 16, 16, 1.0),duration/3)
 		await get_tree().create_timer(delay).timeout
 		#elemento.modulate = Color(16, 16, 16, 1.0)
+
+@onready var catalogo_mariposas: NinePatchRect = $CatalogoMariposas
+func alargar_panel()->void:
+	printerr("ALARGAR PANEL")
+	var t = create_tween()
+	t.tween_property(catalogo_mariposas,"custom_minimum_size",Vector2(800,catalogo_mariposas.custom_minimum_size.y),2.0)
 
 @onready var boton_libro = get_tree().current_scene.find_child("LibroBoton")
 func tween_libro()-> void:

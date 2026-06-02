@@ -50,7 +50,8 @@ func anim_win()->void:
 	);
 	await tween.finished
 	desplazar_camara()
-	cartel_final.show()
+	catalogo_mariposas.alargar_panel()
+	#cartel_final.show()
 
 func desplazar_camara()->void:
 	var t = create_tween()

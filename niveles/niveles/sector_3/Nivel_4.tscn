@@ -20,6 +20,8 @@ script = ExtResource("1_d155l")
 numero_de_nivel = 3
 numero_de_sector = 4
 jardin = NodePath("Jardin")
+Especie_mariposa = Array[String](["bandera_argentina", "cuatro_ojos", "espejito", "limonero", "perezosa", "bataraza"])
+Especie_planta = Array[String](["ceibo:A", "ceibo:B", "coronillo:A", "coronillo:B", "chilca:A", "chilca:B", "ruda:A", "ruda:B", "canario_rojo:A", "canario_rojo:B", "salvia:A", "salvia:B", "ruelia:A", "ruelia:B", "mbrucuya:A", "mbrucuya:B", "lantana:A", "lantana:B"])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_fl7tt")]
 columnas = 7

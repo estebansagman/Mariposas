@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cf6gdviquxhv" path="res://UI/imagenes/cartel.png" id="9_8gkfd"]
 [ext_resource type="FontFile" uid="uid://gd1aif58t3m" path="res://UI/Retrofia.ttf" id="10_0tr35"]
 [ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="10_6rr40"]
-[ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/cosas_viejas/escenas_viejas/libro.tscn" id="10_h81ot"]
+[ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/libro.tscn" id="10_h81ot"]
 [ext_resource type="Texture2D" uid="uid://bm3cyhiclblja" path="res://UI/imagenes/reiniciar.png" id="13_o2t6a"]
 [ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="14_8gukh"]
 [ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="15_8gkfd"]
@@ -317,57 +317,10 @@ text = "Superar Nivel
 "
 
 [node name="Control" type="Control" parent="." unique_id=441412539]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("18_8gkfd")
-
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=987067249]
-layout_mode = 0
-offset_left = -19.0
-offset_top = -29.0
-offset_right = 1926.0
-offset_bottom = 1096.0
-color = Color(0.48962224, 0.48962224, 0.48962218, 1)
-
-[node name="CatalogoPlantas2" parent="Control" unique_id=648201231 instance=ExtResource("16_o2t6a")]
-layout_mode = 0
-offset_left = 148.00002
-offset_top = 449.0
-offset_right = 188.00002
-offset_bottom = 488.99997
-scale = Vector2(0.9997704, 0.9997704)
-
-[node name="CatalogoPlantas" parent="Control/CatalogoPlantas2" index="0" unique_id=1705881124]
-offset_left = -8.001709
-offset_bottom = 424.09735
-
-[node name="ScrollContainer" parent="Control/CatalogoPlantas2" index="2" unique_id=731468638]
-offset_left = 43.01002
-offset_right = 288.63965
-offset_bottom = 398.70734
-
-[node name="VScrollBar" parent="Control/CatalogoPlantas2" index="3" unique_id=392659128]
-offset_bottom = 304.62854
-
-[node name="CatalogoMariposas2" parent="Control" unique_id=2108957058 instance=ExtResource("17_8gukh")]
-layout_mode = 0
-offset_left = 109.0
-offset_top = 22.0
-offset_right = 149.0
-offset_bottom = 62.0
-
-[node name="CatalogoMariposas" parent="Control/CatalogoMariposas2" index="0" unique_id=415712568]
-offset_right = 348.0
-offset_bottom = 423.0
-
-[node name="ScrollContainer" parent="Control/CatalogoMariposas2" index="2" unique_id=1039341909]
-offset_right = 349.93478
-offset_bottom = 448.74274
-
-[node name="VScrollBar" parent="Control/CatalogoMariposas2" index="3" unique_id=2008220056]
-offset_bottom = 302.21878
 
 [node name="generar_cfg" type="Button" parent="Control" unique_id=1050326299]
 z_index = 2
@@ -400,6 +353,3 @@ text = "CARGAR CFG"
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]
 [connection signal="pressed" from="botones_debug/Superar_nivels" to="botones_debug" method="superar_nivel"]
-
-[editable path="Control/CatalogoPlantas2"]
-[editable path="Control/CatalogoMariposas2"]

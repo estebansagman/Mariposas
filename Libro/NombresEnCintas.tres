@@ -1,9 +1,0 @@
-[gd_resource type="FontVariation" format=3 uid="uid://co1ysd1ggpwh1"]
-
-[ext_resource type="FontFile" uid="uid://braanrlvh5nna" path="res://Libro/elementos_libro/DK Crayon Crumble.ttf" id="1_b6hgi"]
-
-[resource]
-base_font = ExtResource("1_b6hgi")
-spacing_glyph = 2
-spacing_top = -2
-spacing_bottom = -6

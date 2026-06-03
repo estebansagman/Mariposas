@@ -81,22 +81,18 @@ func _ready() -> void:
 			especies_ordenadas.append(nombre_mariposa)
 
 	Especie_mariposa = especies_ordenadas
-	
+
 	jardin.naturaleza.generar_mariposas(Especie_mariposa)
+	ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
+	ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 	sistema_debug()
 
 	if editando:
-		ui.catalogo_plantas_B.iniciar_catalogo(Especie_planta, jardin)
-		ui.catalogo_mariposas_B.iniciar_catalogo(Especie_mariposa)
-		
 		jardin.tablero._generar_grilla()
 		ui.control.show()
 		ui.control.cargar_cfg.pressed.connect(cargar_estado_de_nivel)
 		ui.control.generar_cfg.pressed.connect(guardar_estado_de_nivel)
 	else :
-		ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
-		ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
-		
 		cargar_estado_de_nivel()
 		ui.control.hide()
 

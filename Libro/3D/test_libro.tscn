@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bshljp84410s4"]
 
-[ext_resource type="Script" uid="uid://cay3l3d8snh4g" path="res://Libro/cosas_viejas/3D/libro_final.gd" id="1_vw0p2"]
-[ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_vw0p2"]
-[ext_resource type="Material" uid="uid://cgegiq8j85tlw" path="res://Libro/material_pagina_comun.tres" id="3_damah"]
+[ext_resource type="Script" uid="uid://cay3l3d8snh4g" path="res://Libro/scripts/hoja.gd" id="1_jcn28"]
+[ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_fdq4d"]
+[ext_resource type="Material" uid="uid://cgegiq8j85tlw" path="res://Libro/material_pagina_comun.tres" id="3_r31ud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2200"]
 
@@ -31,27 +31,36 @@ metadata/extras = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_damah"]
 albedo_color = Color(0.9392691, 0.8987146, 0.78093404, 1)
 
-[sub_resource type="Animation" id="Animation_ib1oj"]
-resource_name = "PlaneAction"
-length = 2.5333333
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
+[sub_resource type="Animation" id="Animation_damah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Plane")
+tracks/0/path = NodePath("HojaTransicion:quaternion")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.7071069, 0, 0, 0.70710665, 0.06666667, 1, -0.70710665, -0.00056785584, 0.00056785584, 0.70710653, 0.1, 1, -0.70710385, -0.002064829, 0.002064829, 0.7071038, 0.13333334, 1, -0.70709145, -0.004658549, 0.004658548, 0.70709145, 0.16666667, 1, -0.70705783, -0.008322955, 0.008322953, 0.7070578, 0.2, 1, -0.7069806, -0.013362748, 0.013362747, 0.7069805, 0.23333333, 1, -0.7068409, -0.019394442, 0.01939444, 0.7068407, 0.26666668, 1, -0.7066142, -0.026391063, 0.026391063, 0.7066141, 0.3, 1, -0.7062732, -0.03432503, 0.03432503, 0.7062732, 0.33333334, 1, -0.7057879, -0.043168046, 0.043168046, 0.70578784, 0.36666667, 1, -0.705105, -0.053169224, 0.053169224, 0.70510495, 0.4, 1, -0.7042051, -0.063993536, 0.06399353, 0.7042051, 0.43333334, 1, -0.7030528, -0.07560935, 0.075609334, 0.7030528, 0.46666667, 1, -0.70161164, -0.08798374, 0.08798373, 0.70161164, 0.5, 1, -0.6998445, -0.10108239, 0.10108239, 0.69984454, 0.53333336, 1, -0.6976772, -0.11509354, 0.11509354, 0.6976772, 0.56666666, 1, -0.6951047, -0.1297283, 0.12972829, 0.6951047, 0.6, 1, -0.6920912, -0.14494747, 0.14494744, 0.6920912, 0.6333333, 1, -0.68860173, -0.16070989, 0.16070984, 0.68860173, 0.6666667, 1, -0.6846025, -0.17697296, 0.17697293, 0.6846025, 0.7, 1, -0.68001324, -0.19386084, 0.19386084, 0.68001324, 0.73333335, 1, -0.67485064, -0.21113172, 0.21113172, 0.67485064, 0.76666665, 1, -0.66908807, -0.22873826, 0.22873826, 0.66908807, 0.8, 1, -0.66270113, -0.24663189, 0.24663188, 0.66270113, 0.8333333, 1, -0.65566814, -0.26476273, 0.26476267, 0.65566814, 0.8666667, 1, -0.64792114, -0.2831929, 0.28319284, 0.64792114, 0.9, 1, -0.6394985, -0.30173126, 0.30173123, 0.6394985, 0.93333334, 1, -0.6303897, -0.32032615, 0.32032615, 0.6303897, 0.96666664, 1, -0.620588, -0.3389255, 0.33892545, 0.62058806, 1, 1, -0.6100902, -0.35747722, 0.35747716, 0.6100902, 1.0666667, 1, -0.586946, -0.39432788, 0.39432788, 0.586946, 1.1666666, 1, -0.5472396, -0.4478045, 0.44780445, 0.5472396, 1.3333334, 1, -0.4691969, -0.5290126, 0.52901256, 0.46919686, 1.4333333, 1, -0.41693154, -0.5711113, 0.5711113, 0.4169315, 1.5, 1, -0.3805637, -0.5959624, 0.5959625, 0.3805637, 1.5333333, 1, -0.36213747, -0.60733557, 0.6073356, 0.36213744, 1.5666667, 1, -0.3435929, -0.6180161, 0.6180162, 0.3435929, 1.6, 1, -0.32498163, -0.62800235, 0.6280024, 0.32498157, 1.6333333, 1, -0.30635524, -0.6372962, 0.63729626, 0.30635518, 1.6666666, 1, -0.2877657, -0.64590317, 0.64590317, 0.28776565, 1.7, 1, -0.26939073, -0.6537803, 0.6537803, 0.26939067, 1.7333333, 1, -0.25118273, -0.66098964, 0.66098964, 0.2511827, 1.7666667, 1, -0.23319255, -0.66754866, 0.66754866, 0.23319253, 1.8, 1, -0.21547022, -0.673478, 0.67347795, 0.2154702, 1.8333334, 1, -0.1980646, -0.6788007, 0.67880076, 0.1980646, 1.8666667, 1, -0.1812054, -0.6834944, 0.6834945, 0.1812054, 1.9, 1, -0.1647844, -0.68763804, 0.68763816, 0.1647844, 1.9333333, 1, -0.14884637, -0.6912632, 0.6912632, 0.14884636, 1.9666667, 1, -0.13343422, -0.6944029, 0.6944029, 0.13343419, 2, 1, -0.11858927, -0.6970915, 0.6970916, 0.11858927, 2.0333333, 1, -0.104589194, -0.699329, 0.699329, 0.104589194, 2.0666666, 1, -0.091261424, -0.70119286, 0.70119286, 0.09126142, 2.1, 1, -0.07864235, -0.70272, 0.70272, 0.078642346, 2.1333334, 1, -0.06676673, -0.70394766, 0.7039476, 0.066766724, 2.1666667, 1, -0.05566811, -0.7049121, 0.70491207, 0.05566811, 2.2, 1, -0.045669332, -0.7056305, 0.7056305, 0.045669336, 2.2333333, 1, -0.03653635, -0.7061623, 0.7061623, 0.036536355, 2.2666667, 1, -0.028298669, -0.70654035, 0.70654035, 0.028298669, 2.3, 1, -0.020984806, -0.70679533, 0.70679533, 0.020984802, 2.3333333, 1, -0.014622448, -0.7069556, 0.70695555, 0.014622448, 2.3666666, 1, -0.009582855, -0.70704186, 0.70704186, 0.009582855, 2.4, 1, -0.005574569, -0.70708483, 0.70708483, 0.005574569, 2.4333334, 1, -0.002624006, -0.70710194, 0.70710194, 0.002624006, 2.4666667, 1, -0.00075719407, -0.7071065, 0.7071064, 0.00075719395, 2.5, 1, -3.0908623e-08, 0.7071068, -0.7071068, 3.090862e-08)
-tracks/1/type = "blend_shape"
-tracks/1/imported = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(-0.7066001, 0.026761603, -0.026761614, 0.70660025), Quaternion(-0.7071066, -0.0003767831, 0.00037676725, 0.7071067)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Plane:Twist")
+tracks/1/path = NodePath("HojaTransicion:blend_shapes/Twist")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0.041666668, 1, 0, 0.083333336, 1, 0.0034851779, 0.125, 1, 0.013612694, 0.16666667, 1, 0.029890528, 0.20833333, 1, 0.051826645, 0.25, 1, 0.07892902, 0.29166666, 1, 0.11070566, 0.33333334, 1, 0.1466645, 0.375, 1, 0.18631351, 0.41666666, 1, 0.22916071, 0.45833334, 1, 0.274714, 0.5, 1, 0.32248145, 0.5416667, 1, 0.371971, 0.5833333, 1, 0.4226906, 0.7083333, 1, 0.5773095, 0.75, 1, 0.62802905, 0.7916667, 1, 0.6775186, 0.8333333, 1, 0.72528607, 0.875, 1, 0.77083945, 0.9166667, 1, 0.81368655, 0.9583333, 1, 0.8533355, 1, 1, 0.8892944, 1.0416666, 1, 0.92107105, 1.0833334, 1, 0.9481733, 1.125, 1, 0.97010946, 1.1666666, 1, 0.9863874, 1.2083334, 1, 0.9965149, 1.25, 1, 1, 1.2916666, 1, 0.99674076, 1.3333334, 1, 0.98725927, 1.375, 1, 0.972, 1.4166666, 1, 0.9514074, 1.4583334, 1, 0.9259259, 1.5, 1, 0.89599997, 1.5416666, 1, 0.86207414, 1.5833334, 1, 0.8245926, 1.625, 1, 0.78400004, 1.6666666, 1, 0.7407407, 1.7083334, 1, 0.6952593, 1.75, 1, 0.648, 1.7916666, 1, 0.5994074, 1.9583334, 1, 0.40059257, 2, 1, 0.352, 2.0416667, 1, 0.3047408, 2.0833333, 1, 0.25925916, 2.125, 1, 0.21600008, 2.1666667, 1, 0.17540741, 2.2083333, 1, 0.13792598, 2.25, 1, 0.10399997, 2.2916667, 1, 0.07407403, 2.3333333, 1, 0.04859245, 2.375, 1, 0.027999997, 2.4166667, 1, 0.01274085, 2.4583333, 1, 0.0032593012, 2.5, 1, 0)
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.02]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wgffq"]
 _data = {
-&"PlaneAction": SubResource("Animation_ib1oj")
+&"RESET": SubResource("Animation_damah")
 }
 
 [sub_resource type="Animation" id="Animation_ou8xu"]
@@ -75,10 +84,39 @@ tracks/1/path = NodePath("HojaTransicion:blend_shapes/Twist")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 1.0, 0.0]
+"values": [0.01754, 0.0, 1.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"cambiar_pagina_derecha"
+}, {
+"args": [],
+"method": &"cambiar_pagina_izquierda"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HojaTransicion:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_vw0p2"]
@@ -107,42 +145,64 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -1.0, 0.0]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"cambiar_pagina_izquierda"
+}, {
+"args": [],
+"method": &"cambiar_pagina_derecha"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jcn28"]
+resource_name = "origenDerecha"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HojaTransicion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jcn28"]
 _data = {
 &"Avanzar": SubResource("Animation_ou8xu"),
-&"Retroceder": SubResource("Animation_vw0p2")
+&"Retroceder": SubResource("Animation_vw0p2"),
+&"origenDerecha": SubResource("Animation_jcn28")
 }
 
 [node name="Hoja" type="Node3D" unique_id=127082548]
-script = ExtResource("1_vw0p2")
+script = ExtResource("1_jcn28")
 
 [node name="SubViewportPagina1" type="SubViewport" parent="." unique_id=1825099075]
 transparent_bg = true
 size = Vector2i(860, 1080)
 
-[node name="PaginaDerecha" parent="SubViewportPagina1" unique_id=1994534012 instance=ExtResource("2_vw0p2")]
+[node name="LadoB" parent="SubViewportPagina1" unique_id=1994534012 instance=ExtResource("2_fdq4d")]
 
 [node name="SubViewportPagina2" type="SubViewport" parent="." unique_id=1620315091]
 transparent_bg = true
 size = Vector2i(860, 1080)
 
-[node name="PaginaIzquierda" parent="SubViewportPagina2" unique_id=1233792517 instance=ExtResource("2_vw0p2")]
-
-[node name="PaginaIzquierda" parent="SubViewportPagina2/PaginaIzquierda" index="2" unique_id=1019688470]
-visible = false
-
-[node name="PaginaDerecha" parent="SubViewportPagina2/PaginaIzquierda" index="3" unique_id=545343019]
-visible = true
+[node name="LadoA" parent="SubViewportPagina2" unique_id=1233792517 instance=ExtResource("2_fdq4d")]
 
 [node name="Page Flip Shapekeys" type="Node3D" parent="." unique_id=149330980]
 
 [node name="HojaTransicion" type="MeshInstance3D" parent="Page Flip Shapekeys" unique_id=96988278]
-transform = Transform3D(1, 0, 0, 0, 0, 1.0000004, 0, -1.0000004, 0, 0, 0, 0)
+transform = Transform3D(0.99713475, 2.2351742e-08, 0.07563904, -0.075638995, 1.7881393e-07, 0.9971355, 1.1175865e-08, -1, 1.7881398e-07, 0, 0, 0)
 rotation_edit_mode = 1
-material_override = ExtResource("3_damah")
+material_override = ExtResource("3_r31ud")
 mesh = SubResource("ArrayMesh_44c2i")
-blend_shapes/Twist = 0.0
+blend_shapes/Twist = 0.02
 surface_material_override/0 = SubResource("StandardMaterial3D_damah")
 metadata/extras = {
 "yp_decal": {}
@@ -152,5 +212,5 @@ metadata/extras = {
 libraries/ = SubResource("AnimationLibrary_wgffq")
 libraries/Acciones = SubResource("AnimationLibrary_jcn28")
 
-[editable path="SubViewportPagina1/PaginaDerecha"]
-[editable path="SubViewportPagina2/PaginaIzquierda"]
+[editable path="SubViewportPagina1/LadoB"]
+[editable path="SubViewportPagina2/LadoA"]

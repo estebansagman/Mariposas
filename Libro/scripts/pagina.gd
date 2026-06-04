@@ -1,34 +1,28 @@
 extends Control
 class_name Pagina
+signal seleccion_de_pagina(tipo_hoja,especimen)
 
-@onready var pagina_indice: Control = $PaginaIndice
-@onready var pagina_mariposa: Control = $PaginaMariposa
-@onready var pagina_planta: Control = $PaginaPlanta
-var tipo_de_pagina: String = "mariposa"
-var especimen: String = "bandera_argentina"
+@onready var cara_izquierda: Cara = $CaraIzquierda
+@onready var cara_derecha: Cara = $CaraDerecha
 
-func abrir():
-	show()
-	_abrir_indice()
+func mostrar_cara(lado,tipo_de_pagina,especimen="nada"):
+	if lado == "izquierda":
+		cara_izquierda.show()
+		cara_derecha.hide()
+		mostrar_tipo_de_pagina(tipo_de_pagina,cara_izquierda,especimen)
+	elif lado == "derecha":
+		cara_izquierda.hide()
+		cara_derecha.show()
+		mostrar_tipo_de_pagina(tipo_de_pagina,cara_derecha,especimen)
 
-func cerrar():
-	hide()
+func mostrar_tipo_de_pagina(tipo_de_pagina,cara:Cara,especimen="nada"):
+	match tipo_de_pagina:
+		"indice":
+			cara.mostrar_indice()
+		"mariposa":
+			cara.mostrar_mariposa(especimen)
+		"planta":
+			cara.mostrar_planta(especimen)
 
-func _abrir_indice():
-	pagina_mariposa.hide()
-	pagina_planta.hide()
-	pagina_indice.show()
-	pagina_indice._mostrar_indice_mariposas()
-	pagina_indice.coleccion_mariposas._crear_accesos()
-
-func _abrir_pagina_mariposa(mariposa):
-	pagina_mariposa.cargar_datos(mariposa)
-	pagina_indice.hide()
-	pagina_planta.hide()
-	pagina_mariposa.show()
-
-func _abrir_pagina_planta(planta):
-	pagina_planta.cargar_datos(planta)
-	pagina_indice.hide()
-	pagina_mariposa.hide()
-	pagina_planta.show()
+func enviar_datos_de_botones(tipo_hoja,especimen):
+	emit_signal("seleccion_de_pagina",tipo_hoja,especimen)

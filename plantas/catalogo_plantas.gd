@@ -1,7 +1,9 @@
 extends Control
 class_name CatalogoPlantas
 
-const BOTON_PLANTA = preload("uid://ditlo36hekgcp")
+#const BOTON_PLANTA = preload("uid://ditlo36hekgcp")
+const BOTON_PLANTA = preload("uid://i5ora1nuidvb")
+
 var keys_plantas:Array[String]
 @onready var contenedor_plantas: VBoxContainer = $ScrollContainer/ContenedorPlantas
 @onready var barra: VScrollBar = $VScrollBar
@@ -23,7 +25,6 @@ func _crear_catalogo():
 		var key_planta = recorte[0]
 		var key_estructura = recorte[1]
 		var nuevo_boton_planta: BotonPlanta = BOTON_PLANTA.instantiate()
-		#nuevo_boton_planta.inicio()
 		nuevo_boton_planta.ejemplar = key_planta_completo
 		nuevo_boton_planta.key_planta = key_planta
 		nuevo_boton_planta.key_estructura = key_estructura

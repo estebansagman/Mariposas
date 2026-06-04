@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6a35fsq212ty"]
 
 [ext_resource type="Script" uid="uid://dby8n8r40tmfv" path="res://Libro/scripts/libro.gd" id="1_1iihh"]
-[ext_resource type="PackedScene" uid="uid://bshljp84410s4" path="res://Libro/cosas_viejas/3D/test_libro.tscn" id="1_8ybf7"]
+[ext_resource type="PackedScene" uid="uid://bshljp84410s4" path="res://Libro/3D/test_libro.tscn" id="1_8ybf7"]
 [ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_6eewu"]
 [ext_resource type="Texture2D" uid="uid://ua3p0gioljnr" path="res://Libro/elementos_libro/iconos/boton antes.png" id="4_ceaa1"]
 [ext_resource type="Texture2D" uid="uid://b364iv20fmom2" path="res://Libro/elementos_libro/iconos/boton antes off.png" id="5_1niyf"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://fw7s18h6163v" path="res://Libro/elementos_libro/iconos/indice clip off.png" id="7_movs5"]
 
 [node name="Libro" type="Control" unique_id=685332568]
+process_mode = 3
+z_index = 12
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +20,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1iihh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1511278597]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19628978, 0.11516058, 0.06006194, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1237370173]
 layout_mode = 1
@@ -59,6 +70,7 @@ offset_bottom = 636.63995
 scale = Vector2(0.819, 0.814)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Control" unique_id=508765618]
+process_mode = 3
 z_index = 12
 layout_mode = 1
 anchors_preset = -1
@@ -85,7 +97,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 projection = 1
 size = 2.4554074
 
-[node name="TEST Libro" parent="Control/SubViewportContainer/SubViewport" unique_id=127082548 instance=ExtResource("1_8ybf7")]
+[node name="Hoja" parent="Control/SubViewportContainer/SubViewport" unique_id=127082548 instance=ExtResource("1_8ybf7")]
 visible = false
 
 [node name="PaginaIzquierda" type="TextureButton" parent="Control" unique_id=1750734362]
@@ -105,6 +117,7 @@ scale = Vector2(0.18, 0.18)
 pivot_offset = Vector2(542.02734, 522.4407)
 texture_normal = ExtResource("4_ceaa1")
 texture_hover = ExtResource("5_1niyf")
+stretch_mode = 3
 
 [node name="Indice" type="TextureButton" parent="Control" unique_id=394160228]
 z_index = 9
@@ -138,6 +151,7 @@ grow_horizontal = 0
 scale = Vector2(0.17056243, 0.17056243)
 texture_normal = ExtResource("6_r7h33")
 texture_hover = ExtResource("7_0fumt")
+stretch_mode = 3
 
 [node name="PaginaDerecha" type="TextureButton" parent="Control" unique_id=579873816]
 z_index = 12
@@ -156,10 +170,16 @@ grow_vertical = 2
 scale = Vector2(0.18, 0.18)
 texture_normal = ExtResource("4_ceaa1")
 texture_hover = ExtResource("5_1niyf")
+stretch_mode = 3
 flip_h = true
 
+[connection signal="seleccion_de_pagina" from="Control/Izquierda" to="." method="ir_a_pagina"]
+[connection signal="seleccion_de_pagina" from="Control/Derecha" to="." method="ir_a_pagina"]
+[connection signal="animacion_finaliza" from="Control/SubViewportContainer/SubViewport/Hoja" to="." method="activar_botones"]
+[connection signal="derecha_cambia" from="Control/SubViewportContainer/SubViewport/Hoja" to="." method="_cambiar_pagina_derecha"]
+[connection signal="izquierda_cambia" from="Control/SubViewportContainer/SubViewport/Hoja" to="." method="_cambiar_pagina_izquierda"]
 [connection signal="pressed" from="Control/PaginaIzquierda" to="." method="_volver_a_la_pagina_anterior"]
-[connection signal="pressed" from="Control/Indice" to="." method="pasar_paginas_modo_rafaga" binds= [8, "izquierda"]]
+[connection signal="pressed" from="Control/Indice" to="." method="ir_a_pagina" binds= ["indice"]]
 [connection signal="pressed" from="Control/Cerrar" to="." method="cerrar"]
 [connection signal="pressed" from="Control/PaginaDerecha" to="." method="_pasar_pagina"]
 

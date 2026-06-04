@@ -7,7 +7,6 @@ extends Node2D
 
 func crear_planta(key_planta,key_estructura, estructura, boton_original, ejemplar):
 	var nueva_planta:Planta = planta_escena.instantiate()
-	#nueva_planta.giro_actual = 0
 	nueva_planta.key_planta = key_planta
 	nueva_planta.key_estructura = key_estructura
 	nueva_planta.estructura = estructura.duplicate()

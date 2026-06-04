@@ -1,688 +1,738 @@
 {
-	"ruta_general": {
-		"path_template": "res://niveles/niveles/sector_{s}/Nivel_{n}.tscn"
-	},
-	"sectores": {
-		"seccion_1": {
-			"numero": 1.0,
-			"titulo": "",
-			"baner": "",
-			"requisito": 0.0,
-			"niveles": {
-				"nivel_1": {
-					"numero": 1.0,
-					"titulo": "",
-					"imagen": "res://menus/selector_niveles/imagenes/nivel-1.png"
-				},
-				"nivel_2": {
-					"numero": 2.0,
-					"titulo": "",
-					"imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
-				}
-			}
-		},
-		"seccion_2": {
-			"numero": 2.0,
-			"titulo": "",
-			"baner": "",
-			"requisito": 2.0,
-			"niveles": {
-				"nivel_1": {
-					"numero": 1.0,
-					"titulo": "",
-					"imagen": ""
-				},
-				"nivel_2": {
-					"numero": 2.0,
-					"titulo": "",
-					"imagen": ""
-				},
-				"nivel_3": {
-					"numero": 3.0,
-					"titulo": "",
-					"imagen": ""
-				},
-				"nivel_4": {
-					"numero": 4.0,
-					"titulo": "",
-					"imagen": ""
-				}
-			}
-		},
-		"seccion_3": {
-			"numero": 3.0,
-			"titulo": "",
-			"baner": "",
-			"requisito": 2.0,
-			"niveles": {
-				"nivel_1": {
-					"numero": 1.0,
-					"titulo": "",
-					"imagen": ""
-				},
-				"nivel_2": {
-					"numero": 2.0,
-					"titulo": "",
-					"imagen": ""
-				},
-				"nivel_3": {
-					"numero": 3.0,
-					"titulo": "",
-					"imagen": ""
-				},
-				"nivel_4": {
-					"numero": 4.0,
-					"titulo": "",
-					"imagen": ""
-				}
-			}
-		}
-	},
-	"orden_inportancia_mariposas": [
-		"bandera_argentina",
-		"cuatro_ojos",
-		"espejito",
-		"limonero",
-		"perezosa",
-		"bataraza"
-	],
-	"orden_planta": [
-		"ceibo",
-		"coronillo",
-		"chilca",
-		"ruda",
-		"canario_rojo",
-		"salvia",
-		"ruelia",
-		"mbrucuya",
-		"lantana"
-	],
-	"plantas": {
-		"ceibo": {
-			"nombre_comun": "ceibo",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 0.0,
-			"atlas_A":1,
-			"atlas_B":2,
-			"imagen_catalogo": "res://plantas/imagenes/ceibo.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/ceibopolaloid.png",
-			"mariposas_atraidas": [
-				"bandera_argentina"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						1.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						1.0,
-						-1.0
-					],
-					[
-						-1.0,
-						-1.0
-					],
-					[
-						0.0,
-						1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						-1.0,
-						-1.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						-1.0,
-						1.0
-					],
-					[
-						-1.0,
-						2.0
-					]
-				]
-			}
-		},
-		"coronillo": {
-			"nombre_comun": "coronillo",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 1.0,
-			"atlas_A":3,
-			"atlas_B":4,
-			"imagen_catalogo": "res://plantas/imagenes/coronillo.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/coronillopolaloid.png",
-			"mariposas_atraidas": [
-				"bandera_argentina"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"chilca": {
-			"nombre_comun": "chilca",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 2.0,
-			"atlas_A":5,
-			"atlas_B":6,
-			"imagen_catalogo": "res://plantas/imagenes/chilca.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/chilcadeolorpolaloid.png",
-			"mariposas_atraidas": [
-				"cuatro_ojos",
-				"perezosa"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						-1.0,
-						1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						-1.0,
-						1.0
-					],
-					[
-						1.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"ruda": {
-			"nombre_comun": "ruda",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 3.0,
-			"atlas_A":7,
-			"atlas_B":8,
-			"imagen_catalogo": "res://plantas/imagenes/ruda.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/rudapolaloid.png",
-			"mariposas_atraidas": [
-				"limonero"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						-2.0,
-						0.0
-					],
-					[
-						1.0,
-						0.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"canario_rojo": {
-			"nombre_comun": "canario_rojo",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 4.0,
-			"atlas_A":9,
-			"atlas_B":10,
-			"imagen_catalogo": "res://plantas/imagenes/canario rojo.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/canariorojopolaloid.png",
-			"mariposas_atraidas": [
-				"bataraza"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						-1.0
-					],
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"salvia": {
-			"nombre_comun": "salvia",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 5.0,
-			"atlas_A":11,
-			"atlas_B":12,
-			"imagen_catalogo": "res://plantas/imagenes/salvia.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/salviapolaloid.png",
-			"mariposas_atraidas": [
-				"bataraza",
-				"espejito"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"ruelia": {
-			"nombre_comun": "ruelia",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 6.0,
-			"atlas_A":13,
-			"atlas_B":14,
-			"imagen_catalogo": "res://plantas/imagenes/ruelia.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/ruelliapolaloid.png",
-			"mariposas_atraidas": [
-				"cuatro_ojos"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						1.0,
-						-1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						0.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"mbrucuya": {
-			"nombre_comun": "mbrucuya",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 7.0,
-			"atlas_A":15,
-			"atlas_B":16,
-			"imagen_catalogo": "res://plantas/imagenes/mbrucuya.jpg.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/mburucuyapolaloid.png",
-			"mariposas_atraidas": [
-				"perezosa",
-				"espejito"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						1.0,
-						-1.0
-					]
-				]
-			}
-		},
-		"lantana": {
-			"nombre_comun": "lantana",
-			"nombre_cientifico": "nombre_x",
-			"tile_juego": 8.0,
-			"atlas_A":17,
-			"atlas_B":18,
-			"imagen_catalogo": "res://plantas/imagenes/lantana.png",
-			"imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/lantanapolaloid.png",
-			"mariposas_atraidas": [
-				"bandera_argentina",
-				"limonero"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2",
-			"forma": {
-				"A": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						1.0,
-						0.0
-					],
-					[
-						0.0,
-						-1.0
-					],
-					[
-						1.0,
-						-1.0
-					]
-				],
-				"B": [
-					[
-						0.0,
-						0.0
-					],
-					[
-						0.0,
-						1.0
-					],
-					[
-						1.0,
-						1.0
-					],
-					[
-						-1.0,
-						0.0
-					],
-					[
-						-1.0,
-						-1.0
-					]
-				]
-			}
-		}
-	},
-	"mariposas": {
-		"bandera_argentina": {
-			"nombre": "Bandera Argentina",
-			"nombre_cientifico": "nombre_x",
-			"textura_juego": "res://mariposas/imagenes/en_juego/bandera_argentina.png",
-			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/bandera argentina polaroid.png",
-			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugabanderaargentina.png",
-			"plantas_requeridas": [
-				"lantana",
-				"coronillo",
-				"ceibo"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2"
-		},
-		"bataraza": {
-			"nombre": "Bataraza",
-			"nombre_cientifico": "nombre_x",
-			"textura_juego": "res://mariposas/imagenes/en_juego/bataraza.png",
-			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid.png",
-			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugabatarazareal.png",
-			"plantas_requeridas": [
-				"canario_rojo",
-				"salvia"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2"
-		},
-		"cuatro_ojos": {
-			"nombre": "Cuatro Ojos",
-			"nombre_cientifico": "nombre_x",
-			"textura_juego": "res://mariposas/imagenes/en_juego/cuatro_ojos.png",
-			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/cuatro ojos polaroid.png",
-			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugacuatrojos.png",
-			"plantas_requeridas": [
-				"ruelia",
-				"chilca"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2"
-		},
-		"espejito": {
-			"nombre": "Espejito",
-			"nombre_cientifico": "nombre_x",
-			"textura_juego": "res://mariposas/imagenes/en_juego/espejito.png",
-			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/espejito polaroid.png",
-			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugaespejito.png",
-			"plantas_requeridas": [
-				"salvia",
-				"mbrucuya"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2"
-		},
-		"limonero": {
-			"nombre": "Limonero",
-			"nombre_cientifico": "nombre_x",
-			"textura_juego": "res://mariposas/imagenes/en_juego/limonero.png",
-			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/limonero polaroid.png",
-			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugadellimonero.png",
-			"plantas_requeridas": [
-				"ruda",
-				"lantana"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2"
-		},
-		"perezosa": {
-			"nombre": "Perezosa",
-			"nombre_cientifico": "nombre_x",
-			"textura_juego": "res://mariposas/imagenes/en_juego/perezosa.png",
-			"textura_libro": "res://Libro/elementos_libro/mariposas polaroid/perezosa polaroid.png",
-			"textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugaperezosa.png",
-			"plantas_requeridas": [
-				"chilca",
-				"mbrucuya"
-			],
-				"dato_curioso_1":"el dato",
-				"dato_curioso_2":"el dato 2"
-		}
-	}
+    "ruta_general": {
+        "path_template": "res://niveles/niveles/sector_{s}/Nivel_{n}.tscn"
+    },
+    "sectores": {
+        "seccion_1": {
+            "numero": 1.0,
+            "titulo": "",
+            "baner": "",
+            "requisito": 0.0,
+            "niveles": {
+                "nivel_1": {
+                    "numero": 1.0,
+                    "titulo": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/nivel-1.png"
+                },
+                "nivel_2": {
+                    "numero": 2.0,
+                    "titulo": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
+                }
+            }
+        },
+        "seccion_2": {
+            "numero": 2.0,
+            "titulo": "",
+            "baner": "",
+            "requisito": 2.0,
+            "niveles": {
+                "nivel_1": {
+                    "numero": 1.0,
+                    "titulo": "",
+                    "imagen": ""
+                },
+                "nivel_2": {
+                    "numero": 2.0,
+                    "titulo": "",
+                    "imagen": ""
+                },
+                "nivel_3": {
+                    "numero": 3.0,
+                    "titulo": "",
+                    "imagen": ""
+                },
+                "nivel_4": {
+                    "numero": 4.0,
+                    "titulo": "",
+                    "imagen": ""
+                }
+            }
+        },
+        "seccion_3": {
+            "numero": 3.0,
+            "titulo": "",
+            "baner": "",
+            "requisito": 2.0,
+            "niveles": {
+                "nivel_1": {
+                    "numero": 1.0,
+                    "titulo": "",
+                    "imagen": ""
+                },
+                "nivel_2": {
+                    "numero": 2.0,
+                    "titulo": "",
+                    "imagen": ""
+                },
+                "nivel_3": {
+                    "numero": 3.0,
+                    "titulo": "",
+                    "imagen": ""
+                },
+                "nivel_4": {
+                    "numero": 4.0,
+                    "titulo": "",
+                    "imagen": ""
+                }
+            }
+        }
+    },
+    "orden_inportancia_mariposas": [
+        "bandera_argentina",
+        "cuatro_ojos",
+        "espejito",
+        "limonero",
+        "perezosa",
+        "bataraza"
+    ],
+    "orden_planta": [
+        "ceibo",
+        "coronillo",
+        "chilca",
+        "ruda",
+        "canario_rojo",
+        "salvia",
+        "ruelia",
+        "mbrucuya",
+        "lantana"
+    ],
+    "plantas": {
+        "ceibo": {
+            "nombre_comun": "Ceibo",
+            "nombre_cientifico": "Erythrina crista-galli",
+            "atlas_A": 1.0,
+            "atlas_B": 2.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/ceiboflor2.png",
+                "res://plantas/imagenes_ejemplares/ceiboflor.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/ceibopolaloid.png",
+            "mariposas_atraidas": [
+                "bandera_argentina"
+            ],
+            "dato_curioso_1": "Es un árbol de entre 5 a 8 metros de altura. Sus flores de color rojo fueron designadas en 1943 como la flor nacional de la República Argentina. Con su madera se fabrica el bombo legüero, un instrumento de percusión tradicional del folclore argentino.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        1.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        2.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/ceiboicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/ceibopostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_chilca.png"
+        },
+        "coronillo": {
+            "nombre_comun": "Coronillo",
+            "nombre_cientifico": "Scutia buxifolia",
+            "atlas_A": 3.0,
+            "atlas_B": 4.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/coronilloplanta.png",
+                "res://plantas/imagenes_ejemplares/coronilloplanta2.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/coronillopolaloid.png",
+            "mariposas_atraidas": [
+                "bandera_argentina"
+            ],
+            "dato_curioso_1": "Se trata de un árbol de crecimiento lento que puede llegar a los 6 metros de altura. Ideal para cercos, sus ramas presentan espinas y es de hojas perennes, esto quiere decir que no pierde sus hojas en invierno.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/coronilloicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/coronillopostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_chilca.png"
+        },
+        "chilca": {
+            "nombre_comun": "Chilca de olor",
+            "nombre_cientifico": "Austroeupatorium inulifolium",
+            "atlas_A": 5.0,
+            "atlas_B": 6.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/chilcadeolorflor2.png",
+                "res://plantas/imagenes_ejemplares/chilcadeolorflor.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/chilcadeolorpolaloid.png",
+            "mariposas_atraidas": [
+                "cuatro_ojos",
+                "perezosa"
+            ],
+            "dato_curioso_1": "Es una planta arbustiva de flores blancas muy perfumadas. También se la conoce como “mariposera” por ser muy atractiva para una gran cantidad de mariposas y otros polinizadores.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        1.0
+                    ],
+                    [
+                        1.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/chilcadeoloricono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/coronillopostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_chilca.png"
+        },
+        "ruda": {
+            "nombre_comun": "Ruda",
+            "nombre_cientifico": "Ruta Sp",
+            "atlas_A": 7.0,
+            "atlas_B": 8.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/ruda2.png",
+                "res://plantas/imagenes_ejemplares/rudaplantapropuesta.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/rudapolaloid.png",
+            "mariposas_atraidas": [
+                "limonero"
+            ],
+            "dato_curioso_1": "Es un arbusto enano muy cultivado por sus propiedades medicinales. También se le atribuyen propiedades mágicas: durante la celebración de la Pachamama, es tradición beber caña con ruda para atraer la salud, la buena fortuna y alejar las malas energías.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        -2.0,
+                        0.0
+                    ],
+                    [
+                        1.0,
+                        0.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/rudaicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/rudapostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_ruda.png"
+        },
+        "canario_rojo": {
+            "nombre_comun": "Canario rojo",
+            "nombre_cientifico": "Dicliptera squarrosa",
+            "atlas_A": 9.0,
+            "atlas_B": 10.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/canariorojo.png",
+                "res://plantas/imagenes_ejemplares/canariorojo2.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/canariorojopolaloid.png",
+            "mariposas_atraidas": [
+                "bataraza"
+            ],
+            "dato_curioso_1": "De fácil cuidado e ideal para macetas y canteros. Sus flores son de un vistoso color rojo anaranjado, y atraen una variedad de insectos y picaflores.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/canariorojoicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/canariorojopostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_canario_rojo.png"
+        },
+        "salvia": {
+            "nombre_comun": "Salvia",
+            "nombre_cientifico": "Salvia guaranítica",
+            "atlas_A": 11.0,
+            "atlas_B": 12.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/Salviaflor2.png",
+                "res://plantas/imagenes_ejemplares/Salviaflor.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/salviapolaloid.png",
+            "mariposas_atraidas": [
+                "bataraza",
+                "espejito"
+            ],
+            "dato_curioso_1": "Es una popular planta ornamental con flores de color violeta que puede propagarse tanto por semillas como por gajos. Es conocida por atraer picaflores.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/salviaicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/salviapostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_salvia.png"
+        },
+        "ruelia": {
+            "nombre_comun": "Ruellia",
+            "nombre_cientifico": "Ruellia brevifolia",
+            "atlas_A": 13.0,
+            "atlas_B": 14.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/rueliaflor2.png",
+                "res://plantas/imagenes_ejemplares/rueliaflor.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/ruelliapolaloid.png",
+            "mariposas_atraidas": [
+                "cuatro_ojos"
+            ],
+            "dato_curioso_1": "Es una planta arbustiva de flores en forma de trompeta o campanita. Las partes aéreas de esta especie han sido estudiadas de manera exhaustiva, encontrándose actividad: antidiabética, antioxidante, antiinflamatoria y analgésica",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        1.0,
+                        -1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/ruelliaicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/rueliapostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_ruellia.png"
+        },
+        "mbrucuya": {
+            "nombre_comun": "Mburucuyá",
+            "nombre_cientifico": "Passiflora caerulea",
+            "atlas_A": 15.0,
+            "atlas_B": 16.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/mburucuyaflor2.png",
+                "res://plantas/imagenes_ejemplares/mburucuyaflor.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/mburucuyapolaloid.png",
+            "mariposas_atraidas": [
+                "perezosa",
+                "espejito"
+            ],
+            "dato_curioso_1": "Es una planta trepadora. Sus frutos naranjas, al igual que los de su pariente el maracuyá, son comestibles y se usan mayormente en la elaboración de dulces y mermeladas.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        1.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/mburucuyaicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/mburucuyapostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_mburucuya.png"
+        },
+        "lantana": {
+            "nombre_comun": "Lantana",
+            "nombre_cientifico": "Lantana montevidensis",
+            "atlas_A": 17.0,
+            "atlas_B": 18.0,
+            "imagen_catalogo": [
+                "res://plantas/imagenes_ejemplares/lantanaflor2.png",
+                "res://plantas/imagenes_ejemplares/lantanaflor.png"
+            ],
+            "imagen_libro": "res://Libro/elementos_libro/plantaspolaloidver2.png/lantanapolaloid.png",
+            "mariposas_atraidas": [
+                "bandera_argentina",
+                "limonero"
+            ],
+            "dato_curioso_1": "Arbusto de follaje perenne, que puede alcanzar más de dos metros de altura. Sus flores van cambiando de color a medida que maduran. Sus hojas pueden macerarse en alcohol para conseguir un efectivo repelente de mosquitos.",
+            "dato_curioso_2": "el dato 2",
+            "forma": {
+                "A": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        1.0,
+                        -1.0
+                    ]
+                ],
+                "B": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        1.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            },
+            "icono": "res://Libro/elementos_libro/iconos/lantanaicono.png",
+            "postal": "res://Libro/elementos_libro/estampitasplantas/lantanapostal.png",
+            "hoja": "res://Libro/elementos_libro/iconos/plantita_chilca.png"
+        }
+    },
+    "mariposas": {
+        "bandera_argentina": {
+            "nombre": "Bandera Argentina",
+            "nombre_cientifico": "Morpho epistrophus argentinus",
+            "textura_juego": "res://mariposas/imagenes/en_juego/bandera_argentina.png",
+            "textura_libro": "res://Libro/elementos_libro/mariposas polaroid/bandera argentina polaroid.png",
+            "textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugabanderaargentina.png",
+            "icono_oruga": "res://Libro/elementos_libro/iconos/orugaargentinaicono.png",
+            "plantas_requeridas": [
+                "lantana",
+                "coronillo",
+                "ceibo"
+            ],
+            "dato_curioso_1": "Es una de las mariposas más grandes de la Argentina. Las hembras, de mayor tamaño que los machos, pueden llegar hasta los 11 cm de envergadura con sus alas desplegadas.",
+            "dato_curioso_2": "Desde el año 2015, cada mes de febrero se realiza la Fiesta de la Mariposa Bandera Argentina. Fue declarada Monumento Natural Provincial en 2025 por la legislatura de la provincia de Buenos Aires."
+        },
+        "bataraza": {
+            "nombre": "Bataraza",
+            "nombre_cientifico": "Ortilia ithra",
+            "textura_juego": "res://mariposas/imagenes/en_juego/bataraza.png",
+            "textura_libro": "res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid.png",
+            "textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugabatarazareal.png",
+            "plantas_requeridas": [
+                "canario_rojo",
+                "salvia"
+            ],
+            "dato_curioso_1": "Esta mariposa deposita varios huevos en una misma hoja, y sus orugas se mantienen juntas en sus primeras etapas, como estrategia de defensa.",
+            "dato_curioso_2": "Aunque la mayoría de las orugas se alimentan únicamente de hojas, las orugas de la bataraza comen también las flores y tallos de su planta hospedera.",
+            "icono_oruga": "res://Libro/elementos_libro/iconos/orugabatarazaicono.png"
+        },
+        "cuatro_ojos": {
+            "nombre": "Cuatro Ojos",
+            "nombre_cientifico": "Junonia genoveva",
+            "textura_juego": "res://mariposas/imagenes/en_juego/cuatro_ojos.png",
+            "textura_libro": "res://Libro/elementos_libro/mariposas polaroid/cuatro ojos polaroid.png",
+            "textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugacuatrojos.png",
+            "plantas_requeridas": [
+                "ruelia",
+                "chilca"
+            ],
+            "dato_curioso_1": "Las manchas en forma de ojos de sus alas, llamadas ocelos, le dan también el nombre de “mariposa pavo real”.",
+            "dato_curioso_2": "Es una mariposa migratoria que en invierno realiza largos vuelos hacia el norte, buscando temperaturas más cálidas.",
+            "icono_oruga": "res://Libro/elementos_libro/iconos/orugacuatrojosicono.png"
+        },
+        "espejito": {
+            "nombre": "Espejito",
+            "nombre_cientifico": "Agraulis vanillae o Dione vanillae",
+            "textura_juego": "res://mariposas/imagenes/en_juego/espejito.png",
+            "textura_libro": "res://Libro/elementos_libro/mariposas polaroid/espejito polaroid.png",
+            "textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugaespejito.png",
+            "plantas_requeridas": [
+                "salvia",
+                "mbrucuya"
+            ],
+            "dato_curioso_1": "Al comer las hojas de su planta hospedera, las orugas de mariposa espejito, producen sustancias químicas que les otorgan un sabor muy amargo.",
+            "dato_curioso_2": "En sus alas tiene manchas plateadas que reflejan la luz del sol y le ayudan a confundir a sus posibles depredadores.",
+            "icono_oruga": "res://Libro/elementos_libro/iconos/orugaespejitoicono.png"
+        },
+        "limonero": {
+            "nombre": "Limonero",
+            "nombre_cientifico": "Papilio thoas",
+            "textura_juego": "res://mariposas/imagenes/en_juego/limonero.png",
+            "textura_libro": "res://Libro/elementos_libro/mariposas polaroid/limonero polaroid.png",
+            "textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugadellimonero.png",
+            "plantas_requeridas": [
+                "ruda",
+                "lantana"
+            ],
+            "dato_curioso_1": "La coloración \nde estas orugas les permite camuflarse,\n ya que imitan la apariencia \nde excremento de aves.",
+            "dato_curioso_2": "Si se sienten amenazadas, sus orugas despliegan un órgano llamado osmeterio desde sus cabezas, que tiene color brillante y desprende un aroma fétido.",
+            "icono_oruga": "res://Libro/elementos_libro/iconos/orugadelimoneroicono.png"
+        },
+        "perezosa": {
+            "nombre": "Perezosa",
+            "nombre_cientifico": "Actinote pellenea",
+            "textura_juego": "res://mariposas/imagenes/en_juego/perezosa.png",
+            "textura_libro": "res://Libro/elementos_libro/mariposas polaroid/perezosa polaroid.png",
+            "textura_oruga_libro": "res://Libro/elementos_libro/orugas/orugaperezosa.png",
+            "plantas_requeridas": [
+                "chilca",
+                "mbrucuya"
+            ],
+            "dato_curioso_1": "Llevan el nombre de “mariposas perezosas” por su vuelo lento y pausado, lo que las convierte en uno de los blancos favoritos de los fotógrafos.",
+            "dato_curioso_2": "Sus orugas son gregarias, esto quiere decir que se mantienen en grupos numerosos desde su nacimiento, para defenderse mejor de los depredadores.",
+            "icono_oruga": "res://Libro/elementos_libro/iconos/orugaperezosaicono.png"
+        }
+    }
 }

@@ -101,6 +101,7 @@ func seleccionar_planta(planta:Planta):
 	for celda in tablero.celdas:
 		if tablero.get_id_planta(celda)==planta_seleccionada.get_id_planta():
 			tablero.vaciar_celda(celda)
+	
 func mover_planta_seleccionada(celda_actual) -> void:
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		if planta_seleccionada != null: 

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://k4s7h6kdhhw6"]
 
 [ext_resource type="Script" uid="uid://op54laguldw1" path="res://UI/ui.gd" id="1_nm1m0"]
+[ext_resource type="Texture2D" uid="uid://c2qw8kykjyxsb" path="res://Libro/elementos_libro/libroasets/pastito icono.png" id="3_7j5ik"]
 [ext_resource type="Texture2D" uid="uid://chotioxj4lmt8" path="res://UI/imagenes/edicion_de_las_cosas.jpg" id="3_o2jkc"]
-[ext_resource type="Texture2D" uid="uid://dlg1122esj0p7" path="res://UI/imagenes/imagen_2026-04-21_150439142.webp" id="4_0tr35"]
+[ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro_final.tscn" id="7_0tr35"]
 [ext_resource type="StyleBox" uid="uid://cveoktggvpxxe" path="res://UI/panel_base.tres" id="7_c7tqi"]
 [ext_resource type="Texture2D" uid="uid://bw6jtt36u580o" path="res://UI/imagenes/polaloid.png" id="8_8gukh"]
 [ext_resource type="StyleBox" uid="uid://n4k5e8kt1kme" path="res://UI/panel_externo.tres" id="8_cbfhl"]
@@ -11,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cf6gdviquxhv" path="res://UI/imagenes/cartel.png" id="9_8gkfd"]
 [ext_resource type="FontFile" uid="uid://gd1aif58t3m" path="res://UI/Retrofia.ttf" id="10_0tr35"]
 [ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="10_6rr40"]
-[ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/cosas_viejas/escenas_viejas/libro.tscn" id="10_h81ot"]
+[ext_resource type="Texture2D" uid="uid://kjc67lnc6vwk" path="res://Libro/elementos_libro/libroasets/iconolibro.png" id="13_i1yd8"]
 [ext_resource type="Texture2D" uid="uid://bm3cyhiclblja" path="res://UI/imagenes/reiniciar.png" id="13_o2t6a"]
-[ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="14_8gukh"]
+[ext_resource type="Texture2D" uid="uid://dkkm5trvfsfjj" path="res://Libro/elementos_libro/libroasets/libroicono activado.png" id="14_j5i65"]
 [ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="15_8gkfd"]
 [ext_resource type="Texture2D" uid="uid://cpsqgs8q6vm53" path="res://UI/imagenes/opcionesbotonn.png" id="16_8gukh"]
 [ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas.tscn" id="16_o2t6a"]
@@ -72,16 +73,6 @@ offset_right = 1151.0
 offset_bottom = 648.0
 mouse_filter = 2
 texture = ExtResource("3_o2jkc")
-
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=520144638]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 847.0
-offset_right = 401.0
-offset_bottom = 1070.0
-mouse_filter = 2
-texture = ExtResource("4_0tr35")
-expand_mode = 1
 
 [node name="Cartel_final" type="Panel" parent="." unique_id=1463878455]
 visible = false
@@ -163,11 +154,6 @@ label_settings = SubResource("LabelSettings_h81ot")
 [node name="Timer" type="Timer" parent="." unique_id=949865840]
 wait_time = 2.0
 
-[node name="Libro" parent="." unique_id=1233792517 instance=ExtResource("10_h81ot")]
-visible = false
-layout_mode = 1
-offset_bottom = 6.0
-
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1153045815]
 z_index = 2
 layout_mode = 0
@@ -233,15 +219,28 @@ offset_bottom = 1011.0
 scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("13_o2t6a")
 
-[node name="LibroBoton" type="TextureButton" parent="." unique_id=1123885105]
+[node name="ContenedorLibro" type="TextureRect" parent="." unique_id=520144638]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 847.0
+offset_right = 401.0
+offset_bottom = 1070.0
+mouse_filter = 2
+texture = ExtResource("3_7j5ik")
+expand_mode = 1
+
+[node name="LibroBoton" type="TextureButton" parent="ContenedorLibro" unique_id=1123885105]
 z_index = 3
 layout_mode = 0
-offset_left = 216.00006
-offset_top = 890.0
-offset_right = 327.00006
-offset_bottom = 1012.0
+offset_left = 51.999985
+offset_top = 9.531311
+offset_right = 165.15112
+offset_bottom = 175.70886
 scale = Vector2(1.1489059, 1.1489059)
-texture_normal = ExtResource("14_8gukh")
+texture_normal = ExtResource("13_i1yd8")
+texture_hover = ExtResource("14_j5i65")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Niveles" type="TextureButton" parent="." unique_id=188265024]
 z_index = 3
@@ -389,12 +388,23 @@ offset_bottom = 1007.0
 theme_override_font_sizes/font_size = 25
 text = "CARGAR CFG"
 
+[node name="Libro" parent="." unique_id=685332568 instance=ExtResource("7_0tr35")]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [connection signal="pressed" from="Cartel_final/Quedarse" to="." method="ocultar_cartel"]
 [connection signal="pressed" from="Cartel_final/irAlMenu" to="." method="volver_al_menu"]
 [connection signal="pressed" from="Menu" to="." method="volver_al_menu"]
 [connection signal="timeout" from="Timer" to="." method="apagar_alerta_de_seleccion"]
 [connection signal="pressed" from="Reiniciar2" to="." method="reiniciar_nivel"]
-[connection signal="pressed" from="LibroBoton" to="Libro" method="abrir"]
+[connection signal="pressed" from="ContenedorLibro/LibroBoton" to="Libro" method="abrir"]
 [connection signal="pressed" from="Niveles" to="." method="volver_al_menu"]
 [connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]

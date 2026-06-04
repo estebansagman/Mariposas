@@ -95,6 +95,8 @@ vertical_scroll_mode = 3
 
 [node name="ContenedorPlantas" type="VBoxContainer" parent="ScrollContainer" unique_id=450113928]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VScrollBar" type="VScrollBar" parent="." unique_id=392659128]
 layout_mode = 0

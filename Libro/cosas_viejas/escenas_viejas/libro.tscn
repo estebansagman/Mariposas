@@ -99,6 +99,7 @@ theme_override_styles/pressed = ExtResource("4_kslmw")
 theme_override_styles/hover = ExtResource("4_kslmw")
 
 [node name="PaginaIndice" type="Control" parent="." unique_id=272889980]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -228,7 +229,6 @@ offset_right = 370.0
 offset_bottom = 496.0
 
 [node name="ColeccionPlantas" type="Control" parent="PaginaIndice/HojaDerecha" unique_id=168161100]
-visible = false
 anchors_preset = 0
 offset_left = -48.0
 offset_right = -8.0
@@ -249,7 +249,6 @@ offset_right = 370.0
 offset_bottom = 496.0
 
 [node name="PaginaMariposa" type="Control" parent="." unique_id=1019688470]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

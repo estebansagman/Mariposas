@@ -39,6 +39,11 @@ jardin = NodePath("../Jardin")
 jardinero = NodePath("../Jardin/Jardinero")
 
 [node name="UI" parent="." unique_id=772245201 instance=ExtResource("24_tgj2m")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
 position = Vector2(568, 81)
@@ -94,7 +99,6 @@ debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
 [node name="PasarDeNivel" type="Timer" parent="." unique_id=511669230]
 wait_time = 3.0
 
-[connection signal="pasar_nivel" from="UI" to="." method="ir_al_siguiente"]
 [connection signal="reiniciar" from="UI" to="." method="reiniciar_nivel"]
 [connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
 [connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="." method="guardar_estado_actual"]

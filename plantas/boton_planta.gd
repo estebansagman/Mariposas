@@ -1,5 +1,5 @@
 extends TextureButton
-class_name BotonPlanta
+class_name BotonPlanta2
 signal pedido_de_planta(llave_planta:String,llave_estructura,forma, emisor, ejemplar_planta)
 
 @onready var dibujo: Node2D = $Dibujo
@@ -49,9 +49,10 @@ func estructurar_planta_boton():
 
 	for modulo in estructura:
 		var imagen: Sprite2D = Sprite2D.new()
-		var ruta_textura = Dios.bd_interna["plantas"][key_planta]["imagen_catalogo"]
-		var textura_cargada = load(ruta_textura)
-		imagen.texture = textura_cargada
+		imagen.scale = Vector2(64,64)
+		#var ruta_textura = Dios.bd_interna["plantas"][key_planta]["imagen_catalogo"]
+		#var textura_cargada = load(ruta_textura)
+		#imagen.texture = textura_cargada
 		imagen.position = Vector2(64 * modulo.x, 64 * modulo.y)
 		dibujo.add_child(imagen)
 	redimensionar_icono_boton()

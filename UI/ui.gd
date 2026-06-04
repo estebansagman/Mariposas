@@ -1,6 +1,5 @@
 extends Control
 class_name Interfas
-signal pasar_nivel
 signal reiniciar
 
 @onready var SELECTOR_NIVELES:String = "res://menus/selector_niveles/selector_niveles.tscn"

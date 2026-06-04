@@ -7,10 +7,12 @@
 [ext_resource type="Script" uid="uid://7x06yrrbdw1h" path="res://menus/selector_niveles/contenedor_niveles.gd" id="3_qelex"]
 [ext_resource type="PackedScene" uid="uid://cwtx3es3unfng" path="res://menus/selector_niveles/contenedor_niveles.tscn" id="4_h5bte"]
 [ext_resource type="PackedScene" uid="uid://cll7q0mxcudtg" path="res://menus/selector_niveles/separador_sectores.tscn" id="5_aqnnm"]
-[ext_resource type="PackedScene" uid="uid://dlrjna7xvmg4x" path="res://Libro/cosas_viejas/escenas_viejas/libro.tscn" id="6_5waag"]
-[ext_resource type="Texture2D" uid="uid://dquhrwwu46n2a" path="res://UI/imagenes/libro.png" id="6_cnoui"]
 [ext_resource type="Script" uid="uid://cuwngd4guu5l8" path="res://UI/botones_debug.gd" id="7_8iduv"]
 [ext_resource type="Texture2D" uid="uid://dg5d5ran4tup" path="res://UI/imagenes/inicio.png" id="7_aqnnm"]
+[ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro_final.tscn" id="8_4tisx"]
+[ext_resource type="Texture2D" uid="uid://c2qw8kykjyxsb" path="res://Libro/elementos_libro/libroasets/pastito icono.png" id="11_4tisx"]
+[ext_resource type="Texture2D" uid="uid://kjc67lnc6vwk" path="res://Libro/elementos_libro/libroasets/iconolibro.png" id="12_njqt5"]
+[ext_resource type="Texture2D" uid="uid://dkkm5trvfsfjj" path="res://Libro/elementos_libro/libroasets/libroicono activado.png" id="13_r8v8f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
 font_size = 24
@@ -25,10 +27,12 @@ grow_vertical = 2
 script = ExtResource("1_7qhml")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=206460727]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 1927.0
-offset_bottom = 1090.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_h5bte")
 expand_mode = 2
 flip_h = true
@@ -173,10 +177,10 @@ label_settings = SubResource("LabelSettings_7qhml")
 [node name="Timer" type="Timer" parent="." unique_id=894896749]
 wait_time = 4.5
 
-[node name="Libro2" parent="." unique_id=1233792517 instance=ExtResource("6_5waag")]
+[node name="Libro" parent="." unique_id=685332568 instance=ExtResource("8_4tisx")]
 visible = false
-top_level = true
 layout_mode = 1
+offset_bottom = 1.0
 
 [node name="MenuPrincipal" type="TextureButton" parent="." unique_id=721385911]
 z_index = 3
@@ -187,16 +191,6 @@ offset_right = 272.0
 offset_bottom = 197.0
 scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("7_aqnnm")
-
-[node name="LibroBoton" type="TextureButton" parent="." unique_id=266633192]
-z_index = 3
-layout_mode = 0
-offset_left = 165.0
-offset_top = 792.0
-offset_right = 276.0
-offset_bottom = 914.0
-scale = Vector2(1.4496971, 1.4496971)
-texture_normal = ExtResource("6_cnoui")
 
 [node name="botones_debug" type="Control" parent="." unique_id=447192401]
 visible = false
@@ -260,12 +254,35 @@ offset_bottom = 397.0
 text = "borrar estados Nivel
 "
 
+[node name="ContenedorLibro" type="TextureRect" parent="." unique_id=1103802619]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 777.0
+offset_right = 363.0
+offset_bottom = 1000.0
+mouse_filter = 2
+texture = ExtResource("11_4tisx")
+expand_mode = 1
+
+[node name="LibroBoton" type="TextureButton" parent="ContenedorLibro" unique_id=89790302]
+z_index = 3
+layout_mode = 0
+offset_left = 51.999985
+offset_top = 9.531311
+offset_right = 165.15112
+offset_bottom = 175.70886
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("12_njqt5")
+texture_hover = ExtResource("13_r8v8f")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="timeout" from="Timer" to="." method="apagar_aletra"]
 [connection signal="pressed" from="MenuPrincipal" to="." method="vovler_al_menu"]
-[connection signal="pressed" from="LibroBoton" to="Libro2" method="abrir"]
 [connection signal="pressed" from="botones_debug/cerrar_juego" to="botones_debug" method="salid_de_juego"]
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto" to="botones_debug" method="completar_libro"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto2" to="botones_debug" method="borrar_progreso"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto3" to="botones_debug" method="borrar_estado_niveles"]
+[connection signal="pressed" from="ContenedorLibro/LibroBoton" to="Libro" method="abrir"]

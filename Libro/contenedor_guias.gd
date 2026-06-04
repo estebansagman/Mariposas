@@ -1,7 +1,5 @@
 extends HBoxContainer
 var nombre:String
 @onready var boton: TextureButton = $AspectRatioContainer/Boton
-@onready var titulo: TextureRect = $AspectRatioContainer/Boton/Control/Titulo
-
-func prueba():
-	boton.texture_normal
+@onready var titulo: RichTextLabel = $AspectRatioContainer/Boton/Control/Titulo/RichTextLabel
+@onready var item: TextureRect = $AspectRatioContainer/Boton/Control/item

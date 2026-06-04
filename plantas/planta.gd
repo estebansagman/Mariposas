@@ -66,8 +66,8 @@ func estructurar_planta():
 		var tamaño_area:CollisionShape2D = CollisionShape2D.new()
 		var forma_area:RectangleShape2D = RectangleShape2D.new()
 
-		var ruta_textura = Dios.bd_interna["plantas"][key_planta]["imagen_catalogo"]
-		var textura_cargada = load(ruta_textura)
+		#var ruta_textura = Dios.bd_interna["plantas"][key_planta]["imagen_catalogo"]
+		#var textura_cargada = load(ruta_textura)
 
 		tamaño_area.shape = forma_area
 		tamaño_area.position = posicion_nueva
@@ -141,4 +141,5 @@ func soltar_planta():
 	pieza_seleccionada = false
 	emit_signal("soltando")
 func activar_boton():
+	print("MERCAA DE LA BUENAAAAA")
 	emit_signal("eliminando")

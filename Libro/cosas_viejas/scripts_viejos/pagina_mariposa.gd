@@ -30,6 +30,7 @@ func cargar_nombre(lista_desbloqueo):
 		nombre_comun.text = nombre
 	else :
 		nombre_comun.text = oculto
+
 func cargar_nombre_cientifico(lista_desbloqueo):
 	var key_nombre_cientifico = Dios.bd_interna["mariposas"][mariposa]["nombre_cientifico"]
 	if key_nombre_cientifico in lista_desbloqueo:

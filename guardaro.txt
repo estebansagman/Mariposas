@@ -1,0 +1,27 @@
+func pasar_paginas_modo_rafaga(cantidad_de_paginas: int, orientacion: String, hacia_adelante: bool, ruta_paginas: Array):
+	var contenedor_viewport = $Control/SubViewportContainer/SubViewport
+	var lista_hojas: Array
+	hoja.prender_hoja()
+	
+	for i in range(cantidad_de_paginas):
+		var clon: Hoja = LIBRO_3D.instantiate()
+		#var clon: Hoja = hoja.duplicate()
+		clon.es_clon_rafaga = true
+		contenedor_viewport.add_child(clon)
+
+		clon.hide()
+		var numero_pagina_clon = ruta_paginas[i]
+		clon.cambiar_imagenes(numero_pagina_clon, paginas, hacia_adelante)
+		lista_hojas.append(clon)
+	
+	lista_hojas[-1].es_clon_rafaga = false
+	lista_hojas[-1].izquierda_cambia.connect(self._cambiar_pagina_izquierda) 
+	lista_hojas[-1].derecha_cambia.connect(self._cambiar_pagina_derecha)     
+	lista_hojas[-1].animacion_finaliza.connect(self.activar_botones)
+
+	await get_tree().process_frame
+	hoja.apagar_hoja()
+	for hoja_rapida in lista_hojas:
+		hoja_rapida.show()
+		hoja_rapida.pasar_rapido(orientacion)
+		await get_tree().create_timer(0.08).timeout

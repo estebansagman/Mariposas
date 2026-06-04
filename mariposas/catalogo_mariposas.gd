@@ -3,13 +3,15 @@ class_name CatalogoMariposas
 
 const BOTON_MARIPOSA = preload("uid://6fvergr40whw")
 
-@onready var barra: VScrollBar = $VScrollBar
+@onready var barra: VScrollBar = $CatalogoMariposas/VScrollBar
 @onready var scroll: ScrollContainer = $ScrollContainer
 @onready var contenedor_mariposas: VBoxContainer = $ScrollContainer/ContenedorMariposas
 var mariposas_en_Juego:Array[Mariposa]
 var keys_mariposas:Array[String]
 
 var barra_interna:VScrollBar
+
+const PAPELPARAATRASDELASPOSTALES = preload("uid://c2yxnyodcl546")
 
 func iniciar_catalogo(key_mariposas:Array[String]):
 	keys_mariposas = key_mariposas.duplicate()
@@ -54,24 +56,42 @@ func _scroll_interno(v):
 	barra.value = v
 
 func animacion_ganar()->void:
-	var final_pos = Vector2(0.0,2000.0)
 	var duration = 1.3
-	var delay = 0.2
-	if get_tree().current_scene.find_child("LibroBoton"):
-		final_pos = get_tree().current_scene.find_child("LibroBoton").global_position
+	var delay = 0.3
+	var final_pos = boton_libro.global_position+Vector2(30,60)
 	for mariposa:BotonMariposa in contenedor_mariposas.get_children():
-		var original_pos = mariposa.global_position
+		var original_pos = mariposa.global_position+Vector2(64,0)
+		var elemento = Sprite2D.new()
 		var t = create_tween()
+		
+		t.finished.connect(tween_libro)
+		#connect(t.finished,tween_libro,CONNECT_ONE_SHOT)
+		
 		t.set_ease(Tween.EASE_IN)
 		t.set_trans(Tween.TRANS_BACK)
-		mariposa.top_level = true
-		mariposa.global_position = original_pos
-		mariposa.pivot_offset_ratio = Vector2(0.5,0.5)
-		t.tween_property(mariposa,"global_position",Vector2(original_pos.x,final_pos.y),duration)
+		add_child(elemento)
+		elemento.texture = PAPELPARAATRASDELASPOSTALES
+		elemento.scale = Vector2(.1,.1)
+		#elemento.top_level = true
+		elemento.global_position = original_pos
+		#elemento.pivot_offset_ratio = Vector2(0.5,0.5)
+		t.tween_property(elemento,"global_position",final_pos,duration)
 		t.set_parallel(true)
 		#t.set_trans(Tween.TRANS_QUINT)
 		t.set_trans(Tween.TRANS_SPRING)
-		t.tween_property(mariposa,"scale",Vector2.ZERO,duration)
+		t.tween_property(elemento,"scale",Vector2(0.03,0.03),duration)
 		#t.tween_property(mariposa,"modulate",Color(16, 16, 16, 1.0),duration/3)
 		await get_tree().create_timer(delay).timeout
-		mariposa.modulate = Color(16, 16, 16, 1.0)
+		#elemento.modulate = Color(16, 16, 16, 1.0)
+
+@onready var catalogo_mariposas: NinePatchRect = $CatalogoMariposas
+func alargar_panel()->void:
+	printerr("ALARGAR PANEL")
+	var t = create_tween()
+	t.tween_property(catalogo_mariposas,"custom_minimum_size",Vector2(800,catalogo_mariposas.custom_minimum_size.y),2.0)
+
+@onready var boton_libro = get_tree().current_scene.find_child("LibroBoton")
+func tween_libro()-> void:
+	var tl = create_tween()
+	tl.tween_property(boton_libro,"scale",Vector2(1.3,1.3),0.1)
+	tl.tween_property(boton_libro,"scale",Vector2(1.149,1.149),0.1)

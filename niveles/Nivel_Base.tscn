@@ -27,7 +27,6 @@ metadata/_custom_type_script = "uid://cbxdy4164p03m"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii0lq"]
 size = Vector2(793, 791.0002)
 
-
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_yfvpn")
 jardin = NodePath("Jardin")

@@ -55,15 +55,15 @@ radial_accel_max = 76.92
 damping_min = 8.0
 damping_max = 15.000001
 damping_curve = SubResource("CurveTexture_7tqcv")
-scale_min = 0.099999994
-scale_max = 0.29999998
+scale_min = 0.19999999
+scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_sdhef")
 alpha_curve = SubResource("CurveTexture_bj8mw")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.009999977
 
 [node name="GiroIndividuales" type="GPUParticles2D" unique_id=596138012]
-z_index = 99
+z_index = 11
 material = SubResource("CanvasItemMaterial_ceht0")
 emitting = false
 amount = 12

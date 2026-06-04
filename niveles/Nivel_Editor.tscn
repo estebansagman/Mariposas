@@ -19,9 +19,9 @@ size = Vector2(793, 791.0002)
 script = ExtResource("1_ke278")
 numero_de_nivel = 3
 numero_de_sector = 1
-jardin = NodePath("Jardin")
 Especie_mariposa = Array[String](["cuatro_ojos", "limonero"])
 Especie_planta = Array[String](["ruelia:A", "chilca:A", "ruda:A", "lantana:A"])
+jardin = NodePath("Jardin")
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("3_aeyvu")]
 columnas = 6

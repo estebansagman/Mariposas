@@ -45,7 +45,6 @@ func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
 		nueva_lista.append(Vector2i(x, y))
 	return nueva_lista
 
-
 func replicar_niveles_a_user(forzar_pisado: bool = false):
 	var sectores = [1, 2, 3]
 	var niveles_por_sector = 4 
@@ -67,8 +66,6 @@ func replicar_niveles_a_user(forzar_pisado: bool = false):
 				if forzar_pisado or not FileAccess.file_exists(ruta_destino):
 					DirAccess.copy_absolute(ruta_origen, ruta_destino)
 					print("Copiado/Pisado: ", texto_sector, " -> ", texto_nivel)
-
-
 
 func borrar_todo():
 	var dir = DirAccess.open("res://")

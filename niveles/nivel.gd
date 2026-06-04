@@ -86,8 +86,9 @@ func _ready() -> void:
 	sistema_debug()
 
 	if editando:
-		ui.catalogo_plantas_B.iniciar_catalogo(Especie_planta, jardin)
-		ui.catalogo_mariposas_B.iniciar_catalogo(Especie_mariposa)
+		printerr("Catalogo edicion (objetos movibles NO PLANTAS)")
+		#ui.catalogo_plantas_B.iniciar_catalogo(Especie_planta, jardin) 
+		#ui.catalogo_mariposas_B.iniciar_catalogo(Especie_mariposa)
 		
 		jardin.tablero._generar_grilla()
 		ui.control.show()
@@ -98,7 +99,7 @@ func _ready() -> void:
 		ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 		
 		cargar_estado_de_nivel()
-		ui.control.hide()
+		#ui.control.hide()
 
 func sumar_puntos():
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()

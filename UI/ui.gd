@@ -13,11 +13,11 @@ signal reiniciar
 @onready var timer: Timer = $Timer
 @onready var botones_debug: Control = $botones_debug
 
-#region EDITOR
-@onready var control: ConfigCfg = $Control
-@onready var catalogo_plantas_B: CatalogoPlantas = $Control/CatalogoPlantas2
-@onready var catalogo_mariposas_B: CatalogoMariposas = $Control/CatalogoMariposas2
-#endregion
+##region EDITOR
+#@onready var control: ConfigCfg = $Control
+#@onready var catalogo_plantas_B: CatalogoPlantas = $Control/CatalogoPlantas2
+#@onready var catalogo_mariposas_B: CatalogoMariposas = $Control/CatalogoMariposas2
+##endregion
 
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
 

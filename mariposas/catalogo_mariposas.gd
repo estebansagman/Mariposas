@@ -11,7 +11,7 @@ var keys_mariposas:Array[String]
 
 var barra_interna:VScrollBar
 
-const PAPELPARAATRASDELASPOSTALES = preload("uid://c2yxnyodcl546")
+const PAPELPARAATRASDELASPOSTALES = preload("uid://biqi5q34myhyb")
 
 func iniciar_catalogo(key_mariposas:Array[String]):
 	keys_mariposas = key_mariposas.duplicate()

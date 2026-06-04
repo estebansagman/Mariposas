@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	if celda_actual in tablero.celdas:
 		var pos_relativa = tablero.map_to_local(celda_actual)
 		celda_focus_coordenada = tablero.global_position + pos_relativa
-	size_flags_horizontal
+	
 	if planta_seleccionada and celda_actual in tablero.celdas:
 		calcular_foco(celda_actual)
 	if mariposa_seleccionada and celda_actual in tablero.celdas and mariposa_en_seleccion:

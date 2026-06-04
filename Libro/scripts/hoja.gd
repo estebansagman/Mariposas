@@ -31,7 +31,6 @@ func cambiar_imagenes(numero_pagina, paginas, hacia_adelante: bool = true):
 	sub_viewport_pagina_2.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await get_tree().process_frame
 
-	
 
 func pasar_pagina():
 	prender_hoja()

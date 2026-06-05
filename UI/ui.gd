@@ -13,6 +13,8 @@ signal reiniciar
 @onready var cartel_final: Panel = %Cartel_final
 @onready var timer: Timer = $Timer
 @onready var botones_debug: Control = $botones_debug
+@onready var estrella_ganado: TextureRect = $Estrella
+
 
 ##region EDITOR
 #@onready var control: ConfigCfg = $Control
@@ -34,10 +36,12 @@ func _ready() -> void:
 	catalogo_mariposas.quedarme.pressed.connect(ocultar_cartel)
 	catalogo_mariposas.ir_a_niveles.pressed.connect(volver_al_menu)
 
+func prender_estrella(activado:bool):
+	if activado:
+		estrella_ganado.show()
 
 func alerta_de_seleccion():
 	alerta_seleccion.show()
-
 func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
 	alerta_seleccion.hide()
 

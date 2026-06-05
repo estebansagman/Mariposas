@@ -64,15 +64,14 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 			panel_mouse.hide()
 
 func _ready() -> void:
-	panel_mouse = PanelContainer.new()
-	panel_mouse.z_index = 5
-	label_mouse = Label.new()
-	panel_mouse.add_child(label_mouse)
-	add_child(panel_mouse)
+	definir_etiqueta_del_mause()
+	ordenar_mariposas_segun_importancia()
+	jardin.naturaleza.generar_mariposas(Especie_mariposa)
+	sistema_debug()
+	cambiar_entre_ui_edicion_y_juego()
+	aplicar_apariencia_ganado()
 
-	panel_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	label_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
+func ordenar_mariposas_segun_importancia():
 	var orden_importancia = Dios.bd_interna["orden_inportancia_mariposas"]
 	var especies_ordenadas: Array[String] = []
 
@@ -81,10 +80,16 @@ func _ready() -> void:
 			especies_ordenadas.append(nombre_mariposa)
 
 	Especie_mariposa = especies_ordenadas
-	
-	jardin.naturaleza.generar_mariposas(Especie_mariposa)
-	sistema_debug()
+func definir_etiqueta_del_mause():
+	panel_mouse = PanelContainer.new()
+	panel_mouse.z_index = 5
+	label_mouse = Label.new()
+	panel_mouse.add_child(label_mouse)
+	add_child(panel_mouse)
 
+	panel_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
+func cambiar_entre_ui_edicion_y_juego():
 	if editando:
 		printerr("Catalogo edicion (objetos movibles NO PLANTAS)")
 		#ui.catalogo_plantas_B.iniciar_catalogo(Especie_planta, jardin) 
@@ -97,9 +102,12 @@ func _ready() -> void:
 	else :
 		ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
 		ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
-		
 		cargar_estado_de_nivel()
 		#ui.control.hide()
+func aplicar_apariencia_ganado():
+	var fue_superado = Dios.bd_externa["sectores"]["seccion_"+str(numero_de_sector)]["niveles"]["nivel_"+str(numero_de_nivel)]["superado"]
+	#print("GANADO: ",fue_superado)
+	ui.prender_estrella(fue_superado)
 
 func sumar_puntos():
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
@@ -114,14 +122,12 @@ func sumar_puntos():
 			completar_nivel()
 			revelar_datos()
 		#pasar_de_nivel.start()
-
 func completar_nivel():
 	var sector_id = "seccion_" + str(numero_de_sector)
 	var nivel_id = "nivel_" + str(numero_de_nivel)
 	Dios.bd_externa["sectores"][sector_id]["niveles"][nivel_id]["superado"] = true
 	Dios.bd_externa["sectores"][sector_id]["niveles_superados"] += 1
 	Dios.guardar_bd_externa()
-
 func revelar_datos():
 	var sector_id = "seccion_" + str(numero_de_sector)
 	var nivel_id = "nivel_" + str(numero_de_nivel)
@@ -136,20 +142,17 @@ func revelar_datos():
 					Dios.bd_externa["progreso_mariposas"][mariposa_id].append(clave)
 	Dios.guardar_bd_externa()
 
+func volver_al_Menu():
+	get_tree().change_scene_to_file(ui.SELECTOR_NIVELES)
+func sistema_debug(): 
+	ui.botones_debug.nivel_jugandose = self
+
 func guardar_estado_de_tablero(tablero):
 	Dios.bd_externa["sectores"][sector][nivel]["momento_de_juego"] = tablero
 	Dios.guardar_bd_externa()
-	
-func volver_al_Menu():
-	get_tree().change_scene_to_file(ui.SELECTOR_NIVELES)
-
-func sistema_debug(): #despues borrar
-	ui.botones_debug.nivel_jugandose = self
-
 func guardar_estado_actual():
 	if !editando:
 		guardar_estado_de_nivel()
-
 func guardar_estado_de_nivel():
 	var texto_sector = "sector_" + str(numero_de_sector)
 	var texto_nivel = "Nivel_" + str(numero_de_nivel)
@@ -192,7 +195,6 @@ func guardar_estado_de_nivel():
 		print("¡Nivel guardado!: ", ruta_base)
 	else:
 		print("Error al guardar: ", error)
-
 func reiniciar_nivel():
 	if editando:
 		get_tree().reload_current_scene()
@@ -208,10 +210,6 @@ func reiniciar_nivel():
 		#jardin.capa_plantas.clear()
 		cargar_estado_de_nivel(true)	
 		guardar_estado_actual()
-func limpiar_jardin():
-	for planta in jardin.find_children("*","Planta",true,false):
-		planta.queue_free()
-
 func cargar_estado_de_nivel(reinicio:bool = false):
 	var texto_sector = "sector_" + str(numero_de_sector)
 	var texto_nivel = "Nivel_" + str(numero_de_nivel)
@@ -258,7 +256,9 @@ func cargar_estado_de_nivel(reinicio:bool = false):
 	else:
 		print("No se encontró el archivo .cfg")
 		jardin.tablero.cargar_grilla_desde_cfg({})
-
+func limpiar_jardin():
+	for planta in jardin.find_children("*","Planta",true,false):
+		planta.queue_free()
 func dibujar_planta_cargada(planta:Planta):
 	jardin.add_child(planta)
 	planta.estructurar_planta()

@@ -2,7 +2,7 @@ extends HBoxContainer
 class_name PolaroidBotonMariposa
 
 const POLAROID_VACIA = preload("uid://cbqhid1akseog")
-const POLAROID_HOVER = preload("uid://bgi4urjxkg8s8")
+const POLAROID_HOVER = preload("uid://brsvna0l0mst5")
 
 @onready var boton: TextureButton = $AspectRatioContainer/Boton
 @onready var icono_planta_1: TextureRect = $"AspectRatioContainer/Boton/Control/Texto/Platas_comp/1"

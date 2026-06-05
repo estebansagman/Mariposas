@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://b4cdao7hnr5f7"]
+
+[ext_resource type="PackedScene" uid="uid://mqhymlmu5a3j" path="res://niveles/Nivel_Base_2.tscn" id="1_dn645"]
+[ext_resource type="PackedScene" uid="uid://b1rexyawwl853" path="res://menus/selector_niveles/selector_niveles.tscn" id="2_40f2o"]
+[ext_resource type="Shader" uid="uid://b2flqvdcmho8y" path="res://VFX/shaders/escena_transicion.gdshader" id="2_bif1o"]
+[ext_resource type="Texture2D" uid="uid://cc4keaggst30f" path="res://VFX/shaders/verdepuro.tres" id="4_j4kc0"]
+[ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="4_ys0vf"]
+[ext_resource type="Texture2D" uid="uid://ndtd2bvqkhlf" path="res://menus/selector_niveles/imagenes/polaroid.png" id="5_j4kc0"]
+[ext_resource type="Texture2D" uid="uid://bim3if5pl3hvs" path="res://menus/selector_niveles/imagenes/polaroid-seleccionada.png" id="6_tl06m"]
+[ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="7_pmfbg"]
+[ext_resource type="Texture2D" uid="uid://dn35js2ps126q" path="res://menus/selector_niveles/imagenes/chinche.png" id="8_x8hd8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bif1o"]
+shader = ExtResource("2_bif1o")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.22400001064
+shader_parameter/smoothness = 0.238000011305
+shader_parameter/spill = 0.1070000050825
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bif1o"]
+viewport_path = NodePath("Panel/SubViewport")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ys0vf"]
+resource_local_to_scene = true
+texture = SubResource("ViewportTexture_bif1o")
+
+[sub_resource type="Gradient" id="Gradient_4qldc"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sbog6"]
+gradient = SubResource("Gradient_4qldc")
+width = 58
+height = 67
+
+[node name="Transicion" type="PanelContainer" unique_id=913576268]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=93755297]
+position = Vector2(960, 540)
+
+[node name="EscenaGeneral" parent="Camera2D" unique_id=286834583 instance=ExtResource("1_dn645")]
+position = Vector2(-960, -540)
+
+[node name="Panel" type="Panel" parent="." unique_id=468124780]
+z_index = 12
+material = SubResource("ShaderMaterial_bif1o")
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_ys0vf")
+
+[node name="SubViewport" type="SubViewport" parent="Panel" unique_id=2093643664]
+disable_3d = true
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+size = Vector2i(1920, 1080)
+
+[node name="ItemNivel1" type="TextureRect" parent="Panel/SubViewport" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 467.46265
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.72, 1.72)
+pivot_offset = Vector2(80, 69)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_sbog6")
+expand_mode = 3
+script = ExtResource("4_ys0vf")
+indice = 1
+sector = 1
+puntaje = NodePath("Puntaje")
+
+[node name="ImagenNivel" type="TextureRect" parent="Panel/SubViewport/ItemNivel1" unique_id=357063777]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 532.0
+offset_bottom = 522.0
+scale = Vector2(0.219, 0.23)
+texture = ExtResource("4_j4kc0")
+
+[node name="boton" type="TextureButton" parent="Panel/SubViewport/ItemNivel1" unique_id=1471165226]
+modulate = Color(18.892157, 18.892157, 18.892157, 0.6509804)
+layout_mode = 0
+offset_left = -4.0
+offset_top = 3.0000002
+offset_right = 508.0
+offset_bottom = 515.0
+scale = Vector2(0.31, 0.31)
+texture_normal = ExtResource("5_j4kc0")
+texture_hover = ExtResource("6_tl06m")
+
+[node name="Puntaje" parent="Panel/SubViewport/ItemNivel1" unique_id=342144844 instance=ExtResource("7_pmfbg")]
+layout_mode = 0
+offset_left = 99.00001
+offset_top = 118.0
+offset_right = 611.0
+offset_bottom = 630.0
+scale = Vector2(0.119, 0.119)
+
+[node name="Nivel" type="Label" parent="Panel/SubViewport/ItemNivel1" unique_id=1177131076]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 131.0
+offset_right = 79.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.9948428, 0.9680082, 0.9528262, 1)
+text = "Nivel  1"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/SubViewport/ItemNivel1" unique_id=1067054237]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 3.0
+offset_right = 320.0
+offset_bottom = 259.0
+scale = Vector2(0.099, 0.099)
+texture = ExtResource("8_x8hd8")
+
+[node name="MenuNiveles" parent="Panel" unique_id=1797611692 instance=ExtResource("2_40f2o")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_behavior_recursive = 2
+
+[connection signal="pressed" from="Panel/SubViewport/ItemNivel1/boton" to="Panel/SubViewport/ItemNivel1" method="seleccionar"]

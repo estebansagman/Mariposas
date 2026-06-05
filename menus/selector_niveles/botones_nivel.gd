@@ -1,5 +1,6 @@
 extends TextureRect
 signal nivel_elejido(nivel_actual, indice, sector)
+signal ubicar(global_position)
 
 @export var indice:int
 @export var sector:int
@@ -40,11 +41,29 @@ func dar_indice():
 	puntaje.actualizar_visual(nivel_estado)
 
 func seleccionar():
-	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
-	if ResourceLoader.exists(ruta_actual):
-		emit_signal("nivel_elejido", ruta_actual, indice, sector)
-	else:
-		emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
-
-
+	#var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
+	#if ResourceLoader.exists(ruta_actual):
+		#emit_signal("nivel_elejido", ruta_actual, indice, sector)
+	#else:
+		#emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
 	
+	printerr("Ubicacion boton: ",global_position)
+	ubicar.emit(global_position)
+	duplicar(global_position)
+	
+func duplicar(ubicacion)->void:
+	const VERDEPURO = preload("uid://cc4keaggst30f")
+	var mascara:TextureRect = self.duplicate()
+	var panel = get_tree().current_scene.get_child(-1)
+	var mn = panel.get_child(-1)
+	var t = create_tween()
+
+	panel.remove_child(mn)
+	panel.get_child(0).add_child(mn)
+	panel.get_child(0).add_child(mascara,true,Node.INTERNAL_MODE_BACK)
+
+	mascara.scale = Vector2(1.72,1.72)
+	mascara.global_position = ubicacion
+	mascara.get_child(2).texture = VERDEPURO
+	
+	t.tween_property(mascara,"scale",Vector2.ONE*25,1).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)

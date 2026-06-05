@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://b8gf5b50d6irq"]
 
-[ext_resource type="Texture2D" uid="uid://dol2wp8ukb0la" path="res://tablero/imagenes/tileset_v2.png" id="1_oh8hw"]
+[ext_resource type="Texture2D" uid="uid://b0jnbwtnrwbld" path="res://tablero/imagenes/tileset_v2.png" id="1_oh8hw"]
 [ext_resource type="Texture2D" uid="uid://bbm8k5rs8d02i" path="res://tablero/imagenes/fondo_place_H _extra2.png" id="1_rba5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbb36"]

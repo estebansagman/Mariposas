@@ -29,6 +29,11 @@ const ESTRELLA_VFX = preload("uid://chooeh518y4dw")
 
 var superado:bool = false
 
+func _ready() -> void:
+	catalogo_mariposas.quedarme.pressed.connect(ocultar_cartel)
+	catalogo_mariposas.ir_a_niveles.pressed.connect(volver_al_menu)
+
+
 func alerta_de_seleccion():
 	alerta_seleccion.show()
 
@@ -87,7 +92,8 @@ func anim_estrella()->void:
 		t.tween_property(sprite,"scale",Vector2(0.2,0.2),1)
 
 func ocultar_cartel():
-	cartel_final.hide()
+	#cartel_final.hide()
+	catalogo_mariposas.restaurar_panel()
 	restaurar_camara()
 
 func volver_al_menu():
@@ -95,6 +101,7 @@ func volver_al_menu():
 
 func reiniciar_nivel():
 	emit_signal("reiniciar")
+	ocultar_cartel()
 	#get_tree().reload_current_scene()
 
 func restaurar_camara()->void:

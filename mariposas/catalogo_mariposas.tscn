@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://cyowsn0q1rggh" path="res://mariposas/catalogo_mariposas.gd" id="1_u06rw"]
 [ext_resource type="Texture2D" uid="uid://ckblokmsc8oe2" path="res://UI/imagenes/panel_mariposa.png" id="2_50ugu"]
 [ext_resource type="Texture2D" uid="uid://div8wlfaegsgn" path="res://UI/imagenes/cartelito_violeta.png" id="3_6h2v2"]
+[ext_resource type="Texture2D" uid="uid://cerecatskej15" path="res://UI/imagenes/CartelVictoria.png" id="3_f1qo7"]
+[ext_resource type="FontFile" uid="uid://braanrlvh5nna" path="res://Libro/elementos_libro/DK Crayon Crumble.ttf" id="4_8gqjv"]
 [ext_resource type="FontFile" uid="uid://gd1aif58t3m" path="res://UI/Retrofia.ttf" id="4_50ugu"]
+[ext_resource type="Texture2D" uid="uid://bckapiwukqgrm" path="res://UI/imagenes/LineaPunteada.png" id="4_l4wuf"]
+[ext_resource type="FontFile" uid="uid://cc74swpcih0u1" path="res://UI/OleoScript-Regular.ttf" id="4_stnso"]
+[ext_resource type="Texture2D" uid="uid://bfhb476bilo2y" path="res://UI/imagenes/florcita.png" id="5_stnso"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stnso"]
 content_margin_left = 4.0
@@ -28,6 +33,68 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_aw5kc"]
+font = ExtResource("4_8gqjv")
+font_size = 40
+font_color = Color(0.23471054, 0.14083576, 0.0707132, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_grigb"]
+base_font = ExtResource("4_8gqjv")
+variation_embolden = 0.66
+spacing_glyph = 1
+spacing_space = -3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hbkf"]
+bg_color = Color(0.85490197, 0.8156863, 0.7411765, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grigb"]
+bg_color = Color(0.7254902, 0.5803922, 0.5411765, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.40784314, 0.27450982, 0.26666668, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.20383999, 0.19759999, 0.26, 0.3019608)
+shadow_size = 2
+shadow_offset = Vector2(0, -4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0c25"]
+bg_color = Color(0.74509805, 0.8392157, 0.6666667, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gqjv"]
+content_margin_left = 2.0
+content_margin_right = 2.0
+texture = ExtResource("4_l4wuf")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.64, 0.54208, 0.4672, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_l4wuf"]
 base_font = ExtResource("4_50ugu")
@@ -74,6 +141,128 @@ theme_override_styles/scroll = SubResource("StyleBoxFlat_stnso")
 theme_override_styles/grabber = SubResource("StyleBoxFlat_aw5kc")
 theme_override_constants/padding_left = 2
 theme_override_constants/padding_right = 2
+
+[node name="Cartel Victoria" type="HBoxContainer" parent="CatalogoMariposas" unique_id=833402515]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+pivot_offset_ratio = Vector2(0.25, 0.5)
+
+[node name="MarginContainer" type="MarginContainer" parent="CatalogoMariposas/Cartel Victoria" unique_id=2038866879]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CatalogoMariposas/Cartel Victoria/MarginContainer" unique_id=786482892]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer" unique_id=502473400]
+z_index = 4
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("3_f1qo7")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer/TextureRect" unique_id=1474388169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.15294118, 0.2901961, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("4_stnso")
+theme_override_font_sizes/font_size = 48
+text = "¡Lo lograste!"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="Control" type="Control" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer" unique_id=1220001142]
+layout_mode = 2
+
+[node name="texto_ganado" type="Label" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer" unique_id=1339213808]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Felicitaciones, superaste el nivel"
+label_settings = SubResource("LabelSettings_aw5kc")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer" unique_id=1148225284]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("5_stnso")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer" unique_id=1035983991]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 32
+
+[node name="Quedarme" type="Button" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer/HBoxContainer" unique_id=468306341]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+theme_override_colors/font_pressed_color = Color(0.40784314, 0.27450982, 0.26666668, 1)
+theme_override_colors/font_hover_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.40784314, 0.27450982, 0.26666668, 1)
+theme_override_fonts/font = SubResource("FontVariation_grigb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_2hbkf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_grigb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l0c25")
+text = "Quedarme"
+text_overrun_behavior = 1
+clip_text = true
+
+[node name="IrANiveles" type="Button" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1718138095]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+theme_override_colors/font_pressed_color = Color(0.40784314, 0.27450982, 0.26666668, 1)
+theme_override_colors/font_hover_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.40784314, 0.27450982, 0.26666668, 1)
+theme_override_fonts/font = SubResource("FontVariation_grigb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_2hbkf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_grigb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l0c25")
+text = "Ir a Niveles"
+text_overrun_behavior = 1
+clip_text = true
+
+[node name="VSeparator" type="VSeparator" parent="CatalogoMariposas/Cartel Victoria" unique_id=2109061893]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/separator = SubResource("StyleBoxTexture_8gqjv")
+
+[node name="Fill" type="Container" parent="CatalogoMariposas/Cartel Victoria" unique_id=1641759798]
+custom_minimum_size = Vector2(252, 0)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Cartel2" type="NinePatchRect" parent="." unique_id=1482117644]
 layout_mode = 0

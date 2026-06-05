@@ -270,10 +270,11 @@ expand_mode = 1
 [node name="LibroBoton" type="TextureButton" parent="ContenedorLibro" unique_id=89790302]
 z_index = 3
 layout_mode = 0
-offset_left = 51.999985
-offset_top = 9.531311
-offset_right = 165.15112
-offset_bottom = 175.70886
+offset_left = 82.0
+offset_top = 10.999999
+offset_right = 188.99384
+offset_bottom = 168.13474
+rotation = 0.2617994
 scale = Vector2(1.1489059, 1.1489059)
 texture_normal = ExtResource("12_njqt5")
 texture_hover = ExtResource("13_r8v8f")

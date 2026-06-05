@@ -6,6 +6,7 @@ signal nivel_elejido(nivel_actual, indice, sector)
 @onready var etiqueta: Label = $Nivel
 @export var puntaje: sistema_puntaje
 @onready var imagen_nivel: TextureRect = $ImagenNivel
+@onready var boton: TextureButton = $boton
 
 
 func dar_indice():
@@ -40,11 +41,11 @@ func dar_indice():
 	puntaje.actualizar_visual(nivel_estado)
 
 func seleccionar():
-	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
-	if ResourceLoader.exists(ruta_actual):
-		emit_signal("nivel_elejido", ruta_actual, indice, sector)
-	else:
-		emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
-
+	#var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
+	#if ResourceLoader.exists(ruta_actual):
+		#emit_signal("nivel_elejido", ruta_actual, indice, sector)
+	#else:
+		#emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
+	printerr("Global:", self.global_position," Screen",self.get_screen_position())
 
 	

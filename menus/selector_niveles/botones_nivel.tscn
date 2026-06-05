@@ -41,6 +41,7 @@ shader_parameter/burn_color = Color(0.25510332, 0.17979999, 0.29, 1)
 [node name="ItemNivel" type="TextureRect" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
 offset_right = 155.25
 offset_bottom = 184.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_sbog6")
@@ -78,12 +79,20 @@ texture = ExtResource("5_wqncv")
 
 [node name="boton" type="TextureButton" parent="." unique_id=1471165226]
 modulate = Color(18.892157, 18.892157, 18.892157, 0.6509804)
-layout_mode = 0
-offset_left = -4.0
-offset_top = 3.0000002
-offset_right = 508.0
-offset_bottom = 515.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.64178
+offset_top = -265.5
+offset_right = 251.35822
+offset_bottom = 246.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.31, 0.31)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("4_sbog6")
 texture_hover = ExtResource("5_sbog6")
 

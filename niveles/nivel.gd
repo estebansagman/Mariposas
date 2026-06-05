@@ -101,6 +101,7 @@ func _ready() -> void:
 		cargar_estado_de_nivel()
 		#ui.control.hide()
 
+
 func sumar_puntos():
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
 	ui.catalogo_mariposas.marcar_mariposas(mariposas_jugadas)

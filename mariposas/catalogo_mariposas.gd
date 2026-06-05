@@ -2,16 +2,20 @@ extends Control
 class_name CatalogoMariposas
 
 const BOTON_MARIPOSA = preload("uid://6fvergr40whw")
+const PAPELPARAATRASDELASPOSTALES = preload("uid://biqi5q34myhyb")
 
 @onready var barra: VScrollBar = $CatalogoMariposas/VScrollBar
 @onready var scroll: ScrollContainer = $ScrollContainer
 @onready var contenedor_mariposas: VBoxContainer = $ScrollContainer/ContenedorMariposas
+@onready var cartel_victoria: HBoxContainer = %"Cartel Victoria"
+
+@onready var quedarme: Button = %Quedarme
+@onready var ir_a_niveles: Button = %IrANiveles
+
 var mariposas_en_Juego:Array[Mariposa]
 var keys_mariposas:Array[String]
-
 var barra_interna:VScrollBar
 
-const PAPELPARAATRASDELASPOSTALES = preload("uid://biqi5q34myhyb")
 
 func iniciar_catalogo(key_mariposas:Array[String]):
 	keys_mariposas = key_mariposas.duplicate()
@@ -88,7 +92,24 @@ func animacion_ganar()->void:
 func alargar_panel()->void:
 	printerr("ALARGAR PANEL")
 	var t = create_tween()
-	t.tween_property(catalogo_mariposas,"custom_minimum_size",Vector2(800,catalogo_mariposas.custom_minimum_size.y),2.0)
+	t.tween_property(catalogo_mariposas,"custom_minimum_size",Vector2(800,catalogo_mariposas.custom_minimum_size.y),2.0).set_trans(Tween.TRANS_QUAD)
+	t.parallel()
+	t.tween_interval(.5)
+	t.tween_property(cartel_victoria,"scale",Vector2.ONE,1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	#t.tween_property(cartel_victoria,"modulate",Color.WHITE,2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	#quedarse.disabled = false
+	#ir_a_niveles.disabled = false
+	#cartel_victoria.visible = true
+
+func restaurar_panel()->void:
+	var t = create_tween()
+	#cartel_victoria.modulate=Color(1,1,1,0)
+	t.tween_property(catalogo_mariposas,"custom_minimum_size",Vector2(0,catalogo_mariposas.custom_minimum_size.y),1.6)
+	t.parallel()
+	t.tween_property(cartel_victoria,"scale",Vector2(1,0),.8).set_trans(Tween.TRANS_BACK)
+	#quedarse.disabled = true
+	#ir_a_niveles.disabled = true
+	#cartel_victoria.visible = false
 
 @onready var boton_libro = get_tree().current_scene.find_child("LibroBoton")
 func tween_libro()-> void:

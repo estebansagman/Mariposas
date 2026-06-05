@@ -39,12 +39,20 @@ func actualizar_estado():
 				item.dar_indice()
 				item.nivel_elejido.connect(self.seleccionar_nivel)
 
-func seleccionar_nivel(nivel, indice_b, sector_b):
+func seleccionar_nivel(nivel, indice_b, sector_b,ubicacion):
 	nivel_seleccionado = true
 	indice = indice_b
 	sector_actual = sector_b
 	nivel_elegido = nivel
-	entrar_al_nivel()
+	#entrar_al_nivel()
+	var polaroid:NinePatchRect = get_node(%Polaroid.get_path())
+	var display:Sprite2D = get_node(%DisplayNivel.get_path())
+	polaroid.global_position = ubicacion
+	get_tree().paused = true
+	
+	var t = create_tween()
+	t.tween_property(polaroid,"custom_minimum_size",polaroid.size*10,2)
+
 
 func entrar_al_nivel():
 	if not Dios.bd_externa["sectores"]["seccion_"+str(sector_actual)]["desbloqueo"]:

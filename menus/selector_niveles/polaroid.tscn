@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bu56xludcvi72"]
+
+[ext_resource type="Texture2D" uid="uid://ndtd2bvqkhlf" path="res://menus/selector_niveles/imagenes/polaroid.png" id="1_5ig7i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7oua7"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Polaroid" type="NinePatchRect" unique_id=1640551099]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 374.0
+offset_top = 174.0
+offset_right = 827.8462
+offset_bottom = 612.46155
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_5ig7i")
+patch_margin_left = 100
+patch_margin_top = 30
+patch_margin_right = 80
+patch_margin_bottom = 110
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=766123567]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 78
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 76
+theme_override_constants/margin_bottom = 107
+
+[node name="Container" type="Panel" parent="MarginContainer" unique_id=2063132808]
+clip_contents = true
+layout_mode = 2
+
+[node name="DisplayNivel" type="Sprite2D" parent="MarginContainer/Container" unique_id=24886264]
+unique_name_in_owner = true
+scale = Vector2(1.5384617, 1.5384617)
+texture = SubResource("ViewportTexture_7oua7")
+metadata/_edit_lock_ = true

@@ -83,7 +83,7 @@ func _ready() -> void:
 	Especie_mariposa = especies_ordenadas
 	
 	jardin.naturaleza.generar_mariposas(Especie_mariposa)
-	sistema_debug()
+	#sistema_debug()
 
 	if editando:
 		printerr("Catalogo edicion (objetos movibles NO PLANTAS)")
@@ -95,8 +95,8 @@ func _ready() -> void:
 		ui.control.cargar_cfg.pressed.connect(cargar_estado_de_nivel)
 		ui.control.generar_cfg.pressed.connect(guardar_estado_de_nivel)
 	else :
-		ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
-		ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
+		#ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
+		#ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 		
 		cargar_estado_de_nivel()
 		#ui.control.hide()
@@ -143,8 +143,8 @@ func guardar_estado_de_tablero(tablero):
 func volver_al_Menu():
 	get_tree().change_scene_to_file(ui.SELECTOR_NIVELES)
 
-func sistema_debug(): #despues borrar
-	ui.botones_debug.nivel_jugandose = self
+#func sistema_debug(): #despues borrar
+	#ui.botones_debug.nivel_jugandose = self
 
 func guardar_estado_actual():
 	if !editando:
@@ -265,3 +265,9 @@ func dibujar_planta_cargada(planta:Planta):
 	planta.giro_de_planta()
 	jardin.jardinero.posicionar_planta(planta)
 	await get_tree().process_frame
+
+
+@onready var polaroid: NinePatchRect = %Polaroid
+
+func set_polaroid(ubicacion):
+	polaroid.global_position = ubicacion

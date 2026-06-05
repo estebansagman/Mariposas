@@ -1,5 +1,5 @@
 extends TextureRect
-signal nivel_elejido(nivel_actual, indice, sector)
+signal nivel_elejido(nivel_actual, indice, sector,global_position)
 
 @export var indice:int
 @export var sector:int
@@ -42,7 +42,7 @@ func dar_indice():
 func seleccionar():
 	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
 	if ResourceLoader.exists(ruta_actual):
-		emit_signal("nivel_elejido", ruta_actual, indice, sector)
+		emit_signal("nivel_elejido", ruta_actual, indice, sector,global_position)
 	else:
 		emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
 

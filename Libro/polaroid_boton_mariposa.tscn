@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8tojhgthgmne"]
 
-[ext_resource type="Script" uid="uid://d2aytvfwjdcgw" path="res://Libro/polaroid_boton_mariposa.gd" id="1_baq3j"]
+[ext_resource type="Script" uid="uid://d2aytvfwjdcgw" path="res://Libro/scripts/polaroid_boton_mariposa.gd" id="1_baq3j"]
 [ext_resource type="Texture2D" uid="uid://ucqwm1b47np8" path="res://Libro/elementos_libro/polaroid_comun.png" id="2_mwigw"]
 [ext_resource type="Texture2D" uid="uid://brsvna0l0mst5" path="res://Libro/elementos_libro/polaroid-hover.png" id="3_5rnbh"]
 [ext_resource type="Texture2D" uid="uid://bg3txm1fxqfgk" path="res://Libro/elementos_libro/iconos/cintaparaplanta.png" id="4_diwtb"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d1u1ldatw8olh" path="res://Libro/elementos_libro/iconos/canariorojoicono.png" id="5_vn47v"]
 [ext_resource type="Texture2D" uid="uid://bikar2mn4dif5" path="res://Libro/elementos_libro/iconos/salviaicono.png" id="6_36eil"]
 [ext_resource type="Texture2D" uid="uid://hgvc6chyrg2j" path="res://Libro/elementos_libro/papelesparalibro/papelparanombredeplanta2.png" id="7_1xn67"]
-[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/NombresEnCintas.tres" id="8_kynd0"]
+[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/recursos/NombresEnCintas.tres" id="8_kynd0"]
 [ext_resource type="Texture2D" uid="uid://buk358m1t5j54" path="res://Libro/elementos_libro/iconos/orugabatarazaicono.png" id="9_68fab"]
 
 [node name="Polaroid" type="HBoxContainer" unique_id=611987320]

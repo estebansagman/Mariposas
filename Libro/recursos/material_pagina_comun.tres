@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cgegiq8j85tlw"]
 
-[ext_resource type="Material" uid="uid://06yrykk2okof" path="res://Libro/material_pagina_comun_lado_B.tres" id="1_qeoaj"]
+[ext_resource type="Material" uid="uid://06yrykk2okof" path="res://Libro/recursos/material_pagina_comun_lado_B.tres" id="1_qeoaj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ou8xu"]
 viewport_path = NodePath("SubViewportPagina2")

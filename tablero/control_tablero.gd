@@ -35,20 +35,22 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	var mouse_local = tablero.get_local_mouse_position()
 	celda_actual = tablero.local_to_map(mouse_local)
+	
+	if en_area_de_juego: 
+		tablero.leer_celda(celda_actual)
+	
 	if celda_actual in tablero.celdas:
 		var pos_relativa = tablero.map_to_local(celda_actual)
 		celda_focus_coordenada = tablero.global_position + pos_relativa
-	
+
 	if planta_seleccionada and celda_actual in tablero.celdas:
 		calcular_foco(celda_actual)
 	if mariposa_seleccionada and celda_actual in tablero.celdas and mariposa_en_seleccion:
 		calcular_foco(celda_actual)
-	
+
 	if mariposa_seleccionada == null:
 		mover_planta_seleccionada(celda_actual)
-
 	mover_mariposa_seleccionada()
-
 	tablero.pintar_lienzo()
 
 func entrar_en_area_de_juego():
@@ -123,7 +125,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 					planta_seleccionada = planta
 					break
 			if planta_seleccionada:
-				#printerr("SELECCIONAR PLANTA GRILLA")
+				printerr("SELECCIONAR PLANTA GRILLA")
 				activar_particulas(VFX_HOJAS,planta_seleccionada.global_position)
 				plantas_en_tablero.erase(planta_seleccionada)
 				jardin.add_child(planta_seleccionada)
@@ -192,7 +194,6 @@ func soltar_mariposa():
 	if !mariposa_en_seleccion:
 		mariposa_seleccionada = null
 func generarl_lista_requerimientos()->Array[String]:
-	
 	var lista_de_requerimientos:Array[String]
 	for celda in lista_focus:
 		if tablero.celdas.has(celda): 
@@ -203,9 +204,9 @@ func generarl_lista_requerimientos()->Array[String]:
 			return lista_de_requerimientos
 
 	for celda in lista_focus:
-		if tablero.celdas[celda][tablero.tipo_casilla_key] == tablero.casilla_bloqueo:
-			lista_de_requerimientos.clear()
-			lista_de_requerimientos.append("")
+		#if tablero.celdas[celda][tablero.tipo_casilla_key] == tablero.casilla_bloqueo:
+			#lista_de_requerimientos.clear()
+			#lista_de_requerimientos.append("")
 		if tablero.celdas[celda][tablero.mariposa]:
 			lista_de_requerimientos.clear()
 			return [""]

@@ -3,6 +3,7 @@ class_name Interfas
 signal reiniciar
 
 @onready var SELECTOR_NIVELES:String = "res://menus/selector_niveles/selector_niveles.tscn"
+@onready var MENU_INICIO = "res://menus/menu_inicio/menu_inicio.tscn"
 
 @onready var catalogo_plantas: CatalogoPlantas = $CatalogoPlantas
 @onready var catalogo_mariposas: Control = $CatalogoMariposas
@@ -89,6 +90,9 @@ func anim_estrella()->void:
 func ocultar_cartel():
 	cartel_final.hide()
 	restaurar_camara()
+
+func volver_al_menu_principal():
+	get_tree().change_scene_to_file(MENU_INICIO)
 
 func volver_al_menu():
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)

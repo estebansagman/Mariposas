@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://e0yfifw5xtxu"]
 
-[ext_resource type="Script" uid="uid://cib2xnxar3x3h" path="res://Libro/contenedor_guias.gd" id="1_rjqmf"]
+[ext_resource type="Script" uid="uid://cib2xnxar3x3h" path="res://Libro/scripts/contenedor_guias.gd" id="1_rjqmf"]
 [ext_resource type="Texture2D" uid="uid://ucqwm1b47np8" path="res://Libro/elementos_libro/polaroid_comun.png" id="2_nicy5"]
 [ext_resource type="Texture2D" uid="uid://2w74oyqhi0xn" path="res://Libro/elementos_libro/iconos/cintaparapolaloid1.png" id="3_albcj"]
 [ext_resource type="Texture2D" uid="uid://brsvna0l0mst5" path="res://Libro/elementos_libro/polaroid-hover.png" id="3_nicy5"]
 [ext_resource type="Texture2D" uid="uid://bo1noxttg2f8y" path="res://Libro/elementos_libro/iconos/cintaparapolaloid.png" id="4_5tiun"]
 [ext_resource type="Texture2D" uid="uid://ch817274j8v2x" path="res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid.png" id="4_albcj"]
 [ext_resource type="Texture2D" uid="uid://hgvc6chyrg2j" path="res://Libro/elementos_libro/papelesparalibro/papelparanombredeplanta2.png" id="5_t10dw"]
-[ext_resource type="Script" uid="uid://dhvwal165lgmi" path="res://Libro/carteles.gd" id="6_wpabu"]
-[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/NombresEnCintas.tres" id="7_2af3d"]
+[ext_resource type="Script" uid="uid://dhvwal165lgmi" path="res://Libro/scripts/carteles.gd" id="6_wpabu"]
+[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/recursos/NombresEnCintas.tres" id="7_2af3d"]
 
 [node name="contenedor" type="HBoxContainer" unique_id=832846412]
 size_flags_horizontal = 3

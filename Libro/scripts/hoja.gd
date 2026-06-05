@@ -14,7 +14,7 @@ const PAGINADELLIBRO = preload("uid://bdrlb6hrsu17b")
 var es_clon_rafaga: bool = false
 
 func cambiar_imagenes(numero_pagina, paginas, hacia_adelante: bool = true):
-	
+
 	var pagina_actual
 	var pagina_siguiente
 	
@@ -31,7 +31,6 @@ func cambiar_imagenes(numero_pagina, paginas, hacia_adelante: bool = true):
 	sub_viewport_pagina_2.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await get_tree().process_frame
 
-
 func pasar_pagina():
 	prender_hoja()
 	animation_player.play("Acciones/Avanzar")
@@ -40,11 +39,10 @@ func pasar_pagina():
 		emit_signal("animacion_finaliza")
 		print("hubo cambio FINAL!!!")
 	apagar_hoja()
-
 func volver_a_la_pagina_anterior():
 	prender_hoja()
 	animation_player.play("Acciones/Retroceder")
-	await  animation_player.animation_finished
+	await animation_player.animation_finished
 	if not es_clon_rafaga: 
 		emit_signal("animacion_finaliza")
 		print("hubo cambio FINAL!!!")
@@ -56,10 +54,9 @@ func pasar_rapido(orientacion:String = "derecha"):
 		animation_player.play("Acciones/Avanzar")
 	elif orientacion == "izquierda":
 		animation_player.play("Acciones/Retroceder")
-		
 	await animation_player.animation_finished
 	if not es_clon_rafaga: 
-		emit_signal("animacion_finaliza")
+		#emit_signal("animacion_finaliza")
 		print("hubo cambio FINAL!!!")
 	queue_free()
 

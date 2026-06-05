@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cay3l3d8snh4g" path="res://Libro/scripts/hoja.gd" id="1_jcn28"]
 [ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_fdq4d"]
-[ext_resource type="Material" uid="uid://cgegiq8j85tlw" path="res://Libro/material_pagina_comun.tres" id="3_r31ud"]
+[ext_resource type="Material" uid="uid://cgegiq8j85tlw" path="res://Libro/recursos/material_pagina_comun.tres" id="3_r31ud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2200"]
 
@@ -106,18 +106,6 @@ tracks/2/keys = {
 "method": &"cambiar_pagina_izquierda"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HojaTransicion:transparency")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_vw0p2"]
 resource_name = "Avanzar"
@@ -163,21 +151,10 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_jcn28"]
-resource_name = "origenDerecha"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HojaTransicion")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jcn28"]
 _data = {
 &"Avanzar": SubResource("Animation_ou8xu"),
-&"Retroceder": SubResource("Animation_vw0p2"),
-&"origenDerecha": SubResource("Animation_jcn28")
+&"Retroceder": SubResource("Animation_vw0p2")
 }
 
 [node name="Hoja" type="Node3D" unique_id=127082548]

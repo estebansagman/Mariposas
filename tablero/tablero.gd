@@ -33,9 +33,13 @@ var celdas: Dictionary = {}
 
 #region GETERS
 func leer_celda(celda:Vector2i):
+	print()
+	print("----------------------")
 	if celda in celdas:
 		for key in keys_de_diccionario:
 			print(key,": ",celdas[celda][key])	
+	print("----------------------")
+	print()
 func get_posicion_fisica(celda:Vector2i)->Vector2: return local_to_map(celda)
 func get_planta_en_celda(celda:Vector2i) -> String:return celdas[celda][key_planta]
 func get_nombre_planta(celda:Vector2i)->String:
@@ -60,8 +64,6 @@ func cargar_grilla_desde_cfg(data_cfg: Dictionary) -> void:
 		celdas[celda][id_planta_key] = info[id_planta_key]
 	var dimension: int = get_used_rect().size.x
 	emit_signal("tablero_creado", dimension)
-
-
 func _generar_grilla():
 	for celda in get_used_cells():
 		var datos_tile: TileData = get_cell_tile_data(celda)

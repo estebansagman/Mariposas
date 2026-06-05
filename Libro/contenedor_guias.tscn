@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpkax36b2yb4a"]
 
-[ext_resource type="Script" uid="uid://cib2xnxar3x3h" path="res://Libro/contenedor_guias.gd" id="1_26n8l"]
+[ext_resource type="Script" uid="uid://cib2xnxar3x3h" path="res://Libro/scripts/contenedor_guias.gd" id="1_26n8l"]
 [ext_resource type="Texture2D" uid="uid://b5wyj6u06ipic" path="res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid_prueba.png" id="1_i6l83"]
 
 [node name="contenedor" type="HBoxContainer" unique_id=1450652363]

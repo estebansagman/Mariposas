@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://buk358m1t5j54" path="res://Libro/elementos_libro/iconos/orugabatarazaicono.png" id="7_8ueo3"]
 [ext_resource type="Texture2D" uid="uid://b5wyj6u06ipic" path="res://Libro/elementos_libro/mariposas polaroid/bataraza polaroid_prueba.png" id="7_hnjuf"]
 [ext_resource type="Texture2D" uid="uid://2w74oyqhi0xn" path="res://Libro/elementos_libro/iconos/cintaparapolaloid1.png" id="7_w0np0"]
-[ext_resource type="FontVariation" uid="uid://bd7uowx65reus" path="res://Libro/DatosCuiriosos.tres" id="11_0vthj"]
+[ext_resource type="FontVariation" uid="uid://bd7uowx65reus" path="res://Libro/recursos/DatosCuiriosos.tres" id="11_0vthj"]
 [ext_resource type="Texture2D" uid="uid://dpenqo5l6ffgl" path="res://Libro/elementos_libro/plantaspolaloidver2.png/canariorojopolaloid.png" id="11_vbwu3"]
-[ext_resource type="PackedScene" uid="uid://bo5h8geremna8" path="res://Libro/cosas_viejas/escenas_viejas/etiqueta_requisitos_libro.tscn" id="12_cfxes"]
-[ext_resource type="Script" uid="uid://chodhn2b1hs0p" path="res://Libro/cosas_viejas/scripts_viejos/coleccion_mariposas.gd" id="13_ml0dk"]
+[ext_resource type="PackedScene" uid="uid://bo5h8geremna8" path="res://Libro/etiqueta_requisitos_libro.tscn" id="12_cfxes"]
+[ext_resource type="Script" uid="uid://chodhn2b1hs0p" path="res://Libro/scripts/indice.gd" id="13_ml0dk"]
 [ext_resource type="Script" uid="uid://chxls6r6epyqg" path="res://Libro/scripts/plantas_izquierda.gd" id="14_a1m1a"]
 [ext_resource type="Script" uid="uid://7gpgxy3kgk7f" path="res://Libro/scripts/cara.gd" id="15_86i5b"]
 [ext_resource type="Texture2D" uid="uid://583hewq4iisr" path="res://Libro/elementos_libro/papelesparalibro/papelparanombredeplanta.png" id="16_5ydn7"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://b537cjygilvow" path="res://Libro/elementos_libro/papelesparalibro/papelparaatrasdelaspostales3.png" id="22_fkrp2"]
 [ext_resource type="Texture2D" uid="uid://cewcugecrod61" path="res://Libro/elementos_libro/estampitasplantas/lantanapostal.png" id="22_wq28c"]
 [ext_resource type="Texture2D" uid="uid://eueqt2dxjvem" path="res://Libro/elementos_libro/iconos/plantita_canario_rojo.png" id="25_m8ip0"]
-[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/NombresEnCintas.tres" id="26_1vcqw"]
+[ext_resource type="FontVariation" uid="uid://co1ysd1ggpwh1" path="res://Libro/recursos/NombresEnCintas.tres" id="26_1vcqw"]
 [ext_resource type="Texture2D" uid="uid://csjunnwa7uiab" path="res://plantas/imagenes_ejemplares/Salviaflor.png" id="26_sj6ps"]
 [ext_resource type="Texture2D" uid="uid://dajiqugv57072" path="res://plantas/imagenes_ejemplares/Salviaflor2.png" id="27_w0c7o"]
 [ext_resource type="Texture2D" uid="uid://bt3rw86lieit6" path="res://Libro/elementos_libro/orugas/orugaba_bloqueada.png" id="29_pvml1"]
@@ -112,6 +112,7 @@ grow_vertical = 2
 color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 
 [node name="CaraIzquierda" type="Control" parent="." unique_id=1019688470]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_left = 1.0
@@ -1029,7 +1030,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Plantas" type="Control" parent="CaraDerecha" unique_id=1546457184]
-visible = false
 anchors_preset = 0
 offset_left = 1.0
 offset_top = 2.0

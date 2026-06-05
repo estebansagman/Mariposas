@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="1_k7nes"]
 [ext_resource type="StyleBox" uid="uid://c0dspmn2x8ab" path="res://menus/selector_niveles/paneles.tres" id="1_rfvlp"]
 [ext_resource type="StyleBox" uid="uid://balnbgiebwlht" path="res://menus/selector_niveles/panel_interno.tres" id="2_w7mj0"]
-[ext_resource type="Texture2D" uid="uid://ifu2qybl10wq" path="res://menus/selector_niveles/imagenes/nivel-bloqueado.png" id="4_3dvas"]
+[ext_resource type="Texture2D" uid="uid://c7r1ef8rgc866" path="res://menus/selector_niveles/imagenes/nivel-bloqueado.png" id="4_3dvas"]
 [ext_resource type="Shader" uid="uid://bt6c7uetgk1ch" path="res://VFX/shaders/revelado_foto.gdshader" id="4_px0sl"]
-[ext_resource type="Texture2D" uid="uid://ndtd2bvqkhlf" path="res://menus/selector_niveles/imagenes/polaroid.png" id="4_sbog6"]
+[ext_resource type="Texture2D" uid="uid://cr6moh68rnko" path="res://menus/selector_niveles/imagenes/polaroid.png" id="4_sbog6"]
 [ext_resource type="PackedScene" uid="uid://blx5xcddevteb" path="res://UI/puntaje.tscn" id="5_ixsf2"]
-[ext_resource type="Texture2D" uid="uid://bim3if5pl3hvs" path="res://menus/selector_niveles/imagenes/polaroid-seleccionada.png" id="5_sbog6"]
-[ext_resource type="Texture2D" uid="uid://b6ehrpx10w1mr" path="res://menus/selector_niveles/imagenes/nivel-1.png" id="5_wqncv"]
-[ext_resource type="Texture2D" uid="uid://dn35js2ps126q" path="res://menus/selector_niveles/imagenes/chinche.png" id="7_ixsf2"]
+[ext_resource type="Texture2D" uid="uid://cgnpk1vyid6xw" path="res://menus/selector_niveles/imagenes/polaroid-seleccionada.png" id="5_sbog6"]
+[ext_resource type="Texture2D" uid="uid://biux35yxxiepp" path="res://menus/selector_niveles/imagenes/nivel-1.png" id="5_wqncv"]
+[ext_resource type="Texture2D" uid="uid://d02tcsd3wimqc" path="res://menus/selector_niveles/imagenes/chinche.png" id="7_ixsf2"]
 
 [sub_resource type="Gradient" id="Gradient_4qldc"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)

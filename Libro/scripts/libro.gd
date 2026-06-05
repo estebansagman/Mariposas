@@ -12,6 +12,7 @@ var pagina_actual:int = 0
 var paginas:Array = [["indice",""]]
 var botones_activados:bool = true
 
+
 func abrir():
 	show()
 	get_tree().paused = true
@@ -20,9 +21,9 @@ func abrir():
 	pagina_izquierda.mostrar_cara("izquierda",paginas[pagina_actual][0],paginas[pagina_actual][1])
 	pagina_derecha.mostrar_cara("derecha",paginas[pagina_actual][0],paginas[pagina_actual][1])
 func cerrar():
-	hide()
 	get_tree().paused = false
-
+	hide()
+	
 func establecer_paginas():
 	var paginas_mariposa:Array = Dios.bd_interna["orden_inportancia_mariposas"]
 	var paginas_plantas:Array = Dios.bd_interna["orden_planta"]
@@ -33,58 +34,53 @@ func sumar_paginas(tipo_de_pagina,especimenes):
 		paginas.append([tipo_de_pagina,especimen])
 
 func ir_a_pagina(tipo_hoja, especimen=""):
+	print("los datos que llegan son: ",tipo_hoja," y ",especimen," | Boton: ",botones_activados)
+	
 	if botones_activados: 
 		botones_activados = false 
 	else: 
 		return
 	
 	var pagina_destino = paginas.find([tipo_hoja, especimen])
-	if pagina_destino == -1 or pagina_destino == pagina_actual:
+	if pagina_destino == -1 or pagina_destino == pagina_actual or pagina_actual < 0:
+		activar_botones()
 		return
 		
 	var cantidad_de_paginas = abs(pagina_destino - pagina_actual)
-	var orientacion = "derecha"
-	var hacia_adelante = true
-	var ruta_paginas: Array = []
+	var orientacion:String
+	var hacia_adelante:bool
+	var ruta_paginas: Array
 	var max_indice = paginas.size() - 1
 	
 	if pagina_destino > pagina_actual:
 		orientacion = "derecha"
 		hacia_adelante = true
-		for i in range(pagina_actual + 1, pagina_destino + 1):
-			var pag_segura = clamp(i, 0, max_indice)
-			ruta_paginas.append(pag_segura)
+		for i in range(pagina_actual + 1, pagina_destino + 1): 
+			ruta_paginas.append(i)
 	else:
 		orientacion = "izquierda"
 		hacia_adelante = false
 		for i in range(pagina_actual - 1, pagina_destino - 1, -1):
-			var pag_segura = clamp(i, 0, max_indice)
-			ruta_paginas.append(pag_segura)
+			ruta_paginas.append(i)
 
 	pagina_actual = pagina_destino
 	await pasar_paginas_modo_rafaga(cantidad_de_paginas, orientacion, hacia_adelante, ruta_paginas)
 	activar_botones()
 func _pasar_pagina():
-	if botones_activados: 
-		botones_activados = false 
-	else: 
-		return
-	pagina_actual = clamp(pagina_actual + 1, 1, 16)
-	if pagina_actual < 16: 
-		await hoja.cambiar_imagenes(pagina_actual, paginas,true)
-		hoja.pasar_pagina()
-	else: activar_botones()
+	var validacion = (pagina_actual > 14)or(not botones_activados)
+	if validacion:return
+	botones_activados = false 
+	pagina_actual = clamp(pagina_actual + 1, 0, 15)
+	await hoja.cambiar_imagenes(pagina_actual, paginas, true)
+	hoja.pasar_pagina()
 func _volver_a_la_pagina_anterior():
-	if botones_activados: 
-		botones_activados = false 
-	else: 
-		return
-		
-	pagina_actual = clamp(pagina_actual-1,-1,14)
-	if pagina_actual > -1: 
-		await hoja.cambiar_imagenes(pagina_actual, paginas,false)
-		hoja.volver_a_la_pagina_anterior()
-	else: activar_botones()
+	var validacion = (pagina_actual < 1)or(not botones_activados)
+	if validacion:return
+	botones_activados = false 
+	pagina_actual = clamp(pagina_actual-1,0,15)
+	await hoja.cambiar_imagenes(pagina_actual, paginas,false)
+	hoja.volver_a_la_pagina_anterior()
+	#activar_botones()
 	
 func pasar_paginas_modo_rafaga(cantidad_de_paginas: int, orientacion: String, hacia_adelante: bool, ruta_paginas: Array):
 	var contenedor_viewport = $Control/SubViewportContainer/SubViewport
@@ -120,4 +116,5 @@ func _cambiar_pagina_derecha():
 	pagina_derecha.mostrar_cara("derecha",paginas[pagina_actual][0],paginas[pagina_actual][1])
 
 func activar_botones():
+	print("hipoteticamente finalizo...")
 	botones_activados = true

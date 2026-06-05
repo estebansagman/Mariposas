@@ -15,7 +15,6 @@ signal mariposa_cambio
 
 var mariposas:Array[String]
 
-
 func generar_mariposas(datos:Array[String]):
 	mariposas = datos.duplicate()
 	print("generando")

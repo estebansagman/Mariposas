@@ -19,11 +19,11 @@ func generar_datos(especimen):
 	var lista_botones_polaroid: Array = [[polaroid_cont, polaroid_1], [polaroid_cont_2, polaroid_2]]
 	var lista_formas_planta: Array = [planta_a, planta_b]
 
-	for par in lista_botones_polaroid:
-		par[0].hide()
+	for boton_polaroid in lista_botones_polaroid:
+		boton_polaroid[0].hide()
 
-		for conexion in par[1].boton.pressed.get_connections():
-			par[1].boton.pressed.disconnect(conexion.callable)
+		for conexion in boton_polaroid[1].boton.pressed.get_connections():
+			boton_polaroid[1].boton.pressed.disconnect(conexion.callable)
 
 	for i in range(lista_mariposas_atraidas.size()):
 		if i >= lista_botones_polaroid.size(): 
@@ -37,7 +37,7 @@ func generar_datos(especimen):
 		
 		contenedor.show()
 		polaroid.rellenar(mariposa_id)
-		polaroid.boton.pressed.connect(_seleccionar_mariposa.bind(mariposa_id))
+		#polaroid.boton.pressed.connect(_seleccionar_mariposa.bind(mariposa_id))
 		if nombre_mariposa in lista_desbloqueo:
 			polaroid.boton.pressed.connect(_seleccionar_mariposa.bind(mariposa_id))
 			print("conectado ", mariposa_id, "!")
@@ -47,6 +47,8 @@ func generar_datos(especimen):
 	for i in range(formas_planta.size()):
 		if i < lista_formas_planta.size():
 			lista_formas_planta[i].texture = load(formas_planta[i])
+	if especimen == "ruda":
+		planta_a.texture = load("res://plantas/imagenes_ejemplares/ruda3.png")
 
 func _seleccionar_mariposa(mariposa:String):
 	emit_signal("pasando_pagina","mariposa",mariposa)

@@ -4,7 +4,6 @@ signal pasando_pagina(tipo_de_pagina,especimen)
 const CONTENEDOR_ACCESOS = preload("uid://e0yfifw5xtxu")
 const POLAROID_VACIA = preload("uid://cbqhid1akseog")
 
-
 @export var columnas:int
 @export_enum(
 	"mariposas",
@@ -47,29 +46,22 @@ func crear_accesos():
 			desbloqueado = Dios.bd_externa["progreso_mariposas"][item].duplicate()
 			ruta_textura = Dios.bd_interna["mariposas"][item]["textura_libro"]
 			titulo = Dios.bd_interna["mariposas"][item]["nombre"]
-
 			if !desbloqueado.is_empty():
 				boton_cont.item.texture = load(ruta_textura)
 				boton_cont.titulo.text = titulo
 			else:
 				boton_cont.item.texture = POLAROID_VACIA
 				boton_cont.titulo.text = oculto
-
 		else:
 			boton_cont.boton.pressed.connect(_seleccionar_planta.bind(item))
-			#desbloqueado = Dios.bd_externa["progreso_plantas"][item]
 			ruta_textura = Dios.bd_interna["plantas"][item]["imagen_libro"]
 			titulo = Dios.bd_interna["plantas"][item]["nombre_comun"]
 			boton_cont.item.texture = load(ruta_textura)
 			boton_cont.titulo.text = titulo
-		
-		#var textura = load(ruta_textura)
-		#boton_cont.boton.texture_normal = textura
-		#boton_cont.titulo.text = titulo
-
 
 func _seleccionar_mariposa(mariposa:String):
 	emit_signal("pasando_pagina","mariposa",mariposa)
+
 
 func _seleccionar_planta(planta:String):
 	emit_signal("pasando_pagina","planta",planta)

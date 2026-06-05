@@ -8,12 +8,14 @@
 			"niveles": {
 				"nivel_1": {
 					"superado": false,
+					"primer_entrada": true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_2": {
 					"superado": false,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
@@ -27,24 +29,28 @@
 			"niveles": {
 				"nivel_1": {
 					"superado": false,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_2": {
 					"superado": false,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_3": {
 					"superado": false,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_4": {
 					"superado": false,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
@@ -57,25 +63,29 @@
 			"desbloqueo": false,
 			"niveles": {
 				"nivel_1": {
-					"superado": false,
+					"superado": true,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_2": {
-					"superado": false,
+					"superado": true,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_3": {
-					"superado": false,
+					"superado": true,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_4": {
-					"superado": false,
+					"superado": true,
+					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}

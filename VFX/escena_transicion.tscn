@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b4cdao7hnr5f7"]
 
-[ext_resource type="PackedScene" uid="uid://mqhymlmu5a3j" path="res://niveles/Nivel_Base_2.tscn" id="1_dn645"]
-[ext_resource type="PackedScene" uid="uid://b1rexyawwl853" path="res://menus/selector_niveles/selector_niveles.tscn" id="2_40f2o"]
+[ext_resource type="Script" uid="uid://byvndqaosmr3" path="res://menus/selector_niveles/escena_transicion.gd" id="1_bif1o"]
 [ext_resource type="Shader" uid="uid://b2flqvdcmho8y" path="res://VFX/shaders/escena_transicion.gdshader" id="2_bif1o"]
 [ext_resource type="Texture2D" uid="uid://cc4keaggst30f" path="res://VFX/shaders/verdepuro.tres" id="4_j4kc0"]
 [ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="4_ys0vf"]
@@ -40,12 +39,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("1_bif1o")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=93755297]
+unique_name_in_owner = true
 position = Vector2(960, 540)
-
-[node name="EscenaGeneral" parent="Camera2D" unique_id=286834583 instance=ExtResource("1_dn645")]
-position = Vector2(-960, -540)
 
 [node name="Panel" type="Panel" parent="." unique_id=468124780]
 z_index = 12
@@ -56,6 +54,7 @@ mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_ys0vf")
 
 [node name="SubViewport" type="SubViewport" parent="Panel" unique_id=2093643664]
+unique_name_in_owner = true
 disable_3d = true
 physics_object_picking = true
 physics_object_picking_sort = true
@@ -127,16 +126,5 @@ offset_right = 320.0
 offset_bottom = 259.0
 scale = Vector2(0.099, 0.099)
 texture = ExtResource("8_x8hd8")
-
-[node name="MenuNiveles" parent="Panel" unique_id=1797611692 instance=ExtResource("2_40f2o")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 1
-grow_vertical = 1
-mouse_behavior_recursive = 2
 
 [connection signal="pressed" from="Panel/SubViewport/ItemNivel1/boton" to="Panel/SubViewport/ItemNivel1" method="seleccionar"]

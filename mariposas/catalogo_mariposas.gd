@@ -15,6 +15,11 @@ const PAPELPARAATRASDELASPOSTALES = preload("uid://biqi5q34myhyb")
 var mariposas_en_Juego:Array[Mariposa]
 var keys_mariposas:Array[String]
 var barra_interna:VScrollBar
+var boton_libro
+
+func _ready() -> void:
+	if get_tree().current_scene:
+		boton_libro = get_tree().current_scene.find_child("LibroBoton")
 
 
 func iniciar_catalogo(key_mariposas:Array[String]):
@@ -111,7 +116,6 @@ func restaurar_panel()->void:
 	#ir_a_niveles.disabled = true
 	#cartel_victoria.visible = false
 
-@onready var boton_libro = get_tree().current_scene.find_child("LibroBoton")
 func tween_libro()-> void:
 	var tl = create_tween()
 	tl.tween_property(boton_libro,"scale",Vector2(1.3,1.3),0.1)

@@ -27,8 +27,9 @@ const TIERRA_VFX = preload("uid://cus2tjoueqkvn")
 const VFX_HOJAS = preload("uid://m7pacymior17")
 
 func _ready() -> void:
-	var UI = get_tree().current_scene.find_child("UI",true,false)
-	cambio_en_jardin.connect(UI.ocultar_cartel)
+	if get_tree().current_scene:
+		var UI = get_tree().current_scene.find_child("UI",true,false)
+		cambio_en_jardin.connect(UI.ocultar_cartel)
 
 func _input(event: InputEvent) -> void:
 	girar_planta(event)

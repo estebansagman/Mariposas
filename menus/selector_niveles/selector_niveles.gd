@@ -39,19 +39,23 @@ func actualizar_estado():
 				item.dar_indice()
 				item.nivel_elejido.connect(self.seleccionar_nivel)
 
-func seleccionar_nivel(nivel, indice_b, sector_b):
+func seleccionar_nivel(nivel, indice_b, sector_b, padre):
 	nivel_seleccionado = true
 	indice = indice_b
 	sector_actual = sector_b
 	nivel_elegido = nivel
-	entrar_al_nivel()
+	entrar_al_nivel(padre)
 
-func entrar_al_nivel():
+func entrar_al_nivel(padre):
 	if not Dios.bd_externa["sectores"]["seccion_"+str(sector_actual)]["desbloqueo"]:
 		timer.start()
 		alerta_bloqueo.show()
 		return
-	get_tree().change_scene_to_file(nivel_elegido)
+	#get_tree().change_scene_to_file(nivel_elegido)
+	var escena = load(nivel_elegido).instantiate()
+	escena.position = Vector2(-960,-540)
+	escena.set_process(false)
+	padre.add_child(escena)
 
 func vovler_al_menu():
 	get_tree().change_scene_to_file(MENU_INICIO)

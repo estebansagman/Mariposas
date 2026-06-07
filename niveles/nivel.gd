@@ -63,7 +63,9 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 		else:
 			panel_mouse.hide()
 
+@onready var scene = get_tree().current_scene
 func _ready() -> void:
+	tree_exited.connect(reclamar_tree)
 	panel_mouse = PanelContainer.new()
 	panel_mouse.z_index = 5
 	label_mouse = Label.new()
@@ -265,3 +267,15 @@ func dibujar_planta_cargada(planta:Planta):
 	planta.giro_de_planta()
 	jardin.jardinero.posicionar_planta(planta)
 	await get_tree().process_frame
+
+func reclamar_tree()->void:
+	print(scene)
+	if scene != self and scene:
+		print(scene.get_tree().change_scene_to_node(self))
+
+#func reclamar_tree()->void:
+	#print(get_tree().current_scene)
+	#if get_tree().current_scene != self:
+		#var actual = get_tree().current_scene
+		##self.get_parent().remove_child(self)
+		#print(actual.get_tree().change_scene_to_node(self))

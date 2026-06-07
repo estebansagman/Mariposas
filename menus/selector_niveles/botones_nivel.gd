@@ -1,5 +1,5 @@
 extends TextureRect
-signal nivel_elejido(nivel_actual, indice, sector,padre)
+signal nivel_elejido(nivel_actual, indice, sector,reemplazar)
 signal ubicar(global_position)
 
 @export var indice:int
@@ -52,13 +52,42 @@ func seleccionar():
 	#ubicar.emit(global_position)
 	iniciar_transicion()
 
-func reconocer_nivel(padre)->void:
+func reconocer_nivel(reemplazar)->void:
 	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
 	if ResourceLoader.exists(ruta_actual):
-		emit_signal("nivel_elejido", ruta_actual, indice, sector,padre)
+		emit_signal("nivel_elejido", ruta_actual, indice, sector,reemplazar)
 
 
+func iniciar_transicion()->void:
+	var escena_transicion = get_tree().current_scene
+	var menu = get_tree().current_scene.find_child("MenuNiveles",true,false)
+	var subview = escena_transicion.subview
+	if !menu:
+		printerr("No se encontró el MenuNiveles")
+		return
+	menu.reparent(subview,true)
+	subview.move_child(menu,0)
+	
+	#get_tree().paused = true
+	reconocer_nivel(false)
+	
+	var polaroid = escena_transicion.polaroid
+	var t = create_tween()
+	var dur = 0.8 #1
+	polaroid.global_position = self.global_position
+	t.tween_property(polaroid,"scale",Vector2.ONE*26,dur).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	await t.finished
+	reconocer_nivel(true)
+	
 
+#func iniciar_transicion()->void:
+	#var ESCENA_TRANSICION = preload("uid://b4cdao7hnr5f7")
+	#var pantalla_inicial = get_tree().current_scene.duplicate()
+	#print(get_tree().current_scene)
+	#ESCENA_TRANSICION.set_meta("escena_inicial",pantalla_inicial)
+	#get_tree().change_scene_to_packed(ESCENA_TRANSICION)
+
+"""
 func iniciar_transicion()->void:
 	const ESCENA_TRANSICION = preload("uid://b4cdao7hnr5f7")
 	var transicion = ESCENA_TRANSICION.instantiate()
@@ -86,3 +115,4 @@ func duplicar(ubicacion,parent)->void:
 	mascara.get_child(2).texture = VERDEPURO
 	
 	t.tween_property(mascara,"scale",Vector2.ONE*25,1).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+"""

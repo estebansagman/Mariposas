@@ -2,7 +2,7 @@ extends Control
 class_name Interfas
 signal reiniciar
 
-@onready var SELECTOR_NIVELES:String = "res://menus/selector_niveles/selector_niveles.tscn"
+@onready var SELECTOR_NIVELES:String = "res://VFX/escena_transicion.tscn"
 
 @onready var catalogo_plantas: CatalogoPlantas = $CatalogoPlantas
 @onready var catalogo_mariposas: Control = $CatalogoMariposas

@@ -15,12 +15,12 @@ func dar_indice():
 	var datos_sector = sectores.get("seccion_" + str(sector), {})
 	var nivel_estado = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["superado"]
 	var ruta_imagen = Dios.bd_interna["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["imagen"]
-	var primer_entrada = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["primer_entrada"]
+	#var primer_entrada = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["primer_entrada"]
 	var ruta_incognita = "res://menus/selector_niveles/imagenes/nivel-bloqueado.png"
 	if Dios.bd_externa["sectores"]["seccion_"+str(sector)]["desbloqueo"]:
 
 		var t = create_tween()
-		if primer_entrada or activar_siempre:
+		if "primer_entrada" or activar_siempre:
 			Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["primer_entrada"] = false
 			Dios.guardar_bd_externa()
 			#var t = create_tween()

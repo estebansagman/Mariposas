@@ -7,6 +7,10 @@ const LIBRO_3D = preload("uid://bshljp84410s4")
 @onready var pagina_derecha: Pagina = $Control/Derecha
 @onready var hoja: Hoja = $Control/SubViewportContainer/SubViewport/Hoja
 @onready var sub_viewport_container: SubViewportContainer = $Control/SubViewportContainer
+@onready var exterior_anim: AnimationPlayer = $"Control/ExteriorRender/ExteriorViewport/Libro Exterior/AnimationPlayer"
+@onready var boton_izquierda: TextureButton = $Control/PaginaIzquierda
+@onready var boton_derecha: TextureButton = $Control/PaginaDerecha
+
 
 var pagina_actual:int = 0
 var paginas:Array = [["indice",""]]
@@ -68,20 +72,41 @@ func ir_a_pagina(tipo_hoja, especimen=""):
 	activar_botones()
 func _pasar_pagina():
 	var validacion = (pagina_actual > 14)or(not botones_activados)
+
+	if pagina_actual == -1:
+		print("Abrir")
+		exterior_anim.speed_scale = 2
+		exterior_anim.play_backwards("LibroExteriorAnim/CerrarTapa")
+		await exterior_anim.animation_finished
+		pagina_izquierda.show()
+		pagina_derecha.show()
+		boton_izquierda.show()
+
 	if validacion:return
 	botones_activados = false 
 	pagina_actual = clamp(pagina_actual + 1, 0, 15)
 	await hoja.cambiar_imagenes(pagina_actual, paginas, true)
 	hoja.pasar_pagina()
+
+
 func _volver_a_la_pagina_anterior():
-	var validacion = (pagina_actual < 1)or(not botones_activados)
+	var validacion = (pagina_actual < 0)or(not botones_activados)
 	if validacion:return
 	botones_activados = false 
-	pagina_actual = clamp(pagina_actual-1,0,15)
+	pagina_actual = clamp(pagina_actual-1,-1,15)
 	await hoja.cambiar_imagenes(pagina_actual, paginas,false)
 	hoja.volver_a_la_pagina_anterior()
 	#activar_botones()
-	
+
+	if pagina_actual == -1:
+		print("Cerrar")
+		pagina_izquierda.hide()
+		pagina_derecha.hide()
+		boton_izquierda.hide()
+		exterior_anim.speed_scale = .8
+		exterior_anim.play("LibroExteriorAnim/CerrarTapa")
+
+
 func pasar_paginas_modo_rafaga(cantidad_de_paginas: int, orientacion: String, hacia_adelante: bool, ruta_paginas: Array):
 	var contenedor_viewport = $Control/SubViewportContainer/SubViewport
 	var lista_hojas: Array

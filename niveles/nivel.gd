@@ -16,14 +16,16 @@ var nivel = "nivel_"+str(numero_de_nivel)
 const UI_EDICION = preload("uid://la1ktrp08bfg")
 
 
-@export_enum(
-	"bandera_argentina",
-	"cuatro_ojos",
-	"espejito",
-	"limonero",
-	"perezosa",
-	"bataraza"
-	) var Especie_mariposa:Array[String]
+#@export_enum(
+	#"bandera_argentina",
+	#"cuatro_ojos",
+	#"espejito",
+	#"limonero",
+	#"perezosa",
+	#"bataraza"
+	#) var Especie_mariposa:Array[String]
+var Especie_mariposa:Array
+
 @export_enum(
 	"ceibo:A",
 	"ceibo:B",
@@ -44,12 +46,13 @@ const UI_EDICION = preload("uid://la1ktrp08bfg")
 	"lantana:A",
 	"lantana:B"
 	) var Especie_planta:Array[String]	
-#@export_enum(
-	#"objeto_a",
-	#"objeto_b",
-	#"objeto_c",
-	#) var tipos_objeto:Array[String]
-var tipos_objeto:Array[String] = ["objeto_a","objeto_b","objeto_c"]
+@export_enum(
+	"objeto_a",
+	"objeto_b",
+	"objeto_c",
+	"objeto_d",
+	) var tipos_objeto:Array[String]
+#var tipos_objeto:Array[String] = ["objeto_a","objeto_b","objeto_c"]
 
 @export var datos_de_libro:Array[Recompensa]
 const PLANTA = preload("uid://der8d61kw3xr8")
@@ -78,13 +81,28 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 		else:
 			panel_mouse.hide()
 func _ready() -> void:
+	traer_lista_mariposas()
 	definir_etiqueta_del_mause()
 	ordenar_mariposas_segun_importancia()
 	jardin.naturaleza.generar_mariposas(Especie_mariposa)
 	sistema_debug()
 	cambiar_entre_ui_edicion_y_juego()
 	if !editando: aplicar_apariencia_ganado()
+	asignar_señales()
+
+func traer_lista_mariposas():
+	var seccion_actual:String = "seccion_"+str(numero_de_sector)
+	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
+	var lista_mariposas = Dios.bd_interna["sectores"][seccion_actual]["niveles"][nivel_actual]["mariposas"]
+	Especie_mariposa = lista_mariposas
+	
+func asignar_señales():
 	jardin.jardinero.guardar_nivel.connect(guardar_estado_actual)
+	jardin.tablero.en_area_de_juego.connect(jardin.jardinero.entrar_en_area_de_juego)
+	jardin.tablero.fuera_de_area.connect(jardin.jardinero.salir_del_area_de_juego)
+	jardin.tablero.tablero_creado.connect(jardin.establecer_columnas)
+	area_de_juego.mouse_entered.connect(jardin.jardinero.entrar_en_area_de_juego)
+	area_de_juego.mouse_entered.connect(jardin.jardinero.salir_del_area_de_juego)
 func ordenar_mariposas_segun_importancia():
 	var orden_importancia = Dios.bd_interna["orden_inportancia_mariposas"]
 	var especies_ordenadas: Array[String] = []
@@ -139,7 +157,7 @@ func aplicar_apariencia_ganado():
 func sumar_puntos():
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
 	ui.catalogo_mariposas.marcar_mariposas(mariposas_jugadas)
-	if Especie_mariposa.size() == mariposas_jugadas.size():
+	if Especie_mariposa.size() == mariposas_jugadas.size() and !editando:
 		var s_id = "seccion_" + str(numero_de_sector)
 		var nivel_id = "nivel_" + str(numero_de_nivel)
 		var estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
@@ -155,18 +173,34 @@ func completar_nivel():
 	Dios.bd_externa["sectores"][sector_id]["niveles"][nivel_id]["superado"] = true
 	Dios.bd_externa["sectores"][sector_id]["niveles_superados"] += 1
 	Dios.guardar_bd_externa()
+#func revelar_datos():
+	#var sector_id = "seccion_" + str(numero_de_sector)
+	#var nivel_id = "nivel_" + str(numero_de_nivel)
+	#if datos_de_libro:
+		#for recompensa in datos_de_libro:
+			#var mariposa_id = recompensa.mariposa
+			#if not Dios.bd_externa["progreso_mariposas"].has(mariposa_id):
+				#Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
+			#for dato in recompensa.dato_mariposa:
+				#if dato not in Dios.bd_externa["progreso_mariposas"][mariposa_id]:
+					#var clave = Dios.bd_interna["mariposas"][mariposa_id][dato]
+					#Dios.bd_externa["progreso_mariposas"][mariposa_id].append(clave)
+	#Dios.guardar_bd_externa()
 func revelar_datos():
 	var sector_id = "seccion_" + str(numero_de_sector)
 	var nivel_id = "nivel_" + str(numero_de_nivel)
-	if datos_de_libro:
-		for recompensa in datos_de_libro:
-			var mariposa_id = recompensa.mariposa
-			if not Dios.bd_externa["progreso_mariposas"].has(mariposa_id):
-				Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
-			for dato in recompensa.dato_mariposa:
-				if dato not in Dios.bd_externa["progreso_mariposas"][mariposa_id]:
-					var clave = Dios.bd_interna["mariposas"][mariposa_id][dato]
-					Dios.bd_externa["progreso_mariposas"][mariposa_id].append(clave)
+	var nivel_interno = Dios.bd_interna["sectores"][sector_id]["niveles"][nivel_id]
+	if nivel_interno.has("mariposas"):
+		var lista_mariposas_nivel: Array = nivel_interno["mariposas"]
+		for mariposa_id in lista_mariposas_nivel:
+			Dios.otorgar_progreso_mariposa(mariposa_id)
+			
+	Dios.guardar_bd_externa()
+func in_superar_nivel():
+	var sector_id = "seccion_" + str(numero_de_sector)
+	var nivel_id = "nivel_" + str(numero_de_nivel)
+	Dios.bd_externa["sectores"][sector_id]["niveles"][nivel_id]["superado"] = false
+	Dios.bd_externa["sectores"][sector_id]["niveles_superados"] -= 1 
 	Dios.guardar_bd_externa()
 
 func volver_al_Menu():

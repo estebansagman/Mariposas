@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ffrkcpc0rq1q"]
+
+[ext_resource type="Script" uid="uid://uo1v1xljosko" path="res://plantas/ejemplares/ejemplar.gd" id="1_wtb6f"]
+[ext_resource type="Texture2D" uid="uid://cb2nmulvity62" path="res://objetos_moviles/imagen/d.png" id="2_wtb6f"]
+
+[node name="Ejemplar" type="Node2D" unique_id=398981071]
+script = ExtResource("1_wtb6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978649440]
+position = Vector2(-32, -32)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_wtb6f")

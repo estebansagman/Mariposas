@@ -69,28 +69,28 @@
 			"desbloqueo": false,
 			"niveles": {
 				"nivel_1": {
-					"superado": true,
+					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_2": {
-					"superado": true,
+					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_3": {
-					"superado": true,
+					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
 					}
 				},
 				"nivel_4": {
-					"superado": true,
+					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 

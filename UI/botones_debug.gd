@@ -42,5 +42,8 @@ func borrar_progreso():
 		Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
 	Dios.guardar_bd_externa()	
 
+func in_superar():
+	nivel_jugandose.in_superar_nivel()
+
 func borrar_estado_niveles():
 	Dios.replicar_niveles_a_user(true)

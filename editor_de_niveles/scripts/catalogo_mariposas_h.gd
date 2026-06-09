@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 class_name CatalogoMariposasH
 
 #const BOTON_MARIPOSA = preload("uid://6fvergr40whw")

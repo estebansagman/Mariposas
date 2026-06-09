@@ -3,6 +3,9 @@ extends Node
 var ruta_user = "user://BD_externa.json"
 var ruta_res = "res://data/BD_externa.json"
 
+var sector_actual: int
+var nivel_actual: int
+
 var bd_interna: Dictionary = {}
 var bd_externa: Dictionary = {}
 #var bd_interna_externa: Dictionary = {}
@@ -67,7 +70,6 @@ func replicar_niveles_a_user(forzar_pisado: bool = false):
 				if forzar_pisado or not FileAccess.file_exists(ruta_destino):
 					DirAccess.copy_absolute(ruta_origen, ruta_destino)
 					print("Copiado/Pisado: ", texto_sector, " -> ", texto_nivel)
-
 func borrar_todo():
 	var dir = DirAccess.open("res://")
 	dir.copy(ruta_res, ruta_user)
@@ -94,8 +96,6 @@ func equiparar_bases_directo() -> void:
 		return
 	_fusionar_diccionarios(molde_original, bd_externa)
 	guardar_bd_externa()
-
-
 func _fusionar_diccionarios(molde: Dictionary, jugador: Dictionary) -> void:
 	for clave in molde:
 		if not jugador.has(clave):
@@ -108,3 +108,27 @@ func _fusionar_diccionarios(molde: Dictionary, jugador: Dictionary) -> void:
 			print(" -> Parche aplicado en BD_externa: Se agregó la clave: ", clave)
 		elif molde[clave] is Dictionary and jugador[clave] is Dictionary:
 			_fusionar_diccionarios(molde[clave], jugador[clave])
+func otorgar_progreso_mariposa(mariposa_id: String) -> void:
+	if not bd_externa["progreso_mariposas"].has(mariposa_id):
+		bd_externa["progreso_mariposas"][mariposa_id] = []
+		
+	var progreso_actual: Array = bd_externa["progreso_mariposas"][mariposa_id]
+	var data_interna = bd_interna["mariposas"][mariposa_id]
+	
+	if progreso_actual.size() == 0:
+		progreso_actual.append(data_interna["nombre"])
+		progreso_actual.append(data_interna["textura_libro"])
+		print("-> ", mariposa_id, ": Desbloqueada Etapa 1 (Nombre e Imagen)")
+		return
+		
+	if progreso_actual.size() == 2:
+		progreso_actual.append(data_interna["nombre_cientifico"])
+		progreso_actual.append(data_interna["dato_curioso_1"])
+		print("-> ", mariposa_id, ": Desbloqueada Etapa 2 (Nombre Científico y Dato 1)")
+		return
+		
+	if progreso_actual.size() == 4:
+		progreso_actual.append(data_interna["textura_oruga_libro"])
+		progreso_actual.append(data_interna["dato_curioso_2"])
+		print("-> ", mariposa_id, ": Desbloqueada Etapa 3 (Oruga y Dato 2)")
+		return

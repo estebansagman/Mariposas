@@ -12,17 +12,28 @@
                 "nivel_1": {
                     "numero": 1.0,
                     "titulo": "",
-                    "imagen": "res://menus/selector_niveles/imagenes/nivel-1.png"
+                    "imagen": "res://menus/selector_niveles/imagenes/nivel-1.png",
+                    "mariposas": [
+                        "bataraza"
+                    ]
                 },
                 "nivel_2": {
                     "numero": 2.0,
                     "titulo": "",
-                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
+                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito"
+                    ]
                 },
                 "nivel_3": {
                     "numero": 3.0,
                     "titulo": "",
-                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
+                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito"
+                    ]
                 }
             }
         },
@@ -35,22 +46,42 @@
                 "nivel_1": {
                     "numero": 1.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito",
+                        "cuatro_ojos"
+                    ]
                 },
                 "nivel_2": {
                     "numero": 2.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito",
+                        "cuatro_ojos"
+                    ]
                 },
                 "nivel_3": {
                     "numero": 3.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bandera_argentina",
+                        "limonero",
+                        "perezosa"
+                    ]
                 },
                 "nivel_4": {
                     "numero": 4.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bandera_argentina",
+                        "limonero",
+                        "perezosa"
+                    ]
                 }
             }
         },
@@ -63,22 +94,52 @@
                 "nivel_1": {
                     "numero": 1.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito",
+                        "cuatro_ojos",
+                        "bandera_argentina",
+                        "limonero",
+                        "perezosa"
+                    ]
                 },
                 "nivel_2": {
                     "numero": 2.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito",
+                        "cuatro_ojos",
+                        "bandera_argentina",
+                        "limonero",
+                        "perezosa"
+                    ]
                 },
                 "nivel_3": {
                     "numero": 3.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "cuatro_ojos",
+                        "bandera_argentina",
+                        "limonero",
+                        "perezosa"
+                    ]
                 },
                 "nivel_4": {
                     "numero": 4.0,
                     "titulo": "",
-                    "imagen": ""
+                    "imagen": "",
+                    "mariposas": [
+                        "bataraza",
+                        "espejito",
+                        "cuatro_ojos",
+                        "bandera_argentina",
+                        "limonero",
+                        "perezosa"
+                    ]
                 }
             }
         }
@@ -748,15 +809,11 @@
             "forma": [
                     [
                         0.0,
-                        -1.0
-                    ],
-                    [
-                        0.0,
                         0.0
                     ],
                     [
-                        0.0,
-                        1.0
+                        1.0,
+                        0.0
                     ]
                 ]
             },
@@ -770,16 +827,8 @@
                         0.0
                     ],
                     [
-                        0.0,
-                        -1.0
-                    ],
-                    [
-                        0.0,
-                        1.0
-                    ],
-                    [
-                        -1.0,
-                        -1.0
+                        1.0,
+                        0.0
                     ]
                 ]
             },
@@ -787,6 +836,29 @@
             "objeto": "cantero",
             "forma_superficial": "res://objetos_moviles/objetos/objeto_c.tscn",
             "imagen": "res://objetos_moviles/imagen/c.png",
+            "forma": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            },
+        "objeto_d": {
+            "objeto": "cantero",
+            "forma_superficial": "res://objetos_moviles/objetos/objeto_d.tscn",
+            "imagen": "res://objetos_moviles/imagen/d.png",
             "forma": [
                     [
                         0.0,

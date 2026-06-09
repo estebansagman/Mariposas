@@ -1,9 +1,6 @@
 extends Resource
 class_name Recompensa
 
-#el dato de las plantas son las mariposas, sin embargo, el dato en si es
-#la mariposa, contrasta su lista con las mariposa desbloqueada y la muestra.
-
 @export_enum(
 	"bandera_argentina",
 	"cuatro_ojos",

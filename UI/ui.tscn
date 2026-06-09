@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://bsgyvt3r4lr0y" path="res://UI/imagenes/inicio_hover.png" id="16_j5i65"]
 [ext_resource type="PackedScene" uid="uid://bnquojpei6eqf" path="res://plantas/catalogo_plantas.tscn" id="16_o2t6a"]
 [ext_resource type="PackedScene" uid="uid://rdqgx8jdlho8" path="res://mariposas/catalogo_mariposas.tscn" id="17_8gukh"]
-[ext_resource type="Script" uid="uid://d15s160jij4pq" path="res://UI/control.gd" id="18_8gkfd"]
 [ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro.tscn" id="20_7j5ik"]
 [ext_resource type="Texture2D" uid="uid://h25gre1f2uwa" path="res://menus/selector_niveles/imagenes/estrella.png" id="20_j5i65"]
 
@@ -260,6 +259,14 @@ offset_bottom = 301.0
 text = "Superar Nivel
 "
 
+[node name="DesSuperar" type="Button" parent="botones_debug" unique_id=152684629]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 306.0
+offset_right = 236.0
+offset_bottom = 346.0
+text = "des-superar"
+
 [node name="Estrella2" type="Sprite2D" parent="." unique_id=59408244]
 visible = false
 z_index = 3
@@ -293,33 +300,6 @@ offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Control" type="Control" parent="." unique_id=441412539]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("18_8gkfd")
-
-[node name="generar_cfg" type="Button" parent="Control" unique_id=1050326299]
-z_index = 2
-layout_mode = 0
-offset_left = 577.0
-offset_top = 920.0
-offset_right = 780.0
-offset_bottom = 1007.0
-theme_override_font_sizes/font_size = 25
-text = "GENERAR CFG"
-
-[node name="cargar_cfg" type="Button" parent="Control" unique_id=1541379059]
-z_index = 2
-layout_mode = 0
-offset_left = 1145.0
-offset_top = 920.0
-offset_right = 1348.0
-offset_bottom = 1007.0
-theme_override_font_sizes/font_size = 25
-text = "CARGAR CFG"
-
 [connection signal="pressed" from="Camara/opciones" to="." method="volver_al_menu_principal"]
 [connection signal="pressed" from="LibroBoton" to="CanvasLayer/Libro" method="abrir"]
 [connection signal="timeout" from="Timer" to="." method="apagar_alerta_de_seleccion"]
@@ -329,3 +309,4 @@ text = "CARGAR CFG"
 [connection signal="pressed" from="botones_debug/Borrar_base_de_datos" to="botones_debug" method="borrar_bd"]
 [connection signal="pressed" from="botones_debug/Llenar_base_de_datos" to="botones_debug" method="llenar_bd"]
 [connection signal="pressed" from="botones_debug/Superar_nivels" to="botones_debug" method="superar_nivel"]
+[connection signal="pressed" from="botones_debug/DesSuperar" to="botones_debug" method="in_superar"]

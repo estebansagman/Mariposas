@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://csae5pte6k7x6"]
+
+[ext_resource type="Script" uid="uid://cyfrh14fpkenq" path="res://objetos_moviles/objetos_moviles.gd" id="1_ea38r"]
+[ext_resource type="PackedScene" uid="uid://c6pikhlq2a5qb" path="res://objetos_moviles/objetos/objeto_b.tscn" id="2_w2gn6"]
+
+[node name="ObjetoMovil" type="Node2D" unique_id=194299512]
+z_index = 3
+script = ExtResource("1_ea38r")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1347840405]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Coronillo" parent="." unique_id=398981071 instance=ExtResource("2_w2gn6")]
+visible = false
+
+[connection signal="area_entered" from="Area2D" to="." method="poner_mariposa"]
+[connection signal="area_exited" from="Area2D" to="." method="sacar_mariposa"]
+[connection signal="mouse_entered" from="Area2D" to="." method="prender_focus"]
+[connection signal="mouse_exited" from="Area2D" to="." method="apagar_focus"]

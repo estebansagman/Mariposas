@@ -26,7 +26,7 @@ size = Vector2(793, 791.0002)
 script = ExtResource("1_mvi86")
 numero_de_nivel = 1
 numero_de_sector = 1
-jardin = NodePath("Jardin")
+jardin = NodePath("AreaDeJuego/Jardin")
 Especie_mariposa = Array[String](["bataraza"])
 Especie_planta = Array[String](["canario_rojo:B", "salvia:A"])
 datos_de_libro = Array[ExtResource("2_6gc11")]([SubResource("Resource_pjlu4")])
@@ -34,9 +34,17 @@ datos_de_libro = Array[ExtResource("2_6gc11")]([SubResource("Resource_pjlu4")])
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("23_l83ss")]
 columnas = 4
 limpiar = true
-tablero = NodePath("../Jardin/Tablero")
-jardin = NodePath("../Jardin")
-jardinero = NodePath("../Jardin/Jardinero")
+tablero = NodePath("../AreaDeJuego/Jardin/Tablero")
+jardin = NodePath("../AreaDeJuego/Jardin")
+jardinero = NodePath("../AreaDeJuego/Jardin/Jardinero")
+
+[node name="caja_herramienta_ui" type="Control" parent="." unique_id=478337802]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="UI" parent="." unique_id=772245201 instance=ExtResource("24_tgj2m")]
 anchors_preset = 0
@@ -45,53 +53,53 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Jardin" type="Node2D" parent="." unique_id=1065102958]
+[node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
 position = Vector2(568, 81)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.99999994, 0.99999994)
+monitoring = false
+
+[node name="Jardin" type="Node2D" parent="AreaDeJuego" unique_id=1065102958]
+scale = Vector2(0.24999996, 0.24999996)
 script = ExtResource("25_lbiqj")
 columnas = 4
 
-[node name="Jardinero" parent="Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("26_vkkb5")]
+[node name="Jardinero" parent="AreaDeJuego/Jardin" unique_id=828989988 node_paths=PackedStringArray("tablero", "jardin") instance=ExtResource("26_vkkb5")]
 position = Vector2(-6.1035156e-05, 7.6293945e-06)
 scale = Vector2(12.441, 12.441)
 tablero = NodePath("../Tablero")
 jardin = NodePath("..")
 
-[node name="Naturaleza" type="Node2D" parent="Jardin" unique_id=1099403147 node_paths=PackedStringArray("jardin", "jardinero")]
+[node name="Naturaleza" type="Node2D" parent="AreaDeJuego/Jardin" unique_id=1099403147 node_paths=PackedStringArray("jardin", "jardinero")]
 scale = Vector2(12.440509, 12.440509)
 script = ExtResource("27_drfci")
 jardin = NodePath("..")
 jardinero = NodePath("../Jardinero")
 
-[node name="origen_plantas" type="Node2D" parent="Jardin" unique_id=1764700993 node_paths=PackedStringArray("jardinero")]
+[node name="origen_plantas" type="Node2D" parent="AreaDeJuego/Jardin" unique_id=1764700993 node_paths=PackedStringArray("jardinero")]
 scale = Vector2(12.440754, 12.440754)
 script = ExtResource("28_p48dl")
 jardinero = NodePath("../Jardinero")
 
-[node name="Tablero" parent="Jardin" unique_id=578022441 instance=ExtResource("29_6ugpx")]
+[node name="Tablero" parent="AreaDeJuego/Jardin" unique_id=578022441 instance=ExtResource("29_6ugpx")]
 scale = Vector2(1.555, 1.555)
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAIAAAAAAAMAAAACAAUAAAABAAAAAAACAAUAAAABAAEAAAABAAAAAAABAAIAAAABAAIAAAABAAMAAAACAAUAAAACAAAAAAACAAUAAAACAAEAAAABAAAAAAACAAIAAAABAAIAAAACAAMAAAACAAUAAAADAAAAAAACAAUAAAADAAEAAAACAAAAAAADAAMAAAACAAUAAAADAAIAAAACAAIAAAA=")
 tile_set = ExtResource("10_sxqej")
 
-[node name="foco" type="TileMapLayer" parent="Jardin" unique_id=1703620137]
+[node name="foco" type="TileMapLayer" parent="AreaDeJuego/Jardin" unique_id=1703620137]
 modulate = Color(0, 0, 0, 0.20784314)
 scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("30_0evbg")
 
-[node name="capa_plantas" type="TileMapLayer" parent="Jardin" unique_id=1247802573]
+[node name="capa_plantas" type="TileMapLayer" parent="AreaDeJuego/Jardin" unique_id=1247802573]
 scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("11_pjlu4")
 
-[node name="capa_mariposas" type="TileMapLayer" parent="Jardin" unique_id=700022566]
+[node name="capa_mariposas" type="TileMapLayer" parent="AreaDeJuego/Jardin" unique_id=700022566]
 scale = Vector2(12.440509, 12.440509)
 tile_set = ExtResource("30_0evbg")
 
-[node name="AreaDeJuego" type="Area2D" parent="." unique_id=770674697]
-position = Vector2(244.00003, 56.000008)
-scale = Vector2(0.99999994, 0.99999994)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeJuego" unique_id=66538581]
-position = Vector2(722.5, 424.49994)
+position = Vector2(396.5, 395.5)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_ii0lq")
 debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
@@ -100,12 +108,12 @@ debug_color = Color(0, 0.6, 0.69803923, 0.05882353)
 wait_time = 3.0
 
 [connection signal="reiniciar" from="UI" to="." method="reiniciar_nivel"]
-[connection signal="mariposa_jardin_cambio" from="Jardin" to="." method="sumar_puntos"]
-[connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="." method="guardar_estado_actual"]
-[connection signal="cambio_en_jardin" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="analizar_jardin"]
-[connection signal="mariposa_movida" from="Jardin/Jardinero" to="Jardin/Naturaleza" method="actualizar_posicion"]
-[connection signal="mariposa_cambio" from="Jardin/Naturaleza" to="Jardin" method="emitir_suma_de_puntos"]
-[connection signal="tablero_creado" from="Jardin/Tablero" to="Jardin" method="establecer_columnas"]
-[connection signal="mouse_entered" from="AreaDeJuego" to="Jardin/Jardinero" method="entrar_en_area_de_juego"]
-[connection signal="mouse_exited" from="AreaDeJuego" to="Jardin/Jardinero" method="salir_del_area_de_juego"]
+[connection signal="mouse_entered" from="AreaDeJuego" to="AreaDeJuego/Jardin/Jardinero" method="entrar_en_area_de_juego"]
+[connection signal="mouse_exited" from="AreaDeJuego" to="AreaDeJuego/Jardin/Jardinero" method="salir_del_area_de_juego"]
+[connection signal="mariposa_jardin_cambio" from="AreaDeJuego/Jardin" to="." method="sumar_puntos"]
+[connection signal="cambio_en_jardin" from="AreaDeJuego/Jardin/Jardinero" to="." method="guardar_estado_actual"]
+[connection signal="cambio_en_jardin" from="AreaDeJuego/Jardin/Jardinero" to="AreaDeJuego/Jardin/Naturaleza" method="analizar_jardin"]
+[connection signal="mariposa_movida" from="AreaDeJuego/Jardin/Jardinero" to="AreaDeJuego/Jardin/Naturaleza" method="actualizar_posicion"]
+[connection signal="mariposa_cambio" from="AreaDeJuego/Jardin/Naturaleza" to="AreaDeJuego/Jardin" method="emitir_suma_de_puntos"]
+[connection signal="tablero_creado" from="AreaDeJuego/Jardin/Tablero" to="AreaDeJuego/Jardin" method="establecer_columnas"]
 [connection signal="timeout" from="PasarDeNivel" to="." method="volver_al_Menu"]

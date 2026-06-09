@@ -5,6 +5,7 @@ signal pedido_de_planta(llave_planta:String,llave_estructura,forma, emisor, ejem
 @onready var boton: TextureButton = $Boton
 @onready var imagen_etiqueta: NinePatchRect = $Boton/etiqueta_hover
 @onready var etiqueta: Label = $Boton/etiqueta_hover/Label
+
 var key_planta: String
 var key_estructura:String
 var estructura:Array[Vector2i]
@@ -28,7 +29,6 @@ func _on_boton_gui_input(event: InputEvent):
 		if event.is_pressed():
 			hide()
 			pedido_de_planta.emit(key_planta, key_estructura, estructura, self, ejemplar)
-			
 			boton.accept_event()
 
 func estructurar_planta_boton():

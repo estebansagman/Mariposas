@@ -76,8 +76,6 @@ func _input(event: InputEvent) -> void:
 	var casillero_tablero: Vector2i = jardin.tablero.local_to_map(posicion_mouse_local)
 	var nombre_planta = jardin.tablero.get_nombre_planta(casillero_tablero)
 	
-	#print(nombre_planta)
-	
 	if panel_mouse:
 		panel_mouse.global_position = get_global_mouse_position() + Vector2(15, 15)
 		

@@ -5,6 +5,7 @@ var ruta_res = "res://data/BD_externa.json"
 
 var bd_interna: Dictionary = {}
 var bd_externa: Dictionary = {}
+#var bd_interna_externa: Dictionary = {}
 
 func _ready():
 	bd_interna = _cargar_archivo_json("res://data/BD_interna.json")
@@ -81,3 +82,29 @@ func debug_completar_juego():
 				bd_externa["sectores"][s_id]["niveles"][n_id]["superado"] = true
 				
 	guardar_bd_externa()
+
+func equiparar_bases_directo() -> void:
+	var molde_original = _cargar_archivo_json(ruta_res)
+	if molde_original.is_empty():
+		push_error("No se pudo cargar el molde original para equiparar.")
+		return
+	if bd_externa.is_empty():
+		bd_externa = molde_original.duplicate(true)
+		print("Base externa vacía, restaurada desde el molde.")
+		return
+	_fusionar_diccionarios(molde_original, bd_externa)
+	guardar_bd_externa()
+
+
+func _fusionar_diccionarios(molde: Dictionary, jugador: Dictionary) -> void:
+	for clave in molde:
+		if not jugador.has(clave):
+			if molde[clave] is Dictionary:
+				jugador[clave] = molde[clave].duplicate(true)
+			elif molde[clave] is Array:
+				jugador[clave] = molde[clave].duplicate()
+			else:
+				jugador[clave] = molde[clave]
+			print(" -> Parche aplicado en BD_externa: Se agregó la clave: ", clave)
+		elif molde[clave] is Dictionary and jugador[clave] is Dictionary:
+			_fusionar_diccionarios(molde[clave], jugador[clave])

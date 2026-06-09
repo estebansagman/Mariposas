@@ -1,6 +1,8 @@
 extends TileMapLayer
 class_name Tablero 
 signal tablero_creado(valor:int)
+signal fuera_de_area
+signal en_area_de_juego
 
 @export var source_tile_set:int = 1 # get_tile_set_source()
 @export var id_de_textura_base:Vector2i # get_coordenada_textura_base()
@@ -10,12 +12,13 @@ signal tablero_creado(valor:int)
 @onready var foco: TileMapLayer = $"../foco"
 
 #region DATOS DICCIONARIO
-var focus_key:String = "focus"
-var ocupado_key:String ="ocupado"
-var tipo_casilla_key:String ="tipo_casilla"
-var key_planta:String ="key_planta"
+var focus_key:String = "focus" # SI
+var ocupado_key:String ="ocupado" # SI
+var tipo_casilla_key:String ="tipo_casilla" #SI
+var key_planta:String ="key_planta" # SI
 var nombre_key:String ="nombre"
 var id_planta_key:String ="id_planta"
+var id_objeto_key:String = "id_objeto"
 var id_mariposa_key:String = "id_mariposa"
 var id_set_source_key:String ="id_set_source"
 var coord_atlas_key:String ="coord_atlas"
@@ -26,7 +29,7 @@ var mariposa: = "hay_mariposa"
 
 var keys_de_diccionario:Array[String] = [focus_key,ocupado_key,tipo_casilla_key,
 										key_planta,nombre_key,tipo,mariposa,
-										id_planta_key,id_mariposa_key,id_set_source_key,
+										id_planta_key,id_objeto_key,id_mariposa_key,id_set_source_key,
 										coord_atlas_key,id_alternativo_key]
 var celdas: Dictionary = {}
 
@@ -40,18 +43,22 @@ func leer_celda(celda:Vector2i):
 			print(key,": ",celdas[celda][key])	
 	print("----------------------")
 	print()
-func get_posicion_fisica(celda:Vector2i)->Vector2: return local_to_map(celda)
-func get_planta_en_celda(celda:Vector2i) -> String:return celdas[celda][key_planta]
+
 func get_nombre_planta(celda:Vector2i)->String:
 	if not celdas.has(celda): 
 		return ""
 	return celdas[celda][nombre_key]
 func get_ocupacion_de_celda(celda:Vector2i) -> bool: return celdas[celda][ocupado_key]
-func get_existencia_de_mariposas(celda:Vector2i)->bool: return celdas[celda][mariposa]
 func get_tipo(celda:Vector2i) -> String: return celdas[celda][tipo]
 func get_id_planta(celda:Vector2i): return celdas[celda][id_planta_key]
+func get_id_objeto(celda:Vector2i) -> int: return celdas[celda][id_objeto_key]
 #endregion
 
+func determinar_interior_exterior_de_grilla(celda:Vector2i):
+	if celda in get_used_cells():
+		emit_signal("en_area_de_juego")
+	else:
+		emit_signal("fuera_de_area")
 func cargar_grilla_desde_cfg(data_cfg: Dictionary) -> void:
 	if data_cfg.is_empty():
 		_generar_grilla()
@@ -62,6 +69,7 @@ func cargar_grilla_desde_cfg(data_cfg: Dictionary) -> void:
 		celdas[celda][nombre_key] = info[nombre_key]
 		celdas[celda][tipo] = info[tipo]
 		celdas[celda][id_planta_key] = info[id_planta_key]
+		celdas[celda][id_objeto_key] = info[id_objeto_key]
 	var dimension: int = get_used_rect().size.x
 	emit_signal("tablero_creado", dimension)
 func _generar_grilla():
@@ -78,10 +86,10 @@ func _generar_grilla():
 	var dimension: int = get_used_rect().size.x
 	emit_signal("tablero_creado", dimension)
 
-func corroborar_celda(celda:Vector2i)->bool:
-	if celda in celdas:
-		return true
-	else: return false
+#func corroborar_celda(celda:Vector2i)->bool:
+	#if celda in celdas:
+		#return true
+	#else: return false
 func pintar_lienzo(): #se queda
 	foco.clear()
 	for celda in celdas: 
@@ -107,17 +115,23 @@ func _formatear_celda(celda:Vector2i,ocupacion:bool,tipo_casilla:String,coordena
 	celdas[celda][tipo] = ""
 	celdas[celda][mariposa] = false
 	celdas[celda][id_planta_key] = -1
+	celdas[celda][id_objeto_key] = -1
 	celdas[celda][id_mariposa_key] = -1
 	celdas[celda][id_set_source_key] = source_tile_set
 	celdas[celda][coord_atlas_key] = coordenada_atlas
 	celdas[celda][id_alternativo_key] = id_alternativo_foco
-func ocupar_celda(celda:Vector2i, planta:Planta = null,mariposa:Mariposa = null):
+	
+func ocupar_celda(celda:Vector2i, planta:Planta = null, mariposa:Mariposa = null, objeto:ObjetosMoviles = null):
 	if planta:
 		celdas[celda][ocupado_key] = true
 		celdas[celda][key_planta] = planta 
-		celdas[celda][nombre_key] = planta.get_nombre_planta() 
+		celdas[celda][nombre_key] = planta.get_nombre_planta()
 		celdas[celda][tipo] = planta.get_tipo_planta()
 		celdas[celda][id_planta_key] = planta.get_id_planta()
+	if objeto:
+		celdas[celda][ocupado_key] = true
+		celdas[celda][key_planta] = objeto 
+		celdas[celda][id_objeto_key] = objeto.get_id_objeto()
 	if mariposa:
 		celdas[celda][mariposa] = true
 		celdas[celda][id_mariposa_key] = mariposa.id_mariposa
@@ -131,6 +145,7 @@ func vaciar_celda(celda:Vector2i):
 	celdas[celda][nombre_key] = ""
 	celdas[celda][tipo] = ""
 	celdas[celda][id_planta_key] = 0
+	celdas[celda][id_objeto_key] = 0
 	celdas[celda][id_set_source_key] = source_tile_set
 	celdas[celda][coord_atlas_key] = id_de_textura_base
 	celdas[celda][id_alternativo_key] = id_alternativo_foco

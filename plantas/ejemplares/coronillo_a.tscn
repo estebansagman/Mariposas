@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c6pikhlq2a5qb"]
+[gd_scene format=3 uid="uid://j3ovowfmfr5a"]
 
 [ext_resource type="Script" uid="uid://uo1v1xljosko" path="res://plantas/ejemplares/ejemplar.gd" id="1_0knn7"]
 [ext_resource type="Texture2D" uid="uid://db2funcldwqj5" path="res://plantas/imagenes_ejemplares/coronilloplanta.png" id="2_0knn7"]

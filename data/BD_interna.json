@@ -18,6 +18,11 @@
                     "numero": 2.0,
                     "titulo": "",
                     "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
+                },
+                "nivel_3": {
+                    "numero": 3.0,
+                    "titulo": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png"
                 }
             }
         },
@@ -734,5 +739,73 @@
             "dato_curioso_2": "Sus orugas son gregarias, esto quiere decir que se mantienen en grupos numerosos desde su nacimiento, para defenderse mejor de los depredadores.",
             "icono_oruga": "res://Libro/elementos_libro/iconos/orugaperezosaicono.png"
         }
-    }
+    },
+    "objetos": {
+        "objeto_a": {
+            "objeto": "mesa",
+            "forma_superficial": "res://objetos_moviles/objetos/objeto_a.tscn",
+            "imagen": "res://objetos_moviles/imagen/a.png",
+            "forma": [
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ]
+                ]
+            },
+        "objeto_b": {
+            "objeto": "silla",
+            "forma_superficial": "res://objetos_moviles/objetos/objeto_b.tscn",
+            "imagen": "res://objetos_moviles/imagen/b.png",
+            "forma": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            },
+        "objeto_c": {
+            "objeto": "cantero",
+            "forma_superficial": "res://objetos_moviles/objetos/objeto_c.tscn",
+            "imagen": "res://objetos_moviles/imagen/c.png",
+            "forma": [
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        -1.0
+                    ],
+                    [
+                        -1.0,
+                        -1.0
+                    ]
+                ]
+            }
+        }
+        
 }

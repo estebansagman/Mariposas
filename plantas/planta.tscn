@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://der8d61kw3xr8"]
 
 [ext_resource type="Script" uid="uid://bv53f3ebg1dt3" path="res://plantas/planta.gd" id="1_vu1iw"]
-[ext_resource type="PackedScene" uid="uid://c6pikhlq2a5qb" path="res://plantas/ejemplares/coronillo_a.tscn" id="2_ebi6t"]
+[ext_resource type="PackedScene" uid="uid://c6pikhlq2a5qb" path="res://objetos_moviles/objetos/objeto_b.tscn" id="2_ebi6t"]
 
 [node name="Planta" type="Node2D" unique_id=194299512]
 z_index = 3

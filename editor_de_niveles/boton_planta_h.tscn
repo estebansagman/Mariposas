@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://fb28d6v5ky1k"]
+
+[ext_resource type="Script" uid="uid://qqbt8a1xglep" path="res://editor_de_niveles/scripts/boton_planta_h.gd" id="1_rs5hf"]
+[ext_resource type="Texture2D" uid="uid://dxjk2iqu6d15s" path="res://plantas/imagenes_ejemplares/mburucuyaflor2.png" id="2_045aw"]
+[ext_resource type="Texture2D" uid="uid://2n64fu25fpp8" path="res://UI/imagenes/requisitos.png" id="3_4essn"]
+[ext_resource type="FontFile" uid="uid://cmh3bcgsqjr82" path="res://UI/Vogue.ttf" id="4_a82d2"]
+
+[sub_resource type="FontVariation" id="FontVariation_o0xy4"]
+base_font = ExtResource("4_a82d2")
+spacing_glyph = -1
+spacing_top = 4
+
+[node name="Contenedor_planta_boton" type="VBoxContainer" unique_id=1041807110]
+mouse_filter = 2
+script = ExtResource("1_rs5hf")
+
+[node name="Separador" type="Control" parent="." unique_id=1129380922]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=794352162]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Boton" type="TextureButton" parent="HBoxContainer" unique_id=1384507542]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+texture_normal = ExtResource("2_045aw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="etiqueta_hover" type="NinePatchRect" parent="HBoxContainer/Boton" unique_id=2035803178]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072000004
+anchor_top = 0.407
+anchor_right = 1.1750001
+anchor_bottom = 0.623
+offset_left = 0.031999588
+offset_top = -0.03125763
+offset_right = 0.049987793
+offset_bottom = 0.025856018
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4essn")
+patch_margin_left = 48
+
+[node name="Label" type="Label" parent="HBoxContainer/Boton/etiqueta_hover" unique_id=1271956868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_top = 5.0
+offset_right = 2.5
+offset_bottom = -9.352676
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.3021152)
+theme_override_colors/font_color = Color(0.34967804, 0.24857557, 0.23909146, 1)
+theme_override_fonts/font = SubResource("FontVariation_o0xy4")
+theme_override_font_sizes/font_size = 22
+text = "       CHILCA DE OLOR"
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=317261475]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "-"
+
+[node name="Separador2" type="Control" parent="HBoxContainer" unique_id=955104946]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 2
+
+[node name="Separador2" type="Control" parent="." unique_id=1964210718]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="HBoxContainer/Boton" to="." method="mostrar_requisitos"]
+[connection signal="mouse_exited" from="HBoxContainer/Boton" to="." method="ocultar_requisitos"]

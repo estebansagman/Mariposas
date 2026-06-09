@@ -15,9 +15,8 @@ signal reiniciar
 @onready var botones_debug: Control = $botones_debug
 @onready var estrella_ganado: TextureRect = $Estrella
 
-
 ##region EDITOR
-#@onready var control: ConfigCfg = $Control
+@onready var control: ConfigCfg = $Control
 #@onready var catalogo_plantas_B: CatalogoPlantas = $Control/CatalogoPlantas2
 #@onready var catalogo_mariposas_B: CatalogoMariposas = $Control/CatalogoMariposas2
 ##endregion

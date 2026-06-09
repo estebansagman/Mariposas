@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbm8k5rs8d02i" path="res://tablero/imagenes/fondo_place_H _extra2.png" id="1_26f4k"]
 [ext_resource type="PackedScene" uid="uid://crq4cgvp4qndp" path="res://plantas/ejemplares/ceibo_a.tscn" id="1_j7m1d"]
-[ext_resource type="PackedScene" uid="uid://c6pikhlq2a5qb" path="res://plantas/ejemplares/coronillo_a.tscn" id="1_jxm6q"]
+[ext_resource type="PackedScene" uid="uid://c6pikhlq2a5qb" path="res://objetos_moviles/objetos/objeto_b.tscn" id="1_jxm6q"]
 [ext_resource type="PackedScene" uid="uid://cbetjqdfqna7d" path="res://plantas/ejemplares/canario_rojo_b.tscn" id="2_2pmq4"]
 [ext_resource type="PackedScene" uid="uid://d1l7h3nujrv18" path="res://plantas/ejemplares/canario_rojo_a.tscn" id="2_c22hs"]
 [ext_resource type="PackedScene" uid="uid://77r4p80njc3n" path="res://plantas/ejemplares/salvia_a.tscn" id="3_b3iem"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://be5rky35pqp3r" path="res://plantas/ejemplares/chilca_a.tscn" id="14_jj6f2"]
 [ext_resource type="PackedScene" uid="uid://ch5ki13fftmxd" path="res://plantas/ejemplares/chilca_b.tscn" id="15_yi5df"]
 [ext_resource type="PackedScene" uid="uid://cct63xday235l" path="res://plantas/ejemplares/ruda_a.tscn" id="16_wxout"]
-[ext_resource type="PackedScene" uid="uid://8e1vimfhtjui" path="res://plantas/ejemplares/ruda_b.tscn" id="17_opay2"]
+[ext_resource type="PackedScene" uid="uid://8e1vimfhtjui" path="res://objetos_moviles/objetos/objeto_c.tscn" id="17_opay2"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c22hs"]
 scenes/1/scene = ExtResource("1_j7m1d")

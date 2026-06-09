@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://8e1vimfhtjui"]
+[gd_scene format=3 uid="uid://b8c00dshwiqly"]
 
 [ext_resource type="Script" uid="uid://uo1v1xljosko" path="res://plantas/ejemplares/ejemplar.gd" id="1_h5qm7"]
 [ext_resource type="Texture2D" uid="uid://cnh1dkpkq15iv" path="res://plantas/imagenes_ejemplares/rudaplantapropuesta.png" id="2_h5qm7"]

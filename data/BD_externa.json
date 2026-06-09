@@ -19,6 +19,12 @@
 					"momento_de_juego": {
 
 					}
+				},
+				"nivel_3": {
+					"superado": false,
+					"primer_entrada":false,
+					"momento_de_juego": {
+					}
 				}
 			}
 		},
@@ -92,6 +98,7 @@
 				}
 			}
 		}
+		
 	},
 	"progreso_mariposas": {
 		"bandera_argentina": [],

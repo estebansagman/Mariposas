@@ -22,16 +22,17 @@ var hay_mariposa:bool = false
 var focus = true
 var giro_actual:int = 0
 
+
 var ejemplar:String
 @onready var ejemplares: Dictionary = {
 	"ceibo:A": preload("uid://crq4cgvp4qndp"),
 	"ceibo:B": preload("uid://2u2bwrxrncp8"),
-	"coronillo:A": preload("uid://c6pikhlq2a5qb"),
+	"coronillo:A": preload("uid://j3ovowfmfr5a"),
 	"coronillo:B": preload("uid://cm37ht5virdhf"),
 	"chilca:A": preload("uid://be5rky35pqp3r"),
 	"chilca:B": preload("uid://ch5ki13fftmxd"),
 	"ruda:A":preload("uid://cct63xday235l"),
-	"ruda:B":preload("uid://8e1vimfhtjui"),
+	"ruda:B":preload("uid://b8c00dshwiqly"),
 	"canario_rojo:A": preload("uid://d1l7h3nujrv18"),
 	"canario_rojo:B":preload("uid://cbetjqdfqna7d"),
 	"salvia:A":preload("uid://77r4p80njc3n"),
@@ -65,17 +66,11 @@ func estructurar_planta():
 		var posicion_nueva:Vector2i = Vector2i(tamaño_tile.x*modulo.x,tamaño_tile.y*modulo.y)
 		var tamaño_area:CollisionShape2D = CollisionShape2D.new()
 		var forma_area:RectangleShape2D = RectangleShape2D.new()
-
-		#var ruta_textura = Dios.bd_interna["plantas"][key_planta]["imagen_catalogo"]
-		#var textura_cargada = load(ruta_textura)
-
 		tamaño_area.shape = forma_area
 		tamaño_area.position = posicion_nueva
 		forma_area.size = tamaño_tile
-
 		area_2d.add_child(tamaño_area)
 
-	
 func prender_focus():
 	emit_signal("en_focus",self)
 	focus = true
@@ -87,16 +82,12 @@ func apagar_focus():
 func girar_planta(gira_derecha:bool):
 	var t = create_tween()
 	var duracion = 0.1
-
 	var sentido_de_giro = 1
 	if !gira_derecha: sentido_de_giro = -1
-
 	var rotacion_aplicada = rotation + (PI/2)*sentido_de_giro
 	t.tween_property(self,"rotation",rotacion_aplicada,duracion)
 	await t.finished
 	giro_de_planta()
-
-
 func giro_de_planta():
 	var lista_cruda = Dios.bd_interna["plantas"][key_planta]["forma"][key_estructura].duplicate()
 	var forma_inicial = Dios.transformar_en_vector2i(lista_cruda)
@@ -115,7 +106,6 @@ func giro_de_planta():
 			3:
 				estructura.append(Vector2i(posicion.y, -posicion.x))
 				rotation = PI * 1.5
-
 
 func emitir_particulas_giro(direccion)->void:
 	if particulas_activas:
@@ -141,5 +131,4 @@ func soltar_planta():
 	pieza_seleccionada = false
 	emit_signal("soltando")
 func activar_boton():
-	print("MERCAA DE LA BUENAAAAA")
 	emit_signal("eliminando")

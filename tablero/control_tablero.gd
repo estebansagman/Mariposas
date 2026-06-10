@@ -5,6 +5,9 @@ signal guardar_nivel
 signal cambio_en_jardin
 signal mariposa_desplazada
 signal mariposa_movida(mariposa:Mariposa, parcela:Vector2i)
+signal planta_agarrada
+signal mariposa_agarrada
+signal planta_en_tablero
 
 @export var tablero: Tablero
 var planta_seleccionada:Planta
@@ -16,6 +19,9 @@ var mariposa_en_seleccion:bool = false
 @onready var padre:Node2D = $".."
 @onready var capa_plantas: TileMapLayer = $"../capa_plantas"
 @export var jardin: Node2D
+
+@export var animacion = 0
+
 
 var en_area_de_juego = false
 var destino_planta:Vector2i = Vector2i(-1,0)
@@ -248,7 +254,11 @@ func seleccionar_planta(planta:Planta):
 	for celda in tablero.celdas:
 		if tablero.get_id_planta(celda)==planta_seleccionada.get_id_planta():
 			tablero.vaciar_celda(celda)
+	if animacion == 0:
+		emit_signal("planta_agarrada")
+		animacion += 1
 	activar_particulas(VFX_HOJAS,get_global_mouse_position())
+	
 func mover_planta_seleccionada(celda_actual) -> void:
 	#printerr("MOVER PLANTA")
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
@@ -272,6 +282,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 				print("EL GIRO POSTA ESSS: ",planta_seleccionada.giro_actual)
 				_limpiar_rastro_tablero(id_click,planta_seleccionada)
 				emit_signal("cambio_en_jardin")
+				
 			
 	if planta_seleccionada:
 		planta_seleccionada.position = jardin.get_local_mouse_position()
@@ -285,6 +296,10 @@ func mover_planta_seleccionada(celda_actual) -> void:
 
 				planta_seleccionada.z_index = planta_seleccionada.ZINDEX_ORIGEN
 				plantas_en_tablero.append(planta_seleccionada)
+				if animacion == 1:
+					emit_signal("planta_en_tablero")
+					print("paso de animacion : ",animacion)
+					animacion += 1
 				planta_seleccionada.coordenada_celda = celda_actual
 				
 				posicionar_planta(planta_seleccionada)
@@ -330,6 +345,8 @@ func seleccionar_mariposa(mariposa:Mariposa):
 	if mariposa_seleccionada == null and planta_seleccionada == null:
 		mariposa_seleccionada = mariposa
 		print("mariposa seleccionada")
+		#if animacion == 
+		
 func soltar_mariposa():
 	if !mariposa_en_seleccion:
 		mariposa_seleccionada = null
@@ -360,7 +377,9 @@ func mover_mariposa_seleccionada()->void:
 			var posicion_actual = mariposa_seleccionada.posicion_jardin.duplicate()
 			for parcela in posicion_actual: 
 				tablero.sacar_mariposa(parcela)
-		
+			if animacion == 0:
+				animacion += 1
+				emit_signal("mariposa_agarrada")
 		if mariposa_en_seleccion: 
 			mariposa_seleccionada.position = get_global_mouse_position()
 

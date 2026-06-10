@@ -12,7 +12,7 @@
                 "nivel_1": {
                     "numero": 1.0,
                     "titulo": "",
-                    "imagen": "res://menus/selector_niveles/imagenes/nivel-1.png",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-H.png",
                     "mariposas": [
                         "bataraza"
                     ]
@@ -20,7 +20,7 @@
                 "nivel_2": {
                     "numero": 2.0,
                     "titulo": "",
-                    "imagen": "res://menus/selector_niveles/imagenes/nivel-2.png",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-I.png",
                     "mariposas": [
                         "bataraza",
                         "espejito"
@@ -46,7 +46,7 @@
                 "nivel_1": {
                     "numero": 1.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-B.png",
                     "mariposas": [
                         "bataraza",
                         "espejito",
@@ -56,7 +56,7 @@
                 "nivel_2": {
                     "numero": 2.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-D.png",
                     "mariposas": [
                         "bataraza",
                         "espejito",
@@ -66,7 +66,7 @@
                 "nivel_3": {
                     "numero": 3.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-J.png",
                     "mariposas": [
                         "bandera_argentina",
                         "limonero",
@@ -76,7 +76,7 @@
                 "nivel_4": {
                     "numero": 4.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-C.png",
                     "mariposas": [
                         "bandera_argentina",
                         "limonero",
@@ -94,10 +94,8 @@
                 "nivel_1": {
                     "numero": 1.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-F.png",
                     "mariposas": [
-                        "bataraza",
-                        "espejito",
                         "cuatro_ojos",
                         "bandera_argentina",
                         "limonero",
@@ -107,7 +105,17 @@
                 "nivel_2": {
                     "numero": 2.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-A.png",
+                    "mariposas": [
+                        "limonero",
+                        "bandera_argentina",
+                        "cuatro_ojos"
+                    ]
+                },
+                "nivel_3": {
+                    "numero": 3.0,
+                    "titulo": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-G.png",
                     "mariposas": [
                         "bataraza",
                         "espejito",
@@ -117,21 +125,10 @@
                         "perezosa"
                     ]
                 },
-                "nivel_3": {
-                    "numero": 3.0,
-                    "titulo": "",
-                    "imagen": "",
-                    "mariposas": [
-                        "cuatro_ojos",
-                        "bandera_argentina",
-                        "limonero",
-                        "perezosa"
-                    ]
-                },
                 "nivel_4": {
                     "numero": 4.0,
                     "titulo": "",
-                    "imagen": "",
+                    "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-E2.png",
                     "mariposas": [
                         "bataraza",
                         "espejito",

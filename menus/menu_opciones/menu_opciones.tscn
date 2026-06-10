@@ -1,0 +1,641 @@
+[gd_scene format=3 uid="uid://crfx3nr7i3w4w"]
+
+[ext_resource type="Texture2D" uid="uid://6wxve7atqkuk" path="res://menus/menu_opciones/imagenes/cuadrado del menu.png" id="1_vtlx0"]
+[ext_resource type="Texture2D" uid="uid://cacm715ewl313" path="res://menus/menu_opciones/imagenes/control icono.png" id="2_bjdcc"]
+[ext_resource type="Texture2D" uid="uid://cglk2bv21spco" path="res://menus/menu_opciones/imagenes/cartel opciones.png" id="2_qe6us"]
+[ext_resource type="Texture2D" uid="uid://cuce81aorkun8" path="res://menus/menu_opciones/imagenes/boton general apagado.png" id="2_qwt8j"]
+[ext_resource type="Texture2D" uid="uid://vnbl8qck6f57" path="res://menus/menu_opciones/imagenes/mostrar nombres de mariposas icono.png" id="3_0pfbw"]
+[ext_resource type="Texture2D" uid="uid://xgclp17stw6w" path="res://menus/menu_opciones/imagenes/boton sonido apagado.png" id="3_qe6us"]
+[ext_resource type="Texture2D" uid="uid://d0gbiedxohp42" path="res://menus/menu_opciones/imagenes/boton general activado.png" id="4_4loqx"]
+[ext_resource type="Texture2D" uid="uid://bt3aro2gtbu84" path="res://menus/menu_opciones/imagenes/boton video apagado.png" id="4_8yat6"]
+[ext_resource type="Texture2D" uid="uid://c1f5ouv106rtl" path="res://menus/menu_opciones/imagenes/mostrar nombre de plantas icono.png" id="4_kcor5"]
+[ext_resource type="Texture2D" uid="uid://boq5pg73mgplj" path="res://menus/menu_opciones/imagenes/boton general sin texto.png" id="5_080gd"]
+[ext_resource type="Texture2D" uid="uid://cila24wdidy1d" path="res://menus/menu_opciones/imagenes/borrar progreso icono.png" id="5_dgbnp"]
+[ext_resource type="Texture2D" uid="uid://b6bebqkklynxa" path="res://menus/menu_opciones/imagenes/cuadrados importantes normal.png" id="6_0pfbw"]
+[ext_resource type="Texture2D" uid="uid://yornhkd6j6qd" path="res://menus/menu_opciones/imagenes/cuadrados importantes cuadra seleccionado.png" id="6_dgbnp"]
+[ext_resource type="Texture2D" uid="uid://clrb3tfx64gun" path="res://menus/menu_opciones/imagenes/boton sonido activado.png" id="7_gw0ge"]
+[ext_resource type="Texture2D" uid="uid://cbeea7jpdtucx" path="res://menus/menu_opciones/imagenes/cuadrados importantes borrar progreso normal.png" id="7_kcor5"]
+[ext_resource type="Texture2D" uid="uid://co040sdmid7yh" path="res://menus/menu_opciones/imagenes/boton sonido apagado sin texto.png" id="8_ccdtn"]
+[ext_resource type="Texture2D" uid="uid://dd6xbryci4nsj" path="res://menus/menu_opciones/imagenes/icono resolucion.png" id="9_6n1nb"]
+[ext_resource type="Texture2D" uid="uid://t0b560g67gpu" path="res://menus/menu_opciones/imagenes/boton video activado.png" id="10_bjdcc"]
+[ext_resource type="Texture2D" uid="uid://iaae6pbg3mx8" path="res://menus/menu_opciones/imagenes/icono modo pantalla.png" id="10_hs4mw"]
+[ext_resource type="Texture2D" uid="uid://duhdjg3ggei8k" path="res://menus/menu_opciones/imagenes/boton video apagado sin texto.png" id="11_0pfbw"]
+[ext_resource type="Texture2D" uid="uid://vstvd8tolp85" path="res://menus/menu_opciones/imagenes/icono coloreado.png" id="11_n44rt"]
+[ext_resource type="Texture2D" uid="uid://bnv1j7alpulqb" path="res://menus/menu_opciones/imagenes/icono musica.png" id="12_n44rt"]
+[ext_resource type="Texture2D" uid="uid://q5kgulyg4pya" path="res://menus/menu_opciones/imagenes/icono sfx.png" id="13_1ucj4"]
+[ext_resource type="Texture2D" uid="uid://cpbxeipcjg6qa" path="res://menus/menu_opciones/imagenes/sonido min.png" id="14_h3i5h"]
+[ext_resource type="Texture2D" uid="uid://ca24bgfx18ucl" path="res://menus/menu_opciones/imagenes/barra de sonido vacia .png" id="15_27hg4"]
+[ext_resource type="Texture2D" uid="uid://c1li8vc8hcmao" path="res://menus/menu_opciones/imagenes/sonido max.png" id="16_8gmf4"]
+
+[node name="MenuOpciones" type="Control" unique_id=1689402211]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="." unique_id=609173389]
+anchors_preset = 0
+offset_left = 226.0
+offset_top = 129.0
+offset_right = 1594.0
+offset_bottom = 908.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1029814976]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.528
+anchor_top = 0.48000002
+anchor_right = 0.528
+anchor_bottom = 0.48000002
+offset_left = -516.304
+offset_top = -373.92
+offset_right = 2803.6956
+offset_bottom = 1851.7941
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_vtlx0")
+region_rect = Rect2(0, 0, 4435, 2822)
+patch_margin_left = 162
+patch_margin_top = 167
+patch_margin_right = 177
+patch_margin_bottom = 157
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/NinePatchRect" unique_id=841318025]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 150
+
+[node name="General" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer" unique_id=1150625251]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/General" unique_id=1632380379]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 180
+text = "General"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General" unique_id=1045803831]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer" unique_id=1884658482]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.59
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer" unique_id=1198868837]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=522666820]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("2_bjdcc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1702813370]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 150
+text = "General"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer" unique_id=242238742]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=747112450]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("3_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer" unique_id=115980626]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1397516580]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("4_kcor5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer" unique_id=213452979]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=101174201]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("5_dgbnp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer" unique_id=1421037677]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer" unique_id=1474434274]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2" unique_id=1384762679]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1417706015]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_dgbnp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=315047481]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1471807853]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2" unique_id=1793532112]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=910960236]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_dgbnp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=733620614]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=954464536]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=543600027]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2" unique_id=1214239660]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1726668251]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_dgbnp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=2135747144]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=2105099952]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=749232064]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2" unique_id=910188523]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=1290849094]
+custom_minimum_size = Vector2(750, 200)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("7_kcor5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=1318003991]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="Video" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer" unique_id=68237213]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=571660262]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 180
+text = "Video"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=1974713795]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=1157625458]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.59
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=1495937871]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2036081343]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("9_6n1nb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=682092092]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 150
+text = " Resolucion"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=56515675]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=900649487]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.61
+texture_normal = ExtResource("10_hs4mw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=193371824]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 150
+text = "Modo
+Pantalla"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=301176240]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1897088342]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("11_n44rt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=912694617]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 150
+text = "Coloreado"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=827787229]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=91289027]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=42929715]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=968579746]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=271240972]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1237934722]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=2058036630]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=175825245]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_dgbnp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1523518094]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1508393989]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=2053773280]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=1572719539]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1964682888]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_dgbnp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1020081737]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=335891367]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=838876744]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=958045972]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="video" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer" unique_id=811111335]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/video" unique_id=174294330]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 180
+text = "Sonido"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/video" unique_id=1912340871]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer" unique_id=606054641]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.59
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer" unique_id=683468667]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1086626084]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("12_n44rt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=220655847]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 150
+text = "  Música"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer" unique_id=5558990]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=72913515]
+custom_minimum_size = Vector2(380, 330)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("13_1ucj4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1834027811]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
+theme_override_font_sizes/font_size = 150
+text = " SFX"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer" unique_id=989201328]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer" unique_id=759507999]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer" unique_id=890938109]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2" unique_id=305369867]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1341304127]
+custom_minimum_size = Vector2(250, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("14_h3i5h")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1632356342]
+custom_minimum_size = Vector2(350, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+texture_normal = ExtResource("15_27hg4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1715440593]
+custom_minimum_size = Vector2(250, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("16_8gmf4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=144295840]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2" unique_id=325885455]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1523104215]
+custom_minimum_size = Vector2(250, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("14_h3i5h")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1590750396]
+custom_minimum_size = Vector2(450, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+texture_normal = ExtResource("15_27hg4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=481801389]
+custom_minimum_size = Vector2(250, 330)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("16_8gmf4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1980671560]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/video/HBoxContainer/VBoxContainer2" unique_id=424297918]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/NinePatchRect" unique_id=1532435543]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -716.8096
+offset_top = -214.2857
+offset_right = 716.8098
+offset_bottom = 191.42856
+grow_horizontal = 2
+texture = ExtResource("2_qe6us")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1461700281]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 226.0
+offset_bottom = 758.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/VBoxContainer" unique_id=466120719]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("2_qwt8j")
+texture_pressed = ExtResource("4_4loqx")
+texture_hover = ExtResource("5_080gd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Control/VBoxContainer" unique_id=909257487]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("3_qe6us")
+texture_pressed = ExtResource("7_gw0ge")
+texture_hover = ExtResource("8_ccdtn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Control/VBoxContainer" unique_id=1396236579]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource("4_8yat6")
+texture_pressed = ExtResource("10_bjdcc")
+texture_hover = ExtResource("11_0pfbw")
+ignore_texture_size = true
+stretch_mode = 5

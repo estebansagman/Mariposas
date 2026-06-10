@@ -2,6 +2,7 @@ extends Node2D
 class_name Naturaleza
 signal mariposa_cambio
 
+
 @onready var mariposa_escena = preload("uid://dprfbi2712evq")
 
 @export var jardin: Node2D
@@ -86,8 +87,6 @@ func _buscar_espacio_para_mariposa(mariposa) -> Array[Vector2i]:
 func _es_cuadrante_valido(cuadrante: Array[Vector2i]) -> bool:
 	for casilla in cuadrante:
 		var tipo_de_suelo: String = tablero.celdas[casilla][tablero.tipo_casilla_key]
-		#if tipo_de_suelo == tablero.casilla_bloqueo:
-			#return false
 		var hay_mariposa = tablero.celdas[casilla][tablero.mariposa]
 		if hay_mariposa:
 			return false
@@ -96,9 +95,7 @@ func _es_cuadrante_valido(cuadrante: Array[Vector2i]) -> bool:
 func _ubicar_mariposa_en_jardin(mariposa, cuadrante: Array[Vector2i]) -> void:
 	mariposas_en_juego.append(mariposa)
 	mariposa.posicion_jardin = cuadrante.duplicate()
-	
 	_spawnear_mariposa(mariposa, cuadrante[0])
-	
 	for celda in cuadrante:
 		tablero.celdas[celda][tablero.mariposa] = true
 		tablero.celdas[celda][tablero.id_mariposa_key] = mariposa.id_mariposa
@@ -112,6 +109,7 @@ func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 	mariposa.scale *= scale
 	mariposa.scale /= jardin.columnas 
 	mariposa.animar_spawn(parcela, capa_mariposas.to_global(capa_mariposas.map_to_local(parcela)))
+
 
 func actualizar_posicion(mariposa: Mariposa, parcela: Vector2i):
 	var pos_global = capa_mariposas.to_global(capa_mariposas.map_to_local(parcela))

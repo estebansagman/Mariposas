@@ -1,12 +1,14 @@
 extends Node2D
 class_name NivelJugable
 
+signal animacion_iniciada(jugado:bool)
+
 @export var numero_de_nivel:int
 @export var numero_de_sector: int
 @export var jardin:Jardin
 @export var editando:bool = false
 @onready var caja_herramienta_ui: Control = $caja_herramienta_ui
-
+var jugado:bool = false
 
 var label_mouse: Label
 var panel_mouse: PanelContainer
@@ -15,15 +17,6 @@ var sector = "seccion_"+str(numero_de_sector)
 var nivel = "nivel_"+str(numero_de_nivel)
 const UI_EDICION = preload("uid://la1ktrp08bfg")
 
-
-#@export_enum(
-	#"bandera_argentina",
-	#"cuatro_ojos",
-	#"espejito",
-	#"limonero",
-	#"perezosa",
-	#"bataraza"
-	#) var Especie_mariposa:Array[String]
 var Especie_mariposa:Array
 
 @export_enum(
@@ -52,14 +45,12 @@ var Especie_mariposa:Array
 	"objeto_c",
 	"objeto_d",
 	) var tipos_objeto:Array[String]
-#var tipos_objeto:Array[String] = ["objeto_a","objeto_b","objeto_c"]
 
 @export var datos_de_libro:Array[Recompensa]
 const PLANTA = preload("uid://der8d61kw3xr8")
 const OBJETO_MOVIL = preload("uid://csae5pte6k7x6")
 
 @onready var ui: Interfas = $UI
-#@onready var ui_edicion: Interfas_herramienta = $Contenedor/UIEdicion
 @onready var pasar_de_nivel: Timer = $PasarDeNivel
 @onready var area_de_juego: Area2D = $AreaDeJuego
 
@@ -81,6 +72,7 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 		else:
 			panel_mouse.hide()
 func _ready() -> void:
+	evaluar_si_nivel_fue_jugado()
 	traer_lista_mariposas()
 	definir_etiqueta_del_mause()
 	ordenar_mariposas_segun_importancia()
@@ -89,13 +81,28 @@ func _ready() -> void:
 	cambiar_entre_ui_edicion_y_juego()
 	if !editando: aplicar_apariencia_ganado()
 	asignar_señales()
+	iniciar_animacion_nivel(jugado)
 
+func iniciar_animacion_nivel(jugado):
+	if !editando:
+		emit_signal("animacion_iniciada",jugado)
+	else:
+		emit_signal("animacion_iniciada",true)
+
+func evaluar_si_nivel_fue_jugado():
+	var seccion_actual:String = "seccion_"+str(numero_de_sector)
+	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
+	var dato_de_nivel_jugado = Dios.bd_externa["sectores"][seccion_actual]["niveles"][nivel_actual]["ya_fue_jugado"]
+	if dato_de_nivel_jugado:
+		jugado = true
+		return
+	Dios.bd_externa["sectores"][seccion_actual]["niveles"][nivel_actual]["ya_fue_jugado"] = true
+	Dios.guardar_bd_externa()
 func traer_lista_mariposas():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
 	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
 	var lista_mariposas = Dios.bd_interna["sectores"][seccion_actual]["niveles"][nivel_actual]["mariposas"]
 	Especie_mariposa = lista_mariposas
-	
 func asignar_señales():
 	jardin.jardinero.guardar_nivel.connect(guardar_estado_actual)
 	jardin.tablero.en_area_de_juego.connect(jardin.jardinero.entrar_en_area_de_juego)
@@ -166,26 +173,13 @@ func sumar_puntos():
 			ui.superar_nivel()
 			completar_nivel()
 			revelar_datos()
-		#pasar_de_nivel.start()
 func completar_nivel():
 	var sector_id = "seccion_" + str(numero_de_sector)
 	var nivel_id = "nivel_" + str(numero_de_nivel)
 	Dios.bd_externa["sectores"][sector_id]["niveles"][nivel_id]["superado"] = true
 	Dios.bd_externa["sectores"][sector_id]["niveles_superados"] += 1
 	Dios.guardar_bd_externa()
-#func revelar_datos():
-	#var sector_id = "seccion_" + str(numero_de_sector)
-	#var nivel_id = "nivel_" + str(numero_de_nivel)
-	#if datos_de_libro:
-		#for recompensa in datos_de_libro:
-			#var mariposa_id = recompensa.mariposa
-			#if not Dios.bd_externa["progreso_mariposas"].has(mariposa_id):
-				#Dios.bd_externa["progreso_mariposas"][mariposa_id] = []
-			#for dato in recompensa.dato_mariposa:
-				#if dato not in Dios.bd_externa["progreso_mariposas"][mariposa_id]:
-					#var clave = Dios.bd_interna["mariposas"][mariposa_id][dato]
-					#Dios.bd_externa["progreso_mariposas"][mariposa_id].append(clave)
-	#Dios.guardar_bd_externa()
+
 func revelar_datos():
 	var sector_id = "seccion_" + str(numero_de_sector)
 	var nivel_id = "nivel_" + str(numero_de_nivel)

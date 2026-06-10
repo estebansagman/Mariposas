@@ -11,20 +11,23 @@
 					"primer_entrada": true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_2": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_3": {
 					"superado": false,
 					"primer_entrada":false,
 					"momento_de_juego": {
-					}
+					},
+					"ya_fue_jugado": false
 				}
 			}
 		},
@@ -38,28 +41,32 @@
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_2": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_3": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_4": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				}
 			}
 		},
@@ -73,28 +80,32 @@
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_2": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_3": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				},
 				"nivel_4": {
 					"superado": false,
 					"primer_entrada":true,
 					"momento_de_juego": {
 
-					}
+					},
+					"ya_fue_jugado": false
 				}
 			}
 		}

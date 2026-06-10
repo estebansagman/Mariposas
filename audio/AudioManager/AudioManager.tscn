@@ -1,6 +1,63 @@
 [gd_scene format=3 uid="uid://bya6joll7gqit"]
 
 [ext_resource type="Script" uid="uid://bc8cvkwhmerm5" path="res://audio/AudioManager/AudioManager.gd" id="1_euoii"]
+[ext_resource type="Script" uid="uid://dljcljvbsfrl6" path="res://audio/AudioManager/SoundEffectSetting.gd" id="2_65gp3"]
+[ext_resource type="AudioStream" uid="uid://w0mga78tdopl" path="res://audio/musica/loop.ogg" id="3_5esq4"]
+[ext_resource type="AudioStream" uid="uid://lxhxcgc377rq" path="res://audio/sfx/plantado.wav" id="4_3v24q"]
+[ext_resource type="AudioStream" uid="uid://dp7dqtatjymh1" path="res://audio/sfx/Pickup1.wav" id="4_gmsvw"]
+[ext_resource type="AudioStream" uid="uid://caocvawnanv0k" path="res://audio/sfx/error2.wav" id="5_671re"]
+[ext_resource type="AudioStream" uid="uid://dhner5pqc3q7a" path="res://audio/sfx/plantado2.wav" id="6_ijksb"]
+[ext_resource type="AudioStream" uid="uid://dt41fiywumjin" path="res://audio/musica/Ganaste.mp3" id="7_6g0sw"]
+
+[sub_resource type="Resource" id="Resource_5esq4"]
+script = ExtResource("2_65gp3")
+type = 26
+sound_effect = ExtResource("3_5esq4")
+canal_audio = "musica"
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_pn0lk"]
+script = ExtResource("2_65gp3")
+type = 15
+sound_effect = ExtResource("5_671re")
+canal_audio = "sfx"
+volume = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_671re"]
+script = ExtResource("2_65gp3")
+type = 14
+sound_effect = ExtResource("4_gmsvw")
+volume = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_ewi80"]
+script = ExtResource("2_65gp3")
+type = 4
+sound_effect = ExtResource("6_ijksb")
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_ijksb"]
+script = ExtResource("2_65gp3")
+type = 3
+sound_effect = ExtResource("4_3v24q")
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_7ocdx"]
+script = ExtResource("2_65gp3")
+type = 13
+sound_effect = ExtResource("7_6g0sw")
+canal_audio = "sfx"
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 
 [node name="AudioManager" type="Node2D" unique_id=811379820]
 script = ExtResource("1_euoii")
+sound_effects = Array[ExtResource("2_65gp3")]([SubResource("Resource_5esq4"), SubResource("Resource_pn0lk"), SubResource("Resource_671re"), SubResource("Resource_ewi80"), SubResource("Resource_ijksb"), SubResource("Resource_7ocdx")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1105525863]
+process_mode = 3
+stream = ExtResource("3_5esq4")
+autoplay = true
+bus = &"musica"

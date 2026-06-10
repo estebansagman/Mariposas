@@ -8,14 +8,11 @@ extends Node2D
 ## @tutorial: https://www.youtube.com/watch?v=Egf2jgET3nQ
 
 var sound_effect_dict: Dictionary = {} ## Loads all registered SoundEffects on ready as a reference.
-
 @export var sound_effects: Array[SoundEffect] ## Stores all possible SoundEffects that can be played.
-
 
 func _ready() -> void:
 	for sound_effect: SoundEffect in sound_effects:
 		sound_effect_dict[sound_effect.type] = sound_effect
-
 
 ## Creates a sound effect at a specific location if the limit has not been reached. Pass [param location] for the global position of the audio effect, and [param type] for the SoundEffect to be queued.
 func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
@@ -25,6 +22,7 @@ func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFE
 			sound_effect.change_audio_count(1)
 			var new_2D_audio: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 			add_child(new_2D_audio)
+			new_2D_audio.bus = sound_effect.canal_audio
 			new_2D_audio.position = location
 			new_2D_audio.stream = sound_effect.sound_effect
 			new_2D_audio.volume_db = sound_effect.volume
@@ -45,6 +43,7 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 			sound_effect.change_audio_count(1)
 			var new_audio: AudioStreamPlayer = AudioStreamPlayer.new()
 			add_child(new_audio)
+			new_audio.bus = sound_effect.canal_audio
 			new_audio.stream = sound_effect.sound_effect
 			new_audio.volume_db = sound_effect.volume
 			new_audio.pitch_scale = sound_effect.pitch_scale
@@ -54,3 +53,12 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 			new_audio.play()
 	else:
 		push_error("Audio Manager failed to find setting for type ", type)
+
+func conectar_botones_del_menu(nodo_actual: Node) -> void:
+	for hijo in nodo_actual.get_children():
+		if hijo is BaseButton: 
+			hijo.mouse_entered.connect(func(): create_audio(SoundEffect.SOUND_EFFECT_TYPE.BUTTON_HOVER))
+			hijo.pressed.connect(func(): create_audio(SoundEffect.SOUND_EFFECT_TYPE.BUTTON_PRESS))
+		
+		if hijo.get_child_count() > 0:
+			conectar_botones_del_menu(hijo)

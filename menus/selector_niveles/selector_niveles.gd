@@ -13,6 +13,7 @@ var sector_actual: int
 func _ready() -> void:
 	await get_tree().process_frame
 	actualizar_estado()
+	AudioManager.conectar_botones_del_menu(self)
 
 func actualizar_estado():
 	for id_sector in Dios.bd_externa["sectores"].keys():

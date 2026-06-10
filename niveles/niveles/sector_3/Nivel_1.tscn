@@ -17,7 +17,7 @@ size = Vector2(789.00037, 788.00024)
 
 [node name="EscenaGeneral" type="Node2D" unique_id=286834583 node_paths=PackedStringArray("jardin")]
 script = ExtResource("1_ql8ah")
-numero_de_nivel = 3
+numero_de_nivel = 1
 numero_de_sector = 3
 jardin = NodePath("AreaDeJuego/Jardin")
 Especie_planta = Array[String](["canario_rojo:A", "salvia:B", "mbrucuya:B", "chilca:B", "ruelia:B"])

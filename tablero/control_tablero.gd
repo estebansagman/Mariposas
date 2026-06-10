@@ -273,6 +273,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 					planta_seleccionada = planta
 					break
 			if planta_seleccionada:
+				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLANTA_PICKUP)
 				printerr("SELECCIONAR PLANTA GRILLA")
 				activar_particulas(VFX_HOJAS,planta_seleccionada.global_position)
 				plantas_en_tablero.erase(planta_seleccionada)
@@ -289,7 +290,7 @@ func mover_planta_seleccionada(celda_actual) -> void:
 		planta_seleccionada.show()
 
 		if Input.is_action_just_released("aceptar"):
-
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLANTA_PLACE)
 			if focuseable and en_area_de_juego:
 				for casilla in lista_focus:
 					tablero.ocupar_celda(casilla, planta_seleccionada)

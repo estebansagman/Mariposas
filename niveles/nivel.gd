@@ -82,6 +82,7 @@ func _ready() -> void:
 	if !editando: aplicar_apariencia_ganado()
 	asignar_señales()
 	iniciar_animacion_nivel(jugado)
+	AudioManager.conectar_botones_del_menu(self)
 
 func iniciar_animacion_nivel(jugado):
 	if !editando:

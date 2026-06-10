@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://c6a35fsq212ty"]
+[gd_scene format=4 uid="uid://c6a35fsq212ty"]
 
 [ext_resource type="Script" uid="uid://dby8n8r40tmfv" path="res://Libro/scripts/libro.gd" id="1_1iihh"]
 [ext_resource type="PackedScene" uid="uid://bshljp84410s4" path="res://Libro/3D/test_libro.tscn" id="1_8ybf7"]
 [ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_6eewu"]
+[ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="2_npxdo"]
 [ext_resource type="Texture2D" uid="uid://ua3p0gioljnr" path="res://Libro/elementos_libro/iconos/boton antes.png" id="4_ceaa1"]
 [ext_resource type="Texture2D" uid="uid://b364iv20fmom2" path="res://Libro/elementos_libro/iconos/boton antes off.png" id="5_1niyf"]
 [ext_resource type="Texture2D" uid="uid://cg4prnh7n5nd1" path="res://Libro/elementos_libro/iconos/indice boton on.png" id="6_n2c20"]
@@ -29,6 +30,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19628978, 0.11516058, 0.06006194, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=296049882]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAABAAAAAAACAAUAAAACAAAAAAACAAUAAAADAAAAAAACAAUAAAADAAEAAAACAAUAAAADAAIAAAACAAUAAAACAAIAAAACAAUAAAABAAIAAAACAAUAAAAAAAIAAAACAAUAAAAAAAEAAAACAAUAAAABAAEAAAACAAUAAAACAAEAAAACAAUAAAAEAAAAAAACAAUAAAAFAAAAAAACAAUAAAAGAAAAAAACAAUAAAAHAAAAAAACAAUAAAAHAAEAAAACAAUAAAAGAAEAAAACAAUAAAAHAAIAAAACAAUAAAAGAAIAAAACAAUAAAAGAAMAAAACAAUAAAAHAAMAAAACAAUAAAAHAAQAAAACAAUAAAAGAAQAAAACAAUAAAAFAAMAAAACAAUAAAAEAAMAAAACAAUAAAADAAMAAAACAAUAAAACAAMAAAACAAUAAAABAAMAAAACAAUAAAAAAAMAAAACAAUAAAAAAAQAAAACAAUAAAABAAQAAAACAAUAAAACAAQAAAACAAUAAAADAAQAAAACAAUAAAAEAAQAAAACAAUAAAAFAAQAAAACAAUAAAA=")
+tile_set = ExtResource("2_npxdo")
 
 [node name="Control" type="Control" parent="." unique_id=1237370173]
 layout_mode = 1

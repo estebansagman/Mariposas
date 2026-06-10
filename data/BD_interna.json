@@ -96,10 +96,10 @@
                     "titulo": "",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-F.png",
                     "mariposas": [
-                        "cuatro_ojos",
-                        "bandera_argentina",
-                        "limonero",
-                        "perezosa"
+                        "bataraza",
+                        "espejito",
+                        "perezosa",
+                        "cuatro_ojos"
                     ]
                 },
                 "nivel_2": {

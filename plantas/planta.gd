@@ -129,6 +129,8 @@ func emitir_particulas_giro(direccion)->void:
 
 func soltar_planta():
 	pieza_seleccionada = false
+	
 	emit_signal("soltando")
 func activar_boton():
+	
 	emit_signal("eliminando")

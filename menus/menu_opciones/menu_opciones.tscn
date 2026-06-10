@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://crfx3nr7i3w4w"]
+[gd_scene format=4 uid="uid://crfx3nr7i3w4w"]
 
+[ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="1_8gmf4"]
+[ext_resource type="Texture2D" uid="uid://dpttvtcscimws" path="res://menus/menu_opciones/tieraa.png" id="1_27hg4"]
+[ext_resource type="Script" uid="uid://2udruknhpk7j" path="res://menus/menu_opciones/menu_opciones.gd" id="1_ledro"]
 [ext_resource type="Texture2D" uid="uid://6wxve7atqkuk" path="res://menus/menu_opciones/imagenes/cuadrado del menu.png" id="1_vtlx0"]
 [ext_resource type="Texture2D" uid="uid://cacm715ewl313" path="res://menus/menu_opciones/imagenes/control icono.png" id="2_bjdcc"]
 [ext_resource type="Texture2D" uid="uid://cglk2bv21spco" path="res://menus/menu_opciones/imagenes/cartel opciones.png" id="2_qe6us"]
@@ -26,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://cpbxeipcjg6qa" path="res://menus/menu_opciones/imagenes/sonido min.png" id="14_h3i5h"]
 [ext_resource type="Texture2D" uid="uid://ca24bgfx18ucl" path="res://menus/menu_opciones/imagenes/barra de sonido vacia .png" id="15_27hg4"]
 [ext_resource type="Texture2D" uid="uid://c1li8vc8hcmao" path="res://menus/menu_opciones/imagenes/sonido max.png" id="16_8gmf4"]
+[ext_resource type="Texture2D" uid="uid://1ann013111cx" path="res://Libro/elementos_libro/iconos/salir on.png" id="30_etp1m"]
+[ext_resource type="Texture2D" uid="uid://cj45gg46cmupy" path="res://Libro/elementos_libro/iconos/salir off.png" id="31_e62n5"]
 
 [node name="MenuOpciones" type="Control" unique_id=1689402211]
 layout_mode = 3
@@ -34,13 +39,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ledro")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=381157356]
+modulate = Color(0.69803923, 0.69803923, 0.69803923, 1)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAABAAAAAAACAAUAAAACAAAAAAACAAUAAAADAAAAAAACAAUAAAADAAEAAAACAAUAAAADAAIAAAACAAUAAAACAAIAAAACAAUAAAABAAIAAAACAAUAAAAAAAIAAAACAAUAAAAAAAEAAAACAAUAAAAAAP//AAACAAUAAAABAP//AAACAAUAAAACAP//AAACAAUAAAADAP//AAACAAUAAAA=")
+tile_set = ExtResource("1_8gmf4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1714261499]
+modulate = Color(0.69803923, 0.69803923, 0.69803923, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -503.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_27hg4")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=180507295]
+modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 577.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_27hg4")
 
 [node name="Control" type="Control" parent="." unique_id=609173389]
 anchors_preset = 0
-offset_left = 226.0
-offset_top = 129.0
-offset_right = 1594.0
-offset_bottom = 908.0
+offset_left = 250.0
+offset_top = 185.0
+offset_right = 1618.0
+offset_bottom = 964.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1029814976]
 layout_mode = 1
@@ -639,3 +673,16 @@ texture_pressed = ExtResource("10_bjdcc")
 texture_hover = ExtResource("11_0pfbw")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=242175020]
+layout_mode = 0
+offset_left = 1508.0
+offset_top = 130.0
+offset_right = 1663.8499
+offset_bottom = 283.0
+texture_normal = ExtResource("30_etp1m")
+texture_hover = ExtResource("31_e62n5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="TextureButton" to="." method="cerrar_menu_de_opciones"]

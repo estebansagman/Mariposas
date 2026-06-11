@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://int7ymo37vl7"
+path="res://.godot/imported/Slide.mp3-ef478d601d7b39d4b6dcf21092a1d017.mp3str"
+
+[deps]
+
+source_file="res://audio/SFX/Slides - Whoosh/Slide.mp3"
+dest_files=["res://.godot/imported/Slide.mp3-ef478d601d7b39d4b6dcf21092a1d017.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

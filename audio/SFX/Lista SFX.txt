@@ -1,0 +1,25 @@
+	MARIPOSA_FLY, ## 
+	MARIPOSA_PICKUP, ## 
+	MARIPOSA_PLACE, ## 
+	
+	LEVEL_RESTART, ## Esta la base, falta editar
+	PLANTA_PICKUP, ## ¿poner mas onda?
+	PLANTA_PLACE, ## 
+	PLANTA_ROTATE, ## 
+	PLANTA_MISTAKE, ## ???
+	LIBRO_CHANGE_PAGE, ## A Seleccionar y Cortar
+	LIBRO_SCROLL_PAGES, ## A Seleccionar y Cortar
+	
+	LIBRO_OPEN_SCENE, ## 
+	LIBRO_COVER, ## 
+	PAPEL_FLY, ## 
+	PAPEL_INSERT, ## 
+	VICTORIA, ## 
+	BUTTON_HOVER, ## 
+	BUTTON_PRESS, ## 
+	UI_CHANGE, ## 
+	ZOOM, ## 
+	WOOSH, ## 
+	SLIDE, ## 
+	POP_MULTI, ## 
+	POP, ## 

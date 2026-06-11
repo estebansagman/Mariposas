@@ -43,11 +43,9 @@ enum SOUND_EFFECT_TYPE {
 
 var audio_count: int = 0 ## The instances of this [AudioStreamMP3] currently playing.
 
-
 ## Takes [param amount] to change the [member audio_count]. 
 func change_audio_count(amount: int) -> void:
 	audio_count = max(0, audio_count + amount)
-
 
 ## Checkes whether the audio limit is reached. Returns true if the [member audio_count] is less than the [member limit].
 func has_open_limit() -> bool:

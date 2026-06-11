@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bdnbdnvbrn6jy"
+path="res://.godot/imported/FOLKLOREtrack1 - Musica gameplay original con loop v2.wav-6227b9112e2f26557263a82e793511ee.sample"
+
+[deps]
+
+source_file="res://audio/musica/FOLKLOREtrack1 - Musica gameplay original con loop v2.wav"
+dest_files=["res://.godot/imported/FOLKLOREtrack1 - Musica gameplay original con loop v2.wav-6227b9112e2f26557263a82e793511ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

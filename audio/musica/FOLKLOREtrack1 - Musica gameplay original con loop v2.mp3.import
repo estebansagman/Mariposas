@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xjoxwlw2p58w"
+path="res://.godot/imported/FOLKLOREtrack1 - Musica gameplay original con loop v2.mp3-6126eef95c9da404e951f516c3f7d7da.mp3str"
+
+[deps]
+
+source_file="res://audio/musica/FOLKLOREtrack1 - Musica gameplay original con loop v2.mp3"
+dest_files=["res://.godot/imported/FOLKLOREtrack1 - Musica gameplay original con loop v2.mp3-6126eef95c9da404e951f516c3f7d7da.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

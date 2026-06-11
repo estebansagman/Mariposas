@@ -20,7 +20,6 @@ metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 script = ExtResource("2_65gp3")
 type = 15
 sound_effect = ExtResource("5_671re")
-canal_audio = "sfx"
 volume = 1.0
 pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://dljcljvbsfrl6"
@@ -49,7 +48,6 @@ metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 script = ExtResource("2_65gp3")
 type = 13
 sound_effect = ExtResource("7_6g0sw")
-canal_audio = "sfx"
 metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 
 [node name="AudioManager" type="Node2D" unique_id=811379820]

@@ -4,32 +4,29 @@ extends Resource
 
 ## Stores the different types of sounds effects available to be played to distinguish them from another. Each new SoundEffect resource created should add to this enum, to allow them to be easily instantiated via [method AudioManager.create_2d_audio_at_location()] and [method AudioManager.create_audio()].
 enum SOUND_EFFECT_TYPE {
-	MARIPOSA_FLY,
-	MARIPOSA_PICKUP,
-	MARIPOSA_PLACE,
-	PLANTA_PICKUP,
-	PLANTA_PLACE,
-	PLANTA_ROTATE,
-	PLANTA_MISTAKE,
-	LIBRO_CHANGE_PAGE,
-	LIBRO_SCROLL_PAGES,
-	LIBRO_OPEN_SCENE,
-	LIBRO_COVER,
-	PAPEL_FLY,
-	PAPEL_INSERT,
-	VICTORIA,
-	BUTTON_HOVER,
-	BUTTON_PRESS,
-	ZOOM,
-	WOOSH,
-	SLIDE,
-	LEVEL_RESTART,
-	SHINE,
-	POP_UP,
-	ARRUGAR_PAPEL,
-	ARRUGAR_HOJAS_SECAS,
-	ARRUGAR_BOLSA,
-	ARRUGAR_PLASTICO
+	MARIPOSA_FLY, ## Listo
+	MARIPOSA_PICKUP, ## Listo
+	MARIPOSA_PLACE, ## Listo
+	LEVEL_RESTART, ## Esta la base, falta editar
+	PLANTA_PICKUP, ## Listo? o poner mas onda
+	PLANTA_PLACE, ## Descargados
+	PLANTA_ROTATE, ## Listo
+	PLANTA_MISTAKE, ## ? Descargados ?
+	LIBRO_CHANGE_PAGE, ## A Seleccionar y Cortar
+	LIBRO_SCROLL_PAGES, ## A Seleccionar y Cortar
+	LIBRO_OPEN_SCENE, ## Listo
+	LIBRO_COVER, ## Listo
+	PAPEL_FLY, ## Listo
+	PAPEL_INSERT, ## Listo
+	VICTORIA, ## Listo
+	BUTTON_HOVER, ## Listo
+	BUTTON_PRESS, ## Listo (son 2 variaciones)
+	UI_CHANGE, ## Listo
+	ZOOM, ## Listo
+	WOOSH, ## Listo
+	SLIDE, ## Listo
+	POP_MULTI, ## Listo
+	POP, ## Listo
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.

@@ -26,6 +26,18 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://audio/SFX/Boton/": "green",
+"res://audio/SFX/Libro/": "yellow",
+"res://audio/SFX/Mariposa/": "green",
+"res://audio/SFX/Papel/": "green",
+"res://audio/SFX/Plantas/": "green",
+"res://audio/SFX/Pop/": "green",
+"res://audio/SFX/Slides - Whoosh/": "green"
+}
+
 [filesystem]
 
 import/blender/enabled=false

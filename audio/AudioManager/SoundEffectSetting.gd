@@ -4,33 +4,33 @@ extends Resource
 
 ## Stores the different types of sounds effects available to be played to distinguish them from another. Each new SoundEffect resource created should add to this enum, to allow them to be easily instantiated via [method AudioManager.create_2d_audio_at_location()] and [method AudioManager.create_audio()].
 enum SOUND_EFFECT_TYPE {
-	MARIPOSA_FLY,
-	MARIPOSA_PICKUP,
-	MARIPOSA_PLACE,
-	PLANTA_PICKUP,
-	PLANTA_PLACE,
-	PLANTA_ROTATE,
-	PLANTA_MISTAKE,
-	LIBRO_CHANGE_PAGE,
-	LIBRO_SCROLL_PAGES,
-	LIBRO_OPEN_SCENE,
-	LIBRO_COVER,
-	PAPEL_FLY,
-	PAPEL_INSERT,
-	VICTORIA,
-	BUTTON_HOVER,
-	BUTTON_PRESS,
-	ZOOM,
-	WOOSH,
-	SLIDE,
-	LEVEL_RESTART,
-	SHINE,
-	POP_UP,
-	ARRUGAR_PAPEL,
-	ARRUGAR_HOJAS_SECAS,
-	ARRUGAR_BOLSA,
-	ARRUGAR_PLASTICO,
-	MUSICA
+	MARIPOSA_FLY, ## tiene que lupear mientras se anima [SI]
+	MARIPOSA_PICKUP, ## animacion freezeo [SI]
+	MARIPOSA_PLACE, ## apoyar mariposa [SI]
+	
+	LEVEL_RESTART, ## Esta la base, falta editar | reinicio nivel [SI]
+	PLANTA_PICKUP, ## ¿poner mas onda? | agarrar planta, toda circunstancia [SI]
+	PLANTA_PLACE, ## Dejar en grilla (y se planta) [SI]
+	PLANTA_ROTATE, ## rotar... [SI]
+	PLANTA_MISTAKE, ## ??? nadie te conoce 
+
+	LIBRO_CHANGE_PAGE, ## A Seleccionar y Cortar | una pagina de libro []
+	LIBRO_SCROLL_PAGES, ## A Seleccionar y Cortar | muchas maginas []
+	LIBRO_OPEN_SCENE, ## abrir escena (pa cerrar tambien) [SI]
+	LIBRO_COVER, ## Cambio de painga (hacia tapas, osea, cerar abrir) [SI]
+
+	PAPEL_FLY, ## Papelitos de mariposas saliendo [SI]
+	PAPEL_INSERT, ## papelitos de mariposa entrando al libro [SI]
+	
+	VICTORIA, ## victoria [SI]
+	BUTTON_HOVER, ## boton hover [SI]
+	BUTTON_PRESS, ##  press [SI]
+	UI_CHANGE, ## Barras de menu de opciones (cambiar en el slid) []
+	ZOOM, ## transicion de manu nivel a nivel []
+	WOOSH, ## De momento sin uso [SI]
+	SLIDE, ## De momento sin uso []
+	POP_MULTI, ## Cuando salen las estrellitas al ganar []
+	POP, ## Ultima estrella (la que se pega arriba) []
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.

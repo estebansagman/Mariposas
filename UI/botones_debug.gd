@@ -47,3 +47,27 @@ func in_superar():
 
 func borrar_estado_niveles():
 	Dios.replicar_niveles_a_user(true)
+
+func superar_tutoriales():
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles_superados"] = 2
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles"]["nivel_1"]["superado"] = true
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles"]["nivel_2"]["superado"] = true
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles"]["nivel_1"]["primer_entrada"] = true
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles"]["nivel_2"]["primer_entrada"] = true
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles"]["nivel_1"]["ya_fue_jugado"] = true
+	Dios.bd_externa["sectores"]["seccion_1"]["niveles"]["nivel_2"]["ya_fue_jugado"] = true
+	Dios.guardar_bd_externa()
+	get_tree().reload_current_scene()
+	
+func superar_segundo_sector():
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles_superados"] = 2
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles"]["nivel_1"]["superado"] = true
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles"]["nivel_2"]["superado"] = true
+
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles"]["nivel_1"]["primer_entrada"] = true
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles"]["nivel_2"]["primer_entrada"] = true
+	
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles"]["nivel_1"]["ya_fue_jugado"] = true
+	Dios.bd_externa["sectores"]["seccion_2"]["niveles"]["nivel_2"]["ya_fue_jugado"] = true
+	Dios.guardar_bd_externa()
+	get_tree().reload_current_scene()

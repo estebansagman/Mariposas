@@ -257,6 +257,24 @@ offset_bottom = 397.0
 text = "borrar estados Nivel
 "
 
+[node name="ProgresoCompleto4" type="Button" parent="botones_debug" unique_id=2081093168]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 404.0
+offset_right = 236.0
+offset_bottom = 446.0
+text = "SuperarTutoriales
+"
+
+[node name="ProgresoCompleto5" type="Button" parent="botones_debug" unique_id=155196623]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 458.0
+offset_right = 236.0
+offset_bottom = 500.0
+text = "Superar segundo Sector
+"
+
 [node name="ContenedorLibro" type="TextureRect" parent="." unique_id=1103802619]
 layout_mode = 0
 offset_left = 126.0
@@ -289,4 +307,6 @@ stretch_mode = 5
 [connection signal="pressed" from="botones_debug/ProgresoCompleto" to="botones_debug" method="completar_libro"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto2" to="botones_debug" method="borrar_progreso"]
 [connection signal="pressed" from="botones_debug/ProgresoCompleto3" to="botones_debug" method="borrar_estado_niveles"]
+[connection signal="pressed" from="botones_debug/ProgresoCompleto4" to="botones_debug" method="superar_tutoriales"]
+[connection signal="pressed" from="botones_debug/ProgresoCompleto5" to="botones_debug" method="superar_segundo_sector"]
 [connection signal="pressed" from="ContenedorLibro/LibroBoton" to="Libro" method="abrir"]

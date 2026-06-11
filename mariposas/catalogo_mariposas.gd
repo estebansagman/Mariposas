@@ -74,6 +74,7 @@ func animacion_ganar()->void:
 		t.set_ease(Tween.EASE_IN)
 		t.set_trans(Tween.TRANS_BACK)
 		add_child(elemento)
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PAPEL_FLY)
 		elemento.texture = PAPELPARAATRASDELASPOSTALES
 		elemento.scale = Vector2(.1,.1)
 		#elemento.top_level = true
@@ -86,6 +87,8 @@ func animacion_ganar()->void:
 		t.tween_property(elemento,"scale",Vector2(0.03,0.03),duration)
 		#t.tween_property(mariposa,"modulate",Color(16, 16, 16, 1.0),duration/3)
 		await get_tree().create_timer(delay).timeout
+		
+		
 		#elemento.modulate = Color(16, 16, 16, 1.0)
 
 @onready var catalogo_mariposas: NinePatchRect = $CatalogoMariposas
@@ -113,6 +116,7 @@ func restaurar_panel()->void:
 
 @onready var boton_libro = get_tree().current_scene.find_child("LibroBoton")
 func tween_libro()-> void:
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PAPEL_INSERT)
 	var tl = create_tween()
 	tl.tween_property(boton_libro,"scale",Vector2(1.3,1.3),0.1)
 	tl.tween_property(boton_libro,"scale",Vector2(1.149,1.149),0.1)

@@ -103,6 +103,7 @@ func _ubicar_mariposa_en_jardin(mariposa, cuadrante: Array[Vector2i]) -> void:
 
 func _spawnear_mariposa(mariposa: Mariposa, parcela: Vector2i):
 	emit_signal("mariposa_cambio")
+	AudioManager.create_2d_audio_at_location(mariposa.position,SoundEffect.SOUND_EFFECT_TYPE.MARIPOSA_FLY)
 	mariposa.scale = Vector2.ONE
 	if mariposa.get_parent() == null:
 		jardin.add_child(mariposa)

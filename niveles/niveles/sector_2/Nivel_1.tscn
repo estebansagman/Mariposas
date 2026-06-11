@@ -39,7 +39,6 @@ script = ExtResource("1_y86en")
 numero_de_nivel = 1
 numero_de_sector = 2
 jardin = NodePath("AreaDeJuego/Jardin")
-Especie_mariposa = Array[String](["cuatro_ojos", "espejito", "bataraza"])
 Especie_planta = Array[String](["mbrucuya:A", "salvia:A", "chilca:A", "ruelia:A", "canario_rojo:B"])
 datos_de_libro = Array[ExtResource("2_yhpg0")]([SubResource("Resource_np3g8"), SubResource("Resource_vjx2j"), SubResource("Resource_yhpg0")])
 

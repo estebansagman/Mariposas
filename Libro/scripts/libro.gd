@@ -7,6 +7,7 @@ const LIBRO_3D = preload("uid://bshljp84410s4")
 @onready var pagina_derecha: Pagina = $Control/Derecha
 @onready var hoja: Hoja = $Control/SubViewportContainer/SubViewport/Hoja
 @onready var sub_viewport_container: SubViewportContainer = $Control/SubViewportContainer
+@export var en_juego:bool = false
 
 var pagina_actual:int = 0
 var paginas:Array = [["indice",""]]
@@ -14,13 +15,24 @@ var botones_activados:bool = true
 
 
 func abrir():
+	if en_juego:
+		AudioManager.menues.stream_paused = false
+		AudioManager.menues.volume_db = 0
+		AudioManager.in_game_inicio.stream_paused = true
+		AudioManager.in_game_loop.stream_paused = true
 	show()
 	get_tree().paused = true
 	establecer_paginas()
 	print("lista: ",paginas)
 	pagina_izquierda.mostrar_cara("izquierda",paginas[pagina_actual][0],paginas[pagina_actual][1])
 	pagina_derecha.mostrar_cara("derecha",paginas[pagina_actual][0],paginas[pagina_actual][1])
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_OPEN_SCENE)
 func cerrar():
+	if en_juego:
+		AudioManager.menues.stream_paused = true
+		AudioManager.menues.volume_db = -80
+		AudioManager.in_game_inicio.stream_paused = false
+		AudioManager.in_game_loop.stream_paused = false
 	get_tree().paused = false
 	hide()
 	
@@ -35,8 +47,9 @@ func sumar_paginas(tipo_de_pagina,especimenes):
 
 func ir_a_pagina(tipo_hoja, especimen=""):
 	print("los datos que llegan son: ",tipo_hoja," y ",especimen," | Boton: ",botones_activados)
-	
+
 	if botones_activados: 
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_CHANGE_PAGE)
 		botones_activados = false 
 	else: 
 		return
@@ -67,6 +80,7 @@ func ir_a_pagina(tipo_hoja, especimen=""):
 	await pasar_paginas_modo_rafaga(cantidad_de_paginas, orientacion, hacia_adelante, ruta_paginas)
 	activar_botones()
 func _pasar_pagina():
+	
 	var validacion = (pagina_actual > 14)or(not botones_activados)
 	if validacion:return
 	botones_activados = false 

@@ -21,6 +21,7 @@ func _ready() -> void:
 	boton.gui_input.connect(_on_boton_gui_input)
 	
 func _al_presionar():
+	#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLANTA_PICKUP)
 	hide()
 	pedido_de_planta.emit(key_planta, key_estructura, estructura, self, ejemplar)
 

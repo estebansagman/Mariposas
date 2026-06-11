@@ -53,6 +53,7 @@ func dar_indice():
 func seleccionar():
 	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
 	if ResourceLoader.exists(ruta_actual):
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ZOOM)
 		emit_signal("nivel_elejido", ruta_actual, indice, sector)
 	else:
 		emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)

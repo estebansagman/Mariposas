@@ -72,6 +72,8 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 		else:
 			panel_mouse.hide()
 func _ready() -> void:
+	#AudioManager.reproducir_musica_nivel()
+	setear_imagen()
 	evaluar_si_nivel_fue_jugado()
 	traer_lista_mariposas()
 	definir_etiqueta_del_mause()
@@ -83,13 +85,24 @@ func _ready() -> void:
 	asignar_señales()
 	iniciar_animacion_nivel(jugado)
 	AudioManager.conectar_botones_del_menu(self)
-
+	AudioManager.reproducir_musica_nivel()
+	
 func iniciar_animacion_nivel(jugado):
 	if !editando:
 		emit_signal("animacion_iniciada",jugado)
 	else:
 		emit_signal("animacion_iniciada",true)
 
+func setear_imagen():
+	var seccion_actual:int = numero_de_sector
+	match seccion_actual:
+		1:
+			ui.fondo.texture = load("res://niveles/imagenes/edicion_de_las_cosas.jpg")
+		2:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_1_fondo.png")
+		3: 
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_2_fondo.png")
+	
 func evaluar_si_nivel_fue_jugado():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
 	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
@@ -199,6 +212,7 @@ func in_superar_nivel():
 	Dios.guardar_bd_externa()
 
 func volver_al_Menu():
+	
 	get_tree().change_scene_to_file(ui.SELECTOR_NIVELES)
 func sistema_debug(): 
 	ui.botones_debug.nivel_jugandose = self

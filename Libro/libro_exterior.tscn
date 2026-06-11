@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://c523vgu1py1s2"]
+[gd_scene format=4 uid="uid://bargu6qbum6cb"]
 
-[ext_resource type="Texture2D" uid="uid://b4yiecptcb7ej" path="res://Libro/3D/Libro Exterior_TapaAlbedo.png" id="1_7i5ya"]
+[ext_resource type="Texture2D" uid="uid://dqpbdose5vly3" path="res://Libro/3D/Libro Exterior_TapaAlbedo.png" id="1_7i5ya"]
 [ext_resource type="AnimationLibrary" uid="uid://lxrg86op625" path="res://Libro/3D/LibroExteriorAnim.res" id="2_po4k4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqdaa"]
@@ -54,29 +54,29 @@ bones/0/name = "Lomo.L"
 bones/0/parent = -1
 bones/0/rest = Transform3D(-4.7683716e-07, 0.99999976, -3.5713994e-13, -0.9999999, -4.768371e-07, -8.681859e-07, -8.6818585e-07, -5.6843412e-14, 0.99999994, 0, -0.01099987, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(-0.06345239, 0.1600889, -1.4210855e-14)
-bones/0/rotation = Quaternion(-2.8421706e-14, 0, 0.25881898, 0.9659258)
+bones/0/position = Vector3(0.0002015389, -0.010456452, -3.9079898e-16)
+bones/0/rotation = Quaternion(3.0742206e-07, 3.0647752e-07, -0.70819396, 0.70601803)
 bones/0/scale = Vector3(0.9999999, 0.99999976, 0.99999994)
 bones/1/name = "Tapa.L"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, -4.868275e-07, 2.484092e-07, 4.868275e-07, 1, 5.4358926e-13, -2.484092e-07, -4.226568e-13, 1, 2.842171e-14, 0.176, 2.1939509e-16)
 bones/1/enabled = true
 bones/1/position = Vector3(2.842171e-14, 0.176, 2.1939509e-16)
-bones/1/rotation = Quaternion(-2.239053e-15, -9.172084e-16, 0.50000024, 0.8660254)
+bones/1/rotation = Quaternion(-1.5268594e-09, 1.2420448e-07, 0.001538568, 0.99999887)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Lomo.R"
 bones/2/parent = -1
 bones/2/rest = Transform3D(-4.7683716e-07, -0.99999976, 3.5713994e-13, 0.9999999, -4.768371e-07, -8.681859e-07, 8.6818585e-07, -5.6843412e-14, 0.99999994, 0, -0.01099987, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(-0.06345237, 0.16008891, 0)
-bones/2/rotation = Quaternion(4.171892e-07, -1.1995775e-07, 0.96105975, 0.27634066)
+bones/2/position = Vector3(0.00020153914, -0.01045645, 2.84217e-15)
+bones/2/rotation = Quaternion(3.0611972e-07, -3.077782e-07, 0.70519394, 0.7090145)
 bones/2/scale = Vector3(0.9999999, 0.99999976, 0.99999994)
 bones/3/name = "Tapa.R"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 4.868275e-07, -2.484092e-07, -4.868275e-07, 1, 5.4358926e-13, 2.484092e-07, -4.226568e-13, 1, -2.842171e-14, 0.176, 2.1939509e-16)
 bones/3/enabled = true
 bones/3/position = Vector3(-2.842171e-14, 0.176, 2.1939509e-16)
-bones/3/rotation = Quaternion(-4.804849e-07, -1.0867578e-07, -0.48416954, 0.8749742)
+bones/3/rotation = Quaternion(-1.5268593e-09, -1.2420448e-07, -0.0015385685, 0.99999887)
 bones/3/scale = Vector3(1, 1, 1)
 
 [node name="LibroExterior" type="MeshInstance3D" parent="LibroEsqueleto/Skeleton3D" unique_id=1800795937]

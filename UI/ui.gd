@@ -12,8 +12,10 @@ signal reiniciar
 #@onready var cartel_final: Panel = $Cartel_final
 @onready var cartel_final: Panel = %Cartel_final
 @onready var timer: Timer = $Timer
-@onready var botones_debug: Control = $botones_debug
+#@onready var botones_debug: Control = $botones_debug
+@export var botones_debug: Control
 @onready var estrella_ganado: TextureRect = $Estrella
+@onready var fondo: TextureRect = $Camara/Fondo
 
 ##region EDITOR
 
@@ -34,7 +36,6 @@ var superado:bool = false
 func _ready() -> void:
 	catalogo_mariposas.quedarme.pressed.connect(ocultar_cartel)
 	catalogo_mariposas.ir_a_niveles.pressed.connect(volver_al_menu)
-
 func prender_estrella(activado:bool):
 	if activado:
 		estrella_ganado.show()
@@ -55,6 +56,7 @@ func superar_nivel():
 
 func anim_win()->void:
 	var tween = get_tree().create_tween();
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.VICTORIA)
 	tween.tween_method(
 	func(value): highlight.material.set_shader_parameter("Position", value),  
 	  0.0,  # Start value
@@ -76,25 +78,31 @@ func highlight_mariposa()->void:
 		mariposa.agregar_highlight()
 
 func anim_estrella()->void:
-	for mariposa in get_parent().find_children("*","Mariposa",true,false):
+	var total_mariposas = get_parent().find_children("*","Mariposa",true,false)
+	var contador = 0
+	
+	for mariposa in total_mariposas:
+		contador += 1
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.POP_MULTI)
 		var estrella:Path2D = ESTRELLA_VFX.duplicate(true).instantiate()
 		var origin = mariposa.find_child("Sprite2D",true,false).global_position
 		var t = create_tween()
-		#get_parent().add_child(estrella,true)
+		
 		add_child(estrella,true)
 		estrella.curve.add_point(Vector2(960,60)-origin,Vector2(400,200))
 		estrella.z_index = 6
 		estrella.global_position = origin
 		var sprite = estrella.get_child(0).get_child(0)
 		estrella.get_child(1).emitting = true
-		print(estrella.get_child(1))
 		sprite.scale = Vector2.ZERO
+
 		t.tween_property(estrella.get_child(0),"progress_ratio",1.0,1.6)
 		t.parallel()
 		t.set_trans(Tween.TRANS_ELASTIC)
-		#t.tween_property(sprite,"scale",Vector2(2.0,2.0),1)
 		t.tween_property(sprite,"scale",Vector2(0.2,0.2),1)
 
+		if contador == total_mariposas.size():
+			t.chain().tween_callback(func(): AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.POP))
 func ocultar_cartel():
 	#cartel_final.hide()
 	catalogo_mariposas.restaurar_panel()
@@ -107,6 +115,7 @@ func volver_al_menu():
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)
 
 func reiniciar_nivel():
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LEVEL_RESTART)
 	emit_signal("reiniciar")
 	ocultar_cartel()
 	#get_tree().reload_current_scene()

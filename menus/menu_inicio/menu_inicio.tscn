@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c76ou05grj2mh"]
 
 [ext_resource type="Script" uid="uid://pq6c2cdpc6mj" path="res://menus/menu_inicio/menu_inicio.gd" id="1_0rq1d"]
-[ext_resource type="Texture2D" uid="uid://2yl1ouy3wp00" path="res://menus/menu_inicio/imagenes/pantalla principal2.webp" id="2_6y2c5"]
+[ext_resource type="Texture2D" uid="uid://bj2jy1det5sbb" path="res://menus/menu_inicio/Pantalla_Principal.png" id="2_48qcf"]
 [ext_resource type="Texture2D" uid="uid://d1ev7880avayr" path="res://menus/menu_inicio/iconos/jugar.png" id="4_48qcf"]
 [ext_resource type="Texture2D" uid="uid://pd4yedxx1ruj" path="res://menus/menu_inicio/iconos/jugar_h.png" id="5_2pqkk"]
 [ext_resource type="Texture2D" uid="uid://t08uxsfkixyo" path="res://menus/menu_inicio/iconos/opciones.png" id="6_wf21f"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cho0mhwwdambn" path="res://menus/menu_inicio/iconos/salir_h.png" id="11_wj7qf"]
 [ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro.tscn" id="12_48qcf"]
 [ext_resource type="PackedScene" uid="uid://crfx3nr7i3w4w" path="res://menus/menu_opciones/menu_opciones.tscn" id="13_2pqkk"]
-[ext_resource type="AudioStream" uid="uid://w0mga78tdopl" path="res://audio/musica/loop.ogg" id="13_wf21f"]
 
 [node name="Control" type="Control" unique_id=1486482361]
 layout_mode = 3
@@ -29,7 +28,7 @@ offset_left = 1.0
 offset_top = 2.0
 offset_right = 1921.0
 offset_bottom = 1081.0
-texture = ExtResource("2_6y2c5")
+texture = ExtResource("2_48qcf")
 expand_mode = 1
 
 [node name="jugar" type="TextureButton" parent="." unique_id=438088139]
@@ -79,11 +78,6 @@ layout_mode = 1
 [node name="MenuOpciones" parent="." unique_id=1689402211 instance=ExtResource("13_2pqkk")]
 visible = false
 layout_mode = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1707292333]
-stream = ExtResource("13_wf21f")
-autoplay = true
-bus = &"musica"
 
 [connection signal="pressed" from="jugar" to="." method="menu_nivel"]
 [connection signal="pressed" from="opciones" to="MenuOpciones" method="abrir_menu_de_opciones"]

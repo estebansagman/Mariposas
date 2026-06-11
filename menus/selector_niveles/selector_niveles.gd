@@ -14,6 +14,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	actualizar_estado()
 	AudioManager.conectar_botones_del_menu(self)
+	AudioManager.volver_al_menu()
 
 func actualizar_estado():
 	for id_sector in Dios.bd_externa["sectores"].keys():

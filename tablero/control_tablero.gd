@@ -248,6 +248,7 @@ func swichear_funcion_de_objeto(prendido):
 
 #region ACCIONES PLANTA
 func seleccionar_planta(planta:Planta):
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLANTA_PICKUP)
 	#printerr("SELECCIONAR PLANTA CATALOGO")
 	planta_seleccionada = planta
 	planta_seleccionada.z_index = planta_seleccionada.ZINDEX_SELECCION
@@ -331,11 +332,13 @@ func posicionar_planta(planta:Planta):
 func girar_planta(event:InputEvent = null):
 	if planta_seleccionada and event:
 		if event.is_action_pressed("girar_derecha"):
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLANTA_ROTATE)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual + 1) % 4
 			planta_seleccionada.girar_planta(true)
 			planta_seleccionada.emitir_particulas_giro("derecha")
 
 		elif event.is_action_pressed("girar_izquierda"):
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PLANTA_ROTATE)
 			planta_seleccionada.giro_actual = (planta_seleccionada.giro_actual - 1) if planta_seleccionada.giro_actual > 0 else 3
 			planta_seleccionada.girar_planta(false)
 			planta_seleccionada.emitir_particulas_giro("izquierda")
@@ -381,9 +384,10 @@ func mover_mariposa_seleccionada()->void:
 			if animacion == 0:
 				animacion += 1
 				emit_signal("mariposa_agarrada")
+				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MARIPOSA_PICKUP)
 		if mariposa_en_seleccion: 
 			mariposa_seleccionada.position = get_global_mouse_position()
-
+		
 		if Input.is_action_just_released("aceptar") and en_area_de_juego and mariposa_seleccionada.confirmar_requerimientos(generarl_lista_requerimientos()):
 			mariposa_seleccionada.apagar()
 			mariposa_seleccionada.animation_player.play()
@@ -394,6 +398,7 @@ func mover_mariposa_seleccionada()->void:
 				tablero.celdas[casilla][tablero.id_mariposa_key] = mariposa_seleccionada.id_mariposa
 			mariposa_seleccionada.posicion_jardin = lista_focus.duplicate()
 			print(mariposa_seleccionada.posicion_jardin)
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MARIPOSA_PLACE)
 			lista_focus.clear()
 			mariposa_en_seleccion = false
 			emit_signal("mariposa_movida",mariposa_seleccionada,celda_actual)

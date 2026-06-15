@@ -10,6 +10,8 @@ var bd_interna: Dictionary = {}
 var bd_externa: Dictionary = {}
 #var bd_interna_externa: Dictionary = {}
 
+var mostrar_notif: bool
+
 func _ready():
 	bd_interna = _cargar_archivo_json("res://data/BD_interna.json")
 	gestionar_bd_externa()

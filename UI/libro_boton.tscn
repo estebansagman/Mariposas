@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://cnumtio48c57n"]
+
+[ext_resource type="Texture2D" uid="uid://kjc67lnc6vwk" path="res://Libro/elementos_libro/libroasets/iconolibro.png" id="1_6t8s3"]
+[ext_resource type="Shader" uid="uid://dvmgl0tgaer3e" path="res://VFX/shaders/shake.gdshader" id="1_8tkaf"]
+[ext_resource type="Texture2D" uid="uid://dkkm5trvfsfjj" path="res://Libro/elementos_libro/libroasets/libroicono activado.png" id="2_rg86e"]
+[ext_resource type="Texture2D" uid="uid://dwpjkjcjqcxs4" path="res://UI/imagenes/notificacion libro.png" id="3_rg86e"]
+[ext_resource type="Script" uid="uid://n6bfhb7s20x8" path="res://UI/libro_boton.gd" id="3_x66vq"]
+[ext_resource type="Texture2D" uid="uid://hgvc6chyrg2j" path="res://Libro/elementos_libro/papelesparalibro/papelparanombredeplanta2.png" id="6_sem8n"]
+[ext_resource type="FontFile" uid="uid://braanrlvh5nna" path="res://Libro/elementos_libro/DK Crayon Crumble.ttf" id="7_t6i20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8tkaf"]
+shader = ExtResource("1_8tkaf")
+shader_parameter/amplitude = 0.0
+shader_parameter/speed = 0.50000002375
+
+[sub_resource type="Animation" id="Animation_sem8n"]
+resource_name = "LibroShake"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.2617994, 0.3490658503988659, 0.2617994]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/amplitude")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5, 5),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.050000002375, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8tkaf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2617994]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:material:shader_parameter/speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.50000002375]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/amplitude")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x66vq"]
+_data = {
+&"NotifShake": SubResource("Animation_sem8n"),
+&"RESET": SubResource("Animation_8tkaf")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jh0xv"]
+font = ExtResource("7_t6i20")
+font_size = 128
+font_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+outline_size = 5
+outline_color = Color(0.5294118, 0.36862746, 0.34117648, 1)
+
+[node name="LibroBoton" type="TextureButton" unique_id=2129153981]
+z_index = 6
+offset_right = 106.61041
+offset_bottom = 156.57172
+rotation = 0.2617994
+scale = Vector2(1.1489059, 1.1489059)
+texture_normal = ExtResource("1_6t8s3")
+texture_hover = ExtResource("2_rg86e")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_x66vq")
+
+[node name="NotificacionLibro" type="Sprite2D" parent="." unique_id=1057979789]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8tkaf")
+position = Vector2(123.11389, 39.09952)
+rotation = -0.2617994
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_rg86e")
+offset = Vector2(64, -43)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NotificacionLibro" unique_id=73609066]
+libraries/ = SubResource("AnimationLibrary_x66vq")
+autoplay = &"NotifShake"
+
+[node name="Papelparanombredeplanta2" type="Sprite2D" parent="." unique_id=415286711]
+position = Vector2(-265.515, 155.8477)
+rotation = -0.26179937
+scale = Vector2(0.3, 1e-05)
+texture = ExtResource("6_sem8n")
+
+[node name="Label" type="Label" parent="Papelparanombredeplanta2" unique_id=1896049814]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1168.5
+offset_top = -280.5
+offset_right = -234.5
+offset_bottom = -154.49983
+grow_horizontal = 2
+grow_vertical = 2
+text = "Notas desbloqueadas"
+label_settings = SubResource("LabelSettings_jh0xv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="update_notif" binds= [false]]

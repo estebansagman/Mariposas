@@ -17,6 +17,9 @@ signal reiniciar
 @onready var estrella_ganado: TextureRect = $Estrella
 @onready var fondo: TextureRect = $Camara/Fondo
 
+@onready var libro_boton: TextureButton = $LibroBoton
+
+
 ##region EDITOR
 
 #@onready var catalogo_plantas_B: CatalogoPlantas = $Control/CatalogoPlantas2
@@ -53,6 +56,14 @@ func superar_nivel():
 		anim_estrella()
 		await get_tree().create_timer(1.2).timeout
 		catalogo_mariposas.animacion_ganar()
+		libro_notif()
+
+func libro_notif()->void:
+	var t = create_tween()
+	t.tween_interval(1.5)
+	t.tween_property(libro_boton.get_child(1),"scale",Vector2(0.3,0.3),0.5)
+	await t.finished
+	libro_boton.update_notif(true)
 
 func anim_win()->void:
 	var tween = get_tree().create_tween();

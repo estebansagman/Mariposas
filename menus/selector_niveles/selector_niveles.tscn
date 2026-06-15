@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cf6ongvo4lixq" path="res://menus/selector_niveles/selector_niveles.gd" id="1_7qhml"]
 [ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/imagenes/conenedor_niveles.gd" id="2_0u3hj"]
 [ext_resource type="PackedScene" uid="uid://bes8xjx3o37mr" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
-[ext_resource type="Texture2D" uid="uid://c4axnldfcxfa2" path="res://menus/selector_niveles/imagenes/selector-niveles-fondo.png" id="2_h5bte"]
+[ext_resource type="Texture2D" uid="uid://g2ktvniitsoe" path="res://menus/selector_niveles/imagenes/selector-niveles-fondo.png" id="2_h5bte"]
 [ext_resource type="Script" uid="uid://7x06yrrbdw1h" path="res://menus/selector_niveles/contenedor_niveles.gd" id="3_qelex"]
 [ext_resource type="PackedScene" uid="uid://cwtx3es3unfng" path="res://menus/selector_niveles/contenedor_niveles.tscn" id="4_h5bte"]
 [ext_resource type="PackedScene" uid="uid://cll7q0mxcudtg" path="res://menus/selector_niveles/separador_sectores.tscn" id="5_aqnnm"]
@@ -283,6 +283,7 @@ texture = ExtResource("11_4tisx")
 expand_mode = 1
 
 [node name="LibroBoton" parent="ContenedorLibro" unique_id=2129153981 instance=ExtResource("13_4tisx")]
+z_index = 3
 layout_mode = 0
 offset_left = 82.0
 offset_top = 10.999999

@@ -9,6 +9,7 @@ var nivel_seleccionado = false
 
 var indice:int
 var sector_actual: int 
+var nivel:Node
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -42,21 +43,19 @@ func actualizar_estado():
 				item.nivel_elejido.connect(self.seleccionar_nivel)
 
 func seleccionar_nivel(nivel, indice_b, sector_b,reemplazar):
+	if !nivel:
+		mostrar_alerta_bloqueo()
+		return
+	
 	nivel_seleccionado = true
 	indice = indice_b
 	sector_actual = sector_b
 	nivel_elegido = nivel
-	if not Dios.bd_externa["sectores"]["seccion_"+str(sector_actual)]["desbloqueo"]:
-		timer.start()
-		alerta_bloqueo.show()
-		return
-	
 	instanciar_nivel(reemplazar)
-	
-	#if reemplazar:
-		#entrar_al_nivel()
-	#else:
-		#mostrar_nivel()
+
+func mostrar_alerta_bloqueo()->void:
+	timer.start()
+	alerta_bloqueo.show()
 
 func instanciar_nivel(reemplazar):
 	if !reemplazar:
@@ -65,14 +64,8 @@ func instanciar_nivel(reemplazar):
 	else:
 		var escena_actual = get_tree().current_scene
 		self.get_parent().remove_child(self)
-		#nivel.get_parent().remove_child(nivel)
 		nivel.reparent(escena_actual.get_tree().current_scene.get_parent(),true)
-		#get_tree().current_scene.get_child(0).queue_free()
 		escena_actual.get_child(0).queue_free()
-		#escena_actual.get_tree().paused = false
-		#nivel.get_parent().remove_child(nivel)
-
-var nivel:Node
 
 func entrar_al_nivel():
 	get_tree().paused = false

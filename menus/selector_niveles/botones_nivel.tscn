@@ -56,7 +56,6 @@ size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_sbog6")
 expand_mode = 3
 script = ExtResource("1_k7nes")
-activar_siempre = true
 puntaje = NodePath("Puntaje")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375642150]

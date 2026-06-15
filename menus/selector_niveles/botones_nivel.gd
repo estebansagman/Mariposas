@@ -2,7 +2,7 @@ extends TextureRect
 signal nivel_elejido(nivel_actual, indice, sector,reemplazar)
 signal ubicar(global_position)
 
-@export var activar_siempre:bool
+var activar_siempre:bool = false
 @export var indice:int
 @export var sector:int
 @onready var etiqueta: Label = $Nivel
@@ -16,12 +16,12 @@ func dar_indice():
 	var datos_sector = sectores.get("seccion_" + str(sector), {})
 	var nivel_estado = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["superado"]
 	var ruta_imagen = Dios.bd_interna["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["imagen"]
-	#var primer_entrada = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["primer_entrada"]
+	var primer_entrada = Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["primer_entrada"]
 	var ruta_incognita = "res://menus/selector_niveles/imagenes/nivel-bloqueado.png"
 	if Dios.bd_externa["sectores"]["seccion_"+str(sector)]["desbloqueo"]:
 
 		var t = create_tween()
-		if "primer_entrada" or activar_siempre:
+		if primer_entrada or activar_siempre:
 			Dios.bd_externa["sectores"]["seccion_"+str(sector)]["niveles"]["nivel_"+str(indice)]["primer_entrada"] = false
 			Dios.guardar_bd_externa()
 			#var t = create_tween()
@@ -52,16 +52,11 @@ func dar_indice():
 	puntaje.actualizar_visual(nivel_estado)
 
 func seleccionar():
-	#var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"
-	#if ResourceLoader.exists(ruta_actual):
-		#emit_signal("nivel_elejido", ruta_actual, indice, sector)
-	#else:
-		#emit_signal("nivel_elejido","res://niveles/Nivel_Base.tscn",indice)
-	
-	#####################
-	#printerr("Ubicacion boton: ",global_position)
-	#ubicar.emit(global_position)
-	iniciar_transicion()
+	if Dios.bd_externa["sectores"]["seccion_"+str(sector)]["desbloqueo"]:
+		iniciar_transicion()
+	else:
+		emit_signal("nivel_elejido",null,null,null,null)
+		pass
 
 func reconocer_nivel(reemplazar)->void:
 	var ruta_actual = "res://niveles/niveles/sector_"+ str(sector) +"/Nivel_" + str(indice) + ".tscn"

@@ -41,19 +41,47 @@ func actualizar_estado():
 				item.dar_indice()
 				item.nivel_elejido.connect(self.seleccionar_nivel)
 
-func seleccionar_nivel(nivel, indice_b, sector_b):
+func seleccionar_nivel(nivel, indice_b, sector_b,reemplazar):
 	nivel_seleccionado = true
 	indice = indice_b
 	sector_actual = sector_b
 	nivel_elegido = nivel
-	entrar_al_nivel()
-
-func entrar_al_nivel():
 	if not Dios.bd_externa["sectores"]["seccion_"+str(sector_actual)]["desbloqueo"]:
 		timer.start()
 		alerta_bloqueo.show()
 		return
+	
+	instanciar_nivel(reemplazar)
+	
+	#if reemplazar:
+		#entrar_al_nivel()
+	#else:
+		#mostrar_nivel()
+
+func instanciar_nivel(reemplazar):
+	if !reemplazar:
+		nivel = load(nivel_elegido).instantiate()
+		get_tree().current_scene.add_child(nivel,true,Node.INTERNAL_MODE_FRONT)
+	else:
+		var escena_actual = get_tree().current_scene
+		self.get_parent().remove_child(self)
+		#nivel.get_parent().remove_child(nivel)
+		nivel.reparent(escena_actual.get_tree().current_scene.get_parent(),true)
+		#get_tree().current_scene.get_child(0).queue_free()
+		escena_actual.get_child(0).queue_free()
+		#escena_actual.get_tree().paused = false
+		#nivel.get_parent().remove_child(nivel)
+
+var nivel:Node
+
+func entrar_al_nivel():
+	get_tree().paused = false
 	get_tree().change_scene_to_file(nivel_elegido)
+
+func mostrar_nivel():
+	var escena = load(nivel_elegido).instantiate()
+	#escena.set_process(false)
+	get_tree().current_scene.add_child(escena,true,Node.INTERNAL_MODE_FRONT)
 
 func vovler_al_menu():
 	get_tree().change_scene_to_file(MENU_INICIO)

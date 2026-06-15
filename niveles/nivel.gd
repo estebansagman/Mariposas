@@ -54,6 +54,8 @@ const OBJETO_MOVIL = preload("uid://csae5pte6k7x6")
 @onready var pasar_de_nivel: Timer = $PasarDeNivel
 @onready var area_de_juego: Area2D = $AreaDeJuego
 
+@onready var scene = get_tree().current_scene
+
 var estrellas:int
 var puntos_maximos:int
 
@@ -72,6 +74,8 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 		else:
 			panel_mouse.hide()
 func _ready() -> void:
+	tree_exited.connect(reclamar_tree)
+	
 	#AudioManager.reproducir_musica_nivel()
 	setear_imagen()
 	evaluar_si_nivel_fue_jugado()
@@ -92,6 +96,7 @@ func iniciar_animacion_nivel(jugado):
 		emit_signal("animacion_iniciada",jugado)
 	else:
 		emit_signal("animacion_iniciada",true)
+
 
 func setear_imagen():
 	var seccion_actual:int = numero_de_sector
@@ -373,3 +378,8 @@ func dibujar_objeto_cargado(objeto: ObjetosMoviles):
 	jardin.jardinero.posicionar_objeto_en_capa_visible(objeto)
 	await get_tree().process_frame
 	
+
+func reclamar_tree()->void:
+	print(scene)
+	if scene != self and scene:
+		print(scene.get_tree().change_scene_to_node(self))

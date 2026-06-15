@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cf6ongvo4lixq" path="res://menus/selector_niveles/selector_niveles.gd" id="1_7qhml"]
 [ext_resource type="Script" uid="uid://cslnq6cs8m1dt" path="res://menus/selector_niveles/imagenes/conenedor_niveles.gd" id="2_0u3hj"]
 [ext_resource type="PackedScene" uid="uid://bes8xjx3o37mr" path="res://menus/selector_niveles/botones_nivel.tscn" id="2_7v6hx"]
-[ext_resource type="Texture2D" uid="uid://g2ktvniitsoe" path="res://menus/selector_niveles/imagenes/selector-niveles-fondo.png" id="2_h5bte"]
+[ext_resource type="Texture2D" uid="uid://c4axnldfcxfa2" path="res://menus/selector_niveles/imagenes/selector-niveles-fondo.png" id="2_h5bte"]
 [ext_resource type="Script" uid="uid://7x06yrrbdw1h" path="res://menus/selector_niveles/contenedor_niveles.gd" id="3_qelex"]
 [ext_resource type="PackedScene" uid="uid://cwtx3es3unfng" path="res://menus/selector_niveles/contenedor_niveles.tscn" id="4_h5bte"]
 [ext_resource type="PackedScene" uid="uid://cll7q0mxcudtg" path="res://menus/selector_niveles/separador_sectores.tscn" id="5_aqnnm"]
@@ -17,13 +17,11 @@
 [sub_resource type="LabelSettings" id="LabelSettings_7qhml"]
 font_size = 24
 
-[node name="MenuNiveles" type="Control" unique_id=1797611692]
+[node name="MenuNiveles" type="Control" unique_id=1721620170]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 script = ExtResource("1_7qhml")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=206460727]

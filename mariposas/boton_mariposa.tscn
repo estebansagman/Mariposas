@@ -13,6 +13,7 @@ width = 207
 height = 152
 
 [node name="BotoMariposa" type="TextureButton" unique_id=1233384009]
+custom_minimum_size = Vector2(100, 100)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -23,7 +24,6 @@ texture_normal = SubResource("GradientTexture2D_8cup8")
 script = ExtResource("2_4u2pi")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1016452168]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 layout_mode = 0
 offset_left = 37.999992
 offset_top = 2.9999971

@@ -16,6 +16,15 @@ var mariposas_en_Juego:Array[Mariposa]
 var keys_mariposas:Array[String]
 var barra_interna:VScrollBar
 
+var boton_libro
+#func _ready() -> void:
+	#tree_exiting.connect(reclamar_tree)
+	#if get_tree().current_scene:
+		#var boton_libro = get_tree().current_scene.find_child("LibroBoton")
+
+#func reclamar_tree()->void:
+	#get_tree().change_scene_to_node(self)
+	#pass
 
 func iniciar_catalogo(key_mariposas:Array[String]):
 	keys_mariposas = key_mariposas.duplicate()
@@ -60,6 +69,7 @@ func _scroll_interno(v):
 	barra.value = v
 
 func animacion_ganar()->void:
+	boton_libro = get_tree().current_scene.find_child("LibroBoton")
 	var duration = 1.3
 	var delay = 0.3
 	var final_pos = boton_libro.global_position+Vector2(30,60)
@@ -114,7 +124,6 @@ func restaurar_panel()->void:
 	#ir_a_niveles.disabled = true
 	#cartel_victoria.visible = false
 
-@onready var boton_libro = get_tree().current_scene.find_child("LibroBoton")
 func tween_libro()-> void:
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PAPEL_INSERT)
 	var tl = create_tween()

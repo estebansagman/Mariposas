@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b4cdao7hnr5f7"]
+
+[ext_resource type="Script" uid="uid://byvndqaosmr3" path="res://menus/selector_niveles/escena_transicion.gd" id="1_bif1o"]
+[ext_resource type="Shader" uid="uid://b2flqvdcmho8y" path="res://VFX/shaders/escena_transicion.gdshader" id="2_bif1o"]
+[ext_resource type="PackedScene" uid="uid://b1rexyawwl853" path="res://menus/selector_niveles/selector_niveles.tscn" id="3_ys0vf"]
+[ext_resource type="Texture2D" uid="uid://cc4keaggst30f" path="res://VFX/shaders/verdepuro.tres" id="4_j4kc0"]
+[ext_resource type="Script" uid="uid://cp4dr6levsxoj" path="res://menus/selector_niveles/botones_nivel.gd" id="4_ys0vf"]
+[ext_resource type="Texture2D" uid="uid://cr6moh68rnko" path="res://menus/selector_niveles/imagenes/polaroid.png" id="5_j4kc0"]
+[ext_resource type="Texture2D" uid="uid://cgnpk1vyid6xw" path="res://menus/selector_niveles/imagenes/polaroid-seleccionada.png" id="6_tl06m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bif1o"]
+shader = ExtResource("2_bif1o")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.170000008075
+shader_parameter/smoothness = 0.250000011875
+shader_parameter/spill = 0.2000000095
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bif1o"]
+viewport_path = NodePath("Panel/SubViewport")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ys0vf"]
+resource_local_to_scene = true
+texture = SubResource("ViewportTexture_bif1o")
+
+[sub_resource type="Gradient" id="Gradient_4qldc"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sbog6"]
+gradient = SubResource("Gradient_4qldc")
+width = 58
+height = 67
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4wcv"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+anti_aliasing_size = 2.0
+
+[node name="Transicion" type="PanelContainer" unique_id=913576268]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_bif1o")
+
+[node name="Panel" type="Panel" parent="." unique_id=468124780]
+process_mode = 3
+z_index = 6
+material = SubResource("ShaderMaterial_bif1o")
+layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_ys0vf")
+
+[node name="SubViewport" type="SubViewport" parent="Panel" unique_id=1596046041]
+unique_name_in_owner = true
+size = Vector2i(1920, 1080)
+
+[node name="Polaroid" type="TextureRect" parent="Panel/SubViewport" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
+unique_name_in_owner = true
+z_index = 9
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 704.0
+offset_top = 284.0
+offset_right = 1171.4626
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.72, 1.72)
+pivot_offset = Vector2(80, 69)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_sbog6")
+expand_mode = 3
+script = ExtResource("4_ys0vf")
+indice = 1
+sector = 1
+puntaje = NodePath("")
+
+[node name="ImagenNivel" type="TextureRect" parent="Panel/SubViewport/Polaroid" unique_id=357063777]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 532.0
+offset_bottom = 522.0
+scale = Vector2(0.219, 0.23)
+texture = ExtResource("4_j4kc0")
+
+[node name="boton" type="TextureButton" parent="Panel/SubViewport/Polaroid" unique_id=1471165226]
+modulate = Color(18.892157, 18.892157, 18.892157, 0.6509804)
+layout_mode = 0
+offset_left = -4.0
+offset_top = 3.0000002
+offset_right = 508.0
+offset_bottom = 515.0
+scale = Vector2(0.31, 0.31)
+texture_normal = ExtResource("5_j4kc0")
+texture_hover = ExtResource("6_tl06m")
+
+[node name="ImagenNivel2" type="Panel" parent="Panel/SubViewport/Polaroid" unique_id=925809292]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0000305
+offset_right = 532.0
+offset_bottom = 522.0
+scale = Vector2(0.219, 0.23)
+theme_override_styles/panel = SubResource("StyleBoxFlat_u4wcv")
+
+[node name="MenuNiveles" parent="." unique_id=944683931 instance=ExtResource("3_ys0vf")]
+z_index = 6
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/SubViewport/Polaroid/boton" to="Panel/SubViewport/Polaroid" method="seleccionar"]

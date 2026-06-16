@@ -1,5 +1,5 @@
 extends Control
-@onready var SELECTOR_NIVELES:String = "res://menus/selector_niveles/selector_niveles.tscn"
+@onready var SELECTOR_NIVELES:String = "res://VFX/escena_transicion.tscn"
 
 func _ready() -> void:
 	Dios.gestionar_bd_externa()

@@ -39,14 +39,23 @@ shader_parameter/burn_size = 0.1999999955296
 shader_parameter/burn_color = Color(0.25510332, 0.17979999, 0.29, 1)
 
 [node name="ItemNivel" type="TextureRect" unique_id=486300447 node_paths=PackedStringArray("puntaje")]
-offset_right = 155.25
-offset_bottom = 184.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.64179
+offset_top = -92.0
+offset_right = 79.64179
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 69)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_sbog6")
 expand_mode = 3
 script = ExtResource("1_k7nes")
-activar_siempre = true
 puntaje = NodePath("Puntaje")
 
 [node name="Panel" type="Panel" parent="." unique_id=1375642150]

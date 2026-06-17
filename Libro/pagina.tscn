@@ -112,7 +112,6 @@ grow_vertical = 2
 color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 
 [node name="CaraIzquierda" type="Control" parent="." unique_id=1019688470]
-visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_left = 1.0
@@ -122,7 +121,6 @@ offset_bottom = 1081.0
 script = ExtResource("15_86i5b")
 
 [node name="Mariposas" type="Control" parent="CaraIzquierda" unique_id=1759898858]
-visible = false
 anchors_preset = 0
 offset_top = 1.0
 offset_right = 860.0
@@ -1030,6 +1028,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Plantas" type="Control" parent="CaraDerecha" unique_id=1546457184]
+visible = false
 anchors_preset = 0
 offset_left = 1.0
 offset_top = 2.0

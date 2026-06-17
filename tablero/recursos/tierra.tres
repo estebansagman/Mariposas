@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dol2wp8ukb0la" path="res://tablero/imagenes/tileset_v2.png" id="1_oh8hw"]
 [ext_resource type="Texture2D" uid="uid://bbm8k5rs8d02i" path="res://tablero/imagenes/fondo_place_H _extra2.png" id="1_rba5x"]
+[ext_resource type="Texture2D" uid="uid://bu0o31uu1wrcg" path="res://tablero/imagenes/agregado.png" id="3_tbb36"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbb36"]
 texture = ExtResource("1_oh8hw")
@@ -269,6 +270,30 @@ texture_region_size = Vector2i(64, 64)
 0:1/0 = 0
 0:1/0/modulate = Color(0.36989424, 0.5762225, 0.57906824, 1)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pymnr"]
+texture = ExtResource("3_tbb36")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+
 [resource]
 tile_size = Vector2i(512, 512)
 physics_layer_0/collision_layer = 1
@@ -277,3 +302,4 @@ terrain_set_0/terrain_0/name = "Tierra"
 terrain_set_0/terrain_0/color = Color(0.8128929, 0.64278144, 0.11437122, 1)
 sources/1 = SubResource("TileSetAtlasSource_02dlo")
 sources/0 = SubResource("TileSetAtlasSource_tbb36")
+sources/3 = SubResource("TileSetAtlasSource_pymnr")

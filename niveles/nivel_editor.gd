@@ -112,9 +112,11 @@ func _ready() -> void:
 	#estado_nivel = Dios.bd_externa["sectores"][s_id]["niveles"][nivel_id]["superado"]
 
 func sumar_puntos():
-	return
 	var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
 	ui.catalogo_mariposas.marcar_mariposas(mariposas_jugadas)
+	return
+	#var mariposas_jugadas:Array[Mariposa] = jardin.naturaleza.mariposas_en_juego.duplicate()
+	#ui.catalogo_mariposas.marcar_mariposas(mariposas_jugadas)
 	if Especie_mariposa.size() == mariposas_jugadas.size():
 		var s_id = "seccion_" + str(numero_de_sector)
 		var nivel_id = "nivel_" + str(numero_de_nivel)

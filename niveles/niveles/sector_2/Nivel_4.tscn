@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://ba5lhate0a6fu"]
 
 [ext_resource type="Script" uid="uid://b56f4aec25lt4" path="res://niveles/nivel.gd" id="1_m2xrd"]
-[ext_resource type="Script" uid="uid://cbxdy4164p03m" path="res://data/nuevos_tipos_de_datos/recompensa.gd" id="2_6lfei"]
 [ext_resource type="PackedScene" uid="uid://145wmtordg8q" path="res://editor_de_niveles/herramienta_nivel.tscn" id="2_js0lw"]
 [ext_resource type="PackedScene" uid="uid://k4s7h6kdhhw6" path="res://UI/ui.tscn" id="3_6lfei"]
 [ext_resource type="Script" uid="uid://4n01qdq4semk" path="res://niveles/jardin.gd" id="4_lfs6i"]
@@ -13,24 +12,6 @@
 [ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="9_js0lw"]
 [ext_resource type="TileSet" uid="uid://cuoxaw1dfhbvu" path="res://tablero/recursos/plantas_finales.tres" id="10_31b4l"]
 
-[sub_resource type="Resource" id="Resource_lfs6i"]
-script = ExtResource("2_6lfei")
-mariposa = "perezosa"
-dato_mariposa = Array[String](["nombre_cientifico", "dato_curioso_1"])
-metadata/_custom_type_script = "uid://cbxdy4164p03m"
-
-[sub_resource type="Resource" id="Resource_pka35"]
-script = ExtResource("2_6lfei")
-mariposa = "limonero"
-dato_mariposa = Array[String](["nombre_cientifico", "dato_curioso_1"])
-metadata/_custom_type_script = "uid://cbxdy4164p03m"
-
-[sub_resource type="Resource" id="Resource_nahrn"]
-script = ExtResource("2_6lfei")
-mariposa = "bandera_argentina"
-dato_mariposa = Array[String](["nombre_cientifico", "dato_curioso_1"])
-metadata/_custom_type_script = "uid://cbxdy4164p03m"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js0lw"]
 size = Vector2(789.00037, 788.00024)
 
@@ -39,8 +20,8 @@ script = ExtResource("1_m2xrd")
 numero_de_nivel = 4
 numero_de_sector = 2
 jardin = NodePath("AreaDeJuego/Jardin")
+editando = true
 Especie_planta = Array[String](["mbrucuya:B", "chilca:A", "ruda:A", "lantana:B", "coronillo:B", "ceibo:A"])
-datos_de_libro = Array[ExtResource("2_6lfei")]([SubResource("Resource_lfs6i"), SubResource("Resource_pka35"), SubResource("Resource_nahrn")])
 
 [node name="herramientaNivel" parent="." unique_id=106543605 node_paths=PackedStringArray("tablero", "jardin", "jardinero") instance=ExtResource("2_js0lw")]
 columnas = 6
@@ -97,7 +78,7 @@ jardinero = NodePath("../Jardinero")
 
 [node name="Tablero" parent="AreaDeJuego/Jardin" unique_id=578022441 instance=ExtResource("8_h723w")]
 scale = Vector2(1.555, 1.555)
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAABAAAAAAABAAAAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAIAAAACAAAAAAABAAAAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAIAAAADAAAAAAABAAAAAAADAAEAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAIAAAAEAAAAAAABAAAAAAAEAAQAAAABAAEAAAAEAAUAAAABAAIAAAAFAAAAAAACAAAAAAAFAAEAAAACAAEAAAAFAAIAAAACAAEAAAAFAAMAAAACAAEAAAAFAAQAAAACAAEAAAAFAAUAAAACAAIAAAADAAIAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAUAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAABAAAAAAACAAUAAAABAAEAAAABAAAAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAUAAAABAAUAAAABAAIAAAACAAAAAAACAAUAAAACAAEAAAABAAAAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAUAAAACAAUAAAABAAIAAAADAAAAAAAAAAAAAAADAAEAAAAEAAIAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAIAAAAEAAAAAAABAAAAAAAEAAQAAAABAAEAAAAEAAUAAAABAAIAAAAFAAAAAAACAAAAAAAFAAEAAAACAAEAAAAFAAIAAAACAAEAAAAFAAMAAAACAAEAAAAFAAQAAAACAAEAAAAFAAUAAAACAAIAAAADAAIAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAA=")
 tile_set = ExtResource("9_js0lw")
 
 [node name="foco" type="TileMapLayer" parent="AreaDeJuego/Jardin" unique_id=1703620137]

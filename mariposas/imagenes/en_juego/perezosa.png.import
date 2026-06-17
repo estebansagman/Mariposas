@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdas36nfjd05r"
 path.s3tc="res://.godot/imported/perezosa.png-b81033897bd0fd4a7d4e9cfbe234b033.s3tc.ctex"
-path.etc2="res://.godot/imported/perezosa.png-b81033897bd0fd4a7d4e9cfbe234b033.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://mariposas/imagenes/en_juego/perezosa.png"
-dest_files=["res://.godot/imported/perezosa.png-b81033897bd0fd4a7d4e9cfbe234b033.s3tc.ctex", "res://.godot/imported/perezosa.png-b81033897bd0fd4a7d4e9cfbe234b033.etc2.ctex"]
+dest_files=["res://.godot/imported/perezosa.png-b81033897bd0fd4a7d4e9cfbe234b033.s3tc.ctex"]
 
 [params]
 

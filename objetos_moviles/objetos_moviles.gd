@@ -18,7 +18,6 @@ var coordenada_celda:Vector2i
 var posicion_anterior:Array[Vector2i]
 
 var key_objeto:String
-#var key_estructura:String
 var estructura:Array[Vector2i]
 
 
@@ -56,6 +55,15 @@ func estructurar_objeto():
 		tamaño_area.position = posicion_nueva
 		forma_area.size = tamaño_tile
 		area_2d.add_child(tamaño_area)
+	generar_posicion_anterior()
+
+func generar_posicion_anterior():
+	if posicion_anterior.is_empty():
+		posicion_anterior.clear() 
+		for modulo in estructura:
+			var celda_real: Vector2i = coordenada_celda + modulo
+			posicion_anterior.append(celda_real)
+		
 
 func prender_focus():
 	emit_signal("en_focus",self)

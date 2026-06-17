@@ -9,6 +9,8 @@ var indice:int
 
 @onready var imagen_etiqueta_1: NinePatchRect = $EtiquetaRequisitos
 @onready var requisitos: Control = $requisitos
+@onready var estrella: TextureRect = $estrella
+
 
 func _ready() -> void:
 	var ruta_textura = Dios.bd_interna["mariposas"][key_mariposa]["textura_juego"]
@@ -26,7 +28,7 @@ func _ready() -> void:
 		nueva_etiqueta.size.x = label.get_combined_minimum_size().x + 10
 		nueva_etiqueta.position.y = offset_y
 		offset_y += nueva_etiqueta.size.y + 2
-	requisitos.hide()
+	#requisitos.hide()
 	imagen_etiqueta_1.hide()
 	indice=get_index()+1
 

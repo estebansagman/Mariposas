@@ -121,13 +121,16 @@ func ocultar_cartel():
 	restaurar_camara()
 
 func volver_al_menu_principal():
+	get_tree().paused = false
 	get_tree().change_scene_to_file(MENU_INICIO)
 
 func volver_al_menu():
+	get_tree().paused = false
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)
 
 func reiniciar_nivel():
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LEVEL_RESTART)
+	get_tree().paused = false
 	emit_signal("reiniciar")
 	ocultar_cartel()
 	#get_tree().reload_current_scene()

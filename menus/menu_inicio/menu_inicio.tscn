@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://2ep6kj77tfdf" path="res://menus/menu_inicio/iconos/opciones_h.png" id="7_8ygti"]
 [ext_resource type="Texture2D" uid="uid://bs6g1bod3clcv" path="res://menus/menu_inicio/iconos/colecciones.png" id="8_nbyq7"]
 [ext_resource type="Texture2D" uid="uid://c0100b0tehip" path="res://menus/menu_inicio/iconos/colecciones_h.png" id="9_i2joq"]
+[ext_resource type="Texture2D" uid="uid://ccj7ql05wqhgy" path="res://menus/menu_inicio/iconos/CREITOS_N.png" id="9_wf21f"]
+[ext_resource type="Texture2D" uid="uid://d2hmehfqajai7" path="res://menus/menu_inicio/iconos/CREITOS_h.png" id="10_8ygti"]
 [ext_resource type="Texture2D" uid="uid://qnqp0jsgrf66" path="res://menus/menu_inicio/iconos/salir.png" id="10_l7p5y"]
 [ext_resource type="Texture2D" uid="uid://cho0mhwwdambn" path="res://menus/menu_inicio/iconos/salir_h.png" id="11_wj7qf"]
 [ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro.tscn" id="12_48qcf"]
@@ -31,42 +33,39 @@ offset_bottom = 1081.0
 texture = ExtResource("2_48qcf")
 expand_mode = 1
 
-[node name="jugar" type="TextureButton" parent="." unique_id=438088139]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1207766771]
 layout_mode = 0
-offset_left = 797.0
-offset_top = 375.0
-offset_right = 1124.0
-offset_bottom = 480.0
+offset_left = 795.0
+offset_top = 377.0
+offset_right = 1127.0
+offset_bottom = 863.0
+
+[node name="jugar" type="TextureButton" parent="VBoxContainer" unique_id=438088139]
+layout_mode = 2
 texture_normal = ExtResource("4_48qcf")
 texture_hover = ExtResource("5_2pqkk")
 stretch_mode = 3
 
-[node name="opciones" type="TextureButton" parent="." unique_id=1997519231]
-layout_mode = 0
-offset_left = 797.0
-offset_top = 491.0
-offset_right = 1124.0
-offset_bottom = 596.0
+[node name="opciones" type="TextureButton" parent="VBoxContainer" unique_id=1997519231]
+layout_mode = 2
 texture_normal = ExtResource("6_wf21f")
 texture_hover = ExtResource("7_8ygti")
 stretch_mode = 3
 
-[node name="colecciones" type="TextureButton" parent="." unique_id=1169551171]
-layout_mode = 0
-offset_left = 797.0
-offset_top = 613.0
-offset_right = 1124.0
-offset_bottom = 718.0
+[node name="colecciones" type="TextureButton" parent="VBoxContainer" unique_id=1169551171]
+layout_mode = 2
 texture_normal = ExtResource("8_nbyq7")
 texture_hover = ExtResource("9_i2joq")
 stretch_mode = 3
 
-[node name="salir" type="TextureButton" parent="." unique_id=2010005110]
-layout_mode = 0
-offset_left = 797.0
-offset_top = 727.0
-offset_right = 1124.0
-offset_bottom = 832.0
+[node name="creditos" type="TextureButton" parent="VBoxContainer" unique_id=2010005110]
+layout_mode = 2
+texture_normal = ExtResource("9_wf21f")
+texture_hover = ExtResource("10_8ygti")
+stretch_mode = 3
+
+[node name="salir2" type="TextureButton" parent="VBoxContainer" unique_id=862680593]
+layout_mode = 2
 texture_normal = ExtResource("10_l7p5y")
 texture_hover = ExtResource("11_wj7qf")
 stretch_mode = 3
@@ -79,7 +78,7 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="jugar" to="." method="menu_nivel"]
-[connection signal="pressed" from="opciones" to="MenuOpciones" method="abrir_menu_de_opciones"]
-[connection signal="pressed" from="colecciones" to="Libro" method="abrir"]
-[connection signal="pressed" from="salir" to="." method="salir"]
+[connection signal="pressed" from="VBoxContainer/jugar" to="." method="menu_nivel"]
+[connection signal="pressed" from="VBoxContainer/opciones" to="MenuOpciones" method="abrir_menu_de_opciones"]
+[connection signal="pressed" from="VBoxContainer/colecciones" to="Libro" method="abrir"]
+[connection signal="pressed" from="VBoxContainer/salir2" to="." method="salir"]

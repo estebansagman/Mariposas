@@ -12,11 +12,22 @@ var sound_effect_dict: Dictionary = {} ## Loads all registered SoundEffects on r
 @onready var menues: AudioStreamPlayer = $Menues
 @onready var in_game_inicio: AudioStreamPlayer = $InGameInicio
 @onready var in_game_loop: AudioStreamPlayer = $InGameLoop
-
+@onready var audios_ambiente: VBoxContainer = $AudiosAmbiente
+var audio_actual: AudioStreamPlayer = null
 
 func _ready() -> void:
+	menues.play()
+	menues.stream_paused = true
+	
 	for sound_effect: SoundEffect in sound_effects:
 		sound_effect_dict[sound_effect.type] = sound_effect
+
+	for hijo in audios_ambiente.get_children():
+		if hijo is AudioStreamPlayer:
+			hijo.finished.connect(_on_audio_ambiente_finished)
+	
+	reproducir_ambiente_aleatorio()
+
 ## Creates a sound effect at a specific location if the limit has not been reached. Pass [param location] for the global position of the audio effect, and [param type] for the SoundEffect to be queued.
 func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 	if sound_effect_dict.has(type):
@@ -63,7 +74,6 @@ func conectar_botones_del_menu(nodo_actual: Node) -> void:
 		
 		if hijo.get_child_count() > 0:
 			conectar_botones_del_menu(hijo)
-
 func reproducir_musica_nivel() -> void:
 	var tween = create_tween()
 	tween.tween_property(menues, "volume_db", -80.0, 2)
@@ -78,12 +88,10 @@ func reproducir_musica_nivel() -> void:
 	in_game_inicio.finished.connect(_on_intro_terminada)
 	
 	in_game_inicio.play()
-	
 func _on_intro_terminada() -> void:
 	in_game_loop.play()
 	if in_game_inicio.finished.is_connected(_on_intro_terminada):
 		in_game_inicio.finished.disconnect(_on_intro_terminada)
-
 func volver_al_menu() -> void:
 	in_game_inicio.stop()
 	in_game_loop.stop()
@@ -94,3 +102,16 @@ func volver_al_menu() -> void:
 	menues.volume_db = 0.0
 	menues.stream_paused = false
 	#menues.play()
+func reproducir_ambiente_aleatorio():
+	var lista_audios = audios_ambiente.get_children()
+	if lista_audios.is_empty():
+		return
+	var proximo_audio = lista_audios[randi() % lista_audios.size()]
+	if lista_audios.size() > 1:
+		while proximo_audio == audio_actual:
+			proximo_audio = lista_audios[randi() % lista_audios.size()]
+	audio_actual = proximo_audio
+	audio_actual.play()
+	print("Sonando ambiente: ", audio_actual.name)
+func _on_audio_ambiente_finished():
+	reproducir_ambiente_aleatorio()

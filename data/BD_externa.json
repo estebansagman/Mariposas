@@ -129,5 +129,12 @@
 		"ruelia": [],
 		"mbrucuya": [],
 		"lantana": []
+	},
+	"opciones":{
+		"sonido":{
+			"musica":100,
+			"ambiente":100,
+			"sfx":100
+		}
 	}
 }

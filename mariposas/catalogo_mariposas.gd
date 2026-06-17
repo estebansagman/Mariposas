@@ -38,12 +38,15 @@ func marcar_mariposas(mariposas_conseguidas:Array[Mariposa]):
 	for hijo in lista_de_hijos:
 		for mariposa in mariposas_conseguidas:
 			if hijo.indice == mariposa.id_mariposa:
-				hijo.texture_rect.modulate = Color(1, 1, 1, 1)
+				hijo.estrella.texture = load("res://menus/selector_niveles/imagenes/estrella.png")
+				#hijo.estrella.modulate = Color(1, 1, 1, 1)
 				break
 			else:
-				hijo.texture_rect.modulate = Color(0, 0, 0, 1)
+				hijo.estrella.texture = load("res://UI/imagenes/estrella-vacia.png")
+				#hijo.estrella.modulate = Color(0, 0, 0, 1)
 		if mariposas_conseguidas.is_empty(): 
-			hijo.texture_rect.modulate = Color(0, 0, 0, 1)
+			hijo.estrella.texture = load("res://UI/imagenes/estrella-vacia.png")
+			#hijo.texture_rect.modulate = Color(0, 0, 0, 1)
 
 func _crear_catalogo():
 	for key_mariposa in keys_mariposas:

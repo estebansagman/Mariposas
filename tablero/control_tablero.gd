@@ -8,6 +8,7 @@ signal mariposa_movida(mariposa:Mariposa, parcela:Vector2i)
 signal planta_agarrada
 signal mariposa_agarrada
 signal planta_en_tablero
+signal objeto_agarrado
 
 @export var tablero: Tablero
 var planta_seleccionada:Planta
@@ -16,9 +17,13 @@ var plantas_en_tablero:Array[Planta]
 var objetos_en_tablero:Array[ObjetosMoviles]
 var mariposa_seleccionada:Mariposa
 var mariposa_en_seleccion:bool = false
+
+
 @onready var padre:Node2D = $".."
 @onready var capa_plantas: TileMapLayer = $"../capa_plantas"
 @export var jardin: Node2D
+@export var plantas_movibles = true
+@export var mariposas_movibles = true
 
 @export var animacion = 0
 
@@ -65,9 +70,9 @@ func _process(delta: float) -> void:
 	if mariposa_seleccionada and celda_actual in tablero.celdas and mariposa_en_seleccion:
 		calcular_foco(celda_actual)
 
-	if mariposa_seleccionada == null:
+	if mariposa_seleccionada == null and plantas_movibles:
 		mover_planta_seleccionada(celda_actual)
-	if mariposa_seleccionada == null:
+	if mariposa_seleccionada == null and mariposas_movibles:
 		mover_objeto_seleccionado(celda_actual)
 	mover_mariposa_seleccionada()
 	tablero.pintar_lienzo()
@@ -141,6 +146,7 @@ func limpiar_planta(id_objetivo):
 
 #region ACCIONES OBJETO
 func seleccionar_objeto(objeto:ObjetosMoviles):
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_PICKUP)
 	objeto_seleccionado = objeto
 	objeto_seleccionado.z_index = objeto_seleccionado.ZINDEX_SELECCION
 	for celda in tablero.celdas:
@@ -154,30 +160,27 @@ func mover_objeto_seleccionado(celda_actual) -> void:
 	if Input.is_action_just_pressed("aceptar") and en_area_de_juego:
 		if objeto_seleccionado != null: 
 			return
-
 		var id_click = tablero.get_id_objeto(celda_actual)
 		if id_click != 0:
 			for objeto in objetos_en_tablero:
 				if objeto.id_objeto == id_click:
 					objeto_seleccionado = objeto
 					break
-
 			if objeto_seleccionado:
-				#printerr("SELECCIONAR PLANTA GRILLA")
-				#activar_particulas(VFX_HOJAS,planta_seleccionada.global_position)
+				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_PICKUP)
 				objetos_en_tablero.erase(objeto_seleccionado)
 				jardin.add_child(objeto_seleccionado)
-				#objeto_seleccionado.estructurar_objeto()
 				objeto_seleccionado.z_index = objeto_seleccionado.ZINDEX_SELECCION
-				#print("EL GIRO POSTA ESSS: ",objeto_seleccionado.giro_actual)
 				_limpiar_rastro_tablero(id_click,objeto_seleccionado)
 				emit_signal("cambio_en_jardin")
 
 	if objeto_seleccionado:
+		
 		objeto_seleccionado.position = jardin.get_local_mouse_position()
 		objeto_seleccionado.show()
 		var objeto_soltado = Input.is_action_just_released("aceptar")
 		if objeto_soltado:
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_PLACE)
 			decidir_que_hace_el_objeto_al_soltar()
 			emit_signal("guardar_nivel")
 
@@ -185,6 +188,7 @@ func decidir_que_hace_el_objeto_al_soltar():
 	var puede_ir_en_nueva_posicion:bool = focuseable and en_area_de_juego
 	if puede_ir_en_nueva_posicion:
 		posicionar_objeto_en_tablero()
+		emit_signal("objeto_agarrado")
 		#emit_signal("cambio_en_jardin")
 	elif logica_objetos:
 		#emit_signal("cambio_en_jardin")
@@ -233,12 +237,14 @@ func posicionar_objeto_en_capa_visible(objeto:ObjetosMoviles):
 		#activar_particulas(TIERRA_VFX,planta)
 func girar_objeto(event:InputEvent = null):
 	if objeto_seleccionado and event:
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_ROTATE)
 		if event.is_action_pressed("girar_derecha"):
 			objeto_seleccionado.giro_actual = (objeto_seleccionado.giro_actual + 1) % 4
 			objeto_seleccionado.girar_objeto(true)
 			#objeto_seleccionado.emitir_particulas_giro("derecha")
 
 		elif event.is_action_pressed("girar_izquierda"):
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_ROTATE)
 			objeto_seleccionado.giro_actual = (objeto_seleccionado.giro_actual - 1) if objeto_seleccionado.giro_actual > 0 else 3
 			objeto_seleccionado.girar_objeto(false)
 			#objeto_seleccionado.emitir_particulas_giro("izquierda")

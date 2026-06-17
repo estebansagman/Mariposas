@@ -23,8 +23,15 @@
 [ext_resource type="AudioStream" uid="uid://c3wwnbjltdu3w" path="res://audio/SFX/Pop/Pop_Multi.mp3" id="21_csvms"]
 [ext_resource type="AudioStream" uid="uid://bfn1tijro3ddp" path="res://audio/SFX/Pop/Pop.mp3" id="22_wted8"]
 [ext_resource type="AudioStream" uid="uid://u5nvjnyhg8tv" path="res://audio/Musica/Musica Menus Loop.wav" id="23_ap3sa"]
+[ext_resource type="AudioStream" uid="uid://c4w7pjaycfwr1" path="res://audio/SFX/Obstacuo/Obstaculo_Pick.wav" id="23_pv7pn"]
+[ext_resource type="AudioStream" uid="uid://cwadfs0ledrhb" path="res://audio/SFX/Obstacuo/Obstaculo_Place.wav" id="24_lo7l4"]
 [ext_resource type="AudioStream" uid="uid://ut85y6lyfqg3" path="res://audio/Musica/Musica Gameplay Intro.wav" id="24_wiy01"]
+[ext_resource type="AudioStream" uid="uid://b3bjh12aaar2y" path="res://audio/SFX/Obstacuo/Obstaculo_Rotate.wav" id="25_eb78e"]
 [ext_resource type="AudioStream" uid="uid://b4qcjp22dosh4" path="res://audio/Musica/Musica Gameplay Loop.wav" id="25_qsii2"]
+[ext_resource type="AudioStream" uid="uid://drn47nn05v373" path="res://audio/Ambiente/Ambiente-001.wav" id="26_dncx1"]
+[ext_resource type="AudioStream" uid="uid://dkc5o2bf7q6fd" path="res://audio/Ambiente/Ambiente-002.wav" id="27_sbc28"]
+[ext_resource type="AudioStream" uid="uid://4my2gyfmddh" path="res://audio/Ambiente/Ambiente-003.wav" id="28_n4sct"]
+[ext_resource type="AudioStream" uid="uid://cawrmyoxrm6p5" path="res://audio/Ambiente/Ambiente-004.wav" id="29_pv7pn"]
 
 [sub_resource type="Resource" id="Resource_0fcim"]
 script = ExtResource("2_65gp3")
@@ -155,10 +162,35 @@ sound_effect = ExtResource("22_wted8")
 volume = 1.176000000000002
 metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 
+[sub_resource type="Resource" id="Resource_oej8q"]
+script = ExtResource("2_65gp3")
+type = 23
+sound_effect = ExtResource("23_pv7pn")
+volume = -8.768999999999998
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_tre2n"]
+script = ExtResource("2_65gp3")
+type = 24
+sound_effect = ExtResource("24_lo7l4")
+pitch_scale = 0.97
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_7yx0y"]
+script = ExtResource("2_65gp3")
+type = 25
+sound_effect = ExtResource("25_eb78e")
+volume = -16.93
+pitch_scale = 0.91
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
 [node name="AudioManager" type="Node2D" unique_id=811379820]
 process_mode = 3
 script = ExtResource("1_euoii")
-sound_effects = Array[ExtResource("2_65gp3")]([SubResource("Resource_0fcim"), SubResource("Resource_6uh0a"), SubResource("Resource_3t3lr"), SubResource("Resource_2x2r8"), SubResource("Resource_g2c6e"), SubResource("Resource_qvvmm"), SubResource("Resource_uxcro"), SubResource("Resource_qr45e"), SubResource("Resource_7x03e"), SubResource("Resource_lint3"), SubResource("Resource_fh1mb"), SubResource("Resource_qi4n2"), SubResource("Resource_yciur"), SubResource("Resource_rkmhx"), SubResource("Resource_4x5xh"), SubResource("Resource_x7uer"), SubResource("Resource_77duw"), SubResource("Resource_4c7gl"), SubResource("Resource_gw3mc"), SubResource("Resource_i63ct")])
+sound_effects = Array[ExtResource("2_65gp3")]([SubResource("Resource_0fcim"), SubResource("Resource_6uh0a"), SubResource("Resource_3t3lr"), SubResource("Resource_2x2r8"), SubResource("Resource_g2c6e"), SubResource("Resource_qvvmm"), SubResource("Resource_uxcro"), SubResource("Resource_qr45e"), SubResource("Resource_7x03e"), SubResource("Resource_lint3"), SubResource("Resource_fh1mb"), SubResource("Resource_qi4n2"), SubResource("Resource_yciur"), SubResource("Resource_rkmhx"), SubResource("Resource_4x5xh"), SubResource("Resource_x7uer"), SubResource("Resource_77duw"), SubResource("Resource_4c7gl"), SubResource("Resource_gw3mc"), SubResource("Resource_i63ct"), SubResource("Resource_oej8q"), SubResource("Resource_tre2n"), SubResource("Resource_7yx0y")])
 
 [node name="Menues" type="AudioStreamPlayer" parent="." unique_id=1105525863]
 process_mode = 3
@@ -174,3 +206,27 @@ bus = &"musica"
 process_mode = 3
 stream = ExtResource("25_qsii2")
 bus = &"musica"
+
+[node name="AudiosAmbiente" type="VBoxContainer" parent="." unique_id=646150114]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Ambiente1" type="AudioStreamPlayer" parent="AudiosAmbiente" unique_id=1572333148]
+process_mode = 3
+stream = ExtResource("26_dncx1")
+bus = &"ambiente"
+
+[node name="Ambiente2" type="AudioStreamPlayer" parent="AudiosAmbiente" unique_id=1774391375]
+process_mode = 3
+stream = ExtResource("27_sbc28")
+bus = &"ambiente"
+
+[node name="Ambiente3" type="AudioStreamPlayer" parent="AudiosAmbiente" unique_id=2119378385]
+process_mode = 3
+stream = ExtResource("28_n4sct")
+bus = &"ambiente"
+
+[node name="Ambiente4" type="AudioStreamPlayer" parent="AudiosAmbiente" unique_id=393860977]
+process_mode = 3
+stream = ExtResource("29_pv7pn")
+bus = &"ambiente"

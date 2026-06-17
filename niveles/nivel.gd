@@ -7,6 +7,8 @@ signal animacion_iniciada(jugado:bool)
 @export var numero_de_sector: int
 @export var jardin:Jardin
 @export var editando:bool = false
+@export var detener_carga_plantas:bool = false
+#@export var animaciones:AnimationPlayer
 @onready var caja_herramienta_ui: Control = $caja_herramienta_ui
 var jugado:bool = false
 
@@ -46,7 +48,7 @@ var Especie_mariposa:Array
 	"objeto_d",
 	) var tipos_objeto:Array[String]
 
-@export var datos_de_libro:Array[Recompensa]
+#@export var datos_de_libro:Array[Recompensa]
 const PLANTA = preload("uid://der8d61kw3xr8")
 const OBJETO_MOVIL = preload("uid://csae5pte6k7x6")
 
@@ -97,7 +99,6 @@ func iniciar_animacion_nivel(jugado):
 	else:
 		emit_signal("animacion_iniciada",true)
 
-
 func setear_imagen():
 	var seccion_actual:int = numero_de_sector
 	match seccion_actual:
@@ -107,15 +108,16 @@ func setear_imagen():
 			ui.fondo.texture = load("res://niveles/imagenes/nivel_1_fondo.png")
 		3: 
 			ui.fondo.texture = load("res://niveles/imagenes/nivel_2_fondo.png")
-	
+
 func evaluar_si_nivel_fue_jugado():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
 	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
 	var dato_de_nivel_jugado = Dios.bd_externa["sectores"][seccion_actual]["niveles"][nivel_actual]["ya_fue_jugado"]
 	if dato_de_nivel_jugado:
+		detener_carga_plantas = false
 		jugado = true
 		return
-	Dios.bd_externa["sectores"][seccion_actual]["niveles"][nivel_actual]["ya_fue_jugado"] = true
+	#Dios.bd_externa["sectores"][seccion_actual]["niveles"][nivel_actual]["ya_fue_jugado"] = true
 	Dios.guardar_bd_externa()
 func traer_lista_mariposas():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
@@ -169,7 +171,8 @@ func cambiar_entre_ui_edicion_y_juego():
 	else:
 		ui.show()
 		#ui_edicion.hide()
-		ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
+		if not detener_carga_plantas:
+			ui.catalogo_plantas.iniciar_catalogo(Especie_planta, jardin)
 		ui.catalogo_mariposas.iniciar_catalogo(Especie_mariposa)
 		cargar_estado_de_nivel()
 		#ui.control.hide()

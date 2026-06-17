@@ -6,7 +6,8 @@ func _ready() -> void:
 	Dios.equiparar_bases_directo()
 	Dios.replicar_niveles_a_user()
 	AudioManager.conectar_botones_del_menu(self)
-	AudioManager.menues.play()
+	#AudioManager.menues.play()
+	AudioManager.menues.stream_paused = false
 
 func menu_nivel():
 	get_tree().change_scene_to_file(SELECTOR_NIVELES)

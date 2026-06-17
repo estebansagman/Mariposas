@@ -7,6 +7,7 @@ class_name sistema_puntaje
 
 func actualizar_visual(completado: bool):
 	if completado:
-		estrella_1.modulate = estrella_prendida
+		#estrella_1.modulate = estrella_prendida
+		estrella_1.texture = load("res://menus/selector_niveles/imagenes/estrella.png")
 	else:
-		estrella_1.modulate = estrella_apagada
+		estrella_1.texture = load("res://UI/imagenes/estrella-vacia.png")

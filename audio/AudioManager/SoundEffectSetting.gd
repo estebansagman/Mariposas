@@ -21,7 +21,7 @@ enum SOUND_EFFECT_TYPE {
 
 	PAPEL_FLY, ## Papelitos de mariposas saliendo [SI]
 	PAPEL_INSERT, ## papelitos de mariposa entrando al libro [SI]
-	
+
 	VICTORIA, ## victoria [SI]
 	BUTTON_HOVER, ## boton hover [SI]
 	BUTTON_PRESS, ##  press [SI]
@@ -31,6 +31,11 @@ enum SOUND_EFFECT_TYPE {
 	SLIDE, ## De momento sin uso []
 	POP_MULTI, ## Cuando salen las estrellitas al ganar []
 	POP, ## Ultima estrella (la que se pega arriba) []
+	
+	OBJETO_PICKUP, ## ¿poner mas onda? | agarrar planta, toda circunstancia [SI]
+	OBJETO_PLACE, ## Dejar en grilla (y se planta) [SI]
+	OBJETO_ROTATE, ## rotar... [SI]
+	OBJETO_MISTAKE, ## ??? nadie te conoce 
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.

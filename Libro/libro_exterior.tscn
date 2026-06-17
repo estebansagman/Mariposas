@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bargu6qbum6cb"]
+[gd_scene format=4 uid="uid://cv5p3s844ihr4"]
 
 [ext_resource type="Texture2D" uid="uid://dqpbdose5vly3" path="res://Libro/3D/Libro Exterior_TapaAlbedo.png" id="1_7i5ya"]
 [ext_resource type="AnimationLibrary" uid="uid://lxrg86op625" path="res://Libro/3D/LibroExteriorAnim.res" id="2_po4k4"]
@@ -46,6 +46,7 @@ bind/3/bone = -1
 bind/3/pose = Transform3D(3.669448e-19, 1.0000001, 1.1165953e-06, -1.0000002, 1.19208906e-07, 1.9242954e-13, -2.7105474e-20, -1.1165951e-06, 1.0000001, 0.010999956, -0.176, -1.2282495e-08)
 
 [node name="Libro Exterior" type="Node3D" unique_id=1735340983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2556628, 0)
 
 [node name="LibroEsqueleto" type="Node3D" parent="." unique_id=574812724]
 

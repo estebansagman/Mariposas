@@ -171,6 +171,7 @@ text = "EL Balcón"
 horizontal_alignment = 1
 
 [node name="Reiniciar2" type="TextureButton" parent="." unique_id=294191019]
+process_mode = 3
 z_index = 3
 layout_mode = 0
 offset_left = 808.00006
@@ -183,6 +184,7 @@ texture_hover = ExtResource("12_i1yd8")
 stretch_mode = 3
 
 [node name="Niveles" type="TextureButton" parent="." unique_id=188265024]
+process_mode = 3
 z_index = 3
 layout_mode = 0
 offset_left = 992.0

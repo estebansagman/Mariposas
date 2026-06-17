@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bshljp84410s4" path="res://Libro/3D/test_libro.tscn" id="1_8ybf7"]
 [ext_resource type="PackedScene" uid="uid://b7x4i14xskv6l" path="res://Libro/pagina.tscn" id="2_6eewu"]
 [ext_resource type="TileSet" uid="uid://b8gf5b50d6irq" path="res://tablero/recursos/tierra.tres" id="2_npxdo"]
+[ext_resource type="Texture2D" uid="uid://becj2rveaacas" path="res://Libro/fondo.png" id="3_0we6l"]
 [ext_resource type="Texture2D" uid="uid://ua3p0gioljnr" path="res://Libro/elementos_libro/iconos/boton antes.png" id="4_ceaa1"]
 [ext_resource type="Texture2D" uid="uid://b364iv20fmom2" path="res://Libro/elementos_libro/iconos/boton antes off.png" id="5_1niyf"]
 [ext_resource type="Texture2D" uid="uid://cg4prnh7n5nd1" path="res://Libro/elementos_libro/iconos/indice boton on.png" id="6_n2c20"]
@@ -49,6 +50,18 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.92315125, 0.92315125)
 mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1249630550]
+modulate = Color(1.2237577, 1.2237577, 1.2237577, 1)
+layout_mode = 0
+offset_left = 37.913612
+offset_top = 44.413086
+offset_right = 1829.6027
+offset_bottom = 1040.9995
+pivot_offset = Vector2(213.39949, 53.079063)
+texture = ExtResource("3_0we6l")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Izquierda" parent="Control" unique_id=1233792517 instance=ExtResource("2_6eewu")]
 layout_mode = 1
@@ -169,7 +182,7 @@ anchor_bottom = 0.5
 offset_left = -276.00012
 offset_top = -87.00003
 offset_right = 564.0
-offset_bottom = 960.0
+offset_bottom = 960.00006
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.18, 0.18)

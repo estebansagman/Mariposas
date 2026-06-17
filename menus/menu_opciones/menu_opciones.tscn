@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d0gbiedxohp42" path="res://menus/menu_opciones/imagenes/boton general activado.png" id="4_4loqx"]
 [ext_resource type="Texture2D" uid="uid://bt3aro2gtbu84" path="res://menus/menu_opciones/imagenes/boton video apagado.png" id="4_8yat6"]
 [ext_resource type="Texture2D" uid="uid://c1f5ouv106rtl" path="res://menus/menu_opciones/imagenes/mostrar nombre de plantas icono.png" id="4_kcor5"]
+[ext_resource type="Script" uid="uid://dc4bl2mhuixqg" path="res://menus/menu_opciones/general.gd" id="5_0fn7c"]
 [ext_resource type="FontFile" uid="uid://braanrlvh5nna" path="res://Libro/elementos_libro/DK Crayon Crumble.ttf" id="5_1ie7l"]
 [ext_resource type="Texture2D" uid="uid://cila24wdidy1d" path="res://menus/menu_opciones/imagenes/borrar progreso icono.png" id="5_dgbnp"]
 [ext_resource type="Texture2D" uid="uid://b6bebqkklynxa" path="res://menus/menu_opciones/imagenes/cuadrados importantes normal.png" id="6_0pfbw"]
@@ -139,6 +140,7 @@ theme_override_constants/margin_bottom = 150
 [node name="General" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer" unique_id=1150625251]
 layout_mode = 2
 theme_override_constants/separation = 60
+script = ExtResource("5_0fn7c")
 
 [node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/General" unique_id=1632380379]
 layout_mode = 2
@@ -955,6 +957,7 @@ texture_hover = ExtResource("31_e62n5")
 ignore_texture_size = true
 stretch_mode = 5
 
+[connection signal="pressed" from="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer4/TextureButton" to="Control/NinePatchRect/MarginContainer/General" method="borrar_bd"]
 [connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/General/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_general"]
 [connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Musica/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_musica"]
 [connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Ambiente/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_ambiente"]

@@ -22,6 +22,7 @@ offset_left = -207.0
 offset_bottom = 265.0
 grow_horizontal = 0
 mouse_filter = 2
+mouse_behavior_recursive = 1
 texture_normal = SubResource("GradientTexture2D_8cup8")
 script = ExtResource("2_4u2pi")
 
@@ -32,6 +33,7 @@ offset_top = 2.9999971
 offset_right = 1064.0
 offset_bottom = 1027.0
 scale = Vector2(0.1177508, 0.1177508)
+mouse_filter = 2
 texture = ExtResource("3_8cup8")
 
 [node name="estrella" type="TextureRect" parent="." unique_id=2106874684]
@@ -41,6 +43,7 @@ offset_top = 33.0
 offset_right = 740.46094
 offset_bottom = 644.46094
 scale = Vector2(0.1177508, 0.1177508)
+mouse_filter = 2
 texture = ExtResource("3_uhnuk")
 
 [node name="requisitos" type="Control" parent="." unique_id=843333208]
@@ -48,6 +51,7 @@ anchors_preset = 0
 offset_top = 124.0
 offset_right = 207.0
 offset_bottom = 266.0
+mouse_filter = 2
 
 [node name="EtiquetaRequisitos" parent="." unique_id=239612928 instance=ExtResource("3_786hp")]
 layout_mode = 0

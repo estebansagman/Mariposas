@@ -13,7 +13,6 @@ var pagina_actual:int = 0
 var paginas:Array = [["indice",""]]
 var botones_activados:bool = true
 
-
 func abrir():
 	if en_juego:
 		AudioManager.menues.stream_paused = false
@@ -29,7 +28,6 @@ func abrir():
 	pagina_izquierda.mostrar_cara("izquierda",paginas[pagina_actual][0],paginas[pagina_actual][1])
 	pagina_derecha.mostrar_cara("derecha",paginas[pagina_actual][0],paginas[pagina_actual][1])
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_OPEN_SCENE)
-	
 func cerrar():
 	if en_juego:
 		AudioManager.menues.stream_paused = true
@@ -39,7 +37,6 @@ func cerrar():
 	get_tree().paused = false
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_COVER)
 	hide()
-
 
 func establecer_paginas():
 	var paginas_mariposa:Array = Dios.bd_interna["orden_inportancia_mariposas"]

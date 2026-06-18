@@ -68,7 +68,7 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 	
 	#jardin.tablero.determinar_interior_exterior_de_grilla(casillero_tablero)
 	if panel_mouse:
-		panel_mouse.global_position = get_global_mouse_position() + Vector2(15, 15)
+		panel_mouse.global_position = get_global_mouse_position() + Vector2(64, 64)
 
 		if nombre_planta != "":
 			label_mouse.text = nombre_planta

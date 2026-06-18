@@ -172,7 +172,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="texto_nivel" type="Label" parent="." unique_id=2124278158]
-z_index = 2
+z_index = 6
 layout_mode = 0
 offset_left = 534.0
 offset_top = 7.0

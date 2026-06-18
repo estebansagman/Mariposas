@@ -11,7 +11,7 @@
             "niveles": {
                 "nivel_1": {
                     "numero": 1.0,
-                    "titulo": "El balcon 2.0",
+                    "titulo": "Aprendiendo",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-H.png",
                     "mariposas": [
                         "bataraza"
@@ -19,7 +19,7 @@
                 },
                 "nivel_2": {
                     "numero": 2.0,
-                    "titulo": "",
+                    "titulo": "Aprendiendo",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-I.png",
                     "mariposas": [
                         "bataraza",
@@ -45,7 +45,7 @@
             "niveles": {
                 "nivel_1": {
                     "numero": 1.0,
-                    "titulo": "",
+                    "titulo": "Inicio",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-B.png",
                     "mariposas": [
                         "bataraza",
@@ -55,7 +55,7 @@
                 },
                 "nivel_2": {
                     "numero": 2.0,
-                    "titulo": "",
+                    "titulo": "El Balcón",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-D.png",
                     "mariposas": [
                         "bataraza",
@@ -65,7 +65,7 @@
                 },
                 "nivel_3": {
                     "numero": 3.0,
-                    "titulo": "",
+                    "titulo": "Semillitas",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-J.png",
                     "mariposas": [
                         "bandera_argentina",
@@ -75,7 +75,7 @@
                 },
                 "nivel_4": {
                     "numero": 4.0,
-                    "titulo": "",
+                    "titulo": "Cantero",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-C.png",
                     "mariposas": [
                         "bandera_argentina",
@@ -93,7 +93,7 @@
             "niveles": {
                 "nivel_1": {
                     "numero": 1.0,
-                    "titulo": "",
+                    "titulo": "El Gazebo",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-F.png",
                     "mariposas": [
                         "bataraza",
@@ -104,7 +104,7 @@
                 },
                 "nivel_2": {
                     "numero": 2.0,
-                    "titulo": "",
+                    "titulo": "Jardín Vertical",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-A.png",
                     "mariposas": [
                         "limonero",
@@ -114,7 +114,7 @@
                 },
                 "nivel_3": {
                     "numero": 3.0,
-                    "titulo": "",
+                    "titulo": "Expandiéndose",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-G.png",
                     "mariposas": [
                         "bataraza",
@@ -127,7 +127,7 @@
                 },
                 "nivel_4": {
                     "numero": 4.0,
-                    "titulo": "",
+                    "titulo": "El Jardín de la Nona",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-E2.png",
                     "mariposas": [
                         "bataraza",

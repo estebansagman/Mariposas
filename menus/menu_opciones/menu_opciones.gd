@@ -9,6 +9,7 @@ extends Control
 @onready var video_boton: TextureButton = $Control/VBoxContainer/video
 
 
+
 func abrir_menu_de_opciones():
 	show()
 	oscurecer_iconos()

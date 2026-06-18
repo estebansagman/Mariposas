@@ -2,13 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dc2ke5l2flbrx" path="res://plantas/nuevo_boton_planta.gd" id="1_brkmn"]
 [ext_resource type="Texture2D" uid="uid://dxjk2iqu6d15s" path="res://plantas/imagenes_ejemplares/mburucuyaflor2.png" id="1_itasq"]
-[ext_resource type="Texture2D" uid="uid://2n64fu25fpp8" path="res://UI/imagenes/requisitos.png" id="3_464kq"]
 [ext_resource type="FontFile" uid="uid://cmh3bcgsqjr82" path="res://UI/Vogue.ttf" id="4_kerxk"]
 
 [sub_resource type="FontVariation" id="FontVariation_o0xy4"]
 base_font = ExtResource("4_kerxk")
 spacing_glyph = -1
 spacing_top = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg3vr"]
+bg_color = Color(0.87175363, 0.8830406, 0.85514194, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
 
 [node name="Contenedor_planta_boton" type="VBoxContainer" unique_id=1041807110]
 mouse_filter = 2
@@ -27,39 +32,31 @@ texture_normal = ExtResource("1_itasq")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="etiqueta_hover" type="NinePatchRect" parent="Boton" unique_id=2035803178]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.072000004
-anchor_top = 0.407
-anchor_right = 1.1750001
-anchor_bottom = 0.623
-offset_left = 0.031999588
-offset_top = -0.03125763
-offset_right = 0.049987793
-offset_bottom = 0.025856018
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_464kq")
-patch_margin_left = 48
-
-[node name="Label" type="Label" parent="Boton/etiqueta_hover" unique_id=1271956868]
+[node name="Control" type="Control" parent="Boton" unique_id=1319998277]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.5
-offset_top = 5.0
-offset_right = 2.5
-offset_bottom = -9.352676
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 1.3021152)
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Boton/Control" unique_id=1271956868]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -19.0
+offset_right = 337.0
+offset_bottom = 19.0
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.34967804, 0.24857557, 0.23909146, 1)
 theme_override_fonts/font = SubResource("FontVariation_o0xy4")
-theme_override_font_sizes/font_size = 22
-text = "       CHILCA DE OLOR"
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg3vr")
+text = "CHILCA DE OLOR"
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Boton" to="." method="mostrar_requisitos"]
 [connection signal="mouse_exited" from="Boton" to="." method="ocultar_requisitos"]

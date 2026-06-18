@@ -29,6 +29,8 @@
 [ext_resource type="AudioStream" uid="uid://b3bjh12aaar2y" path="res://audio/SFX/Obstacuo/Obstaculo_Rotate.wav" id="25_eb78e"]
 [ext_resource type="AudioStream" uid="uid://b4qcjp22dosh4" path="res://audio/Musica/Musica Gameplay Loop.wav" id="25_qsii2"]
 [ext_resource type="AudioStream" uid="uid://drn47nn05v373" path="res://audio/Ambiente/Ambiente-001.wav" id="26_dncx1"]
+[ext_resource type="AudioStream" uid="uid://dndln2goe8q53" path="res://audio/SFX/Libro/Libro_Change_Page/Libro_Change_Page-001.wav" id="26_eb78e"]
+[ext_resource type="AudioStream" uid="uid://ujk3p4qodpi3" path="res://audio/SFX/Libro/Libro_Scroll_Pages/Libro_Scroll_Pages_Short.wav" id="27_oej8q"]
 [ext_resource type="AudioStream" uid="uid://dkc5o2bf7q6fd" path="res://audio/Ambiente/Ambiente-002.wav" id="27_sbc28"]
 [ext_resource type="AudioStream" uid="uid://4my2gyfmddh" path="res://audio/Ambiente/Ambiente-003.wav" id="28_n4sct"]
 [ext_resource type="AudioStream" uid="uid://cawrmyoxrm6p5" path="res://audio/Ambiente/Ambiente-004.wav" id="29_pv7pn"]
@@ -166,7 +168,8 @@ metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 script = ExtResource("2_65gp3")
 type = 23
 sound_effect = ExtResource("23_pv7pn")
-volume = -8.768999999999998
+volume = -4.0
+pitch_scale = 1.2
 pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 
@@ -174,7 +177,7 @@ metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 script = ExtResource("2_65gp3")
 type = 24
 sound_effect = ExtResource("24_lo7l4")
-pitch_scale = 0.97
+pitch_scale = 1.2
 pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 
@@ -182,15 +185,29 @@ metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 script = ExtResource("2_65gp3")
 type = 25
 sound_effect = ExtResource("25_eb78e")
-volume = -16.93
-pitch_scale = 0.91
+volume = -8.0
+pitch_scale = 1.1
 pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_as6q6"]
+script = ExtResource("2_65gp3")
+type = 8
+sound_effect = ExtResource("26_eb78e")
+volume = -0.5
+pitch_randomness = 0.2
+metadata/_custom_type_script = "uid://dljcljvbsfrl6"
+
+[sub_resource type="Resource" id="Resource_2m4t0"]
+script = ExtResource("2_65gp3")
+type = 9
+sound_effect = ExtResource("27_oej8q")
 metadata/_custom_type_script = "uid://dljcljvbsfrl6"
 
 [node name="AudioManager" type="Node2D" unique_id=811379820]
 process_mode = 3
 script = ExtResource("1_euoii")
-sound_effects = Array[ExtResource("2_65gp3")]([SubResource("Resource_0fcim"), SubResource("Resource_6uh0a"), SubResource("Resource_3t3lr"), SubResource("Resource_2x2r8"), SubResource("Resource_g2c6e"), SubResource("Resource_qvvmm"), SubResource("Resource_uxcro"), SubResource("Resource_qr45e"), SubResource("Resource_7x03e"), SubResource("Resource_lint3"), SubResource("Resource_fh1mb"), SubResource("Resource_qi4n2"), SubResource("Resource_yciur"), SubResource("Resource_rkmhx"), SubResource("Resource_4x5xh"), SubResource("Resource_x7uer"), SubResource("Resource_77duw"), SubResource("Resource_4c7gl"), SubResource("Resource_gw3mc"), SubResource("Resource_i63ct"), SubResource("Resource_oej8q"), SubResource("Resource_tre2n"), SubResource("Resource_7yx0y")])
+sound_effects = Array[ExtResource("2_65gp3")]([SubResource("Resource_0fcim"), SubResource("Resource_6uh0a"), SubResource("Resource_3t3lr"), SubResource("Resource_2x2r8"), SubResource("Resource_g2c6e"), SubResource("Resource_qvvmm"), SubResource("Resource_uxcro"), SubResource("Resource_qr45e"), SubResource("Resource_7x03e"), SubResource("Resource_lint3"), SubResource("Resource_fh1mb"), SubResource("Resource_qi4n2"), SubResource("Resource_yciur"), SubResource("Resource_rkmhx"), SubResource("Resource_4x5xh"), SubResource("Resource_x7uer"), SubResource("Resource_77duw"), SubResource("Resource_4c7gl"), SubResource("Resource_gw3mc"), SubResource("Resource_i63ct"), SubResource("Resource_oej8q"), SubResource("Resource_tre2n"), SubResource("Resource_7yx0y"), SubResource("Resource_as6q6"), SubResource("Resource_2m4t0")])
 
 [node name="Menues" type="AudioStreamPlayer" parent="." unique_id=1105525863]
 process_mode = 3

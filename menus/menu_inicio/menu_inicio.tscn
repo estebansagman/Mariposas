@@ -6,14 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://pd4yedxx1ruj" path="res://menus/menu_inicio/iconos/jugar_h.png" id="5_2pqkk"]
 [ext_resource type="Texture2D" uid="uid://t08uxsfkixyo" path="res://menus/menu_inicio/iconos/opciones.png" id="6_wf21f"]
 [ext_resource type="Texture2D" uid="uid://2ep6kj77tfdf" path="res://menus/menu_inicio/iconos/opciones_h.png" id="7_8ygti"]
-[ext_resource type="Texture2D" uid="uid://bs6g1bod3clcv" path="res://menus/menu_inicio/iconos/colecciones.png" id="8_nbyq7"]
-[ext_resource type="Texture2D" uid="uid://c0100b0tehip" path="res://menus/menu_inicio/iconos/colecciones_h.png" id="9_i2joq"]
+[ext_resource type="Texture2D" uid="uid://mi7p22qma534" path="res://menus/menu_inicio/iconos/Libro.png" id="7_wf21f"]
+[ext_resource type="Texture2D" uid="uid://ci08xhdkpd1t7" path="res://menus/menu_inicio/iconos/Libro_h.png" id="8_8ygti"]
 [ext_resource type="Texture2D" uid="uid://ccj7ql05wqhgy" path="res://menus/menu_inicio/iconos/CREITOS_N.png" id="9_wf21f"]
 [ext_resource type="Texture2D" uid="uid://d2hmehfqajai7" path="res://menus/menu_inicio/iconos/CREITOS_h.png" id="10_8ygti"]
 [ext_resource type="Texture2D" uid="uid://qnqp0jsgrf66" path="res://menus/menu_inicio/iconos/salir.png" id="10_l7p5y"]
 [ext_resource type="Texture2D" uid="uid://cho0mhwwdambn" path="res://menus/menu_inicio/iconos/salir_h.png" id="11_wj7qf"]
 [ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro.tscn" id="12_48qcf"]
 [ext_resource type="PackedScene" uid="uid://crfx3nr7i3w4w" path="res://menus/menu_opciones/menu_opciones.tscn" id="13_2pqkk"]
+[ext_resource type="PackedScene" uid="uid://cm1tansgcqj43" path="res://creditos/creditos.tscn" id="15_8ygti"]
 
 [node name="Control" type="Control" unique_id=1486482361]
 layout_mode = 3
@@ -39,6 +40,7 @@ offset_left = 795.0
 offset_top = 377.0
 offset_right = 1127.0
 offset_bottom = 863.0
+theme_override_constants/separation = 12
 
 [node name="jugar" type="TextureButton" parent="VBoxContainer" unique_id=438088139]
 layout_mode = 2
@@ -54,8 +56,8 @@ stretch_mode = 3
 
 [node name="colecciones" type="TextureButton" parent="VBoxContainer" unique_id=1169551171]
 layout_mode = 2
-texture_normal = ExtResource("8_nbyq7")
-texture_hover = ExtResource("9_i2joq")
+texture_normal = ExtResource("7_wf21f")
+texture_hover = ExtResource("8_8ygti")
 stretch_mode = 3
 
 [node name="creditos" type="TextureButton" parent="VBoxContainer" unique_id=2010005110]
@@ -78,7 +80,12 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="creditos" parent="." unique_id=611327731 instance=ExtResource("15_8ygti")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="VBoxContainer/jugar" to="." method="menu_nivel"]
 [connection signal="pressed" from="VBoxContainer/opciones" to="MenuOpciones" method="abrir_menu_de_opciones"]
 [connection signal="pressed" from="VBoxContainer/colecciones" to="Libro" method="abrir"]
+[connection signal="pressed" from="VBoxContainer/creditos" to="creditos" method="abrir"]
 [connection signal="pressed" from="VBoxContainer/salir2" to="." method="salir"]

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://k4s7h6kdhhw6"]
 
 [ext_resource type="Script" uid="uid://op54laguldw1" path="res://UI/ui.gd" id="1_nm1m0"]
+[ext_resource type="FontFile" uid="uid://cmh3bcgsqjr82" path="res://UI/Vogue.ttf" id="2_i1yd8"]
 [ext_resource type="Texture2D" uid="uid://c2qw8kykjyxsb" path="res://Libro/elementos_libro/libroasets/pastito icono.png" id="3_7j5ik"]
+[ext_resource type="Texture2D" uid="uid://2n64fu25fpp8" path="res://UI/imagenes/requisitos.png" id="3_j5i65"]
 [ext_resource type="Texture2D" uid="uid://chotioxj4lmt8" path="res://UI/imagenes/edicion_de_las_cosas.jpg" id="3_o2jkc"]
 [ext_resource type="Texture2D" uid="uid://d2o558e41o3mg" path="res://UI/imagenes/opciones.png" id="4_0tr35"]
 [ext_resource type="PackedScene" uid="uid://cnumtio48c57n" path="res://UI/libro_boton.tscn" id="6_0tr35"]
@@ -19,6 +21,16 @@
 [ext_resource type="PackedScene" uid="uid://rdqgx8jdlho8" path="res://mariposas/catalogo_mariposas.tscn" id="17_8gukh"]
 [ext_resource type="PackedScene" uid="uid://c6a35fsq212ty" path="res://Libro/Libro.tscn" id="20_7j5ik"]
 [ext_resource type="Texture2D" uid="uid://h25gre1f2uwa" path="res://menus/selector_niveles/imagenes/estrella.png" id="20_j5i65"]
+
+[sub_resource type="FontVariation" id="FontVariation_awqy2"]
+base_font = ExtResource("2_i1yd8")
+spacing_glyph = -1
+spacing_top = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8wcgx"]
+texture = ExtResource("3_j5i65")
+texture_margin_left = 68.0
+texture_margin_right = 17.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_h81ot"]
 font_size = 22
@@ -40,6 +52,10 @@ shader_parameter/Alpha = 1.0
 base_font = ExtResource("10_0tr35")
 spacing_glyph = 1
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0tr35"]
+content_margin_left = 111.0
+texture = ExtResource("9_8gkfd")
+
 [node name="UI" type="Control" unique_id=772245201 node_paths=PackedStringArray("botones_debug")]
 layout_mode = 3
 anchors_preset = 15
@@ -50,6 +66,19 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_nm1m0")
 botones_debug = NodePath("CanvasLayer/botones_debug")
+
+[node name="Label" type="Label" parent="." unique_id=1933344820]
+layout_mode = 0
+offset_left = 878.0
+offset_top = 369.0
+offset_right = 1128.0
+offset_bottom = 395.0
+theme_override_colors/font_color = Color(0.34967804, 0.24857557, 0.23909146, 1)
+theme_override_fonts/font = SubResource("FontVariation_awqy2")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_8wcgx")
+text = "CHILCA DE OLOR"
+horizontal_alignment = 1
 
 [node name="Camara" type="Camera2D" parent="." unique_id=898215686]
 unique_name_in_owner = true
@@ -142,33 +171,55 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="." unique_id=1778436262]
+[node name="texto_nivel" type="Label" parent="." unique_id=2124278158]
 z_index = 2
 layout_mode = 0
-offset_left = 542.0
-offset_top = 5.9999995
-offset_right = 1996.9998
-offset_bottom = 465.99994
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("9_8gkfd")
-region_rect = Rect2(0, 0, 1484, 527)
-patch_margin_left = 787
-patch_margin_top = 175
-patch_margin_right = 640
-patch_margin_bottom = 228
-
-[node name="Mariposas" type="Label" parent="NinePatchRect2" unique_id=2124278158]
-z_index = 2
-layout_mode = 0
-offset_left = 300.0
-offset_top = 115.0
-offset_right = 1127.0
-offset_bottom = 309.0
+offset_left = 534.0
+offset_top = 7.0
+offset_right = 846.0
+offset_bottom = 110.0
 theme_override_colors/font_color = Color(0.30132023, 0.1976862, 0.17779908, 1)
 theme_override_fonts/font = SubResource("FontVariation_7j5ik")
-theme_override_font_sizes/font_size = 170
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_0tr35")
 text = "EL Balcón"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PosicionEstrella" type="Control" parent="texto_nivel" unique_id=1129481127]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -2.5
+offset_right = 56.0
+offset_bottom = 37.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Estrella" type="TextureRect" parent="texto_nivel/PosicionEstrella" unique_id=372289079]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -68.0
+offset_right = 54.654785
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("20_j5i65")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Reiniciar2" type="TextureButton" parent="." unique_id=294191019]
 process_mode = 3
@@ -214,23 +265,9 @@ offset_bottom = 210.0
 [node name="Estrella2" type="Sprite2D" parent="." unique_id=59408244]
 visible = false
 z_index = 3
-position = Vector2(960, 60)
+position = Vector2(862, 56)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("20_j5i65")
-
-[node name="Estrella" type="TextureRect" parent="." unique_id=372289079]
-visible = false
-z_index = 3
-layout_mode = 0
-offset_left = 904.0
-offset_top = 6.0
-offset_right = 1016.6548
-offset_bottom = 112.0
-mouse_filter = 2
-texture = ExtResource("20_j5i65")
-expand_mode = 1
-stretch_mode = 5
-flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=818579619]
 
@@ -297,6 +334,11 @@ offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
 en_juego = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1355225645]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="Camara/opciones" to="." method="volver_al_menu_principal"]
 [connection signal="pressed" from="LibroBoton" to="CanvasLayer/Libro" method="abrir"]

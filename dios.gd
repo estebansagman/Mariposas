@@ -16,6 +16,34 @@ func _ready():
 	bd_interna = _cargar_archivo_json("res://data/BD_interna.json")
 	gestionar_bd_externa()
 	replicar_niveles_a_user()
+	comparar_version_y_actualizar()
+	
+	_configurar_cursores_del_guante()
+
+func _configurar_cursores_del_guante() -> void:
+	var mano_abierta = load("res://UI/imagenes/manito-abierta_chica.png")
+	var mano_apuntar = load("res://UI/imagenes/manito-apuntar_chica.png")
+	var mano_grab    = load("res://UI/imagenes/manito-grab_chica.png")
+	
+	Input.set_custom_mouse_cursor(mano_abierta, Input.CURSOR_POINTING_HAND, Vector2(16, 16))
+	Input.set_custom_mouse_cursor(mano_apuntar, Input.CURSOR_ARROW, Vector2(5, 5))
+	Input.set_custom_mouse_cursor(mano_grab, Input.CURSOR_MOVE, Vector2(16, 16))
+	
+	get_tree().node_added.connect(func(nodo: Node):
+		if nodo is BaseButton or nodo is TextureButton:
+			nodo.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	)
+
+
+func cursor_mano_abierta() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func cursor_mano_apuntar() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+func cursor_mano_cerrada() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
+
 
 func gestionar_bd_externa(): #a futuro pensar "gestion de usuario" se crearia recien ahi, no aca.
 	if not FileAccess.file_exists(ruta_user):
@@ -51,6 +79,16 @@ func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
 		nueva_lista.append(Vector2i(x, y))
 	return nueva_lista
 
+func comparar_version_y_actualizar():
+	var molde_original = _cargar_archivo_json(ruta_res)
+	var version_local = molde_original["version"]
+	var version_user = bd_externa["version"]
+	var las_versiones_son_distintas:bool = version_local != version_user
+	if las_versiones_son_distintas:
+		replicar_niveles_a_user(true)
+		bd_externa["version"] = version_local
+		guardar_bd_externa()
+		
 func replicar_niveles_a_user(forzar_pisado: bool = false):
 	var sectores = [1, 2, 3]
 	var niveles_por_sector = 4 
@@ -77,7 +115,6 @@ func borrar_todo():
 	dir.copy(ruta_res, ruta_user)
 	bd_externa = _cargar_archivo_json(ruta_user)
 	guardar_bd_externa()
-
 func debug_completar_juego():
 	for s_id in bd_externa["sectores"].keys():
 		bd_externa["sectores"][s_id]["desbloqueo"] = true
@@ -86,7 +123,6 @@ func debug_completar_juego():
 				bd_externa["sectores"][s_id]["niveles"][n_id]["superado"] = true
 				
 	guardar_bd_externa()
-
 func equiparar_bases_directo() -> void:
 	var molde_original = _cargar_archivo_json(ruta_res)
 	if molde_original.is_empty():

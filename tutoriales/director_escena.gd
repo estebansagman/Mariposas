@@ -50,7 +50,7 @@ func mover_objeto():
 		paso_de_animacion = 2
 		play("cartelObjetos")
 func cargar_plantas():
-	Dios.bd_externa["sectores"]["seccion_3"]["niveles"]["nivel_1"]["ya_fue_jugado"]
+	Dios.bd_externa["sectores"]["seccion_3"]["niveles"]["nivel_1"]["ya_fue_jugado"] = true
 	Dios.bd_externa["sectores"]["seccion_3"]["niveles"]["nivel_2"]["ya_fue_jugado"] = true
 	var especie_planta = nivel.Especie_planta.duplicate()
 	ui.catalogo_plantas.iniciar_catalogo(especie_planta, jardin)
@@ -59,5 +59,4 @@ func evaluar_si_se_jugo_el_tutorial_antes():
 	var nivel_2_s_3_fue_ganado = Dios.bd_externa["sectores"]["seccion_3"]["niveles"]["nivel_2"]["ya_fue_jugado"]
 	if nivel_1_s_3_fue_ganado or nivel_2_s_3_fue_ganado:
 		paso_de_animacion = 0
-
 #endregion

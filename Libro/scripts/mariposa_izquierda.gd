@@ -4,7 +4,7 @@ const POLAROID_VACIA = preload("uid://cbqhid1akseog")
 
 @onready var imagen: TextureRect = $MarginContainer/ContenedorGeneral/AspectRatioContainer/Imagen
 @onready var nombre_comun: Label = $MarginContainer/ContenedorGeneral/Titulos/Nombres/NombreComun
-@onready var nombre_cientifico: Label = $MarginContainer/ContenedorGeneral/Titulos/Nombres/NombreCientifico
+@onready var nombre_cientifico: Label = $MarginContainer/ContenedorGeneral/NombreCientifico
 @onready var planta_1: TextureRect = $MarginContainer/ContenedorGeneral/Titulos/PlantasChicas/Imagenes/Planta1
 @onready var planta_2: TextureRect = $MarginContainer/ContenedorGeneral/Titulos/PlantasChicas/Imagenes/Planta2
 @onready var planta_3: TextureRect = $MarginContainer/ContenedorGeneral/Titulos/PlantasChicas/Imagenes/Planta3

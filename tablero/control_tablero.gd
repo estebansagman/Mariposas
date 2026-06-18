@@ -146,7 +146,8 @@ func limpiar_planta(id_objetivo):
 
 #region ACCIONES OBJETO
 func seleccionar_objeto(objeto:ObjetosMoviles):
-	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_PICKUP)
+	#if objeto_seleccionado == null:
+	#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_PICKUP)
 	objeto_seleccionado = objeto
 	objeto_seleccionado.z_index = objeto_seleccionado.ZINDEX_SELECCION
 	for celda in tablero.celdas:
@@ -237,8 +238,9 @@ func posicionar_objeto_en_capa_visible(objeto:ObjetosMoviles):
 		#activar_particulas(TIERRA_VFX,planta)
 func girar_objeto(event:InputEvent = null):
 	if objeto_seleccionado and event:
-		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_ROTATE)
+		
 		if event.is_action_pressed("girar_derecha"):
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.OBJETO_ROTATE)
 			objeto_seleccionado.giro_actual = (objeto_seleccionado.giro_actual + 1) % 4
 			objeto_seleccionado.girar_objeto(true)
 			#objeto_seleccionado.emitir_particulas_giro("derecha")

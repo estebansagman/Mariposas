@@ -1,0 +1,318 @@
+[gd_scene format=3 uid="uid://cm1tansgcqj43"]
+
+[ext_resource type="Texture2D" uid="uid://b8itej304w0y5" path="res://niveles/imagenes/nivel_2_fondo.png" id="1_gpfny"]
+[ext_resource type="Script" uid="uid://c6cdexivjvldd" path="res://creditos/creditos.gd" id="1_xl3r4"]
+[ext_resource type="Texture2D" uid="uid://6wxve7atqkuk" path="res://menus/menu_opciones/imagenes/cuadrado del menu.png" id="2_4ft0k"]
+[ext_resource type="FontFile" uid="uid://braanrlvh5nna" path="res://Libro/elementos_libro/DK Crayon Crumble.ttf" id="3_88cnn"]
+[ext_resource type="Texture2D" uid="uid://q5kgulyg4pya" path="res://menus/menu_opciones/imagenes/icono sfx.png" id="4_abkrk"]
+[ext_resource type="Texture2D" uid="uid://1ann013111cx" path="res://Libro/elementos_libro/iconos/salir on.png" id="6_ldad1"]
+[ext_resource type="Texture2D" uid="uid://cj45gg46cmupy" path="res://Libro/elementos_libro/iconos/salir off.png" id="7_6eawx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88cnn"]
+texture = ExtResource("2_4ft0k")
+texture_margin_left = 189.0
+texture_margin_top = 130.0
+texture_margin_right = 171.0
+texture_margin_bottom = 172.0
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="FontVariation" id="FontVariation_qdsmr"]
+base_font = ExtResource("3_88cnn")
+
+[sub_resource type="InputEventKey" id="InputEventKey_wycob"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_hl8ox"]
+events = [SubResource("InputEventKey_wycob")]
+
+[node name="Control" type="Control" unique_id=611327731]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xl3r4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=496600974]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_gpfny")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1185800067]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 219.0
+offset_right = 4362.0
+offset_bottom = 3953.9995
+scale = Vector2(0.2, 0.2)
+theme_override_styles/panel = SubResource("StyleBoxTexture_88cnn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=888801046]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1458177835]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 200
+text = "INTEGRANTES:"
+
+[node name="Nico" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1090263033]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Nico" unique_id=1628261531]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Nico/VBoxContainer" unique_id=1652598608]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_colors/font_outline_color = Color(0.37254903, 0.2509804, 0.14509805, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Nicolás Barreras:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Nico/VBoxContainer" unique_id=1480689344]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Nico/VBoxContainer/HBoxContainer" unique_id=1178126645]
+layout_mode = 2
+texture = ExtResource("4_abkrk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Nico/VBoxContainer/HBoxContainer" unique_id=1935648475]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 140
+text = "Producción / Arte Técnico / Diseño de Sonido"
+
+[node name="Santi" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=354272727]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Santi" unique_id=906992316]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Santi/VBoxContainer" unique_id=690096808]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_colors/font_outline_color = Color(0.37254903, 0.2509804, 0.14509805, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Santiago Bergia:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Santi/VBoxContainer" unique_id=2146112929]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Santi/VBoxContainer/HBoxContainer" unique_id=1367371343]
+layout_mode = 2
+texture = ExtResource("4_abkrk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Santi/VBoxContainer/HBoxContainer" unique_id=553639312]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 140
+text = "Diseño de Juego / Diseño de Niveles"
+
+[node name="Luz" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=497236585]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Luz" unique_id=1928631162]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Luz/VBoxContainer" unique_id=231873925]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_colors/font_outline_color = Color(0.37254903, 0.2509804, 0.14509805, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Luz Esteban: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Luz/VBoxContainer" unique_id=949140192]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Luz/VBoxContainer/HBoxContainer" unique_id=779153245]
+layout_mode = 2
+texture = ExtResource("4_abkrk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Luz/VBoxContainer/HBoxContainer" unique_id=975236459]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 140
+text = "Arte 2D / Diseño de Interfaces"
+
+[node name="Rocio" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1519003248]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Rocio" unique_id=1042280965]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Rocio/VBoxContainer" unique_id=444496042]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_colors/font_outline_color = Color(0.37254903, 0.2509804, 0.14509805, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Rocío Lezcano:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Rocio/VBoxContainer" unique_id=791380028]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Rocio/VBoxContainer/HBoxContainer" unique_id=2055480784]
+layout_mode = 2
+texture = ExtResource("4_abkrk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Rocio/VBoxContainer/HBoxContainer" unique_id=583888646]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 140
+text = "Diseño de Juego / Arte 2D"
+
+[node name="Esteban" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=813553532]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Esteban" unique_id=559782778]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Esteban/VBoxContainer" unique_id=517293712]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_colors/font_outline_color = Color(0.37254903, 0.2509804, 0.14509805, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Esteban Sagman:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Esteban/VBoxContainer" unique_id=533005372]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Esteban/VBoxContainer/HBoxContainer" unique_id=1462326517]
+layout_mode = 2
+texture = ExtResource("4_abkrk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Esteban/VBoxContainer/HBoxContainer" unique_id=1548912178]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 140
+text = "Programación / Desarrollo en Godot"
+
+[node name="Facundo" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=501436711]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Facundo" unique_id=93073531]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Facundo/VBoxContainer" unique_id=1728102934]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_colors/font_outline_color = Color(0.37254903, 0.2509804, 0.14509805, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Facundo Alvarez: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Facundo/VBoxContainer" unique_id=1520512542]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/Facundo/VBoxContainer/HBoxContainer" unique_id=793696891]
+layout_mode = 2
+texture = ExtResource("4_abkrk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Facundo/VBoxContainer/HBoxContainer" unique_id=1254141913]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 140
+text = "Composición Musical"
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1349840614]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.3711921, 0.25238425, 0.14388311, 1)
+theme_override_fonts/font = SubResource("FontVariation_qdsmr")
+theme_override_font_sizes/font_size = 150
+text = "Santiago Bergia: Diseño de Juego / Diseño de Niveles
+
+Luz Esteban: Arte 2D / Diseño de Interfaces
+
+Rocío Lezcano: Diseño de Juego / Arte 2D
+
+Esteban Sagman: Programación / Desarrollo en Godot
+
+Facundo Alvarez: Composición Musical"
+
+[node name="Cerrar" type="TextureButton" parent="." unique_id=1774804534]
+z_index = 12
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.99988
+offset_top = 50.000004
+offset_right = 654.0
+offset_bottom = 1096.9998
+grow_horizontal = 0
+scale = Vector2(0.17056243, 0.17056243)
+shortcut = SubResource("Shortcut_hl8ox")
+texture_normal = ExtResource("6_ldad1")
+texture_hover = ExtResource("7_6eawx")
+stretch_mode = 3
+
+[connection signal="pressed" from="Cerrar" to="." method="cerrar"]

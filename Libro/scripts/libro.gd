@@ -20,6 +20,8 @@ func abrir():
 		AudioManager.menues.volume_db = 0
 		AudioManager.in_game_inicio.stream_paused = true
 		AudioManager.in_game_loop.stream_paused = true
+		
+	
 	show()
 	get_tree().paused = true
 	establecer_paginas()
@@ -27,6 +29,7 @@ func abrir():
 	pagina_izquierda.mostrar_cara("izquierda",paginas[pagina_actual][0],paginas[pagina_actual][1])
 	pagina_derecha.mostrar_cara("derecha",paginas[pagina_actual][0],paginas[pagina_actual][1])
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_OPEN_SCENE)
+	
 func cerrar():
 	if en_juego:
 		AudioManager.menues.stream_paused = true
@@ -34,8 +37,10 @@ func cerrar():
 		AudioManager.in_game_inicio.stream_paused = false
 		AudioManager.in_game_loop.stream_paused = false
 	get_tree().paused = false
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_COVER)
 	hide()
-	
+
+
 func establecer_paginas():
 	var paginas_mariposa:Array = Dios.bd_interna["orden_inportancia_mariposas"]
 	var paginas_plantas:Array = Dios.bd_interna["orden_planta"]
@@ -47,9 +52,8 @@ func sumar_paginas(tipo_de_pagina,especimenes):
 
 func ir_a_pagina(tipo_hoja, especimen=""):
 	print("los datos que llegan son: ",tipo_hoja," y ",especimen," | Boton: ",botones_activados)
-
 	if botones_activados: 
-		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_CHANGE_PAGE)
+		#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_CHANGE_PAGE)
 		botones_activados = false 
 	else: 
 		return
@@ -83,13 +87,16 @@ func _pasar_pagina():
 	
 	var validacion = (pagina_actual > 14)or(not botones_activados)
 	if validacion:return
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_CHANGE_PAGE)
 	botones_activados = false 
 	pagina_actual = clamp(pagina_actual + 1, 0, 15)
 	await hoja.cambiar_imagenes(pagina_actual, paginas, true)
 	hoja.pasar_pagina()
 func _volver_a_la_pagina_anterior():
+	
 	var validacion = (pagina_actual < 1)or(not botones_activados)
 	if validacion:return
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_CHANGE_PAGE)
 	botones_activados = false 
 	pagina_actual = clamp(pagina_actual-1,0,15)
 	await hoja.cambiar_imagenes(pagina_actual, paginas,false)
@@ -97,6 +104,7 @@ func _volver_a_la_pagina_anterior():
 	#activar_botones()
 	
 func pasar_paginas_modo_rafaga(cantidad_de_paginas: int, orientacion: String, hacia_adelante: bool, ruta_paginas: Array):
+	
 	var contenedor_viewport = $Control/SubViewportContainer/SubViewport
 	var lista_hojas: Array
 	hoja.prender_hoja()
@@ -118,7 +126,7 @@ func pasar_paginas_modo_rafaga(cantidad_de_paginas: int, orientacion: String, ha
 
 	await get_tree().process_frame
 	hoja.apagar_hoja()
-
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_SCROLL_PAGES)
 	for hoja_rapida in lista_hojas:
 		hoja_rapida.show()
 		hoja_rapida.pasar_rapido(orientacion)

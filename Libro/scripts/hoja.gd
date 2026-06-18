@@ -49,6 +49,7 @@ func volver_a_la_pagina_anterior():
 	apagar_hoja()
 
 func pasar_rapido(orientacion:String = "derecha"):
+	#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LIBRO_CHANGE_PAGE)
 	animation_player.speed_scale = 2.0
 	if orientacion == "derecha":
 		animation_player.play("Acciones/Avanzar")

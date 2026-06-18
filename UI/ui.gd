@@ -10,15 +10,15 @@ signal reiniciar
 @onready var catalogo_mariposas: Control = $CatalogoMariposas
 
 @onready var alerta_seleccion: ColorRect = $AlertaSeleccion
-#@onready var cartel_final: Panel = $Cartel_final
 @onready var cartel_final: Panel = %Cartel_final
 @onready var timer: Timer = $Timer
-#@onready var botones_debug: Control = $botones_debug
 @export var botones_debug: Control
-@onready var estrella_ganado: TextureRect = $Estrella
+@onready var estrella_ganado: TextureRect = $texto_nivel/PosicionEstrella/Estrella
 @onready var fondo: TextureRect = $Camara/Fondo
+@onready var titulo: NinePatchRect = $Titulo # ACAA (modificar)
 
 @onready var libro_boton: TextureButton = $LibroBoton
+@onready var texto_nivel: Label = $texto_nivel
 
 
 ##region EDITOR
@@ -27,7 +27,7 @@ signal reiniciar
 #@onready var catalogo_mariposas_B: CatalogoMariposas = $Control/CatalogoMariposas2
 ##endregion
 
-@onready var nine_patch_rect: NinePatchRect = $NinePatchRect
+#@onready var nine_patch_rect: NinePatchRect = $NinePatchRect
 
 @onready var camara: Camera2D = %Camara
 
@@ -40,10 +40,17 @@ var superado:bool = false
 func _ready() -> void:
 	catalogo_mariposas.quedarme.pressed.connect(ocultar_cartel)
 	catalogo_mariposas.ir_a_niveles.pressed.connect(volver_al_menu)
+	#poner_titulo_al_nivel("probando a ver si funca")
+	
+func poner_titulo_al_nivel(nombre):
+	texto_nivel.text = nombre
+	#var tamano_texto:float = texto.size.x
+	#titulo.size.x = tamano_texto+300
+
+	
 func prender_estrella(activado:bool):
 	if activado:
 		estrella_ganado.show()
-
 func alerta_de_seleccion():
 	alerta_seleccion.show()
 func apagar_alerta_de_seleccion(): # esto se modifica, alerta reinicio
@@ -98,10 +105,12 @@ func anim_estrella()->void:
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.POP_MULTI)
 		var estrella:Path2D = ESTRELLA_VFX.duplicate(true).instantiate()
 		var origin = mariposa.find_child("Sprite2D",true,false).global_position
+		#var origin = %PosicionEstrella.global_position
 		var t = create_tween()
 		
 		add_child(estrella,true)
-		estrella.curve.add_point(Vector2(960,60)-origin,Vector2(400,200))
+		estrella.curve.add_point(%PosicionEstrella.global_position-origin,Vector2(400,200))
+		#estrella.curve.add_point(Vector2(960,60)-origin,Vector2(400,200))
 		estrella.z_index = 6
 		estrella.global_position = origin
 		var sprite = estrella.get_child(0).get_child(0)

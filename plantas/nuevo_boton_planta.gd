@@ -3,8 +3,11 @@ class_name BotonPlanta
 signal pedido_de_planta(llave_planta:String,llave_estructura,forma, emisor, ejemplar_planta)
 
 @onready var boton: TextureButton = $Boton
-@onready var imagen_etiqueta: NinePatchRect = $Boton/etiqueta_hover
-@onready var etiqueta: Label = $Boton/etiqueta_hover/Label
+#@onready var imagen_etiqueta: NinePatchRect = $Boton/etiqueta_hover
+#@export var imagen_etiqueta: Label
+@onready var imagen_etiqueta: Label = $Boton/Control/Label
+
+#@onready var etiqueta: Label = $Boton/etiqueta_hover/Label
 
 var key_planta: String
 var key_estructura:String
@@ -14,9 +17,11 @@ var estructura:Array[Vector2i]
 func _ready() -> void:
 	var dato_crudo = Dios.bd_interna["plantas"][key_planta]["forma"][key_estructura].duplicate()
 	estructura = Dios.transformar_en_vector2i(dato_crudo)
-	etiqueta.text = "       " + Dios.bd_interna["plantas"][key_planta]["nombre_comun"]
-	var ancho_texto = etiqueta.get_combined_minimum_size().x
-	imagen_etiqueta.size.x = ancho_texto + 10
+	
+	# AGARRAMOS EL NOMBRE Y REEMPLAZAMOS LOS ESPACIOS POR SALTOS DE LÍNEA
+	var nombre_original = Dios.bd_interna["plantas"][key_planta]["nombre_comun"]
+	imagen_etiqueta.text = nombre_original.replace(" ", "\n")
+	
 	estructurar_planta_boton()
 	boton.gui_input.connect(_on_boton_gui_input)
 	
@@ -40,6 +45,10 @@ func estructurar_planta_boton():
 	elif key_estructura == "B":
 		boton.texture_normal = load(ruta_textura_B)
 
-func mostrar_requisitos(): imagen_etiqueta.show()
-func ocultar_requisitos(): imagen_etiqueta.hide()
+func mostrar_requisitos(): 
+	#return
+	imagen_etiqueta.show()
+func ocultar_requisitos(): 
+	#return
+	imagen_etiqueta.hide()
 func mostrar_imagen(): show()

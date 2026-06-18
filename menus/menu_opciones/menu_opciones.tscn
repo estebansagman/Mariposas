@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cderx1i6gemwb" path="res://menus/menu_opciones/imagenes/cuadrados importantes borrar progreso seleccionado.png" id="13_olfs7"]
 [ext_resource type="Texture2D" uid="uid://cpbxeipcjg6qa" path="res://menus/menu_opciones/imagenes/sonido min.png" id="14_h3i5h"]
 [ext_resource type="Texture2D" uid="uid://ca24bgfx18ucl" path="res://menus/menu_opciones/imagenes/barra de sonido vacia .png" id="15_27hg4"]
+[ext_resource type="Script" uid="uid://d34e1toqaghxt" path="res://menus/menu_opciones/video.gd" id="15_hmln8"]
 [ext_resource type="Texture2D" uid="uid://c1li8vc8hcmao" path="res://menus/menu_opciones/imagenes/sonido max.png" id="16_8gmf4"]
 [ext_resource type="Script" uid="uid://7nk2kduc6gei" path="res://menus/menu_opciones/sonido.gd" id="16_e62n5"]
 [ext_resource type="Texture2D" uid="uid://c8xo53krh1pxi" path="res://menus/menu_opciones/imagenes/flor barra de sonidos Prueba.png" id="20_etp1m"]
@@ -101,8 +102,38 @@ texture = ExtResource("1_27hg4")
 anchors_preset = 0
 offset_left = 250.0
 offset_top = 185.0
-offset_right = 1618.0
+offset_right = 1623.0
 offset_bottom = 964.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1461700281]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 226.0
+offset_bottom = 758.0
+
+[node name="general" type="TextureButton" parent="Control/VBoxContainer" unique_id=466120719]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_qwt8j")
+texture_hover = ExtResource("4_4loqx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="sonido" type="TextureButton" parent="Control/VBoxContainer" unique_id=909257487]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("3_qe6us")
+texture_hover = ExtResource("7_gw0ge")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="video" type="TextureButton" parent="Control/VBoxContainer" unique_id=1396236579]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_8yat6")
+texture_hover = ExtResource("10_bjdcc")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1029814976]
 layout_mode = 1
@@ -138,6 +169,7 @@ theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 150
 
 [node name="General" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer" unique_id=1150625251]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 60
 script = ExtResource("5_0fn7c")
@@ -414,11 +446,11 @@ custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 
 [node name="Video" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer" unique_id=68237213]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 60
+script = ExtResource("15_hmln8")
 
-[node name="Label3" type="Label" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=548237762]
+[node name="Titulo" type="Label" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=548237762]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.39247778, 0.21538928, 0.08462391, 1)
 theme_override_fonts/font = SubResource("FontVariation_5gn5e")
@@ -426,6 +458,7 @@ theme_override_font_sizes/font_size = 280
 text = "Video"
 
 [node name="Label2" type="Label" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=1187775877]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.34344703, 0.17257026, 0.12123806, 1)
@@ -435,36 +468,38 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=75981855]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video" unique_id=1974713795]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=1157625458]
+[node name="PanelInfo" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=1157625458]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.59
 theme_override_constants/separation = 65
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=1495937871]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo" unique_id=1495937871]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2036081343]
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo/HBoxContainer" unique_id=2036081343]
 custom_minimum_size = Vector2(380, 330)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.0
+mouse_filter = 2
 texture_normal = ExtResource("9_6n1nb")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=682092092]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo/HBoxContainer" unique_id=682092092]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
@@ -473,20 +508,21 @@ theme_override_font_sizes/font_size = 150
 text = " Resolucion"
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=56515675]
+[node name="ModoPantalla" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo" unique_id=56515675]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=900649487]
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo/ModoPantalla" unique_id=900649487]
 custom_minimum_size = Vector2(380, 330)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.61
+mouse_filter = 2
 texture_normal = ExtResource("10_hs4mw")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=193371824]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo/ModoPantalla" unique_id=193371824]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
@@ -497,19 +533,21 @@ Pantalla"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=301176240]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo" unique_id=301176240]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1897088342]
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo/HBoxContainer3" unique_id=1897088342]
 custom_minimum_size = Vector2(380, 330)
 layout_mode = 2
 size_flags_horizontal = 2
+mouse_filter = 2
 texture_normal = ExtResource("11_n44rt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=912694617]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo/HBoxContainer3" unique_id=912694617]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
@@ -518,7 +556,7 @@ theme_override_font_sizes/font_size = 150
 text = "Coloreado"
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer" unique_id=827787229]
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelInfo" unique_id=827787229]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 
@@ -526,28 +564,39 @@ layout_mode = 2
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=42929715]
+[node name="PanelControl" type="VBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer" unique_id=42929715]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 65
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=968579746]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl" unique_id=968579746]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=271240972]
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer" unique_id=271240972]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1237934722]
+[node name="Control2" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer" unique_id=1237934722]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=2058036630]
+[node name="Label2" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer/Control2" unique_id=714894300]
+visible = false
+layout_mode = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.34344703, 0.17257026, 0.12123806, 1)
+theme_override_font_sizes/font_size = 180
+text = "Proximamente..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModoPantalla" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl" unique_id=2058036630]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=175825245]
+[node name="PantallaCompleta" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla" unique_id=175825245]
 custom_minimum_size = Vector2(350, 330)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -555,7 +604,20 @@ texture_normal = ExtResource("6_dgbnp")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1523518094]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla/PantallaCompleta" unique_id=286873244]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.348249, 0.23674896, 0.11695752, 1)
+theme_override_font_sizes/font_size = 55
+text = "Pantalla completa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ventana" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla" unique_id=1523518094]
 custom_minimum_size = Vector2(350, 330)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -563,7 +625,20 @@ texture_normal = ExtResource("6_0pfbw")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1508393989]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla/Ventana" unique_id=409757200]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.348249, 0.23674896, 0.11695752, 1)
+theme_override_font_sizes/font_size = 55
+text = "Ventana"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ventanaSinBordes" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla" unique_id=1508393989]
 custom_minimum_size = Vector2(350, 330)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -571,15 +646,31 @@ texture_normal = ExtResource("6_0pfbw")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=2053773280]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla/ventanaSinBordes" unique_id=1438248781]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.348249, 0.23674896, 0.11695752, 1)
+theme_override_font_sizes/font_size = 50
+text = "Ventana sin bordes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla" unique_id=2053773280]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=1572719539]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl" unique_id=1572719539]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1964682888]
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer3" unique_id=1964682888]
 custom_minimum_size = Vector2(450, 330)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -587,7 +678,7 @@ texture_normal = ExtResource("6_dgbnp")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=1020081737]
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer3" unique_id=1020081737]
 custom_minimum_size = Vector2(450, 330)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -595,7 +686,7 @@ texture_normal = ExtResource("6_0pfbw")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=335891367]
+[node name="TextureButton3" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer3" unique_id=335891367]
 custom_minimum_size = Vector2(450, 330)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -603,11 +694,11 @@ texture_normal = ExtResource("6_0pfbw")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2/HBoxContainer3" unique_id=838876744]
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/HBoxContainer3" unique_id=838876744]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/VBoxContainer2" unique_id=958045972]
+[node name="Control" type="Control" parent="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl" unique_id=958045972]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 
@@ -635,11 +726,11 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.59
 theme_override_constants/separation = 65
 
-[node name="Musica" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos" unique_id=683468667]
+[node name="General" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos" unique_id=683468667]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/Musica" unique_id=2121557167]
+[node name="TextureButton2" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/General" unique_id=2121557167]
 custom_minimum_size = Vector2(380, 330)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -649,7 +740,7 @@ texture_normal = ExtResource("2_bjdcc")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/Musica" unique_id=220655847]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/General" unique_id=220655847]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
@@ -659,11 +750,11 @@ theme_override_font_sizes/font_size = 220
 text = "  General"
 vertical_alignment = 1
 
-[node name="Musica2" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos" unique_id=917300850]
+[node name="Musica" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos" unique_id=917300850]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/Musica2" unique_id=229762291]
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/Musica" unique_id=229762291]
 custom_minimum_size = Vector2(380, 330)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -673,7 +764,7 @@ texture_normal = ExtResource("12_n44rt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/Musica2" unique_id=2068933296]
+[node name="Label" type="Label" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Titulos/Musica" unique_id=2068933296]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
@@ -759,7 +850,7 @@ texture_normal = ExtResource("14_h3i5h")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HSlider" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/General" unique_id=1204617584]
+[node name="sliderGeneral" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/General" unique_id=1204617584]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -797,7 +888,7 @@ texture_normal = ExtResource("14_h3i5h")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HSlider" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Musica" unique_id=1497013964]
+[node name="SliderMusica" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Musica" unique_id=1497013964]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -835,7 +926,7 @@ texture_normal = ExtResource("14_h3i5h")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HSlider" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Ambiente" unique_id=1510965786]
+[node name="SliderAmbiente" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Ambiente" unique_id=1510965786]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -873,7 +964,7 @@ texture_normal = ExtResource("14_h3i5h")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="HSlider" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Sfx" unique_id=1227494048]
+[node name="SliderSfx" type="HSlider" parent="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Sfx" unique_id=1227494048]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -916,36 +1007,6 @@ texture = ExtResource("2_qe6us")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1461700281]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 226.0
-offset_bottom = 758.0
-
-[node name="general" type="TextureButton" parent="Control/VBoxContainer" unique_id=466120719]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("2_qwt8j")
-texture_hover = ExtResource("4_4loqx")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="sonido" type="TextureButton" parent="Control/VBoxContainer" unique_id=909257487]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("3_qe6us")
-texture_hover = ExtResource("7_gw0ge")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="video" type="TextureButton" parent="Control/VBoxContainer" unique_id=1396236579]
-layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("4_8yat6")
-texture_hover = ExtResource("10_bjdcc")
-ignore_texture_size = true
-stretch_mode = 5
-
 [node name="TextureButton" type="TextureButton" parent="." unique_id=242175020]
 layout_mode = 0
 offset_left = 1508.0
@@ -957,12 +1018,15 @@ texture_hover = ExtResource("31_e62n5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer4/TextureButton" to="Control/NinePatchRect/MarginContainer/General" method="borrar_bd"]
-[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/General/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_general"]
-[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Musica/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_musica"]
-[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Ambiente/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_ambiente"]
-[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Sfx/HSlider" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_sfx"]
 [connection signal="pressed" from="Control/VBoxContainer/general" to="." method="entrar_a_general"]
 [connection signal="pressed" from="Control/VBoxContainer/sonido" to="." method="entrar_a_sonido"]
 [connection signal="pressed" from="Control/VBoxContainer/video" to="." method="entrar_a_video"]
+[connection signal="pressed" from="Control/NinePatchRect/MarginContainer/General/HBoxContainer/VBoxContainer2/HBoxContainer4/TextureButton" to="Control/NinePatchRect/MarginContainer/General" method="borrar_bd"]
+[connection signal="pressed" from="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla/PantallaCompleta" to="Control/NinePatchRect/MarginContainer/Video" method="establecer_pantalla_completa"]
+[connection signal="pressed" from="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla/Ventana" to="Control/NinePatchRect/MarginContainer/Video" method="establecer_pantalla_ventana"]
+[connection signal="pressed" from="Control/NinePatchRect/MarginContainer/Video/HBoxContainer/PanelControl/ModoPantalla/ventanaSinBordes" to="Control/NinePatchRect/MarginContainer/Video" method="establecer_pantalla_ventana_sin_bordes"]
+[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/General/sliderGeneral" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_general"]
+[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Musica/SliderMusica" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_musica"]
+[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Ambiente/SliderAmbiente" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_ambiente"]
+[connection signal="value_changed" from="Control/NinePatchRect/MarginContainer/Sonido/Panel/Controladores/Sfx/SliderSfx" to="Control/NinePatchRect/MarginContainer/Sonido" method="modificar_volumen_sfx"]
 [connection signal="pressed" from="TextureButton" to="." method="cerrar_menu_de_opciones"]

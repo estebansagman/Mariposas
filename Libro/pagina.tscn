@@ -112,6 +112,7 @@ grow_vertical = 2
 color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 
 [node name="CaraIzquierda" type="Control" parent="." unique_id=1019688470]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_left = 1.0
@@ -121,6 +122,7 @@ offset_bottom = 1081.0
 script = ExtResource("15_86i5b")
 
 [node name="Mariposas" type="Control" parent="CaraIzquierda" unique_id=1759898858]
+visible = false
 anchors_preset = 0
 offset_top = 1.0
 offset_right = 860.0
@@ -147,6 +149,7 @@ theme_override_constants/margin_bottom = 25
 
 [node name="ContenedorGeneral" type="VBoxContainer" parent="CaraIzquierda/Mariposas/MarginContainer" unique_id=1863638731]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral" unique_id=1933685101]
 layout_mode = 2
@@ -234,7 +237,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Planta3" type="TextureRect" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/Titulos/PlantasChicas/Imagenes" unique_id=75195060]
-visible = false
 custom_minimum_size = Vector2(0, 134)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -256,7 +258,7 @@ size_flags_stretch_ratio = 0.3
 [node name="Nombres" type="VBoxContainer" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/Titulos" unique_id=431209245]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.29
+size_flags_stretch_ratio = 3.0
 
 [node name="Separador" type="Control" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/Titulos/Nombres" unique_id=542366282]
 custom_minimum_size = Vector2(0, 20.43)
@@ -269,9 +271,11 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.23760357, 0.16031536, 0.114319615, 1)
+theme_override_colors/font_outline_color = Color(0.23921569, 0.16078432, 0.11372549, 1)
+theme_override_constants/outline_size = 2
 theme_override_fonts/font = SubResource("FontVariation_kslmw")
-theme_override_font_sizes/font_size = 50
-text = "Bataraza"
+theme_override_font_sizes/font_size = 64
+text = "Bandera Argentina"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -282,21 +286,10 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="NombreCientifico" type="Label" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/Titulos/Nombres" unique_id=711806005]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.43017048, 0.3047793, 0.23134103, 1)
-theme_override_fonts/font = SubResource("FontVariation_kslmw")
-theme_override_font_sizes/font_size = 48
-text = "Ortilia ithra"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
 [node name="OrugaChica" type="VBoxContainer" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/Titulos" unique_id=1675992006]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
 
 [node name="Separador" type="Control" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/Titulos/OrugaChica" unique_id=1118669065]
 custom_minimum_size = Vector2(0, 20.94)
@@ -309,6 +302,20 @@ size_flags_horizontal = 4
 texture = ExtResource("7_8ueo3")
 expand_mode = 3
 
+[node name="NombreCientifico" type="Label" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral" unique_id=711806005]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.43017048, 0.3047793, 0.23134103, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("FontVariation_kslmw")
+theme_override_font_sizes/font_size = 58
+text = "Morpho epistrophus argentinus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Separador2" type="Control" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral" unique_id=2100092127]
 layout_mode = 2
 size_flags_vertical = 3
@@ -318,10 +325,6 @@ size_flags_stretch_ratio = 0.05
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.85
-
-[node name="Separador" type="Control" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/DatosCuriosos" unique_id=1837171844]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/DatosCuriosos" unique_id=456102970]
 custom_minimum_size = Vector2(0, 285)
@@ -336,20 +339,17 @@ size_flags_horizontal = 3
 [node name="DatoCurioso1" type="RichTextLabel" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/DatosCuriosos/ScrollContainer/VBoxContainer" unique_id=292815465]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("11_0vthj")
-theme_override_font_sizes/normal_font_size = 35
-text = "Esta mariposa deposita 
-varios huevos en una misma hoja, 
+theme_override_font_sizes/normal_font_size = 42
+text = "Esta mariposa deposita varios huevos en una misma hoja, 
 y sus orugas 
 se mantienen juntas 
 en sus primeras etapas 
 como estrategia de defensa."
 fit_content = true
 horizontal_alignment = 1
-
-[node name="Separador2" type="Control" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral/DatosCuriosos" unique_id=267730236]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
 
 [node name="Separador" type="Control" parent="CaraIzquierda/Mariposas/MarginContainer/ContenedorGeneral" unique_id=20957404]
 layout_mode = 2
@@ -456,8 +456,10 @@ size_flags_horizontal = 3
 [node name="NombreComun" type="Label" parent="CaraIzquierda/Plantas/MarginContainer/ContenedorGeneral/Nombres" unique_id=1148840062]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.23760357, 0.16031536, 0.114319615, 1)
+theme_override_colors/font_outline_color = Color(0.23921569, 0.16078432, 0.11372549, 1)
+theme_override_constants/outline_size = 1
 theme_override_fonts/font = SubResource("FontVariation_kslmw")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 64
 text = "Canario Rojo"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -465,8 +467,10 @@ vertical_alignment = 1
 [node name="NombreCientifico" type="Label" parent="CaraIzquierda/Plantas/MarginContainer/ContenedorGeneral/Nombres" unique_id=675769407]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.43017048, 0.3047793, 0.23134103, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_constants/outline_size = 2
 theme_override_fonts/font = SubResource("FontVariation_kslmw")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 48
 text = "Dicliptera squarrosa"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -484,6 +488,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
 
 [node name="Contenedor" type="VBoxContainer" parent="CaraIzquierda/Plantas/MarginContainer/ContenedorGeneral/DatosCuriosos/ScrollContainer" unique_id=742616680]
 layout_mode = 2
@@ -492,8 +497,10 @@ size_flags_horizontal = 3
 [node name="DatoCurioso" type="RichTextLabel" parent="CaraIzquierda/Plantas/MarginContainer/ContenedorGeneral/DatosCuriosos/ScrollContainer/Contenedor" unique_id=559955117]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("11_0vthj")
-theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/normal_font_size = 42
 text = "De fácil cuidado e ideal para macetas
 y canteros
 sus flores son de un vistoso
@@ -504,6 +511,7 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="Indice" type="Control" parent="CaraIzquierda" unique_id=2127495726]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -529,7 +537,6 @@ theme_override_constants/margin_bottom = 60
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CaraIzquierda/Indice/MarginContainer/Filas" unique_id=254606975]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -546,7 +553,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CaraIzquierda/Indice/MarginContainer/Filas" unique_id=1173119701]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -563,7 +569,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CaraIzquierda/Indice/MarginContainer/Filas" unique_id=1833751131]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -586,7 +591,6 @@ offset_bottom = 1080.0
 script = ExtResource("15_86i5b")
 
 [node name="Mariposas" type="Control" parent="CaraDerecha" unique_id=1355734314]
-visible = false
 anchors_preset = 0
 offset_left = 1.0
 offset_top = 2.0
@@ -926,7 +930,7 @@ size_flags_stretch_ratio = 1.2
 [node name="Oruga" type="AspectRatioContainer" parent="CaraDerecha/Mariposas/MarginContainer/ContenedorGeneral/SegundaSeccion" unique_id=1077992975]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.3
+size_flags_stretch_ratio = 1.1
 ratio = 0.82
 
 [node name="Boton" type="TextureButton" parent="CaraDerecha/Mariposas/MarginContainer/ContenedorGeneral/SegundaSeccion/Oruga" unique_id=296495507]
@@ -1001,6 +1005,7 @@ custom_minimum_size = Vector2(0, 285)
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
 
 [node name="contenedor" type="VBoxContainer" parent="CaraDerecha/Mariposas/MarginContainer/ContenedorGeneral/SegundaSeccion/DatosCuriosos/ScrollContainer" unique_id=2082061198]
 layout_mode = 2
@@ -1011,8 +1016,10 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0.30588236, 0.23137255, 1)
+theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("11_0vthj")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 40
 text = "Aunque la mayoria
 de las orugas
 se dimentan
@@ -1144,6 +1151,7 @@ theme_override_constants/margin_bottom = 60
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CaraDerecha/Indice/MarginContainer/Filas" unique_id=2017694094]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -1157,6 +1165,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CaraDerecha/Indice/MarginContainer/Filas" unique_id=1294908010]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -1170,6 +1179,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CaraDerecha/Indice/MarginContainer/Filas" unique_id=404726681]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 

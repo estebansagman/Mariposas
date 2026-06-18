@@ -77,7 +77,6 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 			panel_mouse.hide()
 func _ready() -> void:
 	tree_exited.connect(reclamar_tree)
-	
 	#AudioManager.reproducir_musica_nivel()
 	setear_imagen()
 	evaluar_si_nivel_fue_jugado()
@@ -92,7 +91,8 @@ func _ready() -> void:
 	iniciar_animacion_nivel(jugado)
 	AudioManager.conectar_botones_del_menu(self)
 	AudioManager.reproducir_musica_nivel()
-	
+	setear_titulo_nivel()
+
 func iniciar_animacion_nivel(jugado):
 	if !editando:
 		emit_signal("animacion_iniciada",jugado)
@@ -108,6 +108,11 @@ func setear_imagen():
 			ui.fondo.texture = load("res://niveles/imagenes/nivel_1_fondo.png")
 		3: 
 			ui.fondo.texture = load("res://niveles/imagenes/nivel_2_fondo.png")
+func setear_titulo_nivel():
+	var seccion_actual:String = "seccion_"+str(numero_de_sector)
+	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
+	var titulo = Dios.bd_interna["sectores"][seccion_actual]["niveles"][nivel_actual]["titulo"]
+	ui.poner_titulo_al_nivel(titulo)
 
 func evaluar_si_nivel_fue_jugado():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
@@ -144,11 +149,12 @@ func definir_etiqueta_del_mause():
 	panel_mouse = PanelContainer.new()
 	panel_mouse.z_index = 5
 	label_mouse = Label.new()
+	label_mouse.add_theme_font_size_override("font_size", 32)
 	panel_mouse.add_child(label_mouse)
 	add_child(panel_mouse)
-
 	panel_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label_mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 func cambiar_entre_ui_edicion_y_juego():
 	if editando:
 		printerr("Catalogo edicion (objetos movibles NO PLANTAS)")

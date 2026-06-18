@@ -11,7 +11,7 @@
             "niveles": {
                 "nivel_1": {
                     "numero": 1.0,
-                    "titulo": "",
+                    "titulo": "El balcon 2.0",
                     "imagen": "res://menus/selector_niveles/imagenes/iconos_nivel/iconos-niveles-H.png",
                     "mariposas": [
                         "bataraza"
@@ -367,7 +367,7 @@
         },
         "ruda": {
             "nombre_comun": "Ruda",
-            "nombre_cientifico": "Ruta Sp",
+            "nombre_cientifico": "Ruta sp. pl.",
             "atlas_A": 7.0,
             "atlas_B": 8.0,
             "imagen_catalogo": [

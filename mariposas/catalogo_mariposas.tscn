@@ -217,6 +217,7 @@ theme_override_constants/separation = 32
 
 [node name="Quedarme" type="Button" parent="CatalogoMariposas/Cartel Victoria/MarginContainer/VBoxContainer/HBoxContainer" unique_id=468306341]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -249,7 +250,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_2hbkf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_grigb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_l0c25")
-text = "Ir a Niveles"
+text = "CONTINUAR"
 text_overrun_behavior = 1
 clip_text = true
 

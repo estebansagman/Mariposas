@@ -78,7 +78,7 @@ func _input(event: InputEvent) -> void: # esto es re violento aca... jaja TA MAL
 func _ready() -> void:
 	tree_exited.connect(reclamar_tree)
 	#AudioManager.reproducir_musica_nivel()
-	setear_imagen()
+	setear_imagen_fondo()
 	evaluar_si_nivel_fue_jugado()
 	traer_lista_mariposas()
 	definir_etiqueta_del_mause()
@@ -99,21 +99,53 @@ func iniciar_animacion_nivel(jugado):
 	else:
 		emit_signal("animacion_iniciada",true)
 
-func setear_imagen():
+func setear_imagen_fondo():
+	
 	var seccion_actual:int = numero_de_sector
+	var nivel_actual:int = numero_de_nivel
 	match seccion_actual:
+		1:
+			setear_fondo_sector_1(nivel_actual)
+		2:
+			setear_fondo_sector_2(nivel_actual)
+		3: 
+			setear_fondo_sector_3(nivel_actual)
+
+func setear_fondo_sector_1(nivel):
+	match nivel:
+		1:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_1_fondo.png")
+		2:
+			ui.fondo.texture = load("res://niveles/imagenes/edicion_de_las_cosas.jpg")
+
+func setear_fondo_sector_2(nivel):
+	match nivel:
+		1:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_3_fondo.jpg")
+		2:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_4_boceto.jpg")
+		3:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_5_fondo.jpg")
+		4:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_1_fondo.png")
+
+func setear_fondo_sector_3(nivel):
+	match nivel:
 		1:
 			ui.fondo.texture = load("res://niveles/imagenes/edicion_de_las_cosas.jpg")
 		2:
-			ui.fondo.texture = load("res://niveles/imagenes/nivel_1_fondo.png")
-		3: 
-			ui.fondo.texture = load("res://niveles/imagenes/nivel_2_fondo.png")
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_3_fondo.jpg")
+		3:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_4_boceto.jpg")
+		4:
+			ui.fondo.texture = load("res://niveles/imagenes/nivel_5_fondo.jpg")
+
+
 func setear_titulo_nivel():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
 	var nivel_actual:String = "nivel_"+str(numero_de_nivel)
 	var titulo = Dios.bd_interna["sectores"][seccion_actual]["niveles"][nivel_actual]["titulo"]
 	ui.poner_titulo_al_nivel(titulo)
-
 func evaluar_si_nivel_fue_jugado():
 	var seccion_actual:String = "seccion_"+str(numero_de_sector)
 	var nivel_actual:String = "nivel_"+str(numero_de_nivel)

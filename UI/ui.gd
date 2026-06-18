@@ -44,9 +44,6 @@ func _ready() -> void:
 	
 func poner_titulo_al_nivel(nombre):
 	texto_nivel.text = nombre
-	#var tamano_texto:float = texto.size.x
-	#titulo.size.x = tamano_texto+300
-
 	
 func prender_estrella(activado:bool):
 	if activado:

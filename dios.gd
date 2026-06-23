@@ -82,6 +82,8 @@ func transformar_en_vector2i(lista_cruda: Array) -> Array[Vector2i]:
 func comparar_version_y_actualizar():
 	var molde_original = _cargar_archivo_json(ruta_res)
 	var version_local = molde_original["version"]
+	if not bd_externa.has("version"):
+		bd_externa["version"] = "v0.0"
 	var version_user = bd_externa["version"]
 	var las_versiones_son_distintas:bool = version_local != version_user
 	if las_versiones_son_distintas:
